@@ -60,7 +60,7 @@ EQUATIONS
    PROFIT Total profit ($) and objective function value
    RES_CONSTRAIN(res) Resource Constraints;
 
-PROFIT..                 VPROFIT =E= SUM(plnt, c(plnt)*X(plnt)); * inline comment
+PROFIT..                 VPROFIT =E= SUM(plnt, c(plnt)*X(plnt)); 
 RES_CONSTRAIN(res) ..    SUM(plnt, A(plnt,res)*X(plnt)) =L= b(res);
 
 * =G=

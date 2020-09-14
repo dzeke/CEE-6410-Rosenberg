@@ -1,6 +1,7 @@
 $ontext
 CEE 6410 - Water Resources Systems Analysis
 Example 2.1 from Bishop Et Al Text (https://digitalcommons.usu.edu/ecstatic_all/76/)
+Modifies Example to add a labor constraint
 
 THE PROBLEM:
 
@@ -10,9 +11,9 @@ Seasonal Resource
 Inputs or Profit        Crops        Resource
 Availability
         Eggplant        Tomatoes
-Water        1x103 gal/plant        2x103 gal/plant        4x106 gal/year
-Land        4 ft2/plant        3 ft2/plant        1.2x104 ft2
-Labor         5 Xegg + 2.5 Xtom <= 17,500 hours
+Water        1x103 gal/plant        2x103 gal/plant      4x106 gal/year
+Land        4 ft2/plant        3 ft2/plant               1.2x104 ft2
+Labor         5hr/plant        2.5/hr plant              17,500 hours
 Profit/plant        $6        $7
 
                 Determine the optimal planting for the two crops.
@@ -60,7 +61,7 @@ EQUATIONS
    PROFIT Total profit ($) and objective function value
    RES_CONSTRAIN(res) Resource Constraints;
 
-PROFIT..                 VPROFIT =E= SUM(plnt, c(plnt)*X(plnt)); 
+PROFIT..                 VPROFIT =E= SUM(plnt, c(plnt)*X(plnt));
 RES_CONSTRAIN(res) ..    SUM(plnt, A(plnt,res)*X(plnt)) =L= b(res);
 
 * =G=
