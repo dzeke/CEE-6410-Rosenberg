@@ -86,7 +86,9 @@ SOLVE PLANT_DUAL USING LP MINIMIZING VREDCOST;
 
 * 6. CLick File menu => RUN (F9) or Solve icon and examine solution report in .LST file
 
-* 7 . Dump all data and results to GAMS proprietary file .gdx and to Excel
+* 7 . Dump all data and results to GAMS proprietary file storage .gdx and to Excel
 Execute_Unload "Ex2-1Dual.gdx";
 * Dump the gdx file to an Excel workbook
-Execute "Ex2-1Dual.gdx"
+Execute "gdx2xls Ex2-1Dual.gdx"
+* To open the GDX file in the GAMS IDE, select File => Open.
+* In the Open window, set Filetype to .gdx and select the file.

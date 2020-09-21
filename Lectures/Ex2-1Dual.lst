@@ -1,4 +1,4 @@
-GAMS 24.2.3  r46072 Released May 22, 2014 WEX-WEI x86_64/MS Windows 09/20/20 19:21:55 Page 1
+GAMS 24.2.3  r46072 Released May 22, 2014 WEX-WEI x86_64/MS Windows 09/20/20 19:30:08 Page 1
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 C o m p i l a t i o n
 
@@ -97,11 +97,11 @@ C o m p i l a t i o n
   89  * 7 . Dump all data and results to GAMS proprietary file .gdx and to Excel
   90  Execute_Unload "Ex2-1Dual.gdx";
   91  * Dump the gdx file to an Excel workbook
-  92  Execute "Ex2-1Dual.gdx"
+  92  Execute "gdx2xls Ex2-1Dual.gdx"
 
 
 COMPILATION TIME     =        0.000 SECONDS      3 MB  24.2.3 r46072 WEX-WEI
-GAMS 24.2.3  r46072 Released May 22, 2014 WEX-WEI x86_64/MS Windows 09/20/20 19:21:55 Page 2
+GAMS 24.2.3  r46072 Released May 22, 2014 WEX-WEI x86_64/MS Windows 09/20/20 19:30:08 Page 2
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Equation Listing    SOLVE PLANT_PRIMAL Using LP From line 80
 
@@ -121,7 +121,7 @@ RES_CONS_PRIMAL(Land)..  4*X(Eggplant) + 3*X(Tomatoes) =L= 12000 ; (LHS = 0)
      
 RES_CONS_PRIMAL(Labor)..  5*X(Eggplant) + 2.5*X(Tomatoes) =L= 17500 ; (LHS = 0)
      
-GAMS 24.2.3  r46072 Released May 22, 2014 WEX-WEI x86_64/MS Windows 09/20/20 19:21:55 Page 3
+GAMS 24.2.3  r46072 Released May 22, 2014 WEX-WEI x86_64/MS Windows 09/20/20 19:30:08 Page 3
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Column Listing      SOLVE PLANT_PRIMAL Using LP From line 80
 
@@ -149,7 +149,7 @@ VPROFIT
                 (.LO, .L, .UP, .M = -INF, 0, +INF, 0)
         1       PROFIT_PRIMAL
 
-GAMS 24.2.3  r46072 Released May 22, 2014 WEX-WEI x86_64/MS Windows 09/20/20 19:21:55 Page 4
+GAMS 24.2.3  r46072 Released May 22, 2014 WEX-WEI x86_64/MS Windows 09/20/20 19:30:08 Page 4
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Model Statistics    SOLVE PLANT_PRIMAL Using LP From line 80
 
@@ -161,11 +161,11 @@ BLOCKS OF VARIABLES           2     SINGLE VARIABLES            3
 NON ZERO ELEMENTS             9
 
 
-GENERATION TIME      =        0.032 SECONDS      4 MB  24.2.3 r46072 WEX-WEI
+GENERATION TIME      =        0.015 SECONDS      4 MB  24.2.3 r46072 WEX-WEI
 
 
-EXECUTION TIME       =        0.032 SECONDS      4 MB  24.2.3 r46072 WEX-WEI
-GAMS 24.2.3  r46072 Released May 22, 2014 WEX-WEI x86_64/MS Windows 09/20/20 19:21:55 Page 5
+EXECUTION TIME       =        0.015 SECONDS      4 MB  24.2.3 r46072 WEX-WEI
+GAMS 24.2.3  r46072 Released May 22, 2014 WEX-WEI x86_64/MS Windows 09/20/20 19:30:08 Page 5
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Solution Report     SOLVE PLANT_PRIMAL Using LP From line 80
 
@@ -225,7 +225,7 @@ Tomatoes      .      800.000     +INF       .
 **** REPORT SUMMARY :        0     NONOPT
                              0 INFEASIBLE
                              0  UNBOUNDED
-GAMS 24.2.3  r46072 Released May 22, 2014 WEX-WEI x86_64/MS Windows 09/20/20 19:21:55 Page 6
+GAMS 24.2.3  r46072 Released May 22, 2014 WEX-WEI x86_64/MS Windows 09/20/20 19:30:08 Page 6
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Equation Listing    SOLVE PLANT_DUAL Using LP From line 84
 
@@ -246,7 +246,7 @@ RES_CONS_DUAL(Tomatoes)..  2000*Y(Water) + 3*Y(Land) + 2.5*Y(Labor) =G= 7 ;
      
       (LHS = 0, INFES = 7 ****)
      
-GAMS 24.2.3  r46072 Released May 22, 2014 WEX-WEI x86_64/MS Windows 09/20/20 19:21:55 Page 7
+GAMS 24.2.3  r46072 Released May 22, 2014 WEX-WEI x86_64/MS Windows 09/20/20 19:30:08 Page 7
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Column Listing      SOLVE PLANT_DUAL Using LP From line 84
 
@@ -278,7 +278,7 @@ VREDCOST
                 (.LO, .L, .UP, .M = -INF, 0, +INF, 0)
         1       REDCOST_DUAL
 
-GAMS 24.2.3  r46072 Released May 22, 2014 WEX-WEI x86_64/MS Windows 09/20/20 19:21:55 Page 8
+GAMS 24.2.3  r46072 Released May 22, 2014 WEX-WEI x86_64/MS Windows 09/20/20 19:30:08 Page 8
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Model Statistics    SOLVE PLANT_DUAL Using LP From line 84
 
@@ -290,11 +290,11 @@ BLOCKS OF VARIABLES           2     SINGLE VARIABLES            4
 NON ZERO ELEMENTS            10
 
 
-GENERATION TIME      =        0.015 SECONDS      3 MB  24.2.3 r46072 WEX-WEI
+GENERATION TIME      =        0.016 SECONDS      3 MB  24.2.3 r46072 WEX-WEI
 
 
-EXECUTION TIME       =        0.078 SECONDS      3 MB  24.2.3 r46072 WEX-WEI
-GAMS 24.2.3  r46072 Released May 22, 2014 WEX-WEI x86_64/MS Windows 09/20/20 19:21:55 Page 9
+EXECUTION TIME       =        0.062 SECONDS      3 MB  24.2.3 r46072 WEX-WEI
+GAMS 24.2.3  r46072 Released May 22, 2014 WEX-WEI x86_64/MS Windows 09/20/20 19:30:08 Page 9
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Solution Report     SOLVE PLANT_DUAL Using LP From line 84
 
@@ -309,7 +309,7 @@ Solution Report     SOLVE PLANT_DUAL Using LP From line 84
 **** MODEL STATUS      1 Optimal                   
 **** OBJECTIVE VALUE            20000.0000
 
- RESOURCE USAGE, LIMIT          0.015      1000.000
+ RESOURCE USAGE, LIMIT          0.000      1000.000
  ITERATION COUNT, LIMIT         2    2000000000
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
@@ -354,12 +354,12 @@ Labor      .         .        +INF   3500.000
 **** REPORT SUMMARY :        0     NONOPT
                              0 INFEASIBLE
                              0  UNBOUNDED
-GAMS 24.2.3  r46072 Released May 22, 2014 WEX-WEI x86_64/MS Windows 09/20/20 19:21:55 Page 10
+GAMS 24.2.3  r46072 Released May 22, 2014 WEX-WEI x86_64/MS Windows 09/20/20 19:30:08 Page 10
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 E x e c u t i o n
 
 
-EXECUTION TIME       =       15.187 SECONDS      3 MB  24.2.3 r46072 WEX-WEI
+EXECUTION TIME       =        4.735 SECONDS      3 MB  24.2.3 r46072 WEX-WEI
 
 
 USER: Utah Water Research Laboratory (5 user)        G140130:1517AV-GEN
