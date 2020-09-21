@@ -6,9 +6,6 @@
 [RP:EX2-1]
 1=
 
-[RP:EX2-1-LABOR]
-1=
-
 [RP:HW7SANDERS]
 1=
 
@@ -18,26 +15,34 @@
 [RP:UNTITLED_1]
 1=
 
+[RP:EX2-1-LABOR]
+1=
+
+[RP:EX2-1DUAL]
+1=
+
+[RP:HW7-MONTECARLO]
+1=
+
 [RP:HW4-RESERVOIROPS]
 1=
 
 [MRUFILES]
-1=C:\Rosenberg\Work\USU\Classes\CEE6410\Fall2020\CEE6410-Rosenberg-GitHub\CEE-6410-Rosenberg\Lectures\HW7Sanders.lst
-2=C:\Rosenberg\Work\USU\Classes\CEE6410\Fall2020\CEE6410-Rosenberg-GitHub\CEE-6410-Rosenberg\Lectures\HW7 Reservoir.lst
-3=C:\Rosenberg\Work\USU\Classes\CEE6410\Fall2020\CEE6410-Rosenberg-GitHub\CEE-6410-Rosenberg\Lectures\Ex2-1-labor.lst
-4=C:\Rosenberg\Work\USU\Classes\CEE6410\Fall2020\CEE6410-Rosenberg-GitHub\CEE-6410-Rosenberg\Lectures\Ex2-1-labor.gms
-5=C:\Rosenberg\Work\USU\Classes\CEE6410\Fall2020\CEE6410-Rosenberg-GitHub\CEE-6410-Rosenberg\Lectures\Ex2-1.lst
-6=C:\Rosenberg\Work\USU\Classes\CEE6410\Fall2020\CEE6410-Rosenberg-GitHub\CEE-6410-Rosenberg\Lectures\Ex2-1.gms
-7=C:\Rosenberg\Work\USU\Classes\CEE6410\Fall2018\Lectures\GAMSexamples\HW5-MonteCarlo.gms
-8=C:\Rosenberg\Work\USU\Classes\CEE6410\Fall2016\StudentWork\HW7Sanders.gms
+1=C:\Rosenberg\Work\USU\Classes\CEE6410\Fall2020\Homework\HW4-ReservoirOps.lst
+2=C:\Rosenberg\Work\USU\Classes\CEE6410\Fall2020\Homework\HW4-ReservoirOps.gms
+3=C:\Rosenberg\Work\USU\Classes\CEE6410\Fall2015\HW7-MonteCarlo.gms
+4=C:\Rosenberg\Work\USU\Classes\CEE6410\Fall2020\CEE6410-Rosenberg-GitHub\CEE-6410-Rosenberg\Lectures\Ex2-1Dual.lst
+5=C:\Rosenberg\Work\USU\Classes\CEE6410\Fall2020\CEE6410-Rosenberg-GitHub\CEE-6410-Rosenberg\Lectures\Ex2-1-labor.gms
+6=C:\Rosenberg\Work\USU\Classes\CEE6410\Fall2020\CEE6410-Rosenberg-GitHub\CEE-6410-Rosenberg\Lectures\HW4-ReservoirOps.lst
+7=C:\Rosenberg\Work\USU\Classes\CEE6410\Fall2020\Lectures\HW4-ReservoirOps.gms
+8=C:\Rosenberg\Work\USU\Classes\CEE6410\Fall2020\CEE6410-Rosenberg-GitHub\CEE-6410-Rosenberg\Lectures\Untitled_1.gms
+9=C:\Rosenberg\Work\USU\Classes\CEE6410\Fall2020\CEE6410-Rosenberg-GitHub\CEE-6410-Rosenberg\Lectures\HW7Sanders.lst
 
 [OPENWINDOW_1]
-FILE0=C:\Rosenberg\Work\USU\Classes\CEE6410\Fall2020\CEE6410-Rosenberg-GitHub\CEE-6410-Rosenberg\Lectures\HW4-ReservoirOps.lst
-FILE1=C:\Rosenberg\Work\USU\Classes\CEE6410\Fall2020\CEE6410-Rosenberg-GitHub\CEE-6410-Rosenberg\Lectures\Untitled_1.gms
-FILE2=C:\Rosenberg\Work\USU\Classes\CEE6410\Fall2020\Lectures\HW4-ReservoirOps.gms
-FILE3=C:\Rosenberg\Work\USU\Classes\CEE6410\Fall2020\Lectures\HW4-ReservoirOps.gms
+FILE0=C:\Rosenberg\Work\USU\Classes\CEE6410\Fall2020\CEE6410-Rosenberg-GitHub\CEE-6410-Rosenberg\Lectures\Ex2-1Dual.gms
+FILE1=C:\Rosenberg\Work\USU\Classes\CEE6410\Fall2020\CEE6410-Rosenberg-GitHub\CEE-6410-Rosenberg\Lectures\Ex2-1Dual.gms
 MAXIM=1
-TOP=50
+TOP=2
 LEFT=50
 HEIGHT=400
 WIDTH=400

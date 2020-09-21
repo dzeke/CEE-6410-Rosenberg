@@ -43,11 +43,8 @@ PARAMETERS
 TABLE A(plnt,res) Left hand side constraint coefficients
                  Water    Land   Labor
  Eggplant        1000      4       5
- Tomatoes        2000      3       2.5
-            ;
+ Tomatoes        2000      3       2.5;
 
-*A("Eggplant","Water") = 1000;
-*A("Eggplant","Land") = 4;
 
 * 3. DEFINE the variables
 VARIABLES X(plnt) plants planted (Number)
@@ -64,14 +61,12 @@ EQUATIONS
 PROFIT..                 VPROFIT =E= SUM(plnt, c(plnt)*X(plnt));
 RES_CONSTRAIN(res) ..    SUM(plnt, A(plnt,res)*X(plnt)) =L= b(res);
 
-* =G=
 
 * 5. DEFINE the MODEL from the EQUATIONS
 MODEL PLANTING /PROFIT, RES_CONSTRAIN/;
 *Altnerative way to write (include all previously defined equations)
 *MODEL PLANTING /ALL/;
 
-*option lp = BARON;
 
 * 6. SOLVE the MODEL
 * Solve the PLANTING model using a Linear Programming Solver (see File=>Options=>Solvers)

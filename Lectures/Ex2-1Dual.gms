@@ -1,7 +1,7 @@
 $ontext
 CEE 6410 - Water Resources Systems Analysis
 Example 2.1 from Bishop Et Al Text (https://digitalcommons.usu.edu/ecstatic_all/76/)
-with an added Labor Constraint
+Modifies Example to add a labor constraint
 
 Formulate and solve the PRIMAL and DUALs of THE PROBLEM:
 
@@ -11,10 +11,10 @@ Seasonal Resource
 Inputs or Profit        Crops        Resource
 Availability
         Eggplant        Tomatoes
-Water        1x103 gal/plant        2x103 gal/plant        4x106 gal/year
-Land        4 ft2/plant        3 ft2/plant        1.2x104 ft2
+Water        1x103 gal/plant        2x103 gal/plant      4x106 gal/year
+Land        4 ft2/plant        3 ft2/plant               1.2x104 ft2
+Labor         5hr/plant        2.5/hr plant              17,500 hours
 Profit/plant        $6        $7
-Labor               5          2.5                17,500 hours
                 Determine the optimal planting for the two crops.
 
 THE SOLUTION:
@@ -46,8 +46,8 @@ TABLE A(plnt,res) Left hand side constraint coefficients
 
 * 3. DEFINE the variables
 VARIABLES X(plnt) plants planted (Number)
-          Y(res)  value of resources used (units specific to variable)
           VPROFIT  total profit ($)
+          Y(res)  value of resources used (units specific to variable)
           VREDCOST total reduced cost ($);
 
 * Non-negativity constraints
