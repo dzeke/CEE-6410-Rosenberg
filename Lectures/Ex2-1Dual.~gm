@@ -46,8 +46,8 @@ TABLE A(plnt,res) Left hand side constraint coefficients
 
 * 3. DEFINE the variables
 VARIABLES X(plnt) plants planted (Number)
-          Y(res)  value of resources used (units specific to variable)
           VPROFIT  total profit ($)
+          Y(res)  value of resources used (units specific to variable)
           VREDCOST total reduced cost ($);
 
 * Non-negativity constraints

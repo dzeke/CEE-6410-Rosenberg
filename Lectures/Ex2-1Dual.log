@@ -1,20 +1,25 @@
 
---- Job Ex2-1Dual.gms Start 09/20/20 21:05:56 24.2.3 r46072 WEX-WEI x86_64/MS Windows
+--- Job Ex2-1Dual.gms Start 09/22/20 17:43:28 24.2.3 r46072 WEX-WEI x86_64/MS Windows
 GAMS 24.2.3   Copyright (C) 1987-2014 GAMS Development. All rights reserved
 Licensee: Utah Water Research Laboratory (5 user)        G140130:1517AV-GEN
           Utah State University                                      DC7087
           License for teaching and research at degree granting institutions
 --- Starting compilation
---- Ex2-1Dual.gms(94) 3 Mb
---- Starting execution: elapsed 0:00:00.003
+--- Ex2-1Dual.gms(97) 3 Mb
+--- Starting execution: elapsed 0:00:00.002
+--- Ex2-1Dual.gms(75) 4 Mb
 --- Generating LP model PLANT_PRIMAL
---- Ex2-1Dual.gms(80) 4 Mb
+--- Ex2-1Dual.gms(83) 4 Mb
 ---   4 rows  3 columns  9 non-zeroes
---- Executing CPLEX: elapsed 0:00:00.025
+--- Executing CPLEX: elapsed 0:00:00.019
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
 
+Reading parameter(s) from "C:\Rosenberg\Work\USU\Classes\CEE6410\Fall2020\CEE6410-Rosenberg-GitHub\CEE-6410-Rosenberg\Lectures\cplex.opt"
+>>  objrng all
+>>  rhsrng all
+Finished reading from "C:\Rosenberg\Work\USU\Classes\CEE6410\Fall2020\CEE6410-Rosenberg-GitHub\CEE-6410-Rosenberg\Lectures\cplex.opt"
 Reading data...
 Starting Cplex...
 Space for names approximately 0.00 Mb
@@ -34,14 +39,16 @@ Cplex Time: 0.00sec (det. 0.01 ticks)
 Optimal solution found.
 Objective :       20000.000000
 
+RHS ranging...
+Objective ranging...
 --- Restarting execution
---- Ex2-1Dual.gms(80) 2 Mb
+--- Ex2-1Dual.gms(83) 2 Mb
 --- Reading solution for model PLANT_PRIMAL
---- Executing after solve: elapsed 0:00:00.120
+--- Executing after solve: elapsed 0:00:00.184
 --- Generating LP model PLANT_DUAL
---- Ex2-1Dual.gms(84) 3 Mb
+--- Ex2-1Dual.gms(87) 3 Mb
 ---   3 rows  4 columns  10 non-zeroes
---- Executing CPLEX: elapsed 0:00:00.167
+--- Executing CPLEX: elapsed 0:00:00.199
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -53,7 +60,7 @@ Use option 'names no' to turn use of names off
 Tried aggregator 1 time.
 LP Presolve eliminated 1 rows and 1 columns.
 Reduced LP has 2 rows, 3 columns, and 6 nonzeros.
-Presolve time = 0.00 sec. (0.00 ticks)
+Presolve time = 0.02 sec. (0.00 ticks)
 
 Iteration      Dual Objective            In Variable           Out Variable
      1           18000.000000                Y(Land)RES_CONS_DUAL(Egg slack
@@ -65,10 +72,10 @@ Optimal solution found.
 Objective :       20000.000000
 
 --- Restarting execution
---- Ex2-1Dual.gms(84) 2 Mb
+--- Ex2-1Dual.gms(87) 2 Mb
 --- Reading solution for model PLANT_DUAL
---- Executing after solve: elapsed 0:00:00.243
---- Ex2-1Dual.gms(92) 3 Mb
+--- Executing after solve: elapsed 0:00:00.298
+--- Ex2-1Dual.gms(95) 3 Mb
 GDX2XLS          24.2.3 r46072 Released May 22, 2014 VS8 x86/MS Windows       
 *** Status: Normal completion
---- Job Ex2-1Dual.gms Stop 09/20/20 21:06:00 elapsed 0:00:04.006
+--- Job Ex2-1Dual.gms Stop 09/22/20 17:43:31 elapsed 0:00:03.576

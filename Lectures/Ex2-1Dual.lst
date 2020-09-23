@@ -1,4 +1,4 @@
-GAMS 24.2.3  r46072 Released May 22, 2014 WEX-WEI x86_64/MS Windows 09/20/20 21:05:56 Page 1
+GAMS 24.2.3  r46072 Released May 22, 2014 WEX-WEI x86_64/MS Windows 09/22/20 17:43:28 Page 1
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 C o m p i l a t i o n
 
@@ -76,37 +76,40 @@ C o m p i l a t i o n
   71  * 5. DEFINE the MODELS
   72  *PRIMAL model
   73  MODEL PLANT_PRIMAL /PROFIT_PRIMAL, RES_CONS_PRIMAL/;
-  74  *DUAL model
-  75  MODEL PLANT_DUAL /REDCOST_DUAL, RES_CONS_DUAL/;
+  74  *Set the options file to print out range of basis information
+  75  PLANT_PRIMAL.optfile = 1;
   76   
-  77  * 6. SOLVE the MODELS
-  78  * Solve the PLANTING PRIMAL model using a Linear Programming Solver (see F
+  77  *DUAL model
+  78  MODEL PLANT_DUAL /REDCOST_DUAL, RES_CONS_DUAL/;
+  79   
+  80  * 6. SOLVE the MODELS
+  81  * Solve the PLANTING PRIMAL model using a Linear Programming Solver (see F
       ile=>Options=>Solvers)
-  79  *     to maximize VPROFIT
-  80  SOLVE PLANT_PRIMAL USING LP MAXIMIZING VPROFIT;
-  81   
-  82  * Solve the PLANTING DUAL model using a Linear Programming Solver (see Fil
+  82  *     to maximize VPROFIT
+  83  SOLVE PLANT_PRIMAL USING LP MAXIMIZING VPROFIT;
+  84   
+  85  * Solve the PLANTING DUAL model using a Linear Programming Solver (see Fil
       e=>Options=>Solvers)
-  83  *     to maximize VPROFIT
-  84  SOLVE PLANT_DUAL USING LP MINIMIZING VREDCOST;
-  85  *Order does not matter!
-  86   
-  87  * 6. CLick File menu => RUN (F9) or Solve icon and examine solution report
+  86  *     to maximize VPROFIT
+  87  SOLVE PLANT_DUAL USING LP MINIMIZING VREDCOST;
+  88  *Order does not matter!
+  89   
+  90  * 6. CLick File menu => RUN (F9) or Solve icon and examine solution report
        in .LST file
-  88   
-  89  * 7 . Dump all data and results to GAMS proprietary file storage .gdx and 
+  91   
+  92  * 7 . Dump all data and results to GAMS proprietary file storage .gdx and 
       to Excel
-  90  Execute_Unload "Ex2-1Dual.gdx";
-  91  * Dump the gdx file to an Excel workbook
-  92  Execute "gdx2xls Ex2-1Dual.gdx"
-  93  * To open the GDX file in the GAMS IDE, select File => Open.
-  94  * In the Open window, set Filetype to .gdx and select the file.
+  93  Execute_Unload "Ex2-1Dual.gdx";
+  94  * Dump the gdx file to an Excel workbook
+  95  Execute "gdx2xls Ex2-1Dual.gdx"
+  96  * To open the GDX file in the GAMS IDE, select File => Open.
+  97  * In the Open window, set Filetype to .gdx and select the file.
 
 
 COMPILATION TIME     =        0.000 SECONDS      3 MB  24.2.3 r46072 WEX-WEI
-GAMS 24.2.3  r46072 Released May 22, 2014 WEX-WEI x86_64/MS Windows 09/20/20 21:05:56 Page 2
+GAMS 24.2.3  r46072 Released May 22, 2014 WEX-WEI x86_64/MS Windows 09/22/20 17:43:28 Page 2
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
-Equation Listing    SOLVE PLANT_PRIMAL Using LP From line 80
+Equation Listing    SOLVE PLANT_PRIMAL Using LP From line 83
 
 
 ---- PROFIT_PRIMAL  =E=  Total profit ($) and objective function value
@@ -124,9 +127,9 @@ RES_CONS_PRIMAL(Land)..  4*X(Eggplant) + 3*X(Tomatoes) =L= 12000 ; (LHS = 0)
      
 RES_CONS_PRIMAL(Labor)..  5*X(Eggplant) + 2.5*X(Tomatoes) =L= 17500 ; (LHS = 0)
      
-GAMS 24.2.3  r46072 Released May 22, 2014 WEX-WEI x86_64/MS Windows 09/20/20 21:05:56 Page 3
+GAMS 24.2.3  r46072 Released May 22, 2014 WEX-WEI x86_64/MS Windows 09/22/20 17:43:28 Page 3
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
-Column Listing      SOLVE PLANT_PRIMAL Using LP From line 80
+Column Listing      SOLVE PLANT_PRIMAL Using LP From line 83
 
 
 ---- X  plants planted (Number)
@@ -152,9 +155,9 @@ VPROFIT
                 (.LO, .L, .UP, .M = -INF, 0, +INF, 0)
         1       PROFIT_PRIMAL
 
-GAMS 24.2.3  r46072 Released May 22, 2014 WEX-WEI x86_64/MS Windows 09/20/20 21:05:56 Page 4
+GAMS 24.2.3  r46072 Released May 22, 2014 WEX-WEI x86_64/MS Windows 09/22/20 17:43:28 Page 4
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
-Model Statistics    SOLVE PLANT_PRIMAL Using LP From line 80
+Model Statistics    SOLVE PLANT_PRIMAL Using LP From line 83
 
 
 MODEL STATISTICS
@@ -164,31 +167,37 @@ BLOCKS OF VARIABLES           2     SINGLE VARIABLES            3
 NON ZERO ELEMENTS             9
 
 
-GENERATION TIME      =        0.016 SECONDS      4 MB  24.2.3 r46072 WEX-WEI
+GENERATION TIME      =        0.015 SECONDS      4 MB  24.2.3 r46072 WEX-WEI
 
 
-EXECUTION TIME       =        0.016 SECONDS      4 MB  24.2.3 r46072 WEX-WEI
-GAMS 24.2.3  r46072 Released May 22, 2014 WEX-WEI x86_64/MS Windows 09/20/20 21:05:56 Page 5
+EXECUTION TIME       =        0.015 SECONDS      4 MB  24.2.3 r46072 WEX-WEI
+GAMS 24.2.3  r46072 Released May 22, 2014 WEX-WEI x86_64/MS Windows 09/22/20 17:43:28 Page 5
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
-Solution Report     SOLVE PLANT_PRIMAL Using LP From line 80
+Solution Report     SOLVE PLANT_PRIMAL Using LP From line 83
 
 
                S O L V E      S U M M A R Y
 
      MODEL   PLANT_PRIMAL        OBJECTIVE  VPROFIT
      TYPE    LP                  DIRECTION  MAXIMIZE
-     SOLVER  CPLEX               FROM LINE  80
+     SOLVER  CPLEX               FROM LINE  83
 
 **** SOLVER STATUS     1 Normal Completion         
 **** MODEL STATUS      1 Optimal                   
 **** OBJECTIVE VALUE            20000.0000
 
- RESOURCE USAGE, LIMIT          0.016      1000.000
+ RESOURCE USAGE, LIMIT          0.078      1000.000
  ITERATION COUNT, LIMIT         3    2000000000
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
 
+Reading parameter(s) from "C:\Rosenberg\Work\USU\Classes\CEE6410\Fall2020\CEE641
+                       0-Rosenberg-GitHub\CEE-6410-Rosenberg\Lectures\cplex.opt"
+>>  objrng all
+>>  rhsrng all
+Finished reading from "C:\Rosenberg\Work\USU\Classes\CEE6410\Fall2020\CEE6410-Ro
+                           senberg-GitHub\CEE-6410-Rosenberg\Lectures\cplex.opt"
 Space for names approximately 0.00 Mb
 Use option 'names no' to turn use of names off
 LP status(1): optimal
@@ -196,6 +205,23 @@ Cplex Time: 0.00sec (det. 0.01 ticks)
 Optimal solution found.
 Objective :       20000.000000
 
+  
+ 
+EQUATION NAME                                 LOWER      CURRENT        UPPER
+-------------                                 -----      -------        -----
+PROFIT_PRIMAL                                  -INF            0         +INF
+RES_CONS_PRIMAL(Water)                       3e+006       4e+006       8e+006
+RES_CONS_PRIMAL(Land)                          6000     1.2e+004   1.433e+004
+RES_CONS_PRIMAL(Labor)                     1.4e+004    1.75e+004         +INF
+  
+ 
+VARIABLE NAME                                 LOWER      CURRENT        UPPER
+-------------                                 -----      -------        -----
+X(Eggplant)                                     3.5            6        9.333
+X(Tomatoes)                                     4.5            7           12
+VPROFIT                                        -INF            1         +INF
+ 
+ 
 
                        LOWER     LEVEL     UPPER    MARGINAL
 
@@ -228,9 +254,9 @@ Tomatoes      .      800.000     +INF       .
 **** REPORT SUMMARY :        0     NONOPT
                              0 INFEASIBLE
                              0  UNBOUNDED
-GAMS 24.2.3  r46072 Released May 22, 2014 WEX-WEI x86_64/MS Windows 09/20/20 21:05:56 Page 6
+GAMS 24.2.3  r46072 Released May 22, 2014 WEX-WEI x86_64/MS Windows 09/22/20 17:43:28 Page 6
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
-Equation Listing    SOLVE PLANT_DUAL Using LP From line 84
+Equation Listing    SOLVE PLANT_DUAL Using LP From line 87
 
 
 ---- REDCOST_DUAL  =E=  Reduced Cost ($) associated with using resources
@@ -249,9 +275,9 @@ RES_CONS_DUAL(Tomatoes)..  2000*Y(Water) + 3*Y(Land) + 2.5*Y(Labor) =G= 7 ;
      
       (LHS = 0, INFES = 7 ****)
      
-GAMS 24.2.3  r46072 Released May 22, 2014 WEX-WEI x86_64/MS Windows 09/20/20 21:05:56 Page 7
+GAMS 24.2.3  r46072 Released May 22, 2014 WEX-WEI x86_64/MS Windows 09/22/20 17:43:28 Page 7
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
-Column Listing      SOLVE PLANT_DUAL Using LP From line 84
+Column Listing      SOLVE PLANT_DUAL Using LP From line 87
 
 
 ---- Y  value of resources used (units specific to variable)
@@ -281,9 +307,9 @@ VREDCOST
                 (.LO, .L, .UP, .M = -INF, 0, +INF, 0)
         1       REDCOST_DUAL
 
-GAMS 24.2.3  r46072 Released May 22, 2014 WEX-WEI x86_64/MS Windows 09/20/20 21:05:56 Page 8
+GAMS 24.2.3  r46072 Released May 22, 2014 WEX-WEI x86_64/MS Windows 09/22/20 17:43:28 Page 8
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
-Model Statistics    SOLVE PLANT_DUAL Using LP From line 84
+Model Statistics    SOLVE PLANT_DUAL Using LP From line 87
 
 
 MODEL STATISTICS
@@ -293,26 +319,26 @@ BLOCKS OF VARIABLES           2     SINGLE VARIABLES            4
 NON ZERO ELEMENTS            10
 
 
-GENERATION TIME      =        0.015 SECONDS      3 MB  24.2.3 r46072 WEX-WEI
+GENERATION TIME      =        0.016 SECONDS      3 MB  24.2.3 r46072 WEX-WEI
 
 
-EXECUTION TIME       =        0.047 SECONDS      3 MB  24.2.3 r46072 WEX-WEI
-GAMS 24.2.3  r46072 Released May 22, 2014 WEX-WEI x86_64/MS Windows 09/20/20 21:05:56 Page 9
+EXECUTION TIME       =        0.016 SECONDS      3 MB  24.2.3 r46072 WEX-WEI
+GAMS 24.2.3  r46072 Released May 22, 2014 WEX-WEI x86_64/MS Windows 09/22/20 17:43:28 Page 9
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
-Solution Report     SOLVE PLANT_DUAL Using LP From line 84
+Solution Report     SOLVE PLANT_DUAL Using LP From line 87
 
 
                S O L V E      S U M M A R Y
 
      MODEL   PLANT_DUAL          OBJECTIVE  VREDCOST
      TYPE    LP                  DIRECTION  MINIMIZE
-     SOLVER  CPLEX               FROM LINE  84
+     SOLVER  CPLEX               FROM LINE  87
 
 **** SOLVER STATUS     1 Normal Completion         
 **** MODEL STATUS      1 Optimal                   
 **** OBJECTIVE VALUE            20000.0000
 
- RESOURCE USAGE, LIMIT          0.016      1000.000
+ RESOURCE USAGE, LIMIT          0.031      1000.000
  ITERATION COUNT, LIMIT         2    2000000000
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
@@ -357,12 +383,12 @@ Labor      .         .        +INF   3500.000
 **** REPORT SUMMARY :        0     NONOPT
                              0 INFEASIBLE
                              0  UNBOUNDED
-GAMS 24.2.3  r46072 Released May 22, 2014 WEX-WEI x86_64/MS Windows 09/20/20 21:05:56 Page 10
+GAMS 24.2.3  r46072 Released May 22, 2014 WEX-WEI x86_64/MS Windows 09/22/20 17:43:28 Page 10
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 E x e c u t i o n
 
 
-EXECUTION TIME       =        3.750 SECONDS      3 MB  24.2.3 r46072 WEX-WEI
+EXECUTION TIME       =        3.265 SECONDS      3 MB  24.2.3 r46072 WEX-WEI
 
 
 USER: Utah Water Research Laboratory (5 user)        G140130:1517AV-GEN
