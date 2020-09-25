@@ -1,0 +1,27 @@
+B 2 C o m p i l a t i o n
+B 98 Equation Listing    SOLVE WatSupplyRelaxed Using LP From line 75
+D 99 COST
+D 107 MaxCap
+D 114 MinReqUse
+D 121 MeetDemand
+D 126 IntUpBound
+D 133 IntLowBound
+B 142 Column Listing      SOLVE WatSupplyRelaxed Using LP From line 75
+E 143 I
+E 162 X
+E 179 TCOST
+B 188 Model Statistics    SOLVE WatSupplyRelaxed Using LP From line 75
+B 204 Solution Report     SOLVE WatSupplyRelaxed Using LP From line 75
+F 233 COST
+F 241 MaxCap
+F 248 MinReqUse
+F 253 MeetDemand
+F 261 IntUpBound
+F 268 IntLowBound
+G 270 I
+G 277 X
+G 284 TCOST
+B 297 E x e c u t i o n
+I 298 X
+I 305 I
+I 312 TCOST

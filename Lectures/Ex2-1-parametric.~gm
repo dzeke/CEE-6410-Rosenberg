@@ -18,7 +18,7 @@ Profit/plant        $6        $7
 How do the objective function and decision variable values changes if the
 water requirement for tomatoes decreases from 2,000 gal/plant to
 1,500, 1000, and 500 gal/plant? At what water requirement
-level does the solution basis change?
+level(s) does the solution basis change?
 
 Solution Approach:
 Solve the model 4 times changing the tomato water requirement value. Store
