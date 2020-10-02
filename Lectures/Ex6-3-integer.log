@@ -1,17 +1,17 @@
 
---- Job Ex6-3-integer.gms Start 09/24/20 23:31:54 24.2.3 r46072 WEX-WEI x86_64/MS Windows
+--- Job Ex6-3-integer.gms Start 09/25/20 11:21:06 24.2.3 r46072 WEX-WEI x86_64/MS Windows
 GAMS 24.2.3   Copyright (C) 1987-2014 GAMS Development. All rights reserved
 Licensee: Utah Water Research Laboratory (5 user)        G140130:1517AV-GEN
           Utah State University                                      DC7087
           License for teaching and research at degree granting institutions
 --- Starting compilation
 --- Ex6-3-integer.gms(80) 3 Mb
---- Starting execution: elapsed 0:00:00.002
+--- Starting execution: elapsed 0:00:00.003
 --- Generating MIP model WatSupplyRelaxed
 --- Ex6-3-integer.gms(73) 4 Mb
 ---   10 rows  5 columns  18 non-zeroes
 ---   2 discrete-columns
---- Executing CPLEX: elapsed 0:00:00.014
+--- Executing CPLEX: elapsed 0:00:00.026
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -20,7 +20,7 @@ Reading data...
 Starting Cplex...
 Space for names approximately 0.00 Mb
 Use option 'names no' to turn use of names off
-Found incumbent of value 330000.000000 after 0.00 sec. (0.00 ticks)
+Found incumbent of value 330000.000000 after 0.01 sec. (0.00 ticks)
 Tried aggregator 1 time.
 MIP Presolve eliminated 6 rows and 1 columns.
 Reduced MIP has 4 rows, 4 columns, and 8 nonzeros.
@@ -55,17 +55,17 @@ Root relaxation solution time = 0.00 sec. (0.00 ticks)
    Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
 
 *     0+    0                       330000.0000   240000.0000        0   27.27%
-Found incumbent of value 330000.000000 after 0.08 sec. (0.04 ticks)
+Found incumbent of value 330000.000000 after 0.03 sec. (0.04 ticks)
       0     0        cutoff         330000.0000                      0    0.00%
 
 Root node processing (before b&c):
-  Real time             =    0.08 sec. (0.04 ticks)
+  Real time             =    0.03 sec. (0.04 ticks)
 Sequential b&c:
   Real time             =    0.00 sec. (0.00 ticks)
                           ------------
-Total (root+branch&cut) =    0.08 sec. (0.04 ticks)
+Total (root+branch&cut) =    0.03 sec. (0.04 ticks)
 MIP status(101): integer optimal solution
-Cplex Time: 0.09sec (det. 0.04 ticks)
+Cplex Time: 0.03sec (det. 0.04 ticks)
 Fixing integer variables, and solving final LP...
 Tried aggregator 1 time.
 LP Presolve eliminated 10 rows and 5 columns.
@@ -86,8 +86,8 @@ Relative gap:            0.000000
 --- Restarting execution
 --- Ex6-3-integer.gms(73) 2 Mb
 --- Reading solution for model WatSupplyRelaxed
---- Executing after solve: elapsed 0:00:00.180
+--- Executing after solve: elapsed 0:00:00.191
 --- Ex6-3-integer.gms(80) 3 Mb
 GDX2XLS          24.2.3 r46072 Released May 22, 2014 VS8 x86/MS Windows       
 *** Status: Normal completion
---- Job Ex6-3-integer.gms Stop 09/24/20 23:31:58 elapsed 0:00:03.470
+--- Job Ex6-3-integer.gms Stop 09/25/20 11:21:11 elapsed 0:00:05.056

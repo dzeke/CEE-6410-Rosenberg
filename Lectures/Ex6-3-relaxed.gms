@@ -41,7 +41,7 @@ PARAMETERS
            wc 1/
    IntLowBnd(src) Lower bound on integer variables (#)
            /tp 0,
-           wc 0/
+           wc 1/
 
 * 3. DEFINE the variables
 VARIABLES I(src) binary decision to build or do prject from source src (1=yes 0=no)
@@ -50,7 +50,7 @@ VARIABLES I(src) binary decision to build or do prject from source src (1=yes 0=
 
 * Non-negativity constraints
 POSITIVE VARIABLES I,X;
-*Binary Variables I Relaxed problem
+*Binary Variables I *Relaxed problem
 
 * 4. COMBINE variables and data in equations
 EQUATIONS

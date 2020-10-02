@@ -6,7 +6,9 @@ Minimize cost to supply water by a new treatment plant or wholesale contract
 This is the relaxed version that treats the interger decision variables as standard, positive, continuous variables.
 With the additional $35,000 capital cost for establishing the wholesale contract.
 
-Allows user to control bounds on "integer" variables (IntUpBnd and IntLowBnd)
+Allows user to control bounds on "integer" variables (IntUpBnd and IntLowBnd).
+
+Presently fully relaxed.
 
 David E Rosenberg
 david.rosenberg@usu.edu
@@ -48,7 +50,7 @@ VARIABLES I(src) binary decision to build or do prject from source src (1=yes 0=
 
 * Non-negativity constraints
 POSITIVE VARIABLES I,X;
-*Binary Variables I Relaxed problem
+*Binary Variables I *Relaxed problem
 
 * 4. COMBINE variables and data in equations
 EQUATIONS

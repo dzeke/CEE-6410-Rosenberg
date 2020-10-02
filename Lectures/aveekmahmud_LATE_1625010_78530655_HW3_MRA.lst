@@ -1,0 +1,230 @@
+GAMS 24.2.3  r46072 Released May 22, 2014 WEX-WEI x86_64/MS Windows 09/26/20 17:45:21 Page 1
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+C o m p i l a t i o n
+
+
+      CEE 6410 - Water Resources Systems Analysis
+      2.4. Problems: Problem number 4 from Bishop Et Al Text (https://digitalcom
+      mons.usu.edu/ecstatic_all/76/)
+       
+      THE PROBLEM:
+       
+      The problem states a system where an excess amount of water will be transf
+      erred for agricultural use from an industrial region during June, July,
+      and August. Two crops, Hay (H) and Grain (G), are proposed for agricultura
+      l production.   Data are as fol-lows:
+       
+      Constraint Equations:
+              June water constraint equation, 2H + G <= 14000 (ACF) ……… (1
+      )
+              July water constraint equation, H + 2G <= 18000 (ACF) ……… (2
+      )
+              August water constraint equation, H + 0 x G <= 6000 (ACF) ……�
+      � (3)
+              Land constraint equation, H + G <= 10000 (Acre) ……… (4)
+       
+      Objective Function:
+       
+              Z= 100H + 120 G (5)
+       
+      The objective is to maximize z
+       
+      THE SOLUTION:
+      Uses General Algebraic Modeling System to Solve this Linear Program
+      Mahmud Aveek
+      mahmud.aveek@usu.edu
+      September 22, 2020
+  28   
+  29  * 1. Defining the sets
+  30  SETS crps for the production /Hay, Grain/
+  31       constr montly changes and resources /June_Water, July_Water, August_W
+      ater, Land/;
+  32   
+  33  * 2. Defining the input data
+  34  PARAMETERS
+  35      c(crps) Objective function coefficient ($ per acre)
+  36              /Hay 100,
+  37              Grain 120/
+  38      b(constr) Right hand constraint value (per resource)
+  39              /June_Water 14000,
+  40              July_Water 18000,
+  41              August_Water 6000,
+  42              Land 10000 /;
+  43   
+  44  TABLE A(crps, constr) Left hand side of the constraint equations
+  45   
+  46              June_Water   July_Water   August_Water   Land
+  47  Hay            2              1          1           1
+  48  Grain          1              2          0           1;
+  49   
+  50  * 3 Define the variables
+  51  VARIABLES X(crps) crops planted (acre)
+  52          VRETURN total return ($);
+  53   
+  54  * Non-negetivity constraint
+  55  POSITIVE VARIABLES X
+  56   
+  57  * 4 Combining the variables and data in equations
+  58   
+  59  EQUATIONS
+  60      PROFIT Total return ($) using the objective function
+  61      RES_CONSTRAIN(constr);
+  62   
+  63  PROFIT..            VRETURN=E=SUM(crps,c(crps)*X(crps));
+  64  RES_CONSTRAIN(constr)..     SUM(crps,A(crps, constr)*X(crps)) =L= b(constr
+      );
+  65   
+  66  * 5 Defining the model from the solution
+  67  MODEL PLANTING /PROFIT, RES_CONSTRAIN/;
+  68   
+  69  *MODEL PLANTING /ALL/;
+  70   
+  71  * Solving the Model
+  72  SOLVE PLANTING USING LP MAXIMIZING VRETURN;
+  73   
+
+
+COMPILATION TIME     =        0.000 SECONDS      3 MB  24.2.3 r46072 WEX-WEI
+GAMS 24.2.3  r46072 Released May 22, 2014 WEX-WEI x86_64/MS Windows 09/26/20 17:45:21 Page 2
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Equation Listing    SOLVE PLANTING Using LP From line 72
+
+
+---- PROFIT  =E=  Total return ($) using the objective function
+
+PROFIT..  - 100*X(Hay) - 120*X(Grain) + VRETURN =E= 0 ; (LHS = 0)
+     
+
+---- RES_CONSTRAIN  =L=  
+
+RES_CONSTRAIN(June_Water)..  2*X(Hay) + X(Grain) =L= 14000 ; (LHS = 0)
+     
+RES_CONSTRAIN(July_Water)..  X(Hay) + 2*X(Grain) =L= 18000 ; (LHS = 0)
+     
+RES_CONSTRAIN(August_Water)..  X(Hay) =L= 6000 ; (LHS = 0)
+     
+REMAINING ENTRY SKIPPED
+
+GAMS 24.2.3  r46072 Released May 22, 2014 WEX-WEI x86_64/MS Windows 09/26/20 17:45:21 Page 3
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Column Listing      SOLVE PLANTING Using LP From line 72
+
+
+---- X  crops planted (acre)
+
+X(Hay)
+                (.LO, .L, .UP, .M = 0, 0, +INF, 0)
+     -100       PROFIT
+        2       RES_CONSTRAIN(June_Water)
+        1       RES_CONSTRAIN(July_Water)
+        1       RES_CONSTRAIN(August_Water)
+        1       RES_CONSTRAIN(Land)
+
+X(Grain)
+                (.LO, .L, .UP, .M = 0, 0, +INF, 0)
+     -120       PROFIT
+        1       RES_CONSTRAIN(June_Water)
+        2       RES_CONSTRAIN(July_Water)
+        1       RES_CONSTRAIN(Land)
+
+
+---- VRETURN  total return ($)
+
+VRETURN
+                (.LO, .L, .UP, .M = -INF, 0, +INF, 0)
+        1       PROFIT
+
+GAMS 24.2.3  r46072 Released May 22, 2014 WEX-WEI x86_64/MS Windows 09/26/20 17:45:21 Page 4
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Model Statistics    SOLVE PLANTING Using LP From line 72
+
+
+MODEL STATISTICS
+
+BLOCKS OF EQUATIONS           2     SINGLE EQUATIONS            5
+BLOCKS OF VARIABLES           2     SINGLE VARIABLES            3
+NON ZERO ELEMENTS            10
+
+
+GENERATION TIME      =        0.109 SECONDS      4 MB  24.2.3 r46072 WEX-WEI
+
+
+EXECUTION TIME       =        0.109 SECONDS      4 MB  24.2.3 r46072 WEX-WEI
+GAMS 24.2.3  r46072 Released May 22, 2014 WEX-WEI x86_64/MS Windows 09/26/20 17:45:21 Page 5
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Solution Report     SOLVE PLANTING Using LP From line 72
+
+
+               S O L V E      S U M M A R Y
+
+     MODEL   PLANTING            OBJECTIVE  VRETURN
+     TYPE    LP                  DIRECTION  MAXIMIZE
+     SOLVER  CPLEX               FROM LINE  72
+
+**** SOLVER STATUS     1 Normal Completion         
+**** MODEL STATUS      1 Optimal                   
+**** OBJECTIVE VALUE          1160000.0000
+
+ RESOURCE USAGE, LIMIT          0.046      1000.000
+ ITERATION COUNT, LIMIT         3    2000000000
+
+IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
+Cplex 12.6.0.0
+
+Space for names approximately 0.00 Mb
+Use option 'names no' to turn use of names off
+LP status(1): optimal
+Cplex Time: 0.01sec (det. 0.01 ticks)
+Optimal solution found.
+Objective :     1160000.000000
+
+
+                       LOWER     LEVEL     UPPER    MARGINAL
+
+---- EQU PROFIT          .         .         .        1.000      
+
+  PROFIT  Total return ($) using the objective function
+
+---- EQU RES_CONSTRAIN  
+
+                LOWER     LEVEL     UPPER    MARGINAL
+
+June_Water       -INF  12000.000 14000.000      .         
+July_Water       -INF  18000.000 18000.000    20.000      
+August_Water     -INF   2000.000  6000.000      .         
+Land             -INF  10000.000 10000.000    80.000      
+
+---- VAR X  crops planted (acre)
+
+         LOWER     LEVEL     UPPER    MARGINAL
+
+Hay        .     2000.000     +INF       .         
+Grain      .     8000.000     +INF       .         
+
+                       LOWER     LEVEL     UPPER    MARGINAL
+
+---- VAR VRETURN        -INF  1.1600E+6     +INF       .         
+
+  VRETURN  total return ($)
+
+
+**** REPORT SUMMARY :        0     NONOPT
+                             0 INFEASIBLE
+                             0  UNBOUNDED
+
+
+EXECUTION TIME       =        0.000 SECONDS      2 MB  24.2.3 r46072 WEX-WEI
+
+
+USER: Utah Water Research Laboratory (5 user)        G140130:1517AV-GEN
+      Utah State University                                      DC7087
+      License for teaching and research at degree granting institutions
+
+
+**** FILE SUMMARY
+
+Input      C:\Rosenberg\Work\USU\Classes\CEE6410\Fall2020\StudentWork\HW3\Submit
+           ted\aveekmahmud_LATE_1625010_78530655_HW3_MRA.gms
+Output     C:\Rosenberg\Work\USU\Classes\CEE6410\Fall2020\CEE6410-Rosenberg-GitH
+           ub\CEE-6410-Rosenberg\Lectures\aveekmahmud_LATE_1625010_78530655_HW3_
+           MRA.lst

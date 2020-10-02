@@ -1,0 +1,41 @@
+
+--- Job aveekmahmud_1625010_78531055_HW4_4_MRA.gms Start 09/29/20 19:47:49 24.2.3 r46072 WEX-WEI x86_64/MS Windows
+GAMS 24.2.3   Copyright (C) 1987-2014 GAMS Development. All rights reserved
+Licensee: Utah Water Research Laboratory (5 user)        G140130:1517AV-GEN
+          Utah State University                                      DC7087
+          License for teaching and research at degree granting institutions
+--- Starting compilation
+--- aveekmahmud_1625010_78531055_HW4_4_MRA.gms(85) 3 Mb
+--- Starting execution: elapsed 0:00:00.002
+--- Generating LP model ADJUSTINGBTN
+--- aveekmahmud_1625010_78531055_HW4_4_MRA.gms(85) 4 Mb
+---   138 rows  31 columns  195 non-zeroes
+--- Executing CPLEX: elapsed 0:00:00.015
+
+IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
+Cplex 12.6.0.0
+
+Reading data...
+Starting Cplex...
+Space for names approximately 0.01 Mb
+Use option 'names no' to turn use of names off
+Tried aggregator 1 time.
+LP Presolve eliminated 126 rows and 7 columns.
+Reduced LP has 12 rows, 24 columns, and 41 nonzeros.
+Presolve time = 0.00 sec. (0.04 ticks)
+Initializing dual steep norms . . .
+
+Iteration log . . .
+Iteration:     1   Dual infeasibility =             1.599996
+Iteration:     3   Dual objective     =            62.400000
+LP status(1): optimal
+Cplex Time: 0.00sec (det. 0.10 ticks)
+
+Optimal solution found.
+Objective :          51.600000
+
+--- Restarting execution
+--- aveekmahmud_1625010_78531055_HW4_4_MRA.gms(85) 2 Mb
+--- Reading solution for model ADJUSTINGBTN
+*** Status: Normal completion
+--- Job aveekmahmud_1625010_78531055_HW4_4_MRA.gms Stop 09/29/20 19:47:49 elapsed 0:00:00.080
