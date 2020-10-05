@@ -62,8 +62,7 @@ NonLinReq..       X("i2")**2 =L= 5;
 * 5. DEFINE the MODEL from the EQUATIONS
 MODEL NonLinModel /ALL/;
 
-*Directions to the solver to set lower and upper bounds (without equations)
-*for all decision variables to zero and 3
+*Directions to the solver to set lower and upper bounds (without equations) on particular variable values
 X.LO(i) = 0;
 X.UP(i) = 3;
 *Direction to the solver to specify the initial variable value levels (initial start point)
