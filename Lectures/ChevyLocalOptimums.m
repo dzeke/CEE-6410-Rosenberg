@@ -54,6 +54,11 @@ xEvolutionarySolutions = [
 0.001	0.03	20	2	-1	0.50
 ];
 
+%cell array of Names to go with each solution
+sNames = {
+'David'
+'David'
+'Todd' };
 
 
 
@@ -129,8 +134,10 @@ set(gca,'fontsize',18,'xLim',[-3 3],'yLim',[-3 3]);
 xlabel('X');
 ylabel('Y');
 
+%Add student solutions
 plot3(xEvolutionarySolutions(:,4),xEvolutionarySolutions(:,5),xEvolutionarySolutions(:,6),'h','Color','Black','markersize',15,'markerfacecolor','black');
-
+%Label the points with student names  
+text(xEvolutionarySolutions(:,4)+0.2,xEvolutionarySolutions(:,5),xEvolutionarySolutions(:,6),sNames);
 
 set(gca,'xtick',[-3:1:3],'xticklabel',[-3:1:3])
 set(gca,'ytick',[-3:1:3],'yticklabel',[-3:1:3])
