@@ -129,7 +129,7 @@ set(gca,'fontsize',18,'xLim',[-3 3],'yLim',[-3 3]);
 xlabel('X');
 ylabel('Y');
 
-plot3(xEvolutionarySolutions(:,4),xEvolutionarySolutions(:,5),xEvolutionarySolutions(:,6),'h','Color','Black','markersize',15,'markerfacecolor','black');
+plot3(xEvolutionarySolutions(:,4),xEvolutionarySolutions(:,5),xEvolutionarySolutions(:,6),'line','none','Color','Black','marker','h','markersize',20,'markerfacecolor',);
 
 
 set(gca,'xtick',[-3:1:3],'xticklabel',[-3:1:3])

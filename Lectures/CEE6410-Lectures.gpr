@@ -127,26 +127,28 @@ PlaneRownr=-1
 [RP:EX6-3-INTEGER]
 1=
 
-[RP:EX7-1]
-1=
-
 [RP:EXCHEVYFUNCTION]
 1=
 
+[RP:EX7-1]
+1=
+
 [MRUFILES]
-1=C:\Rosenberg\Work\USU\Classes\CEE6410\Fall2018\Lectures\GAMSexamples\Ex7-1.gms
-2=C:\Rosenberg\Work\USU\Classes\CEE6410\Fall2020\CEE6410-Rosenberg-GitHub\CEE-6410-Rosenberg\Lectures\Ex2-1Dual.lst
-3=C:\Rosenberg\Work\USU\Classes\CEE6410\Fall2020\CEE6410-Rosenberg-GitHub\CEE-6410-Rosenberg\Lectures\Ex2-3.lst
-4=C:\Rosenberg\Work\USU\Classes\CEE6410\Fall2020\CEE6410-Rosenberg-GitHub\CEE-6410-Rosenberg\Lectures\Ex6-3-integer.gms
-5=C:\Rosenberg\Work\USU\Classes\CEE6410\Fall2020\CEE6410-Rosenberg-GitHub\CEE-6410-Rosenberg\Lectures\Ex6-3-integer.lst
-6=C:\Rosenberg\Work\USU\Classes\CEE6410\Fall2020\CEE6410-Rosenberg-GitHub\CEE-6410-Rosenberg\Lectures\Ex6-3-relaxed.gms
-7=C:\Rosenberg\Work\USU\Classes\CEE6410\Fall2020\CEE6410-Rosenberg-GitHub\CEE-6410-Rosenberg\Lectures\Ex6-3-relaxed.lst
-8=C:\Rosenberg\Work\USU\Classes\CEE6410\Fall2020\Homework\HW5-Ex7-1.gms
+1=C:\Rosenberg\Work\USU\Classes\CEE6410\Fall2020\CEE6410-Rosenberg-GitHub\CEE-6410-Rosenberg\Lectures\Ex2-1Dual.lst
+2=C:\Rosenberg\Work\USU\Classes\CEE6410\Fall2020\CEE6410-Rosenberg-GitHub\CEE-6410-Rosenberg\Lectures\Ex2-3.lst
+3=C:\Rosenberg\Work\USU\Classes\CEE6410\Fall2020\CEE6410-Rosenberg-GitHub\CEE-6410-Rosenberg\Lectures\Ex6-3-integer.gms
+4=C:\Rosenberg\Work\USU\Classes\CEE6410\Fall2020\CEE6410-Rosenberg-GitHub\CEE-6410-Rosenberg\Lectures\Ex6-3-integer.lst
+5=C:\Rosenberg\Work\USU\Classes\CEE6410\Fall2020\CEE6410-Rosenberg-GitHub\CEE-6410-Rosenberg\Lectures\Ex6-3-relaxed.gms
+6=C:\Rosenberg\Work\USU\Classes\CEE6410\Fall2020\CEE6410-Rosenberg-GitHub\CEE-6410-Rosenberg\Lectures\Ex6-3-relaxed.lst
+7=C:\Rosenberg\Work\USU\Classes\CEE6410\Fall2020\Homework\HW5-Ex7-1.gms
 
 [OPENWINDOW_1]
-FILE0=C:\Rosenberg\Work\USU\Classes\CEE6410\Fall2020\CEE6410-Rosenberg-GitHub\CEE-6410-Rosenberg\Lectures\ExChevyFunction.gms
-FILE1=C:\Rosenberg\Work\USU\Classes\CEE6410\Fall2020\CEE6410-Rosenberg-GitHub\CEE-6410-Rosenberg\Lectures\ExChevyFunction.lst
+FILE0=C:\Rosenberg\Work\USU\Classes\CEE6410\Fall2018\Lectures\GAMSexamples\Ex7-1.gms
+FILE1=C:\Rosenberg\Work\USU\Classes\CEE6410\Fall2020\CEE6410-Rosenberg-GitHub\CEE-6410-Rosenberg\Lectures\Ex7-1.lst
 FILE2=C:\Rosenberg\Work\USU\Classes\CEE6410\Fall2020\CEE6410-Rosenberg-GitHub\CEE-6410-Rosenberg\Lectures\ExChevyFunction.gms
+FILE3=C:\Rosenberg\Work\USU\Classes\CEE6410\Fall2020\CEE6410-Rosenberg-GitHub\CEE-6410-Rosenberg\Lectures\ExChevyFunction.lst
+FILE4=C:\Rosenberg\Work\USU\Classes\CEE6410\Fall2020\CEE6410-Rosenberg-GitHub\CEE-6410-Rosenberg\Lectures\tsp1.gms
+FILE5=C:\Rosenberg\Work\USU\Classes\CEE6410\Fall2020\CEE6410-Rosenberg-GitHub\CEE-6410-Rosenberg\Lectures\tsp1.gms
 MAXIM=1
 TOP=2
 LEFT=50
