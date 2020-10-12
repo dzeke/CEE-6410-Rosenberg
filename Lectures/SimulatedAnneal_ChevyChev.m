@@ -22,9 +22,10 @@ nvars = 2; % Number of decision variables
 lb =  [-3 -3];
 ub = [3 3]; 
 
-%Specify plot functions to display while solving
+%Specify plot functions to display while solving. Also specify the maximum
+%number of iterations
 options = optimoptions('simulannealbnd','PlotFcns',...
-          {@saplotbestx,@saplotbestf,@saplotx,@saplotf});
+          {@saplotbestx,@saplotbestf,@saplotx,@saplotf}, 'MaxIterations',750);
 
 %Solve for the optimal value
 [xOpt,zOpt,exitflag,output] = simulannealbnd(Zfun,[-2 -2], lb,ub, options)
