@@ -1,4 +1,4 @@
-%% Lecture Example #3 - Solve a more complicated problem with Matlab using Particle Swarm Optimization
+%% Lecture Example - Solve a more complicated problem with Matlab using Simulated Annealing
 
 % Maximize z(x1,x2) = ChevyChevFunction(x1,x2)
 %  subject to -3 <= x1 <= 3
@@ -22,15 +22,13 @@ nvars = 2; % Number of decision variables
 lb =  [-3 -3];
 ub = [3 3]; 
 
-%Set additional options like swarm size
-options = optimoptions('particleswarm','SwarmSize',20); 
-%options = optimoptions('particleswarm','SwarmSize',20,'HybridFcn',@fmincon);  %with polishing function
+%Specify plot functions to display while solving
+options = optimoptions('simulannealbnd','PlotFcns',...
+          {@saplotbestx,@saplotbestf,@saplotx,@saplotf});
 
 %Solve for the optimal value
-[xOpt,zOpt,exitflag,output] = particleswarm(Zfun,nvars,lb,ub,options);
+[xOpt,zOpt,exitflag,output] = simulannealbnd(Zfun,[-2 -2], lb,ub, options)
 
-exitflag
-output
 
 %Plot the objective function and solution found
 %Make a grid over the feasible domain
@@ -43,6 +41,9 @@ for i=1:size(xMesh,1)
         zGrid(i,j) = -Zfun([xMesh(i,j) yMesh(i,j)]);
     end
 end
+
+%Create a new figure
+figure
         
 %surf(xMesh,yMesh,zGrid)
 surf(xMesh,yMesh,zGrid)
@@ -51,11 +52,5 @@ set(gca,'fontsize',18,'xLim',[-3 3],'yLim',[-3 3]);
 xlabel('X'); ylabel('Y'); zlabel('Objective Function Value');
 %Minus sign on zOpt to again flip direction (maximize)
 plot3(xOpt(1),xOpt(2),-zOpt,'color','b','marker','o','MarkerSize', 10,'MarkerFaceColor','r')
-
-%Plot just the surface
-%fig2 = figure;
-%surf(xMesh,yMesh,zGrid)
-%hold on
-%xlabel('X'); ylabel('Y'); zlabel('Objective Function Value');
 
 
