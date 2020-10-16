@@ -152,7 +152,7 @@ Loop(f2,
 
 DISPLAY FStore,XStore;
 
-$ontext
+
 * Step B. Constrain one objective function value and maximize the other objective
 
 *Maximum the hydropower objective, constraint the irrigation objective
@@ -160,7 +160,7 @@ FToUse(f) = 0;
 FtoUse("hyd") = 1;
 *Constrain the irrigation objective
 *Choose a value between the extreme points for the irrigation objective identified above
-*FLevel("irr") = ________________ ;
+FLevel("irr") = ________________ ;
 
 *Alternatively
 *Maximize the irrigation objective, constrain the hydropower objective
@@ -177,4 +177,4 @@ DISPLAY TotalBen.L, FBen.L, X.L;
 Execute_Unload "Ex19-5.gdx";
 * Dump the gdx file to an Excel workbook
 Execute "gdx2xls Ex19-5.gdx"
-$offtext
+

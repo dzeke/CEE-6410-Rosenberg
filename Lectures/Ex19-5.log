@@ -1,17 +1,17 @@
 
---- Job Ex19-5.gms Start 10/13/20 19:16:32 24.2.3 r46072 WEX-WEI x86_64/MS Windows
+--- Job Ex19-5.gms Start 10/14/20 11:08:12 24.2.3 r46072 WEX-WEI x86_64/MS Windows
 GAMS 24.2.3   Copyright (C) 1987-2014 GAMS Development. All rights reserved
 Licensee: Utah Water Research Laboratory (5 user)        G140130:1517AV-GEN
           Utah State University                                      DC7087
           License for teaching and research at degree granting institutions
 --- Starting compilation
 --- Ex19-5.gms(180) 3 Mb
---- Starting execution: elapsed 0:00:00.036
+--- Starting execution: elapsed 0:00:00.057
 --- Ex19-5.gms(124) 4 Mb
 --- Generating LP model ExtremePt
 --- Ex19-5.gms(127) 4 Mb
 ---   12 rows  11 columns  25 non-zeroes
---- Executing CPLEX: elapsed 0:00:00.127
+--- Executing CPLEX: elapsed 0:00:00.193
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -25,7 +25,7 @@ LP Presolve eliminated 12 rows and 11 columns.
 All rows and columns eliminated.
 Presolve time = 0.00 sec. (0.01 ticks)
 LP status(1): optimal
-Cplex Time: 0.02sec (det. 0.01 ticks)
+Cplex Time: 0.00sec (det. 0.01 ticks)
 
 Optimal solution found.
 Objective :          69.500000
@@ -33,13 +33,13 @@ Objective :          69.500000
 --- Restarting execution
 --- Ex19-5.gms(127) 2 Mb
 --- Reading solution for model ExtremePt
---- Executing after solve: elapsed 0:00:00.356
+--- Executing after solve: elapsed 0:00:00.496
 --- Ex19-5.gms(135) 3 Mb
 --- Generating LP model ExtremePt
 --- Ex19-5.gms(144) 3 Mb
 --- LOOPS f2 = hyd
 ---   12 rows  11 columns  24 non-zeroes
---- Executing CPLEX: elapsed 0:00:00.368
+--- Executing CPLEX: elapsed 0:00:00.526
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -61,13 +61,13 @@ Objective :          45.000000
 --- Restarting execution
 --- Ex19-5.gms(144) 2 Mb
 --- Reading solution for model ExtremePt
---- Executing after solve: elapsed 0:00:00.436
+--- Executing after solve: elapsed 0:00:00.683
 --- Ex19-5.gms(135) 3 Mb
 --- Generating LP model ExtremePt
 --- Ex19-5.gms(144) 3 Mb
 --- LOOPS f2 = irr
 ---   12 rows  11 columns  24 non-zeroes
---- Executing CPLEX: elapsed 0:00:00.448
+--- Executing CPLEX: elapsed 0:00:00.716
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -81,7 +81,7 @@ LP Presolve eliminated 12 rows and 11 columns.
 All rows and columns eliminated.
 Presolve time = 0.00 sec. (0.01 ticks)
 LP status(1): optimal
-Cplex Time: 0.02sec (det. 0.01 ticks)
+Cplex Time: 0.00sec (det. 0.01 ticks)
 
 Optimal solution found.
 Objective :          56.000000
@@ -89,7 +89,7 @@ Objective :          56.000000
 --- Restarting execution
 --- Ex19-5.gms(144) 2 Mb
 --- Reading solution for model ExtremePt
---- Executing after solve: elapsed 0:00:00.520
+--- Executing after solve: elapsed 0:00:00.862
 --- Ex19-5.gms(153) 3 Mb
 *** Status: Normal completion
---- Job Ex19-5.gms Stop 10/13/20 19:16:32 elapsed 0:00:00.530
+--- Job Ex19-5.gms Stop 10/14/20 11:08:13 elapsed 0:00:00.873
