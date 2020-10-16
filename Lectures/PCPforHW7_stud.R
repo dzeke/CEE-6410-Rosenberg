@@ -31,7 +31,8 @@ MaggorieVarsAbrev <- c('Flood Intensity (m)','Unmet Irrigation Demand (m3/d)','U
 ### Load Using Plotly
 # https://plot.ly/r/getting-started/
 
-# Provide Plotly credentials
+# Provide Plotly API credentials
+# Find API credentials at https://chart-studio.plotly.com/settings/api#/
 Sys.setenv("plotly_username"="XXXXXXX")
 Sys.setenv("plotly_api_key"="YYYYYYYYY")
 
