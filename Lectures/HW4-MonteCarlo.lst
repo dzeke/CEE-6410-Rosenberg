@@ -1,4 +1,4 @@
-GAMS 24.2.3  r46072 Released May 22, 2014 WEX-WEI x86_64/MS Windows 10/29/20 23:06:36 Page 1
+GAMS 24.2.3  r46072 Released May 22, 2014 WEX-WEI x86_64/MS Windows 10/30/20 10:25:03 Page 1
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 C o m p i l a t i o n
 
@@ -266,8 +266,8 @@ C o m p i l a t i o n
  233   
 
 
-COMPILATION TIME     =        0.000 SECONDS      3 MB  24.2.3 r46072 WEX-WEI
-GAMS 24.2.3  r46072 Released May 22, 2014 WEX-WEI x86_64/MS Windows 10/29/20 23:06:36 Page 2
+COMPILATION TIME     =        0.015 SECONDS      3 MB  24.2.3 r46072 WEX-WEI
+GAMS 24.2.3  r46072 Released May 22, 2014 WEX-WEI x86_64/MS Windows 10/30/20 10:25:03 Page 2
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Equation Listing    SOLVE EconBen Using LP From line 110
 
@@ -353,7 +353,7 @@ MinFlowA(m3)..  X(AAA,m3) =G= 1 ; (LHS = 0, INFES = 1 ****)
      
 REMAINING 3 ENTRIES SKIPPED
 
-GAMS 24.2.3  r46072 Released May 22, 2014 WEX-WEI x86_64/MS Windows 10/29/20 23:06:36 Page 3
+GAMS 24.2.3  r46072 Released May 22, 2014 WEX-WEI x86_64/MS Windows 10/30/20 10:25:03 Page 3
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Column Listing      SOLVE EconBen Using LP From line 110
 
@@ -386,7 +386,7 @@ TotalBen
                 (.LO, .L, .UP, .M = -INF, 0, +INF, 0)
         1       WatBENEFIT
 
-GAMS 24.2.3  r46072 Released May 22, 2014 WEX-WEI x86_64/MS Windows 10/29/20 23:06:36 Page 4
+GAMS 24.2.3  r46072 Released May 22, 2014 WEX-WEI x86_64/MS Windows 10/30/20 10:25:03 Page 4
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Model Statistics    SOLVE EconBen Using LP From line 110
 
@@ -398,11 +398,11 @@ BLOCKS OF VARIABLES           2     SINGLE VARIABLES           31
 NON ZERO ELEMENTS            79
 
 
-GENERATION TIME      =        0.093 SECONDS      4 MB  24.2.3 r46072 WEX-WEI
+GENERATION TIME      =        0.063 SECONDS      4 MB  24.2.3 r46072 WEX-WEI
 
 
-EXECUTION TIME       =        0.093 SECONDS      4 MB  24.2.3 r46072 WEX-WEI
-GAMS 24.2.3  r46072 Released May 22, 2014 WEX-WEI x86_64/MS Windows 10/29/20 23:06:36 Page 5
+EXECUTION TIME       =        0.063 SECONDS      4 MB  24.2.3 r46072 WEX-WEI
+GAMS 24.2.3  r46072 Released May 22, 2014 WEX-WEI x86_64/MS Windows 10/30/20 10:25:03 Page 5
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Solution Report     SOLVE EconBen Using LP From line 110
 
@@ -417,7 +417,7 @@ Solution Report     SOLVE EconBen Using LP From line 110
 **** MODEL STATUS      1 Optimal                   
 **** OBJECTIVE VALUE               51.6000
 
- RESOURCE USAGE, LIMIT          0.047      1000.000
+ RESOURCE USAGE, LIMIT          0.015      1000.000
  ITERATION COUNT, LIMIT        16    2000000000
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
@@ -544,7 +544,7 @@ AAA.m6      .        1.000     +INF       .
 **** REPORT SUMMARY :        0     NONOPT
                              0 INFEASIBLE
                              0  UNBOUNDED
-GAMS 24.2.3  r46072 Released May 22, 2014 WEX-WEI x86_64/MS Windows 10/29/20 23:06:36 Page 6
+GAMS 24.2.3  r46072 Released May 22, 2014 WEX-WEI x86_64/MS Windows 10/30/20 10:25:03 Page 6
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 E x e c u t i o n
 
@@ -1607,7 +1607,7 @@ s246 1.000,    s247 1.000,    s248 1.000,    s249 1.000,    s250 1.000
 
 
 
-EXECUTION TIME       =        4.078 SECONDS      3 MB  24.2.3 r46072 WEX-WEI
+EXECUTION TIME       =       19.265 SECONDS      3 MB  24.2.3 r46072 WEX-WEI
 
 
 USER: Utah Water Research Laboratory (5 user)        G140130:1517AV-GEN

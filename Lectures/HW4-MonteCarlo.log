@@ -1,16 +1,16 @@
 
---- Job HW4-MonteCarlo.gms Start 10/29/20 23:06:36 24.2.3 r46072 WEX-WEI x86_64/MS Windows
+--- Job HW4-MonteCarlo.gms Start 10/30/20 10:25:03 24.2.3 r46072 WEX-WEI x86_64/MS Windows
 GAMS 24.2.3   Copyright (C) 1987-2014 GAMS Development. All rights reserved
 Licensee: Utah Water Research Laboratory (5 user)        G140130:1517AV-GEN
           Utah State University                                      DC7087
           License for teaching and research at degree granting institutions
 --- Starting compilation
 --- HW4-MonteCarlo.gms(233) 3 Mb
---- Starting execution: elapsed 0:00:00.034
+--- Starting execution: elapsed 0:00:00.032
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(110) 4 Mb
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:00.133
+--- Executing CPLEX: elapsed 0:00:00.100
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -37,13 +37,13 @@ Objective :          51.600000
 --- Restarting execution
 --- HW4-MonteCarlo.gms(110) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:00.350
+--- Executing after solve: elapsed 0:00:00.282
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s1
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:00.373
+--- Executing CPLEX: elapsed 0:00:00.350
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -69,13 +69,13 @@ Objective :          75.800000
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:00.472
+--- Executing after solve: elapsed 0:00:00.430
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s2
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:00.485
+--- Executing CPLEX: elapsed 0:00:00.441
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -102,13 +102,13 @@ Objective :          47.884692
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:00.586
+--- Executing after solve: elapsed 0:00:00.540
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s3
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:00.604
+--- Executing CPLEX: elapsed 0:00:00.621
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -134,13 +134,13 @@ Objective :          51.035717
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:00.710
+--- Executing after solve: elapsed 0:00:00.685
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s4
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:00.727
+--- Executing CPLEX: elapsed 0:00:00.733
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -166,13 +166,13 @@ Objective :          60.931352
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:00.823
+--- Executing after solve: elapsed 0:00:00.803
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s5
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:00.841
+--- Executing CPLEX: elapsed 0:00:00.848
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -198,13 +198,13 @@ Objective :          71.400000
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:00.969
+--- Executing after solve: elapsed 0:00:00.911
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s6
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:00.984
+--- Executing CPLEX: elapsed 0:00:00.963
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -230,13 +230,13 @@ Objective :          61.211449
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:01.079
+--- Executing after solve: elapsed 0:00:01.027
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s7
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:01.096
+--- Executing CPLEX: elapsed 0:00:01.185
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -262,13 +262,13 @@ Objective :          64.800000
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:01.193
+--- Executing after solve: elapsed 0:00:01.250
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s8
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:01.209
+--- Executing CPLEX: elapsed 0:00:01.298
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -295,13 +295,13 @@ Objective :          84.638518
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:01.312
+--- Executing after solve: elapsed 0:00:01.363
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s9
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:01.329
+--- Executing CPLEX: elapsed 0:00:01.414
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -327,13 +327,13 @@ Objective :          75.800000
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:01.432
+--- Executing after solve: elapsed 0:00:01.496
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s10
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:01.447
+--- Executing CPLEX: elapsed 0:00:01.508
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -351,7 +351,7 @@ Using devex.
 Iteration log . . .
 Iteration:     1    Objective     =            75.500000
 LP status(1): optimal
-Cplex Time: 0.02sec (det. 0.05 ticks)
+Cplex Time: 0.00sec (det. 0.05 ticks)
 
 Optimal solution found.
 Objective :          75.500000
@@ -359,13 +359,13 @@ Objective :          75.500000
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:01.521
+--- Executing after solve: elapsed 0:00:01.632
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s11
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:01.535
+--- Executing CPLEX: elapsed 0:00:01.643
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -393,13 +393,13 @@ Model has been proven infeasible.
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:01.609
+--- Executing after solve: elapsed 0:00:01.717
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s12
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:01.675
+--- Executing CPLEX: elapsed 0:00:01.735
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -425,13 +425,13 @@ Objective :          75.500000
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:01.751
+--- Executing after solve: elapsed 0:00:01.833
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s13
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:01.764
+--- Executing CPLEX: elapsed 0:00:01.851
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -459,13 +459,13 @@ Model has been proven infeasible.
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:01.874
+--- Executing after solve: elapsed 0:00:01.950
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s14
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:01.941
+--- Executing CPLEX: elapsed 0:00:01.967
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -491,13 +491,13 @@ Objective :          73.600000
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:02.015
+--- Executing after solve: elapsed 0:00:02.073
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s15
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:02.028
+--- Executing CPLEX: elapsed 0:00:02.091
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -515,7 +515,7 @@ Iteration log . . .
 Iteration:     1   Dual infeasibility =            22.500000
 Iteration:    16   Dual objective     =            79.820000
 LP status(1): optimal
-Cplex Time: 0.00sec (det. 0.08 ticks)
+Cplex Time: 0.01sec (det. 0.08 ticks)
 
 Optimal solution found.
 Objective :          60.584264
@@ -523,13 +523,13 @@ Objective :          60.584264
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:02.141
+--- Executing after solve: elapsed 0:00:02.187
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s16
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:02.155
+--- Executing CPLEX: elapsed 0:00:02.206
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -556,13 +556,13 @@ Objective :          58.172550
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:02.263
+--- Executing after solve: elapsed 0:00:02.305
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s17
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:02.328
+--- Executing CPLEX: elapsed 0:00:02.321
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -588,13 +588,13 @@ Objective :          71.400000
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:02.391
+--- Executing after solve: elapsed 0:00:02.425
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s18
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:02.442
+--- Executing CPLEX: elapsed 0:00:02.441
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -620,13 +620,13 @@ Objective :          71.350306
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:02.503
+--- Executing after solve: elapsed 0:00:02.561
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s19
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:02.556
+--- Executing CPLEX: elapsed 0:00:02.573
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -652,13 +652,13 @@ Objective :          51.429036
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:02.622
+--- Executing after solve: elapsed 0:00:02.663
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s20
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:02.672
+--- Executing CPLEX: elapsed 0:00:02.679
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -684,13 +684,13 @@ Objective :          75.500000
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:02.740
+--- Executing after solve: elapsed 0:00:02.785
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s21
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:02.787
+--- Executing CPLEX: elapsed 0:00:02.801
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -716,13 +716,13 @@ Objective :          59.000000
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:02.850
+--- Executing after solve: elapsed 0:00:02.897
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s22
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:02.901
+--- Executing CPLEX: elapsed 0:00:02.912
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -748,13 +748,13 @@ Objective :          79.900000
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:02.967
+--- Executing after solve: elapsed 0:00:03.011
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s23
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:03.016
+--- Executing CPLEX: elapsed 0:00:03.028
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -777,13 +777,13 @@ Objective :          71.400000
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:03.078
+--- Executing after solve: elapsed 0:00:03.081
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s24
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:03.090
+--- Executing CPLEX: elapsed 0:00:03.114
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -809,13 +809,13 @@ Objective :          61.220000
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:03.154
+--- Executing after solve: elapsed 0:00:03.193
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s25
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:03.173
+--- Executing CPLEX: elapsed 0:00:03.205
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -842,13 +842,13 @@ Objective :          82.284104
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:03.274
+--- Executing after solve: elapsed 0:00:03.316
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s26
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:03.292
+--- Executing CPLEX: elapsed 0:00:03.373
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -875,13 +875,13 @@ Objective :          75.327822
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:03.392
+--- Executing after solve: elapsed 0:00:03.438
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s27
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:03.410
+--- Executing CPLEX: elapsed 0:00:03.486
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -907,13 +907,13 @@ Objective :          80.200000
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:03.514
+--- Executing after solve: elapsed 0:00:03.557
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s28
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:03.531
+--- Executing CPLEX: elapsed 0:00:03.572
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -939,13 +939,13 @@ Objective :          75.500000
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:03.603
+--- Executing after solve: elapsed 0:00:03.681
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s29
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:03.620
+--- Executing CPLEX: elapsed 0:00:03.698
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -971,13 +971,13 @@ Objective :          75.500000
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:03.682
+--- Executing after solve: elapsed 0:00:03.762
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s30
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:03.693
+--- Executing CPLEX: elapsed 0:00:03.780
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -1003,13 +1003,13 @@ Objective :          97.800000
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:03.771
+--- Executing after solve: elapsed 0:00:03.882
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s31
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:03.784
+--- Executing CPLEX: elapsed 0:00:03.900
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -1035,13 +1035,13 @@ Objective :          59.000000
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:03.887
+--- Executing after solve: elapsed 0:00:03.997
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s32
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:03.900
+--- Executing CPLEX: elapsed 0:00:04.015
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -1067,13 +1067,13 @@ Objective :          75.500000
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:04.000
+--- Executing after solve: elapsed 0:00:04.118
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s33
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:04.018
+--- Executing CPLEX: elapsed 0:00:04.136
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -1100,13 +1100,13 @@ Objective :          64.800000
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:04.118
+--- Executing after solve: elapsed 0:00:04.236
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s34
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:04.136
+--- Executing CPLEX: elapsed 0:00:04.255
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -1132,13 +1132,13 @@ Objective :          73.323216
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:04.238
+--- Executing after solve: elapsed 0:00:04.359
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s35
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:04.251
+--- Executing CPLEX: elapsed 0:00:04.375
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -1156,7 +1156,7 @@ Iteration log . . .
 Iteration:     1   Dual infeasibility =            27.000000
 Iteration:    17   Dual objective     =            66.541412
 LP status(1): optimal
-Cplex Time: 0.00sec (det. 0.08 ticks)
+Cplex Time: 0.01sec (det. 0.08 ticks)
 
 Optimal solution found.
 Objective :          61.205129
@@ -1164,13 +1164,13 @@ Objective :          61.205129
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:04.351
+--- Executing after solve: elapsed 0:00:04.472
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s36
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:04.366
+--- Executing CPLEX: elapsed 0:00:04.491
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -1196,13 +1196,13 @@ Objective :          79.900000
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:04.461
+--- Executing after solve: elapsed 0:00:04.588
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s37
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:04.478
+--- Executing CPLEX: elapsed 0:00:04.607
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -1228,13 +1228,13 @@ Objective :          52.934644
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:04.575
+--- Executing after solve: elapsed 0:00:04.710
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s38
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:04.593
+--- Executing CPLEX: elapsed 0:00:04.727
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -1261,13 +1261,13 @@ Objective :          47.014670
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:04.688
+--- Executing after solve: elapsed 0:00:04.837
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s39
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:04.705
+--- Executing CPLEX: elapsed 0:00:04.853
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -1293,13 +1293,13 @@ Objective :          68.684801
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:04.808
+--- Executing after solve: elapsed 0:00:04.950
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s40
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:04.826
+--- Executing CPLEX: elapsed 0:00:04.968
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -1325,13 +1325,13 @@ Objective :          66.600000
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:04.929
+--- Executing after solve: elapsed 0:00:05.066
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s41
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:04.945
+--- Executing CPLEX: elapsed 0:00:05.083
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -1357,13 +1357,13 @@ Objective :          86.073584
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:05.040
+--- Executing after solve: elapsed 0:00:05.180
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s42
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:05.058
+--- Executing CPLEX: elapsed 0:00:05.195
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -1389,13 +1389,13 @@ Objective :          71.400000
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:05.155
+--- Executing after solve: elapsed 0:00:05.300
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s43
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:05.169
+--- Executing CPLEX: elapsed 0:00:05.313
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -1421,13 +1421,13 @@ Objective :          75.500000
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:05.241
+--- Executing after solve: elapsed 0:00:05.385
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s44
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:05.256
+--- Executing CPLEX: elapsed 0:00:05.402
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -1453,13 +1453,13 @@ Objective :          80.200000
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:05.326
+--- Executing after solve: elapsed 0:00:05.481
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s45
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:05.339
+--- Executing CPLEX: elapsed 0:00:05.492
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -1485,13 +1485,13 @@ Objective :          70.300000
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:05.444
+--- Executing after solve: elapsed 0:00:05.601
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s46
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:05.456
+--- Executing CPLEX: elapsed 0:00:05.616
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -1517,13 +1517,13 @@ Objective :          84.600000
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:05.558
+--- Executing after solve: elapsed 0:00:05.726
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s47
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:05.570
+--- Executing CPLEX: elapsed 0:00:05.737
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -1549,13 +1549,13 @@ Objective :          68.375270
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:05.678
+--- Executing after solve: elapsed 0:00:05.849
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s48
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:05.690
+--- Executing CPLEX: elapsed 0:00:05.865
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -1581,13 +1581,13 @@ Objective :          84.972917
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:05.795
+--- Executing after solve: elapsed 0:00:05.978
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s49
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:05.808
+--- Executing CPLEX: elapsed 0:00:05.989
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -1613,13 +1613,13 @@ Objective :          41.776582
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:05.919
+--- Executing after solve: elapsed 0:00:06.100
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s50
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:05.932
+--- Executing CPLEX: elapsed 0:00:06.114
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -1645,13 +1645,13 @@ Objective :          48.972098
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:06.042
+--- Executing after solve: elapsed 0:00:06.225
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s51
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:06.055
+--- Executing CPLEX: elapsed 0:00:06.236
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -1677,13 +1677,13 @@ Objective :          67.451185
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:06.166
+--- Executing after solve: elapsed 0:00:06.347
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s52
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:06.179
+--- Executing CPLEX: elapsed 0:00:06.363
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -1709,13 +1709,13 @@ Objective :          75.800000
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:06.287
+--- Executing after solve: elapsed 0:00:06.468
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s53
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:06.302
+--- Executing CPLEX: elapsed 0:00:06.482
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -1742,13 +1742,13 @@ Objective :          85.747099
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:06.411
+--- Executing after solve: elapsed 0:00:06.594
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s54
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:06.480
+--- Executing CPLEX: elapsed 0:00:06.675
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -1774,13 +1774,13 @@ Objective :          95.360658
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:06.545
+--- Executing after solve: elapsed 0:00:06.745
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s55
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:06.590
+--- Executing CPLEX: elapsed 0:00:06.783
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -1806,13 +1806,13 @@ Objective :          58.743173
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:06.658
+--- Executing after solve: elapsed 0:00:06.849
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s56
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:06.705
+--- Executing CPLEX: elapsed 0:00:06.896
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -1839,13 +1839,13 @@ Objective :          70.089556
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:06.771
+--- Executing after solve: elapsed 0:00:06.960
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s57
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:06.822
+--- Executing CPLEX: elapsed 0:00:07.012
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -1872,13 +1872,13 @@ Objective :          73.938662
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:06.900
+--- Executing after solve: elapsed 0:00:07.090
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s58
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:06.968
+--- Executing CPLEX: elapsed 0:00:07.162
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -1905,13 +1905,13 @@ Objective :          53.102591
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:07.038
+--- Executing after solve: elapsed 0:00:07.223
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s59
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:07.084
+--- Executing CPLEX: elapsed 0:00:07.269
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -1937,13 +1937,13 @@ Objective :          64.800000
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:07.161
+--- Executing after solve: elapsed 0:00:07.337
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s60
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:07.174
+--- Executing CPLEX: elapsed 0:00:07.352
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -1970,13 +1970,13 @@ Objective :          49.812236
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:07.278
+--- Executing after solve: elapsed 0:00:07.456
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s61
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:07.350
+--- Executing CPLEX: elapsed 0:00:07.528
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -2002,13 +2002,13 @@ Objective :          75.076515
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:07.418
+--- Executing after solve: elapsed 0:00:07.590
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s62
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:07.463
+--- Executing CPLEX: elapsed 0:00:07.642
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -2034,13 +2034,13 @@ Objective :          88.349366
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:07.532
+--- Executing after solve: elapsed 0:00:07.702
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s63
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:07.578
+--- Executing CPLEX: elapsed 0:00:07.759
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -2066,13 +2066,13 @@ Objective :          73.600000
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:07.644
+--- Executing after solve: elapsed 0:00:07.820
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s64
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:07.691
+--- Executing CPLEX: elapsed 0:00:07.875
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -2098,13 +2098,13 @@ Objective :          66.411908
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:07.759
+--- Executing after solve: elapsed 0:00:07.938
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s65
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:07.805
+--- Executing CPLEX: elapsed 0:00:07.989
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -2130,13 +2130,13 @@ Objective :          27.800000
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:07.875
+--- Executing after solve: elapsed 0:00:08.048
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s66
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:07.922
+--- Executing CPLEX: elapsed 0:00:08.103
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -2163,13 +2163,13 @@ Objective :          64.797038
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:07.988
+--- Executing after solve: elapsed 0:00:08.165
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s67
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:08.036
+--- Executing CPLEX: elapsed 0:00:08.216
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -2195,13 +2195,13 @@ Objective :          56.623630
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:08.114
+--- Executing after solve: elapsed 0:00:08.298
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s68
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:08.127
+--- Executing CPLEX: elapsed 0:00:08.309
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -2227,13 +2227,13 @@ Objective :          68.057304
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:08.240
+--- Executing after solve: elapsed 0:00:08.426
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s69
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:08.252
+--- Executing CPLEX: elapsed 0:00:08.437
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -2259,13 +2259,13 @@ Objective :          83.901062
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:08.362
+--- Executing after solve: elapsed 0:00:08.550
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s70
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:08.374
+--- Executing CPLEX: elapsed 0:00:08.564
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -2291,13 +2291,13 @@ Objective :          71.400000
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:08.478
+--- Executing after solve: elapsed 0:00:08.671
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s71
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:08.491
+--- Executing CPLEX: elapsed 0:00:08.682
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -2323,13 +2323,13 @@ Objective :          66.600000
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:08.596
+--- Executing after solve: elapsed 0:00:08.820
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s72
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:08.609
+--- Executing CPLEX: elapsed 0:00:08.831
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -2355,13 +2355,13 @@ Objective :          71.400000
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:08.718
+--- Executing after solve: elapsed 0:00:08.935
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s73
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:08.731
+--- Executing CPLEX: elapsed 0:00:08.951
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -2374,13 +2374,13 @@ Tried aggregator 1 time.
 LP Presolve eliminated 20 rows and 8 columns.
 Aggregator did 2 substitutions.
 Reduced LP has 10 rows, 21 columns, and 35 nonzeros.
-Presolve time = 0.02 sec. (0.02 ticks)
+Presolve time = 0.00 sec. (0.02 ticks)
 
 Iteration log . . .
 Iteration:     1   Dual infeasibility =            19.500000
 Iteration:    15   Dual objective     =            58.295911
 LP status(1): optimal
-Cplex Time: 0.02sec (det. 0.08 ticks)
+Cplex Time: 0.00sec (det. 0.08 ticks)
 
 Optimal solution found.
 Objective :          51.600000
@@ -2388,13 +2388,13 @@ Objective :          51.600000
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:08.842
+--- Executing after solve: elapsed 0:00:09.056
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s74
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:08.907
+--- Executing CPLEX: elapsed 0:00:09.127
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -2422,13 +2422,13 @@ Model has been proven infeasible.
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:08.970
+--- Executing after solve: elapsed 0:00:09.195
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s75
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:09.024
+--- Executing CPLEX: elapsed 0:00:09.247
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -2446,7 +2446,7 @@ Iteration log . . .
 Iteration:     1   Dual infeasibility =            21.000000
 Iteration:    18   Dual objective     =            71.938118
 LP status(1): optimal
-Cplex Time: 0.00sec (det. 0.08 ticks)
+Cplex Time: 0.02sec (det. 0.08 ticks)
 
 Optimal solution found.
 Objective :          66.600000
@@ -2454,13 +2454,13 @@ Objective :          66.600000
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:09.092
+--- Executing after solve: elapsed 0:00:09.321
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s76
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:09.141
+--- Executing CPLEX: elapsed 0:00:09.332
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -2486,13 +2486,13 @@ Objective :          81.917309
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:09.206
+--- Executing after solve: elapsed 0:00:09.451
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s77
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:09.256
+--- Executing CPLEX: elapsed 0:00:09.461
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -2518,13 +2518,13 @@ Objective :          77.740130
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:09.323
+--- Executing after solve: elapsed 0:00:09.571
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s78
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:09.369
+--- Executing CPLEX: elapsed 0:00:09.585
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -2550,13 +2550,13 @@ Objective :          84.600000
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:09.432
+--- Executing after solve: elapsed 0:00:09.701
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s79
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:09.483
+--- Executing CPLEX: elapsed 0:00:09.716
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -2582,13 +2582,13 @@ Objective :          75.500000
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:09.540
+--- Executing after solve: elapsed 0:00:09.816
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s80
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:09.553
+--- Executing CPLEX: elapsed 0:00:09.831
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -2614,13 +2614,13 @@ Objective :          66.600000
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:09.719
+--- Executing after solve: elapsed 0:00:09.944
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s81
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:09.731
+--- Executing CPLEX: elapsed 0:00:09.956
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -2646,13 +2646,13 @@ Objective :          75.716170
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:09.853
+--- Executing after solve: elapsed 0:00:10.022
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s82
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:09.900
+--- Executing CPLEX: elapsed 0:00:10.068
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -2678,13 +2678,13 @@ Objective :          82.035562
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:09.963
+--- Executing after solve: elapsed 0:00:10.136
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s83
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:09.985
+--- Executing CPLEX: elapsed 0:00:10.157
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -2710,13 +2710,13 @@ Objective :          59.000000
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:10.080
+--- Executing after solve: elapsed 0:00:10.249
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s84
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:10.096
+--- Executing CPLEX: elapsed 0:00:10.266
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -2742,13 +2742,13 @@ Objective :          78.000000
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:10.193
+--- Executing after solve: elapsed 0:00:10.363
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s85
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:10.210
+--- Executing CPLEX: elapsed 0:00:10.383
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -2774,13 +2774,13 @@ Objective :          78.000000
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:10.311
+--- Executing after solve: elapsed 0:00:10.483
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s86
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:10.327
+--- Executing CPLEX: elapsed 0:00:10.494
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -2806,13 +2806,13 @@ Objective :          97.553617
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:10.422
+--- Executing after solve: elapsed 0:00:10.596
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s87
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:10.441
+--- Executing CPLEX: elapsed 0:00:10.617
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -2838,13 +2838,13 @@ Objective :          88.700000
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:10.540
+--- Executing after solve: elapsed 0:00:10.718
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s88
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:10.554
+--- Executing CPLEX: elapsed 0:00:10.733
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -2867,13 +2867,13 @@ Objective :          75.800000
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:10.614
+--- Executing after solve: elapsed 0:00:10.793
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s89
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:10.637
+--- Executing CPLEX: elapsed 0:00:10.819
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -2896,13 +2896,13 @@ Objective :          71.400000
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:10.705
+--- Executing after solve: elapsed 0:00:10.895
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s90
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:10.719
+--- Executing CPLEX: elapsed 0:00:10.906
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -2930,13 +2930,13 @@ Model has been proven infeasible.
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:10.797
+--- Executing after solve: elapsed 0:00:10.971
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s91
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:10.809
+--- Executing CPLEX: elapsed 0:00:10.986
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -2965,13 +2965,13 @@ Model has been proven infeasible.
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:10.916
+--- Executing after solve: elapsed 0:00:11.085
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s92
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:10.938
+--- Executing CPLEX: elapsed 0:00:11.105
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -2997,13 +2997,13 @@ Objective :          43.492960
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:11.042
+--- Executing after solve: elapsed 0:00:11.222
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s93
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:11.055
+--- Executing CPLEX: elapsed 0:00:11.236
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -3029,13 +3029,13 @@ Objective :          59.953314
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:11.149
+--- Executing after solve: elapsed 0:00:11.329
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s94
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:11.166
+--- Executing CPLEX: elapsed 0:00:11.346
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -3061,13 +3061,13 @@ Objective :          73.082273
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:11.261
+--- Executing after solve: elapsed 0:00:11.444
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s95
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:11.278
+--- Executing CPLEX: elapsed 0:00:11.460
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -3093,13 +3093,13 @@ Objective :          53.970401
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:11.378
+--- Executing after solve: elapsed 0:00:11.558
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s96
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:11.395
+--- Executing CPLEX: elapsed 0:00:11.575
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -3130,13 +3130,13 @@ Model has been proven infeasible.
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:11.497
+--- Executing after solve: elapsed 0:00:11.677
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s97
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:11.513
+--- Executing CPLEX: elapsed 0:00:11.696
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -3162,13 +3162,13 @@ Objective :          82.400000
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:11.613
+--- Executing after solve: elapsed 0:00:11.798
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s98
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:11.630
+--- Executing CPLEX: elapsed 0:00:11.816
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -3195,13 +3195,13 @@ Objective :          58.238852
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:11.731
+--- Executing after solve: elapsed 0:00:11.913
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s99
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:11.747
+--- Executing CPLEX: elapsed 0:00:11.930
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -3227,13 +3227,13 @@ Objective :          84.600000
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:11.850
+--- Executing after solve: elapsed 0:00:12.045
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s100
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:11.866
+--- Executing CPLEX: elapsed 0:00:12.062
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -3259,13 +3259,13 @@ Objective :          59.000000
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:11.952
+--- Executing after solve: elapsed 0:00:12.170
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s101
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:11.973
+--- Executing CPLEX: elapsed 0:00:12.185
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -3291,13 +3291,13 @@ Objective :          75.800000
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:12.079
+--- Executing after solve: elapsed 0:00:12.276
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s102
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:12.095
+--- Executing CPLEX: elapsed 0:00:12.293
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -3320,13 +3320,13 @@ Objective :          80.200000
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:12.155
+--- Executing after solve: elapsed 0:00:12.348
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s103
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:12.177
+--- Executing CPLEX: elapsed 0:00:12.380
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -3349,13 +3349,13 @@ Objective :          79.900000
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:12.249
+--- Executing after solve: elapsed 0:00:12.453
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s104
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:12.263
+--- Executing CPLEX: elapsed 0:00:12.464
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -3381,13 +3381,13 @@ Objective :          42.780564
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:12.330
+--- Executing after solve: elapsed 0:00:12.544
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s105
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:12.346
+--- Executing CPLEX: elapsed 0:00:12.559
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -3413,13 +3413,13 @@ Objective :          61.220000
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:12.444
+--- Executing after solve: elapsed 0:00:12.664
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s106
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:12.461
+--- Executing CPLEX: elapsed 0:00:12.680
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -3445,13 +3445,13 @@ Objective :          82.400000
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:12.561
+--- Executing after solve: elapsed 0:00:12.781
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s107
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:12.577
+--- Executing CPLEX: elapsed 0:00:12.795
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -3477,13 +3477,13 @@ Objective :          64.789486
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:12.676
+--- Executing after solve: elapsed 0:00:12.892
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s108
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:12.690
+--- Executing CPLEX: elapsed 0:00:12.910
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -3509,13 +3509,13 @@ Objective :          66.600000
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:12.791
+--- Executing after solve: elapsed 0:00:13.030
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s109
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:12.804
+--- Executing CPLEX: elapsed 0:00:13.042
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -3541,13 +3541,13 @@ Objective :          51.600000
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:12.901
+--- Executing after solve: elapsed 0:00:13.129
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s110
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:12.918
+--- Executing CPLEX: elapsed 0:00:13.149
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -3557,9 +3557,9 @@ Starting Cplex...
 Space for names approximately 0.00 Mb
 Use option 'names no' to turn use of names off
 Bound infeasibility column 'X(res.m6)'.
-Presolve time = 0.02 sec. (0.00 ticks)
+Presolve time = 0.00 sec. (0.00 ticks)
 LP status(3): infeasible
-Cplex Time: 0.02sec (det. 0.01 ticks)
+Cplex Time: 0.00sec (det. 0.01 ticks)
 Presolve found the problem infeasible or unbounded.
 Rerunning with presolve turned off.
 
@@ -3575,13 +3575,13 @@ Model has been proven infeasible.
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:13.012
+--- Executing after solve: elapsed 0:00:13.250
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s111
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:13.030
+--- Executing CPLEX: elapsed 0:00:13.265
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -3607,13 +3607,13 @@ Objective :          66.600000
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:13.133
+--- Executing after solve: elapsed 0:00:13.365
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s112
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:13.150
+--- Executing CPLEX: elapsed 0:00:13.385
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -3639,13 +3639,13 @@ Objective :          82.311720
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:13.249
+--- Executing after solve: elapsed 0:00:13.487
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s113
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:13.266
+--- Executing CPLEX: elapsed 0:00:13.502
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -3671,13 +3671,13 @@ Objective :          86.332472
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:13.360
+--- Executing after solve: elapsed 0:00:13.600
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s114
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:13.378
+--- Executing CPLEX: elapsed 0:00:13.615
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -3703,13 +3703,13 @@ Objective :          75.800000
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:13.480
+--- Executing after solve: elapsed 0:00:13.725
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s115
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:13.496
+--- Executing CPLEX: elapsed 0:00:13.743
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -3721,10 +3721,10 @@ Use option 'names no' to turn use of names off
 Tried aggregator 1 time.
 LP Presolve eliminated 20 rows and 7 columns.
 Reduced LP has 12 rows, 24 columns, and 41 nonzeros.
-Presolve time = 0.02 sec. (0.02 ticks)
+Presolve time = 0.00 sec. (0.02 ticks)
 Using devex.
 LP status(1): optimal
-Cplex Time: 0.02sec (det. 0.05 ticks)
+Cplex Time: 0.00sec (det. 0.05 ticks)
 
 Optimal solution found.
 Objective :          75.800000
@@ -3732,13 +3732,13 @@ Objective :          75.800000
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:13.557
+--- Executing after solve: elapsed 0:00:13.797
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s116
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:13.575
+--- Executing CPLEX: elapsed 0:00:13.823
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -3766,13 +3766,13 @@ Model has been proven infeasible.
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:13.654
+--- Executing after solve: elapsed 0:00:13.897
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s117
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:13.716
+--- Executing CPLEX: elapsed 0:00:13.985
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -3799,13 +3799,13 @@ Objective :          47.801013
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:13.796
+--- Executing after solve: elapsed 0:00:14.063
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s118
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:13.860
+--- Executing CPLEX: elapsed 0:00:14.127
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -3831,13 +3831,13 @@ Objective :          68.930536
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:13.925
+--- Executing after solve: elapsed 0:00:14.189
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s119
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:13.974
+--- Executing CPLEX: elapsed 0:00:14.242
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -3863,13 +3863,13 @@ Objective :          63.545776
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:14.041
+--- Executing after solve: elapsed 0:00:14.302
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s120
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:14.088
+--- Executing CPLEX: elapsed 0:00:14.360
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -3895,13 +3895,13 @@ Objective :          84.300000
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:14.160
+--- Executing after solve: elapsed 0:00:14.424
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s121
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:14.206
+--- Executing CPLEX: elapsed 0:00:14.472
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -3928,13 +3928,13 @@ Objective :          44.000000
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:14.275
+--- Executing after solve: elapsed 0:00:14.531
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s122
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:14.343
+--- Executing CPLEX: elapsed 0:00:14.628
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -3960,13 +3960,13 @@ Objective :          70.300000
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:14.464
+--- Executing after solve: elapsed 0:00:14.742
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s123
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:14.477
+--- Executing CPLEX: elapsed 0:00:14.755
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -3992,13 +3992,13 @@ Objective :          82.400000
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:14.572
+--- Executing after solve: elapsed 0:00:14.854
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s124
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:14.589
+--- Executing CPLEX: elapsed 0:00:14.870
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -4021,13 +4021,13 @@ Objective :          82.400000
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:14.652
+--- Executing after solve: elapsed 0:00:14.924
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s125
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:14.676
+--- Executing CPLEX: elapsed 0:00:14.950
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -4050,13 +4050,13 @@ Objective :          84.600000
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:14.749
+--- Executing after solve: elapsed 0:00:15.034
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s126
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:14.762
+--- Executing CPLEX: elapsed 0:00:15.045
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -4082,13 +4082,13 @@ Objective :          84.049809
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:14.827
+--- Executing after solve: elapsed 0:00:15.118
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s127
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:14.844
+--- Executing CPLEX: elapsed 0:00:15.133
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -4114,13 +4114,13 @@ Objective :          56.733606
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:14.945
+--- Executing after solve: elapsed 0:00:15.243
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s128
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:14.961
+--- Executing CPLEX: elapsed 0:00:15.257
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -4146,13 +4146,13 @@ Objective :          86.800000
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:15.055
+--- Executing after solve: elapsed 0:00:15.349
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s129
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:15.071
+--- Executing CPLEX: elapsed 0:00:15.368
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -4175,13 +4175,13 @@ Objective :          71.400000
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:15.124
+--- Executing after solve: elapsed 0:00:15.424
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s130
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:15.160
+--- Executing CPLEX: elapsed 0:00:15.456
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -4209,13 +4209,13 @@ Model has been proven infeasible.
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:15.228
+--- Executing after solve: elapsed 0:00:15.518
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s131
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:15.282
+--- Executing CPLEX: elapsed 0:00:15.575
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -4227,13 +4227,13 @@ Use option 'names no' to turn use of names off
 Tried aggregator 1 time.
 LP Presolve eliminated 20 rows and 7 columns.
 Reduced LP has 12 rows, 24 columns, and 41 nonzeros.
-Presolve time = 0.00 sec. (0.02 ticks)
+Presolve time = 0.01 sec. (0.02 ticks)
 
 Iteration log . . .
 Iteration:     1   Dual infeasibility =            21.500000
 Iteration:    18   Dual objective     =            99.406721
 LP status(1): optimal
-Cplex Time: 0.00sec (det. 0.09 ticks)
+Cplex Time: 0.01sec (det. 0.09 ticks)
 
 Optimal solution found.
 Objective :          95.033606
@@ -4241,13 +4241,13 @@ Objective :          95.033606
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:15.354
+--- Executing after solve: elapsed 0:00:15.647
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s132
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:15.368
+--- Executing CPLEX: elapsed 0:00:15.659
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -4273,13 +4273,13 @@ Objective :          50.549335
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:15.475
+--- Executing after solve: elapsed 0:00:15.769
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s133
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:15.489
+--- Executing CPLEX: elapsed 0:00:15.785
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -4305,13 +4305,13 @@ Objective :          64.044928
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:15.595
+--- Executing after solve: elapsed 0:00:15.887
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s134
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:15.608
+--- Executing CPLEX: elapsed 0:00:15.901
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -4338,13 +4338,13 @@ Objective :          72.227625
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:15.719
+--- Executing after solve: elapsed 0:00:16.009
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s135
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:15.781
+--- Executing CPLEX: elapsed 0:00:16.079
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -4370,13 +4370,13 @@ Objective :          82.400000
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:15.847
+--- Executing after solve: elapsed 0:00:16.139
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s136
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:15.894
+--- Executing CPLEX: elapsed 0:00:16.195
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -4402,13 +4402,13 @@ Objective :          74.512310
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:15.960
+--- Executing after solve: elapsed 0:00:16.256
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s137
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:16.010
+--- Executing CPLEX: elapsed 0:00:16.312
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -4435,13 +4435,13 @@ Objective :          74.705165
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:16.081
+--- Executing after solve: elapsed 0:00:16.379
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s138
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:16.125
+--- Executing CPLEX: elapsed 0:00:16.425
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -4468,13 +4468,13 @@ Objective :          68.778575
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:16.204
+--- Executing after solve: elapsed 0:00:16.500
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s139
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:16.267
+--- Executing CPLEX: elapsed 0:00:16.569
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -4500,13 +4500,13 @@ Objective :          74.323144
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:16.332
+--- Executing after solve: elapsed 0:00:16.634
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s140
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:16.382
+--- Executing CPLEX: elapsed 0:00:16.684
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -4532,13 +4532,13 @@ Objective :          71.297237
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:16.448
+--- Executing after solve: elapsed 0:00:16.752
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s141
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:16.495
+--- Executing CPLEX: elapsed 0:00:16.798
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -4569,13 +4569,13 @@ Model has been proven infeasible.
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:16.561
+--- Executing after solve: elapsed 0:00:16.866
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s142
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:16.622
+--- Executing CPLEX: elapsed 0:00:16.914
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -4602,13 +4602,13 @@ Objective :          51.600000
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:16.692
+--- Executing after solve: elapsed 0:00:16.991
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s143
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:16.735
+--- Executing CPLEX: elapsed 0:00:17.062
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -4634,13 +4634,13 @@ Objective :          80.200000
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:16.817
+--- Executing after solve: elapsed 0:00:17.124
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s144
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:16.830
+--- Executing CPLEX: elapsed 0:00:17.170
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -4667,13 +4667,13 @@ Objective :          54.661842
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:16.934
+--- Executing after solve: elapsed 0:00:17.232
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s145
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:16.997
+--- Executing CPLEX: elapsed 0:00:17.286
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -4701,13 +4701,13 @@ Model has been proven infeasible.
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:17.065
+--- Executing after solve: elapsed 0:00:17.365
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s146
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:17.119
+--- Executing CPLEX: elapsed 0:00:17.434
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -4733,13 +4733,13 @@ Objective :          88.700000
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:17.187
+--- Executing after solve: elapsed 0:00:17.520
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s147
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:17.235
+--- Executing CPLEX: elapsed 0:00:17.532
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -4762,13 +4762,13 @@ Objective :          84.600000
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:17.294
+--- Executing after solve: elapsed 0:00:17.640
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s148
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:17.307
+--- Executing CPLEX: elapsed 0:00:17.651
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -4794,13 +4794,13 @@ Objective :          69.200000
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:17.379
+--- Executing after solve: elapsed 0:00:17.737
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s149
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:17.395
+--- Executing CPLEX: elapsed 0:00:17.752
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -4823,13 +4823,13 @@ Objective :          71.400000
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:17.455
+--- Executing after solve: elapsed 0:00:17.811
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s150
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:17.476
+--- Executing CPLEX: elapsed 0:00:17.852
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -4852,13 +4852,13 @@ Objective :          71.400000
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:17.538
+--- Executing after solve: elapsed 0:00:17.916
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s151
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:17.551
+--- Executing CPLEX: elapsed 0:00:17.927
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -4884,13 +4884,13 @@ Objective :          84.117760
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:17.626
+--- Executing after solve: elapsed 0:00:17.990
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s152
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:17.642
+--- Executing CPLEX: elapsed 0:00:18.007
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -4916,13 +4916,13 @@ Objective :          70.300000
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:17.745
+--- Executing after solve: elapsed 0:00:18.098
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s153
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:17.761
+--- Executing CPLEX: elapsed 0:00:18.118
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -4948,13 +4948,13 @@ Objective :          89.000000
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:17.858
+--- Executing after solve: elapsed 0:00:18.218
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s154
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:17.871
+--- Executing CPLEX: elapsed 0:00:18.231
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -4980,13 +4980,13 @@ Objective :          44.000000
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:17.974
+--- Executing after solve: elapsed 0:00:18.333
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s155
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:17.987
+--- Executing CPLEX: elapsed 0:00:18.348
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -5012,13 +5012,13 @@ Objective :          65.813137
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:18.087
+--- Executing after solve: elapsed 0:00:18.444
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s156
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:18.101
+--- Executing CPLEX: elapsed 0:00:18.461
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -5044,13 +5044,13 @@ Objective :          58.911359
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:18.196
+--- Executing after solve: elapsed 0:00:18.558
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s157
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:18.213
+--- Executing CPLEX: elapsed 0:00:18.577
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -5068,7 +5068,7 @@ Iteration log . . .
 Iteration:     1   Dual infeasibility =            29.200000
 Iteration:    18   Dual objective     =            85.850350
 LP status(1): optimal
-Cplex Time: 0.01sec (det. 0.08 ticks)
+Cplex Time: 0.00sec (det. 0.08 ticks)
 
 Optimal solution found.
 Objective :          79.900000
@@ -5076,13 +5076,13 @@ Objective :          79.900000
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:18.306
+--- Executing after solve: elapsed 0:00:18.690
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s158
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:18.327
+--- Executing CPLEX: elapsed 0:00:18.704
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -5105,13 +5105,13 @@ Objective :          82.400000
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:18.379
+--- Executing after solve: elapsed 0:00:18.760
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s159
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:18.411
+--- Executing CPLEX: elapsed 0:00:18.786
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -5137,13 +5137,13 @@ Objective :          85.800905
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:18.493
+--- Executing after solve: elapsed 0:00:18.870
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s160
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:18.507
+--- Executing CPLEX: elapsed 0:00:18.881
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -5169,13 +5169,13 @@ Objective :          48.960315
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:18.598
+--- Executing after solve: elapsed 0:00:18.998
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s161
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:18.611
+--- Executing CPLEX: elapsed 0:00:19.009
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -5201,13 +5201,13 @@ Objective :          70.139436
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:18.718
+--- Executing after solve: elapsed 0:00:19.124
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s162
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:18.731
+--- Executing CPLEX: elapsed 0:00:19.136
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -5234,13 +5234,13 @@ Objective :          72.273283
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:18.840
+--- Executing after solve: elapsed 0:00:19.242
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s163
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:18.905
+--- Executing CPLEX: elapsed 0:00:19.314
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -5268,13 +5268,13 @@ Model has been proven infeasible.
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:18.973
+--- Executing after solve: elapsed 0:00:19.376
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s164
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:19.022
+--- Executing CPLEX: elapsed 0:00:19.431
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -5300,13 +5300,13 @@ Objective :          80.200000
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:19.101
+--- Executing after solve: elapsed 0:00:19.507
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s165
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:19.114
+--- Executing CPLEX: elapsed 0:00:19.517
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -5332,13 +5332,13 @@ Objective :          40.003847
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:19.218
+--- Executing after solve: elapsed 0:00:19.634
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s166
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:19.231
+--- Executing CPLEX: elapsed 0:00:19.645
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -5364,13 +5364,13 @@ Objective :          64.800000
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:19.344
+--- Executing after solve: elapsed 0:00:19.758
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s167
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:19.358
+--- Executing CPLEX: elapsed 0:00:19.774
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -5397,13 +5397,13 @@ Objective :          64.271821
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:19.455
+--- Executing after solve: elapsed 0:00:19.886
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s168
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:19.516
+--- Executing CPLEX: elapsed 0:00:19.954
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -5429,13 +5429,13 @@ Objective :          70.300000
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:19.584
+--- Executing after solve: elapsed 0:00:20.022
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s169
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:19.633
+--- Executing CPLEX: elapsed 0:00:20.065
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -5461,13 +5461,13 @@ Objective :          40.043215
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:19.701
+--- Executing after solve: elapsed 0:00:20.132
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s170
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:19.745
+--- Executing CPLEX: elapsed 0:00:20.186
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -5493,13 +5493,13 @@ Objective :          64.800000
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:19.808
+--- Executing after solve: elapsed 0:00:20.250
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s171
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:19.859
+--- Executing CPLEX: elapsed 0:00:20.295
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -5526,13 +5526,13 @@ Objective :          80.032765
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:19.924
+--- Executing after solve: elapsed 0:00:20.358
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s172
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:19.973
+--- Executing CPLEX: elapsed 0:00:20.415
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -5559,13 +5559,13 @@ Objective :          79.613749
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:20.054
+--- Executing after solve: elapsed 0:00:20.502
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s173
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:20.108
+--- Executing CPLEX: elapsed 0:00:20.565
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -5591,13 +5591,13 @@ Objective :          58.808108
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:20.180
+--- Executing after solve: elapsed 0:00:20.629
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s174
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:20.224
+--- Executing CPLEX: elapsed 0:00:20.682
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -5623,13 +5623,13 @@ Objective :          64.800000
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:20.294
+--- Executing after solve: elapsed 0:00:20.746
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s175
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:20.344
+--- Executing CPLEX: elapsed 0:00:20.800
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -5647,7 +5647,7 @@ Iteration log . . .
 Iteration:     1   Dual infeasibility =            26.300000
 Iteration:    22   Dual objective     =            90.499068
 LP status(1): optimal
-Cplex Time: 0.00sec (det. 0.08 ticks)
+Cplex Time: 0.02sec (det. 0.08 ticks)
 
 Optimal solution found.
 Objective :          84.600000
@@ -5655,13 +5655,13 @@ Objective :          84.600000
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:20.418
+--- Executing after solve: elapsed 0:00:20.869
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s176
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:20.453
+--- Executing CPLEX: elapsed 0:00:20.910
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -5679,7 +5679,7 @@ Iteration log . . .
 Iteration:     1   Dual infeasibility =            22.500000
 Iteration:    16   Dual objective     =           103.400000
 LP status(1): optimal
-Cplex Time: 0.00sec (det. 0.08 ticks)
+Cplex Time: 0.01sec (det. 0.08 ticks)
 
 Optimal solution found.
 Objective :          75.500000
@@ -5687,13 +5687,13 @@ Objective :          75.500000
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:20.521
+--- Executing after solve: elapsed 0:00:20.972
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s177
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:20.568
+--- Executing CPLEX: elapsed 0:00:21.023
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -5719,13 +5719,13 @@ Objective :          75.500000
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:20.624
+--- Executing after solve: elapsed 0:00:21.082
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s178
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:20.639
+--- Executing CPLEX: elapsed 0:00:21.096
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -5753,13 +5753,13 @@ Model has been proven infeasible.
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:20.743
+--- Executing after solve: elapsed 0:00:21.199
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s179
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:20.806
+--- Executing CPLEX: elapsed 0:00:21.265
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -5785,13 +5785,13 @@ Objective :          75.500000
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:20.885
+--- Executing after solve: elapsed 0:00:21.350
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s180
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:20.898
+--- Executing CPLEX: elapsed 0:00:21.362
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -5814,13 +5814,13 @@ Objective :          84.300000
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:21.000
+--- Executing after solve: elapsed 0:00:21.482
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s181
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:21.014
+--- Executing CPLEX: elapsed 0:00:21.496
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -5846,13 +5846,13 @@ Objective :          51.600000
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:21.090
+--- Executing after solve: elapsed 0:00:21.567
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s182
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:21.109
+--- Executing CPLEX: elapsed 0:00:21.582
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -5878,13 +5878,13 @@ Objective :          69.975726
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:21.211
+--- Executing after solve: elapsed 0:00:21.680
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s183
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:21.225
+--- Executing CPLEX: elapsed 0:00:21.701
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -5910,13 +5910,13 @@ Objective :          66.600000
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:21.327
+--- Executing after solve: elapsed 0:00:21.804
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s184
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:21.340
+--- Executing CPLEX: elapsed 0:00:21.819
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -5942,13 +5942,13 @@ Objective :          66.463247
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:21.438
+--- Executing after solve: elapsed 0:00:21.912
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s185
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:21.453
+--- Executing CPLEX: elapsed 0:00:21.932
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -5975,13 +5975,13 @@ Objective :          82.473535
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:21.546
+--- Executing after solve: elapsed 0:00:22.040
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s186
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:21.563
+--- Executing CPLEX: elapsed 0:00:22.053
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -6008,13 +6008,13 @@ Objective :          81.641087
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:21.673
+--- Executing after solve: elapsed 0:00:22.163
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s187
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:21.687
+--- Executing CPLEX: elapsed 0:00:22.178
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -6040,13 +6040,13 @@ Objective :          64.629662
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:21.790
+--- Executing after solve: elapsed 0:00:22.278
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s188
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:21.803
+--- Executing CPLEX: elapsed 0:00:22.296
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -6072,13 +6072,13 @@ Objective :          84.527422
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:21.907
+--- Executing after solve: elapsed 0:00:22.398
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s189
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:21.922
+--- Executing CPLEX: elapsed 0:00:22.412
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -6109,13 +6109,13 @@ Model has been proven infeasible.
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:22.012
+--- Executing after solve: elapsed 0:00:22.514
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s190
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:22.030
+--- Executing CPLEX: elapsed 0:00:22.530
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -6141,13 +6141,13 @@ Objective :          59.000000
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:22.141
+--- Executing after solve: elapsed 0:00:22.632
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s191
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:22.155
+--- Executing CPLEX: elapsed 0:00:22.653
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -6174,13 +6174,13 @@ Objective :          66.834420
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:22.250
+--- Executing after solve: elapsed 0:00:22.768
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s192
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:22.270
+--- Executing CPLEX: elapsed 0:00:22.788
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -6206,13 +6206,13 @@ Objective :          79.900000
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:22.377
+--- Executing after solve: elapsed 0:00:22.884
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s193
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:22.391
+--- Executing CPLEX: elapsed 0:00:22.899
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -6238,13 +6238,13 @@ Objective :          75.500000
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:22.458
+--- Executing after solve: elapsed 0:00:22.972
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s194
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:22.473
+--- Executing CPLEX: elapsed 0:00:22.985
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -6267,13 +6267,13 @@ Objective :          79.900000
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:22.555
+--- Executing after solve: elapsed 0:00:23.072
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s195
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:22.568
+--- Executing CPLEX: elapsed 0:00:23.083
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -6296,13 +6296,13 @@ Objective :          75.800000
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:22.628
+--- Executing after solve: elapsed 0:00:23.149
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s196
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:22.645
+--- Executing CPLEX: elapsed 0:00:23.164
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -6328,13 +6328,13 @@ Objective :          77.694692
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:22.748
+--- Executing after solve: elapsed 0:00:23.280
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s197
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:22.765
+--- Executing CPLEX: elapsed 0:00:23.291
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -6360,13 +6360,13 @@ Objective :          75.500000
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:22.872
+--- Executing after solve: elapsed 0:00:23.388
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s198
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:22.886
+--- Executing CPLEX: elapsed 0:00:23.409
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -6392,13 +6392,13 @@ Objective :          79.208173
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:22.986
+--- Executing after solve: elapsed 0:00:23.504
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s199
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:23.003
+--- Executing CPLEX: elapsed 0:00:23.520
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -6424,13 +6424,13 @@ Objective :          85.988142
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:23.102
+--- Executing after solve: elapsed 0:00:23.615
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s200
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:23.119
+--- Executing CPLEX: elapsed 0:00:23.635
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -6457,13 +6457,13 @@ Objective :          70.440863
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:23.213
+--- Executing after solve: elapsed 0:00:23.737
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s201
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:23.230
+--- Executing CPLEX: elapsed 0:00:23.753
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -6494,13 +6494,13 @@ Model has been proven infeasible.
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:23.336
+--- Executing after solve: elapsed 0:00:23.870
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s202
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:23.356
+--- Executing CPLEX: elapsed 0:00:23.886
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -6518,7 +6518,7 @@ Iteration log . . .
 Iteration:     1   Dual infeasibility =            30.800000
 Iteration:    20   Dual objective     =            74.286727
 LP status(1): optimal
-Cplex Time: 0.00sec (det. 0.09 ticks)
+Cplex Time: 0.02sec (det. 0.09 ticks)
 
 Optimal solution found.
 Objective :          70.300000
@@ -6526,13 +6526,13 @@ Objective :          70.300000
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:23.457
+--- Executing after solve: elapsed 0:00:23.980
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s203
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:23.471
+--- Executing CPLEX: elapsed 0:00:24.001
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -6558,13 +6558,13 @@ Objective :          51.600000
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:23.576
+--- Executing after solve: elapsed 0:00:24.101
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s204
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:23.590
+--- Executing CPLEX: elapsed 0:00:24.117
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -6592,13 +6592,13 @@ Model has been proven infeasible.
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:23.690
+--- Executing after solve: elapsed 0:00:24.223
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s205
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:23.704
+--- Executing CPLEX: elapsed 0:00:24.237
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -6624,13 +6624,13 @@ Objective :          64.800000
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:23.808
+--- Executing after solve: elapsed 0:00:24.352
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s206
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:23.823
+--- Executing CPLEX: elapsed 0:00:24.364
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -6656,13 +6656,13 @@ Objective :          82.400000
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:23.916
+--- Executing after solve: elapsed 0:00:24.456
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s207
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:23.937
+--- Executing CPLEX: elapsed 0:00:24.470
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -6690,13 +6690,13 @@ Model has been proven infeasible.
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:24.048
+--- Executing after solve: elapsed 0:00:24.574
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s208
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:24.066
+--- Executing CPLEX: elapsed 0:00:24.588
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -6722,13 +6722,13 @@ Objective :          80.518648
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:24.166
+--- Executing after solve: elapsed 0:00:24.692
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s209
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:24.183
+--- Executing CPLEX: elapsed 0:00:24.710
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -6754,13 +6754,13 @@ Objective :          51.600000
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:24.280
+--- Executing after solve: elapsed 0:00:24.813
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s210
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:24.297
+--- Executing CPLEX: elapsed 0:00:24.824
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -6788,13 +6788,13 @@ Model has been proven infeasible.
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:24.380
+--- Executing after solve: elapsed 0:00:24.917
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s211
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:24.400
+--- Executing CPLEX: elapsed 0:00:24.937
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -6820,13 +6820,13 @@ Objective :          86.797383
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:24.507
+--- Executing after solve: elapsed 0:00:25.050
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s212
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:24.527
+--- Executing CPLEX: elapsed 0:00:25.072
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -6852,13 +6852,13 @@ Objective :          82.400000
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:24.631
+--- Executing after solve: elapsed 0:00:25.169
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s213
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:24.650
+--- Executing CPLEX: elapsed 0:00:25.184
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -6885,13 +6885,13 @@ Objective :          43.920970
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:24.745
+--- Executing after solve: elapsed 0:00:25.286
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s214
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:24.762
+--- Executing CPLEX: elapsed 0:00:25.306
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -6917,13 +6917,13 @@ Objective :          64.800000
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:24.865
+--- Executing after solve: elapsed 0:00:25.400
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s215
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:24.883
+--- Executing CPLEX: elapsed 0:00:25.417
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -6951,13 +6951,13 @@ Model has been proven infeasible.
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:24.978
+--- Executing after solve: elapsed 0:00:25.521
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s216
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:25.000
+--- Executing CPLEX: elapsed 0:00:25.537
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -6986,13 +6986,13 @@ Model has been proven infeasible.
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:25.096
+--- Executing after solve: elapsed 0:00:25.637
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s217
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:25.114
+--- Executing CPLEX: elapsed 0:00:25.661
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -7019,13 +7019,13 @@ Objective :          43.412573
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:25.225
+--- Executing after solve: elapsed 0:00:25.777
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s218
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:25.241
+--- Executing CPLEX: elapsed 0:00:25.799
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -7051,13 +7051,13 @@ Objective :          71.400000
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:25.348
+--- Executing after solve: elapsed 0:00:25.900
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s219
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:25.362
+--- Executing CPLEX: elapsed 0:00:25.914
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -7083,13 +7083,13 @@ Objective :          56.644908
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:25.449
+--- Executing after solve: elapsed 0:00:26.009
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s220
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:25.468
+--- Executing CPLEX: elapsed 0:00:26.027
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -7115,13 +7115,13 @@ Objective :          51.600000
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:25.574
+--- Executing after solve: elapsed 0:00:26.133
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s221
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:25.587
+--- Executing CPLEX: elapsed 0:00:26.153
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -7148,13 +7148,13 @@ Objective :          70.300000
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:25.686
+--- Executing after solve: elapsed 0:00:26.258
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s222
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:25.701
+--- Executing CPLEX: elapsed 0:00:26.272
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -7180,13 +7180,13 @@ Objective :          53.353526
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:25.808
+--- Executing after solve: elapsed 0:00:26.373
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s223
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:25.823
+--- Executing CPLEX: elapsed 0:00:26.391
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -7217,13 +7217,13 @@ Model has been proven infeasible.
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:25.915
+--- Executing after solve: elapsed 0:00:26.494
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s224
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:25.931
+--- Executing CPLEX: elapsed 0:00:26.513
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -7249,13 +7249,13 @@ Objective :          64.702301
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:26.036
+--- Executing after solve: elapsed 0:00:26.619
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s225
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:26.052
+--- Executing CPLEX: elapsed 0:00:26.638
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -7281,13 +7281,13 @@ Objective :          51.323065
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:26.143
+--- Executing after solve: elapsed 0:00:26.728
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s226
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:26.164
+--- Executing CPLEX: elapsed 0:00:26.746
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -7313,13 +7313,13 @@ Objective :          75.734623
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:26.266
+--- Executing after solve: elapsed 0:00:26.848
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s227
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:26.283
+--- Executing CPLEX: elapsed 0:00:26.873
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -7346,13 +7346,13 @@ Objective :          51.600000
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:26.381
+--- Executing after solve: elapsed 0:00:26.968
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s228
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:26.400
+--- Executing CPLEX: elapsed 0:00:26.983
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -7379,13 +7379,13 @@ Objective :          62.614470
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:26.507
+--- Executing after solve: elapsed 0:00:27.082
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s229
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:26.524
+--- Executing CPLEX: elapsed 0:00:27.101
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -7412,13 +7412,13 @@ Objective :          83.724144
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:26.628
+--- Executing after solve: elapsed 0:00:27.210
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s230
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:26.644
+--- Executing CPLEX: elapsed 0:00:27.223
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -7444,13 +7444,13 @@ Objective :          86.481143
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:26.746
+--- Executing after solve: elapsed 0:00:27.333
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s231
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:26.760
+--- Executing CPLEX: elapsed 0:00:27.349
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -7473,13 +7473,13 @@ Objective :          75.531905
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:26.823
+--- Executing after solve: elapsed 0:00:27.405
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s232
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:26.840
+--- Executing CPLEX: elapsed 0:00:27.434
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -7505,13 +7505,13 @@ Objective :          51.600000
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:26.907
+--- Executing after solve: elapsed 0:00:27.514
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s233
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:26.955
+--- Executing CPLEX: elapsed 0:00:27.526
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -7537,13 +7537,13 @@ Objective :          84.300000
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:27.024
+--- Executing after solve: elapsed 0:00:27.642
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s234
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:27.069
+--- Executing CPLEX: elapsed 0:00:27.654
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -7571,13 +7571,13 @@ Model has been proven infeasible.
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:27.136
+--- Executing after solve: elapsed 0:00:27.762
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s235
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:27.194
+--- Executing CPLEX: elapsed 0:00:27.829
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -7603,13 +7603,13 @@ Objective :          75.500000
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:27.265
+--- Executing after solve: elapsed 0:00:27.937
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s236
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:27.309
+--- Executing CPLEX: elapsed 0:00:27.959
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -7637,13 +7637,13 @@ Model has been proven infeasible.
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:27.376
+--- Executing after solve: elapsed 0:00:28.036
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s237
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:27.429
+--- Executing CPLEX: elapsed 0:00:28.095
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -7670,13 +7670,13 @@ Objective :          31.292965
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:27.500
+--- Executing after solve: elapsed 0:00:28.180
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s238
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:27.547
+--- Executing CPLEX: elapsed 0:00:28.235
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -7702,13 +7702,13 @@ Objective :          79.719262
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:27.619
+--- Executing after solve: elapsed 0:00:28.310
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s239
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:27.632
+--- Executing CPLEX: elapsed 0:00:28.353
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -7734,13 +7734,13 @@ Objective :          70.300000
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:27.745
+--- Executing after solve: elapsed 0:00:28.418
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s240
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:27.759
+--- Executing CPLEX: elapsed 0:00:28.470
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -7767,13 +7767,13 @@ Objective :          48.372984
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:27.868
+--- Executing after solve: elapsed 0:00:28.551
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s241
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:27.927
+--- Executing CPLEX: elapsed 0:00:28.581
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -7792,7 +7792,7 @@ Iteration log . . .
 Iteration:     1   Dual infeasibility =            29.100000
 Iteration:    16   Dual objective     =            40.696497
 LP status(1): optimal
-Cplex Time: 0.01sec (det. 0.08 ticks)
+Cplex Time: 0.00sec (det. 0.08 ticks)
 
 Optimal solution found.
 Objective :          30.981319
@@ -7800,13 +7800,13 @@ Objective :          30.981319
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:27.988
+--- Executing after solve: elapsed 0:00:28.653
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s242
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:28.043
+--- Executing CPLEX: elapsed 0:00:28.706
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -7832,13 +7832,13 @@ Objective :          71.340573
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:28.118
+--- Executing after solve: elapsed 0:00:28.771
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s243
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:28.130
+--- Executing CPLEX: elapsed 0:00:28.818
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -7864,13 +7864,13 @@ Objective :          70.300000
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:28.241
+--- Executing after solve: elapsed 0:00:28.880
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s244
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:28.255
+--- Executing CPLEX: elapsed 0:00:28.938
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -7896,13 +7896,13 @@ Objective :          80.200000
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:28.367
+--- Executing after solve: elapsed 0:00:29.006
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s245
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:28.381
+--- Executing CPLEX: elapsed 0:00:29.098
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -7929,13 +7929,13 @@ Objective :          64.800000
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:28.488
+--- Executing after solve: elapsed 0:00:29.167
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s246
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:28.550
+--- Executing CPLEX: elapsed 0:00:29.217
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -7961,13 +7961,13 @@ Objective :          75.772696
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:28.610
+--- Executing after solve: elapsed 0:00:29.300
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s247
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:28.663
+--- Executing CPLEX: elapsed 0:00:29.314
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -7993,13 +7993,13 @@ Objective :          71.140178
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:28.732
+--- Executing after solve: elapsed 0:00:29.424
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s248
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:28.778
+--- Executing CPLEX: elapsed 0:00:29.439
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -8025,13 +8025,13 @@ Objective :          71.400000
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:28.844
+--- Executing after solve: elapsed 0:00:29.551
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s249
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:28.892
+--- Executing CPLEX: elapsed 0:00:29.562
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -8057,13 +8057,13 @@ Objective :          64.431140
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:28.956
+--- Executing after solve: elapsed 0:00:29.680
 --- HW4-MonteCarlo.gms(208) 3 Mb
 --- Generating LP model EconBen
 --- HW4-MonteCarlo.gms(219) 3 Mb
 --- LOOPS s = s250
 ---   32 rows  31 columns  79 non-zeroes
---- Executing CPLEX: elapsed 0:00:29.007
+--- Executing CPLEX: elapsed 0:00:29.692
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
 Cplex 12.6.0.0
@@ -8091,8 +8091,7 @@ Model has been proven infeasible.
 --- Restarting execution
 --- HW4-MonteCarlo.gms(219) 2 Mb
 --- Reading solution for model EconBen
---- Executing after solve: elapsed 0:00:29.080
+--- Executing after solve: elapsed 0:00:29.818
 --- HW4-MonteCarlo.gms(231) 3 Mb
-GDX2XLS          24.2.3 r46072 Released May 22, 2014 VS8 x86/MS Windows       
 *** Status: Normal completion
---- Job HW4-MonteCarlo.gms Stop 10/29/20 23:07:09 elapsed 0:00:33.177
+--- Job HW4-MonteCarlo.gms Stop 10/30/20 10:25:52 elapsed 0:00:49.099

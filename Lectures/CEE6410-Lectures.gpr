@@ -155,6 +155,9 @@ PlaneRownr=-1
 [RP:EX19-5]
 1=
 
+[RP:HW4-MONTECARLO]
+1=
+
 [MRUFILES]
 1=C:\Rosenberg\Work\USU\Classes\CEE6410\Fall2020\CEE6410-Rosenberg-GitHub\CEE-6410-Rosenberg\Lectures\tsp1.gms
 2=C:\Rosenberg\Work\USU\Classes\CEE6410\Fall2020\CEE6410-Rosenberg-GitHub\CEE-6410-Rosenberg\Lectures\ExChevyFunction.lst
@@ -168,10 +171,12 @@ PlaneRownr=-1
 [OPENWINDOW_1]
 FILE0=C:\Rosenberg\Work\USU\Classes\CEE6410\Fall2020\CEE6410-Rosenberg-GitHub\CEE-6410-Rosenberg\Lectures\Ex19-5.gms
 FILE1=C:\Rosenberg\Work\USU\Classes\CEE6410\Fall2020\CEE6410-Rosenberg-GitHub\CEE-6410-Rosenberg\Lectures\Ex19-5.lst
-FILE2=C:\Rosenberg\Work\USU\Classes\CEE6410\Fall2020\CEE6410-Rosenberg-GitHub\CEE-6410-Rosenberg\Lectures\HW5-Ex7-1.lst
-FILE3=C:\Rosenberg\Work\USU\Classes\CEE6410\Fall2020\Homework\HW5-Ex7-1.gms
+FILE2=C:\Rosenberg\Work\USU\Classes\CEE6410\Fall2020\CEE6410-Rosenberg-GitHub\CEE-6410-Rosenberg\Lectures\HW4-MonteCarlo.gms
+FILE3=C:\Rosenberg\Work\USU\Classes\CEE6410\Fall2020\CEE6410-Rosenberg-GitHub\CEE-6410-Rosenberg\Lectures\HW4-MonteCarlo.lst
 FILE4=C:\Rosenberg\Work\USU\Classes\CEE6410\Fall2020\CEE6410-Rosenberg-GitHub\CEE-6410-Rosenberg\Lectures\HW5-Ex7-1.lst
-MAXIM=0
+FILE5=C:\Rosenberg\Work\USU\Classes\CEE6410\Fall2020\Homework\HW5-Ex7-1.gms
+FILE6=C:\Rosenberg\Work\USU\Classes\CEE6410\Fall2020\CEE6410-Rosenberg-GitHub\CEE-6410-Rosenberg\Lectures\HW4-MonteCarlo.lst
+MAXIM=1
 TOP=378
 LEFT=50
 HEIGHT=400
