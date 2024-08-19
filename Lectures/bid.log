@@ -1,0 +1,98 @@
+
+--- Job bid.gms Start 02/17/22 11:17:12 24.2.3 r46072 WEX-WEI x86_64/MS Windows
+GAMS 24.2.3   Copyright (C) 1987-2014 GAMS Development. All rights reserved
+Licensee: Utah Water Research Laboratory (5 user)        G140130:1517AV-GEN
+          Utah State University                                      DC7087
+          License for teaching and research at degree granting institutions
+--- Starting compilation
+--- bid.gms(70) 3 Mb
+--- Starting execution: elapsed 0:00:00.003
+--- bid.gms(69) 4 Mb
+--- Generating MIP model bideval
+--- bid.gms(69) 4 Mb
+---   25 rows  19 columns  68 non-zeroes
+---   9 discrete-columns
+--- Executing CPLEX: elapsed 0:00:00.011
+
+IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
+Cplex 12.6.0.0
+
+Reading data...
+Starting Cplex...
+Space for names approximately 0.00 Mb
+Use option 'names no' to turn use of names off
+Tried aggregator 2 times.
+MIP Presolve eliminated 8 rows and 1 columns.
+Aggregator did 2 substitutions.
+Reduced MIP has 15 rows, 16 columns, and 46 nonzeros.
+Reduced MIP has 8 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (0.04 ticks)
+Found incumbent of value 1.5244749e+007 after 0.00 sec. (0.07 ticks)
+Probing time = 0.00 sec. (0.01 ticks)
+Tried aggregator 1 time.
+Reduced MIP has 15 rows, 16 columns, and 46 nonzeros.
+Reduced MIP has 8 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (0.03 ticks)
+Probing time = 0.00 sec. (0.01 ticks)
+Clique table members: 2.
+MIP emphasis: balance optimality and feasibility.
+MIP search method: dynamic search.
+Parallel mode: none, using 1 thread.
+Tried aggregator 1 time.
+LP Presolve eliminated 7 rows and 3 columns.
+Aggregator did 4 substitutions.
+Reduced LP has 4 rows, 9 columns, and 24 nonzeros.
+Presolve time = 0.06 sec. (0.01 ticks)
+
+Iteration      Dual Objective            In Variable           Out Variable
+     1        15075921.306285                pl(b.4)       minpl(b.1) slack
+Initializing dual steep norms . . .
+Root relaxation solution time = 0.06 sec. (0.02 ticks)
+
+        Nodes                                         Cuts/
+   Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+
+*     0+    0                      1.52447e+007  1.33469e+007        1   12.45%
+Found incumbent of value 1.5244749e+007 after 0.06 sec. (0.16 ticks)
+      0     0  1.50759e+007     1  1.52447e+007  1.50759e+007        1    1.11%
+*     0+    0                      1.52101e+007  1.50889e+007        2    0.80%
+Found incumbent of value 1.5210110e+007 after 0.06 sec. (0.18 ticks)
+      0     0  1.51934e+007     1  1.52101e+007       Cuts: 4        8    0.11%
+      0     0        cutoff        1.52101e+007                     11    0.00%
+Elapsed time = 0.08 sec. (0.27 ticks, tree = 0.00 MB, solutions = 2)
+
+Implied bound cuts applied:  1
+Flow cuts applied:  1
+Mixed integer rounding cuts applied:  1
+Gomory fractional cuts applied:  1
+
+Root node processing (before b&c):
+  Real time             =    0.08 sec. (0.27 ticks)
+Sequential b&c:
+  Real time             =    0.00 sec. (0.00 ticks)
+                          ------------
+Total (root+branch&cut) =    0.08 sec. (0.27 ticks)
+MIP status(101): integer optimal solution
+Cplex Time: 0.08sec (det. 0.27 ticks)
+Fixing integer variables, and solving final LP...
+Tried aggregator 1 time.
+LP Presolve eliminated 25 rows and 19 columns.
+All rows and columns eliminated.
+Presolve time = 0.00 sec. (0.01 ticks)
+Fixed MIP status(1): optimal
+Cplex Time: 0.00sec (det. 0.02 ticks)
+
+Proven optimal solution.
+
+MIP Solution:     15210109.512000    (11 iterations, 0 nodes)
+Final Solve:      15210109.512000    (0 iterations)
+
+Best possible:    15210109.512000
+Absolute gap:            0.000000
+Relative gap:            0.000000
+
+--- Restarting execution
+--- bid.gms(69) 2 Mb
+--- Reading solution for model bideval
+*** Status: Normal completion
+--- Job bid.gms Stop 02/17/22 11:17:12 elapsed 0:00:00.201

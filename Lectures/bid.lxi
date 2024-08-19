@@ -1,0 +1,23 @@
+B 2 C o m p i l a t i o n
+B 78 E x e c u t i o n
+I 79 bid
+B 97 Equation Listing    SOLVE bideval Using MIP From line 69
+D 98 demand
+D 106 costdef
+D 119 minpl
+D 130 maxpl
+D 141 oneonly
+B 154 Column Listing      SOLVE bideval Using MIP From line 69
+E 155 c
+E 163 pl
+E 188 plb
+B 214 Model Statistics    SOLVE bideval Using MIP From line 69
+B 230 Solution Report     SOLVE bideval Using MIP From line 69
+F 268 demand
+F 269 costdef
+F 278 minpl
+F 292 maxpl
+F 306 oneonly
+G 311 c
+G 317 pl
+G 331 plb

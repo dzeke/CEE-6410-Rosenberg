@@ -1,34 +1,36 @@
 B 2 C o m p i l a t i o n
-B 271 Equation Listing    SOLVE EconBen Using LP From line 110
-D 272 WatBENEFIT
-D 283 ResBalance
-D 300 ResCapacity
-D 311 EndStorage
-D 316 HydropowerCap
-D 327 RiverBalance
-D 344 MinFlowA
-B 357 Column Listing      SOLVE EconBen Using LP From line 110
-E 358 X
-E 381 TotalBen
-B 390 Model Statistics    SOLVE EconBen Using LP From line 110
-B 406 Solution Report     SOLVE EconBen Using LP From line 110
-F 435 WatBENEFIT
-F 444 ResBalance
-F 455 ResCapacity
-F 464 EndStorage
-F 472 HydropowerCap
-F 483 RiverBalance
-F 494 MinFlowA
-G 500 X
-G 535 TotalBen
-B 548 E x e c u t i o n
-I 549 FlowCumProb
-I 556 CumFlowTranProb
-I 568 InitStorS
-I 622 CDFSampleS
-I 879 FlowStateS
-I 1136 InflowS
-I 1392 FlowAtAS
-I 1448 NetBenS
-I 1499 ModStat
-I 1553 SolStat
+B 286 Equation Listing    SOLVE EconBen Using LP From line 110
+D 287 WatBENEFIT
+D 298 ResBalance
+D 315 ResCapacity
+D 326 EndStorage
+D 331 HydropowerCap
+D 342 RiverBalance
+D 359 MinFlowA
+B 372 Column Listing      SOLVE EconBen Using LP From line 110
+E 373 X
+E 396 TotalBen
+B 405 Model Statistics    SOLVE EconBen Using LP From line 110
+B 421 Solution Report     SOLVE EconBen Using LP From line 110
+F 450 WatBENEFIT
+F 459 ResBalance
+F 470 ResCapacity
+F 479 EndStorage
+F 487 HydropowerCap
+F 498 RiverBalance
+F 509 MinFlowA
+G 515 X
+G 550 TotalBen
+B 563 E x e c u t i o n
+I 564 FlowCumProb
+I 571 CumFlowTranProb
+I 583 InitStorS
+I 637 CDFSampleS
+I 894 FlowStateS
+I 1151 InflowS
+I 1407 FlowAtAS
+I 1463 NetBenS
+I 1514 ModStat
+I 1568 SolStat
+I 1623 AvgIB
+I 1625 AvgNB

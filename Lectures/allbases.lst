@@ -1,0 +1,153 @@
+GAMS 24.2.3  r46072 Released May 22, 2014 WEX-WEI x86_64/MS Windows 02/17/22 11:09:02 Page 1
+Enumerate all Feasible Basic Solutions of the Transportation Problem (ALLBASES,SEQ=396)
+C o m p i l a t i o n
+
+
+       
+      This problem finds a least cost shipping schedule that meets
+      requirements at markets and supplies at factories. We reformulte in standa
+      rd
+      form use binary variables to determine if a variable belongs to the basis 
+      or
+      not. Then we use binary cuts to enumerate all feasible basic solutions in 
+      the
+      sort order of the objective function.
+       
+      Dantzig, G B, Chapter 3.3. In Linear Programming and Extensions.
+      Princeton University Press, Princeton, New Jersey, 1963.
+       
+  14   
+  15   
+  16    Sets
+  17         i   canning plants   / seattle, san-diego /
+  18         j   markets          / new-york, chicago, topeka / ;
+  19   
+  20    Parameters
+  21   
+  22         a(i)  capacity of plant i in cases
+  23           /    seattle     350
+  24                san-diego   600  /
+  25   
+  26         b(j)  demand at market j in cases
+  27           /    new-york    325
+  28                chicago     300
+  29                topeka      275  / ;
+  30   
+  31    Table d(i,j)  distance in thousands of miles
+  32                      new-york       chicago      topeka
+  33        seattle          2.5           1.7          1.8
+  34        san-diego        2.5           1.8          1.4  ;
+  35   
+  36    Scalar f  freight in dollars per case per thousand miles  /90/ ;
+  37   
+  38    Parameter c(i,j)  transport cost in thousands of dollars per case ;
+  39   
+  40              c(i,j) = f * d(i,j) / 1000 ;
+  41   
+  42    Variables
+  43         x(i,j)      shipment quantities in cases
+  44         z           total transportation costs in thousands of dollars
+  45         sslack(i)   slack for supply constraint
+  46         dslack(j)   slack for demand constraint
+  47   
+  48   
+  49    Positive Variable x, sslack, dslack;
+  50   
+  51    Equations
+  52         cost        define objective function
+  53         supply(i)   observe supply limit at plant i
+  54         demand(j)   satisfy demand at market j ;
+  55   
+  56    cost ..        z  =e=  sum((i,j), c(i,j)*x(i,j)) ;
+  57   
+  58    supply(i) ..   sum(j, x(i,j))  =e=  a(i) - sslack(i);
+  59   
+  60    demand(j) ..   sum(i, x(i,j))  =e=  b(j) + dslack(j);
+  61   
+  62  * Basis definition
+  63    Variables
+  64         xind(i,j)    x basis indicator
+  65         sslind(i)    sslack basis indicator
+  66         dslind(j)    dslack basis indicator
+  67    Binary Variable xind, sslind, dslind;
+  68   
+  69    Equations
+  70         defbasis     basis definition
+  71         defximp(i,j) xind=0 => x=0
+  72         defsslimp(i) sslind=0 => ssl=0
+  73         defdslimp(j) dslind=0 => dsl=0;
+  74   
+  75    defbasis ..    card(i) + card(j) =e=
+  76                   sum((i,j), xind(i,j)) + sum(i, sslind(i)) + sum(j, dslind
+      (j));
+  77   
+  78    defximp(i,j) .. x(i,j) =l= min(a(i),b(j))*xind(i,j);
+  79    defsslimp(i) .. sslack(i) =l= a(i)*sslind(i);
+  80    defdslimp(j) .. dslack(j) =l= b(j)*dslind(j);
+  81   
+  82  * Cut definition
+  84    Set nb basis enumeration cuts / b1*b22 /
+  85        nba(nb) active cuts / /
+  86        xcc(nb,i,j) / /, sslcc(nb,i) / /, dslcc(nb,j) cut coefficients / /
+  88   
+  89    Equation defcut(nb) cut;
+  90    defcut(nba)..  card(i)*card(j) + card(i) + card(j) - 1 =g=
+  91      sum((i,j)$xcc(nba,i,j), xind(i,j)) + sum((i,j)$(not xcc(nba,i,j)), 1-x
+      ind(i,j))
+  92    + sum(i$sslcc(nba,i), sslind(i))     + sum(i$(not sslcc(nba,i)), 1-sslin
+      d(i))
+  93    + sum(j$dslcc(nba,j), dslind(j))     + sum(j$(not dslcc(nba,j)), 1-dslin
+      d(j));
+  94   
+  95    Model transport /all/ ;
+  96   
+  97    Parameter rep, goon /1/;
+  98    option optcr=0, solvelink=5, limrow=0, limcol=0, solprint=silent;
+  99    loop(nb$goon,
+ 100      Solve transport using mip minimizing z ;
+ 101      xcc(nb,i,j) = round(xind.l(i,j));
+ 102      sslcc(nb,i) = round(sslind.l(i));
+ 103      dslcc(nb,j) = round(dslind.l(j));
+ 104      goon = transport.modelstat = 1;
+ 105      if (goon,
+ 106         rep(nb,'obj','','') = z.l;
+ 107         rep(nb,'supply.m',i,'') = supply.m(i);
+ 108         rep(nb,'demand.m',j,'') = demand.m(j);
+ 109         rep(nb,'x.l',i,j) = x.l(i,j);
+ 110         rep(nb,'x.m',i,j) = x.m(i,j);
+ 111         nba(nb) = yes);
+ 112    )
+ 113    abort$goon 'Set nb too small. Feasible basic solutions so far:', rep;
+ 114    abort$(abs(rep('b21','obj','','')-177.525)>1e-6) 'incorrect last solutio
+      n';
+ 115   
+ 116   
+
+
+COMPILATION TIME     =        0.000 SECONDS      3 MB  24.2.3 r46072 WEX-WEI
+GAMS 24.2.3  r46072 Released May 22, 2014 WEX-WEI x86_64/MS Windows 02/17/22 11:09:02 Page 2
+Enumerate all Feasible Basic Solutions of the Transportation Problem (ALLBASES,SEQ=396)
+Model Analysis      SOLVE transport Using MIP From line 100
+
+
+
+No solution returned
+GAMS 24.2.3  r46072 Released May 22, 2014 WEX-WEI x86_64/MS Windows 02/17/22 11:09:02 Page 3
+Enumerate all Feasible Basic Solutions of the Transportation Problem (ALLBASES,SEQ=396)
+E x e c u t i o n
+
+
+EXECUTION TIME       =        1.078 SECONDS      4 MB  24.2.3 r46072 WEX-WEI
+
+
+USER: Utah Water Research Laboratory (5 user)        G140130:1517AV-GEN
+      Utah State University                                      DC7087
+      License for teaching and research at degree granting institutions
+
+
+**** FILE SUMMARY
+
+Input      C:\Rosenberg\Work\USU\Classes\CEE6410\Fall2020\CEE6410-Rosenberg-GitH
+           ub\CEE-6410-Rosenberg\Lectures\allbases.gms
+Output     C:\Rosenberg\Work\USU\Classes\CEE6410\Fall2020\CEE6410-Rosenberg-GitH
+           ub\CEE-6410-Rosenberg\Lectures\allbases.lst

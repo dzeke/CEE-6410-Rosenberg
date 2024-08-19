@@ -1,0 +1,633 @@
+GAMS 24.2.3  r46072 Released May 22, 2014 WEX-WEI x86_64/MS Windows 02/17/22 11:12:08 Page 1
+Bid Evaluation with Piecewise Linear Functions (BIDPWL,SEQ=385)
+C o m p i l a t i o n
+
+
+      A company obtains a number of bids from vendors for the supply
+      of a specified number of units of an item. Most of the submitted
+      bids have prices that depend on the volume of business. A formulation
+      with 0/1 variables is shown in the original gamslib model BID, one with
+      SOS2 sets in gamslib model bidsos. Here we use segments with a point, leng
+      th,
+      and slope to define a model.
+       
+       
+      Bracken, J, and McCormick, G P, Chapter 3. In Selected Applications
+      of Nonlinear Programming. John Wiley and Sons, New York, 1968,
+      pp. 28-36.
+       
+  17   
+  18  sets   v   vendors        / a, b, c, d, e /
+  19         cl  column labels  / setup, price, q-min, q-max ,cost /
+  20         s   segements      / 0*5 /
+  21         sl  segment labels / x, y coordinates, l length, g slope /
+  22  scalar req requirements   / 239600.48 /;
+  23   
+  24  table bid(v,s,cl) bid data
+  25                 setup      price     q-min    q-max
+  26  a.1          3855.84     61.150              33000
+  27  b.1        125804.84     68.099     22000    70000
+  28  b.2                      66.049     70000   100000
+  29  b.3                      64.099    100000   150000
+  30  b.4                      62.119    150000   160000
+  31  c.1         13456.00     62.190             165600
+  32  d.1          6583.98     72.488              12000
+  33  e.1                      70.150              42000
+  34  e.2                      68.150     42000    77000;
+  35   
+  36  parameter BidPwl(v,s,sl) Bid segment definition;
+  37  bidpwl(v,  s,'x') = bid(v,s,'q-min');
+  38  bidpwl(v,'1','y') = bid(v,'1','setup') + bid(v,'1','q-min')*bid(v,'1','pri
+      ce');
+  39  bidpwl(v,  s,'l') = bid(v,s,'q-max') - bid(v,s,'q-min');
+  40  bidpwl(v,  s,'g') = bid(v,s,'price');
+  41  bidpwl(v,'0','g') = 1; // no deal
+  42   
+  43  * This following batinclude has a parameter p as first argument that
+  44  * defines segments of a piecewise linear function. A start point (x,y) of
+  45  * a segment plus length and slope need to be provided provides by this
+  46  * parameter. The actual labels for are also provided on the batinclude
+  47  * call (arguments 3-6) together with the set of segments (arg 2) and an
+  48  * optional index set (idxp) to define an indexed parameter to define multi
+      ple
+  49  * piecewise linear functions (arg 7). The optional arguments 8 and 9 allow
+  50  * the use the same function f with different endogenous arguments (idxm).
+  51  *
+  52  * The batinclude provides a subset of active segments p_Seg(s), i.e. the
+  53  * parameter must have data before the batinclude call. The batinclude also
+  54  * provide a couple of macros:
+  55  * 1) p_Func(x[,idxp])   evaluates the function at point x
+  56  * 2) p_x([idxp][,idxm]) expression to assign x(idxm) value
+  57  * 3) p_y([idxp][,idxm]) expression to assign y(idxm) value
+  58  *
+  59  * The header of pwlfunc.inc describes its use in more detail
+  60   
+BATINCLUDE C:\Rosenberg\Work\USU\Classes\CEE6410\Fall2020\CEE6410-Rosenberg-GitH
+           ub\CEE-6410-Rosenberg\Lectures\pwlfunc.inc
+GAMS 24.2.3  r46072 Released May 22, 2014 WEX-WEI x86_64/MS Windows 02/17/22 11:12:08 Page 2
+Piecewise Linear Function include file
+C o m p i l a t i o n
+
+
+      This include file provides some symbol and macro definition for providing
+      piecewise linear functions in GAMS in a convenient way. Piecewise linear
+      functions are provided in terms of segments. Each segment has a
+      (x,y) coordinate point, a (potentially infinite) length, and a slope. The
+      sign of the length data determines if the segment expands to the left (neg
+      ative
+      length) or the right (positive length) of the (x,y) point. These segment
+      definitions allow more that pure piecewise linear functions. Segments can
+      overlap and there can be holes in the x coordinate space. There is also no
+      order requirement of the segment x coordinates.
+       
+      Each segment has two variables associated: a binary variable that enables 
+      the
+      segment to be used. Clearly only one segment can be active. The other vari
+      able
+      is a positive variable (upper bound of this variable is the |length| of th
+      e
+      segment. This variable shows how far we went into this segment from the st
+      arting
+      point (x,y).
+       
+      A piecewise linear function is described by a parameter f(seg,hdr). In cas
+      e f
+      needs to be an indexed parameter (multiple functions), this include
+      file needs to be called with an additional argument: the additional index
+      set(s) of f (first position in f).
+       
+      This include file declares a macro that compues the f(x) value for a given
+       x in
+      assigment statements (f_Func). If also contains declarations and definitio
+      ns
+      of variables and equations to represent the piecewise linear function in a
+      model. In some models we want to use a piecewise linear function at differ
+      ent
+      input with different endogenous x values. While the exogenous function
+      information does not change, we need to index the variables/equations for 
+      the
+      linearization of the function call in the model. That is why we can supply
+       as
+      the 8th and 9th argument an index and a dynamic set over these indices, to
+      connect multiple input and outputs to the same piecewise linear function.
+       
+      If the piecewise linear function contains segments of infinite length,
+      the usual bigM trick segX <= L*sigB does not work. In this case we form a
+      SOS1 constraint with the variables segX and 1-sigB. This has the same effe
+      ct as
+      the bigM constraint, but is independent of the length of the segment and h
+      ence
+      also works with infinite length. While the required variables and equation
+      s will
+      be declared, the model will only contain such constructs if segments with
+      infinite length exist.
+       
+      The endogenous input parameter of a piecewise linear function can be coupl
+      e
+      to a model variable by using the marco (which expands into an expression) 
+      f_x.
+      In a similar fashion the function value f(x) can be connected to a model
+      variable using f_y.
+ 108   
+ 109  set PwlSeg__  SOS1 segments / pwls1__,pwls2__ /;
+ 110   
+ 117   
+ 136   
+ 138  Set BidPwl_Seg(v,s); option BidPwl_Seg<BidPwl;
+ 139   
+ 140  * The segements in FPwl may be overlapping and so f might not describe a
+ 141  * well defined function. So we need to make sure that for a given x we
+ 142  * return a single f(x). SMin and SMax are a possible choice for this
+ 143  $macro BidPwl_Func(arg,v) \
+ 144    smin(BidPwl_Seg(v,s)$(BidPwl(v,s,'l')=0 and abs(arg-BidPwl(v,s,'x'))<1e-
+      6 and &\
+ 145                                           arg-1e-6<=BidPwl(v,s,'x')+BidPwl(
+      v,s,'l')  \
+ 146                  or BidPwl(v,s,'l')>-1e-6 and arg-1e-6>=BidPwl(v,s,'x') and
+       &\
+ 147                                           arg-1e-6<=BidPwl(v,s,'x')+BidPwl(
+      v,s,'l')  \
+ 148                  or BidPwl(v,s,'l')<+1e-6 and arg-1e-6<=BidPwl(v,s,'x') and
+       &\
+ 149                                           arg+1e-6>=BidPwl(v,s,'x')+BidPwl(
+      v,s,'l')),\
+ 150                     BidPwl(v,s,'y')+ (arg-BidPwl(v,s,'x'))*BidPwl(v,s,'g'))
+ 151   
+ 152  * Declaration of subset of active segments of the function and variables a
+      nd
+ 153  * equations to describe the piecewise linear function linearly.
+ 155   
+ 156  Positive Variable BidPwlSeg(v,s);
+ 157  Binary Variable BidPwlBin(v,s);
+ 158  Equation defBidPwlSeg(v,s), defBidPwlOne(v);
+ 159  defBidPwlSeg(BidPwl_Seg(v,s))$(abs(BidPwl(v,s,'l'))<>inf )..
+ 160    BidPwlSeg(v,s) =l= abs(BidPwl(v,s,'l'))*BidPwlBin(v,s);
+ 161  defBidPwlOne(v).. sum(BidPwl_Seg(v,s), BidPwlBin(v,s)) =e= 1;
+ 162  Equation defBidPwlinf1(v,s), defBidPwlinf2(v,s);
+ 163  SOS1 Variable BidPwlSOS1(v,s,PwlSeg__);
+ 164  defBidPwlinf1(BidPwl_Seg(v,s))$(abs(BidPwl(v,s,'l'))=inf )..
+ 165    1-BidPwlBin(v,s) =e= BidPwlSOS1(v,s,'pwls1__');
+ 166  defBidPwlinf2(BidPwl_Seg(v,s))$(abs(BidPwl(v,s,'l'))=inf )..
+ 167      BidPwlSeg(v,s) =e= BidPwlSOS1(v,s,'pwls2__');
+ 168   
+ 169  * The following macros define the x and y parts which can be connected
+ 170  * to existing variables in the model
+ 172  $macro BidPwl_x(v) \
+ 173    sum(BidPwl_Seg(v,s), BidPwlBin(v,s)*BidPwl(v,s,'x') \
+ 174                      + BidPwlSeg(v,s)*sign(BidPwl(v,s,'l')))
+ 176  $macro BidPwl_y(v) \
+ 177    sum(BidPwl_Seg(v,s), BidPwlBin(v,s)*BidPwl(v,s,'y') \
+ 178      + BidPwlSeg(v,s)*BidPwl(v,s,'g')*sign(BidPwl(v,s,'l')))
+ 179   
+ 180  * Fill missing y coordinate for s2 and further
+ 181  loop(BidPwl_Seg(v,s)$(ord(s)>2),
+ 182    BidPwl(v,s,'y') = BidPwl(v,s-1,'y') +
+ 183                      BidPwl(v,s-1,'g')*BidPwl(v,s-1,'l'));
+ 184   
+ 185  variable   c          total cost
+ 186             x(v)       vendor units
+ 187             y(v)       vendor units
+ 188  equations  defx(v)    define vendor units
+ 189             demand     demand constraint
+ 190             defy(v)    define cost of vendor units
+ 191             costdef    cost definition;
+ 192   
+ 193  defx(v).. x(v) =e= sum(BidPwl_Seg(v,s), BidPwlBin(v,s)*BidPwl(v,s,'x')+ Bi
+      dPwlSeg(v,s)*sign(BidPwl(v,s,'l')));
+ 194  demand..  req  =e= sum(v, x(v));
+ 195  defy(v).. y(v) =e= sum(BidPwl_Seg(v,s), BidPwlBin(v,s)*BidPwl(v,s,'y')+ Bi
+      dPwlSeg(v,s)*BidPwl(v,s,'g')*sign(BidPwl(v,s,'l')));
+ 196  costdef.. c    =e= sum(v, y(v));
+ 197   
+ 198  model bideval / all /;
+ 199   
+ 200  option optcr=0.0; solve bideval minimizing c using mip;
+ 201   
+ 202  parameter rep;
+ 203  rep(v,'xmodel') = x.l(v);
+ 204  rep(v,'ymodel') = y.l(v);
+ 205  rep(v,'yexec')  = smin(BidPwl_Seg(v,s)$(BidPwl(v,s,'l')=0 and abs(x.l(v)-B
+      idPwl(v,s,'x'))<1e-6 and x.l(v)-1e-6<=BidPwl(v,s,'x')+BidPwl(v,s,'l')or Bi
+      dPwl(v,s,'l')>-1e-6 and x.l(v)-1e-6>=BidPwl(v,s,'x') and x.l(v)-1e-6<=BidP
+      wl(v,s,'x')+BidPwl(v,s,'l')or BidPwl(v,s,'l')<+1e-6 and x.l(v)-1e-6<=BidPw
+      l(v,s,'x') and x.l(v)+1e-6>=BidPwl(v,s,'x')+BidPwl(v,s,'l')),BidPwl(v,s,'y
+      ')+ (x.l(v)-BidPwl(v,s,'x'))*BidPwl(v,s,'g'));
+ 206  rep(v,'diff')   = rep(v,'ymodel') - rep(v,'yexec');
+ 207  abort$(sum(v, abs(rep(v,'diff')))>(1e-6)*card(v))
+ 208         'model and execution time disagree', rep;
+ 209  display rep;
+GAMS 24.2.3  r46072 Released May 22, 2014 WEX-WEI x86_64/MS Windows 02/17/22 11:12:08 Page 3
+Piecewise Linear Function include file
+Include File Summary
+
+
+   SEQ   GLOBAL TYPE      PARENT   LOCAL  FILENAME
+
+     1        1 INPUT          0       0  C:\Rosenberg\Work\USU\Classes\CEE6410\
+                                          Fall2020\CEE6410-Rosenberg-GitHub\CEE-
+                                          6410-Rosenberg\Lectures\bidpwl.gms
+     2       61 BATINCLUDE     1      61  .C:\Rosenberg\Work\USU\Classes\CEE6410
+                                           \Fall2020\CEE6410-Rosenberg-GitHub\CE
+                                           E-6410-Rosenberg\Lectures\pwlfunc.inc
+
+
+COMPILATION TIME     =        0.000 SECONDS      3 MB  24.2.3 r46072 WEX-WEI
+GAMS 24.2.3  r46072 Released May 22, 2014 WEX-WEI x86_64/MS Windows 02/17/22 11:12:08 Page 4
+Piecewise Linear Function include file
+Equation Listing    SOLVE bideval Using MIP From line 200
+
+
+---- defBidPwlSeg  =L=  
+
+defBidPwlSeg(a,0)..  BidPwlSeg(a,0) =L= 0 ; (LHS = 0)
+     
+defBidPwlSeg(a,1)..  BidPwlSeg(a,1) - 33000*BidPwlBin(a,1) =L= 0 ; (LHS = 0)
+     
+defBidPwlSeg(b,0)..  BidPwlSeg(b,0) =L= 0 ; (LHS = 0)
+     
+REMAINING 11 ENTRIES SKIPPED
+
+
+---- defBidPwlOne  =E=  
+
+defBidPwlOne(a)..  BidPwlBin(a,0) + BidPwlBin(a,1) =E= 1 ;
+     
+      (LHS = 0, INFES = 1 ****)
+     
+defBidPwlOne(b)..  BidPwlBin(b,0) + BidPwlBin(b,1) + BidPwlBin(b,2)
+     
+      + BidPwlBin(b,3) + BidPwlBin(b,4) =E= 1 ; (LHS = 0, INFES = 1 ****)
+     
+defBidPwlOne(c)..  BidPwlBin(c,0) + BidPwlBin(c,1) =E= 1 ;
+     
+      (LHS = 0, INFES = 1 ****)
+     
+REMAINING 2 ENTRIES SKIPPED
+
+
+---- defBidPwlinf1  =E=  
+
+                NONE
+
+
+---- defBidPwlinf2  =E=  
+
+                NONE
+
+
+---- defx  =E=  define vendor units
+
+defx(a)..  - BidPwlSeg(a,1) + x(a) =E= 0 ; (LHS = 0)
+     
+defx(b)..  - BidPwlSeg(b,1) - BidPwlSeg(b,2) - BidPwlSeg(b,3) - BidPwlSeg(b,4)
+     
+      - 22000*BidPwlBin(b,1) - 70000*BidPwlBin(b,2) - 100000*BidPwlBin(b,3)
+     
+      - 150000*BidPwlBin(b,4) + x(b) =E= 0 ; (LHS = 0)
+     
+defx(c)..  - BidPwlSeg(c,1) + x(c) =E= 0 ; (LHS = 0)
+     
+REMAINING 2 ENTRIES SKIPPED
+
+
+---- demand  =E=  demand constraint
+
+demand..  - x(a) - x(b) - x(c) - x(d) - x(e) =E= -239600.48 ;
+     
+      (LHS = 0, INFES = 239600.48 ****)
+     
+
+---- defy  =E=  define cost of vendor units
+
+defy(a)..  - 61.15*BidPwlSeg(a,1) - 3855.84*BidPwlBin(a,1) + y(a) =E= 0 ;
+     
+      (LHS = 0)
+     
+defy(b)..  - 68.099*BidPwlSeg(b,1) - 66.049*BidPwlSeg(b,2)
+     
+      - 64.099*BidPwlSeg(b,3) - 62.119*BidPwlSeg(b,4)
+     
+      - 1623982.84*BidPwlBin(b,1) - 4892734.84*BidPwlBin(b,2)
+     
+      - 6874204.84*BidPwlBin(b,3) - 10079154.84*BidPwlBin(b,4) + y(b) =E= 0 ;
+     
+      (LHS = 0)
+     
+defy(c)..  - 62.19*BidPwlSeg(c,1) - 13456*BidPwlBin(c,1) + y(c) =E= 0 ;
+     
+      (LHS = 0)
+     
+REMAINING 2 ENTRIES SKIPPED
+
+
+---- costdef  =E=  cost definition
+
+costdef..  c - y(a) - y(b) - y(c) - y(d) - y(e) =E= 0 ; (LHS = 0)
+     
+GAMS 24.2.3  r46072 Released May 22, 2014 WEX-WEI x86_64/MS Windows 02/17/22 11:12:08 Page 5
+Piecewise Linear Function include file
+Column Listing      SOLVE bideval Using MIP From line 200
+
+
+---- BidPwlSeg  
+
+BidPwlSeg(a,0)
+                (.LO, .L, .UP, .M = 0, 0, +INF, 0)
+        1       defBidPwlSeg(a,0)
+
+BidPwlSeg(a,1)
+                (.LO, .L, .UP, .M = 0, 0, +INF, 0)
+        1       defBidPwlSeg(a,1)
+       -1       defx(a)
+      -61.15    defy(a)
+
+BidPwlSeg(b,0)
+                (.LO, .L, .UP, .M = 0, 0, +INF, 0)
+        1       defBidPwlSeg(b,0)
+
+REMAINING 11 ENTRIES SKIPPED
+
+---- BidPwlBin  
+
+BidPwlBin(a,0)
+                (.LO, .L, .UP, .M = 0, 0, 1, 0)
+        1       defBidPwlOne(a)
+
+BidPwlBin(a,1)
+                (.LO, .L, .UP, .M = 0, 0, 1, 0)
+   -33000       defBidPwlSeg(a,1)
+        1       defBidPwlOne(a)
+    -3855.84    defy(a)
+
+BidPwlBin(b,0)
+                (.LO, .L, .UP, .M = 0, 0, 1, 0)
+        1       defBidPwlOne(b)
+
+REMAINING 11 ENTRIES SKIPPED
+
+---- c  total cost
+
+c
+                (.LO, .L, .UP, .M = -INF, 0, +INF, 0)
+        1       costdef
+
+
+---- x  vendor units
+
+x(a)
+                (.LO, .L, .UP, .M = -INF, 0, +INF, 0)
+        1       defx(a)
+       -1       demand
+
+x(b)
+                (.LO, .L, .UP, .M = -INF, 0, +INF, 0)
+        1       defx(b)
+       -1       demand
+
+x(c)
+                (.LO, .L, .UP, .M = -INF, 0, +INF, 0)
+        1       defx(c)
+       -1       demand
+
+REMAINING 2 ENTRIES SKIPPED
+
+---- y  vendor units
+
+y(a)
+                (.LO, .L, .UP, .M = -INF, 0, +INF, 0)
+        1       defy(a)
+       -1       costdef
+
+y(b)
+                (.LO, .L, .UP, .M = -INF, 0, +INF, 0)
+        1       defy(b)
+       -1       costdef
+
+y(c)
+                (.LO, .L, .UP, .M = -INF, 0, +INF, 0)
+        1       defy(c)
+       -1       costdef
+
+REMAINING 2 ENTRIES SKIPPED
+GAMS 24.2.3  r46072 Released May 22, 2014 WEX-WEI x86_64/MS Windows 02/17/22 11:12:08 Page 6
+Piecewise Linear Function include file
+Model Statistics    SOLVE bideval Using MIP From line 200
+
+
+MODEL STATISTICS
+
+BLOCKS OF EQUATIONS           8     SINGLE EQUATIONS           31
+BLOCKS OF VARIABLES           5     SINGLE VARIABLES           39
+NON ZERO ELEMENTS            89     DISCRETE VARIABLES         14
+
+
+GENERATION TIME      =        0.015 SECONDS      5 MB  24.2.3 r46072 WEX-WEI
+
+
+EXECUTION TIME       =        0.015 SECONDS      5 MB  24.2.3 r46072 WEX-WEI
+GAMS 24.2.3  r46072 Released May 22, 2014 WEX-WEI x86_64/MS Windows 02/17/22 11:12:08 Page 7
+Piecewise Linear Function include file
+Solution Report     SOLVE bideval Using MIP From line 200
+
+
+               S O L V E      S U M M A R Y
+
+     MODEL   bideval             OBJECTIVE  c
+     TYPE    MIP                 DIRECTION  MINIMIZE
+     SOLVER  CPLEX               FROM LINE  200
+
+**** SOLVER STATUS     1 Normal Completion         
+**** MODEL STATUS      1 Optimal                   
+**** OBJECTIVE VALUE         15210109.5120
+
+ RESOURCE USAGE, LIMIT          0.094      1000.000
+ ITERATION COUNT, LIMIT         4    2000000000
+
+IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
+Cplex 12.6.0.0
+
+Space for names approximately 0.00 Mb
+Use option 'names no' to turn use of names off
+MIP status(101): integer optimal solution
+Cplex Time: 0.08sec (det. 0.20 ticks)
+Fixing integer variables, and solving final LP...
+Fixed MIP status(1): optimal
+Cplex Time: 0.00sec (det. 0.03 ticks)
+Proven optimal solution.
+
+MIP Solution:     15210109.512000    (4 iterations, 0 nodes)
+Final Solve:      15210109.512000    (0 iterations)
+
+Best possible:    15210109.512000
+Absolute gap:            0.000000
+Relative gap:            0.000000
+
+
+---- EQU defBidPwlSeg  
+
+       LOWER     LEVEL     UPPER    MARGINAL
+
+a.0     -INF       .         .         .         
+a.1     -INF       .         .       -9.000      
+b.0     -INF       .         .         .         
+b.1     -INF       .         .       -2.051      
+b.2     -INF       .         .       -4.101      
+b.3     -INF       .         .       -6.051      
+b.4     -INF       .         .       -8.031      
+c.0     -INF       .         .         .         
+c.1     -INF       .         .       -7.960      
+d.0     -INF       .         .         .         
+d.1     -INF       .         .         .         
+e.0     -INF       .         .         .         
+e.1     -INF   -999.520      .         .         
+e.2     -INF       .         .       -2.000      
+
+---- EQU defBidPwlOne  
+
+     LOWER     LEVEL     UPPER    MARGINAL
+
+a     1.000     1.000     1.000      .         
+b     1.000     1.000     1.000      .         
+c     1.000     1.000     1.000      .         
+d     1.000     1.000     1.000      .         
+e     1.000     1.000     1.000      .         
+
+---- EQU defBidPwlinf1  
+
+                NONE
+
+
+---- EQU defBidPwlinf2  
+
+                NONE
+
+
+---- EQU defx  define vendor units
+
+     LOWER     LEVEL     UPPER    MARGINAL
+
+a      .         .         .      -70.150      
+b      .         .         .      -70.150      
+c      .         .         .      -70.150      
+d      .         .         .      -70.150      
+e      .         .         .      -70.150      
+
+                       LOWER     LEVEL     UPPER    MARGINAL
+
+---- EQU demand     -2.396E+5 -2.396E+5 -2.396E+5   -70.150      
+
+  demand  demand constraint
+
+---- EQU defy  define cost of vendor units
+
+     LOWER     LEVEL     UPPER    MARGINAL
+
+a      .         .         .        1.000      
+b      .         .         .        1.000      
+c      .         .         .        1.000      
+d      .         .         .        1.000      
+e      .         .         .        1.000      
+
+                       LOWER     LEVEL     UPPER    MARGINAL
+
+---- EQU costdef         .         .         .        1.000      
+
+  costdef  cost definition
+
+---- VAR BidPwlSeg  
+
+       LOWER     LEVEL     UPPER    MARGINAL
+
+a.0      .         .        +INF       EPS       
+a.1      .    33000.000     +INF       .         
+b.0      .         .        +INF       EPS       
+b.1      .         .        +INF       .         
+b.2      .         .        +INF       .         
+b.3      .         .        +INF       .         
+b.4      .         .        +INF       .         
+c.0      .         .        +INF       EPS       
+c.1      .    1.6560E+5     +INF       .         
+d.0      .         .        +INF       EPS       
+d.1      .         .        +INF      2.338      
+e.0      .         .        +INF       EPS       
+e.1      .    41000.480     +INF       .         
+e.2      .         .        +INF       .         
+
+---- VAR BidPwlBin  
+
+       LOWER     LEVEL     UPPER    MARGINAL
+
+a.0      .         .        1.000      EPS       
+a.1      .        1.000     1.000 -2.931E+5      
+b.0      .        1.000     1.000      EPS       
+b.1      .         .        1.000 -1.777E+4      
+b.2      .         .        1.000 -1.408E+5      
+b.3      .         .        1.000 -4.433E+5      
+b.4      .         .        1.000 -5.237E+5      
+c.0      .         .        1.000      EPS       
+c.1      .        1.000     1.000 -1.305E+6      
+d.0      .        1.000     1.000      EPS       
+d.1      .         .        1.000  6583.980      
+e.0      .         .        1.000      EPS       
+e.1      .        1.000     1.000      EPS       
+e.2      .         .        1.000 -7.000E+4      
+
+                       LOWER     LEVEL     UPPER    MARGINAL
+
+---- VAR c              -INF  1.5210E+7     +INF       .         
+
+  c  total cost
+
+---- VAR x  vendor units
+
+     LOWER     LEVEL     UPPER    MARGINAL
+
+a     -INF  33000.000     +INF       .         
+b     -INF       .        +INF       .         
+c     -INF  1.6560E+5     +INF       .         
+d     -INF       .        +INF       .         
+e     -INF  41000.480     +INF       .         
+
+---- VAR y  vendor units
+
+     LOWER     LEVEL     UPPER    MARGINAL
+
+a     -INF  2.0218E+6     +INF       .         
+b     -INF       .        +INF       .         
+c     -INF  1.0312E+7     +INF       .         
+d     -INF       .        +INF       .         
+e     -INF  2.8762E+6     +INF       .         
+
+
+**** REPORT SUMMARY :        0     NONOPT
+                             0 INFEASIBLE
+                             0  UNBOUNDED
+GAMS 24.2.3  r46072 Released May 22, 2014 WEX-WEI x86_64/MS Windows 02/17/22 11:12:08 Page 8
+Piecewise Linear Function include file
+E x e c u t i o n
+
+
+----    209 PARAMETER rep  
+
+       xmodel      ymodel       yexec
+
+a   33000.000 2021805.840 2021805.840
+c  165600.000 1.031212E+7 1.031212E+7
+e   41000.480 2876183.672 2876183.672
+
+
+
+EXECUTION TIME       =        0.000 SECONDS      3 MB  24.2.3 r46072 WEX-WEI
+
+
+USER: Utah Water Research Laboratory (5 user)        G140130:1517AV-GEN
+      Utah State University                                      DC7087
+      License for teaching and research at degree granting institutions
+
+
+**** FILE SUMMARY
+
+Input      C:\Rosenberg\Work\USU\Classes\CEE6410\Fall2020\CEE6410-Rosenberg-GitH
+           ub\CEE-6410-Rosenberg\Lectures\bidpwl.gms
+Output     C:\Rosenberg\Work\USU\Classes\CEE6410\Fall2020\CEE6410-Rosenberg-GitH
+           ub\CEE-6410-Rosenberg\Lectures\bidpwl.lst

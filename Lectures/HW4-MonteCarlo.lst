@@ -1,4 +1,4 @@
-GAMS 24.2.3  r46072 Released May 22, 2014 WEX-WEI x86_64/MS Windows 10/30/20 10:25:03 Page 1
+GAMS 24.2.3  r46072 Released May 22, 2014 WEX-WEI x86_64/MS Windows 11/04/20 09:58:44 Page 1
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 C o m p i l a t i o n
 
@@ -147,127 +147,142 @@ C o m p i l a t i o n
  132      FlowCumProb(fs) Cumulative probability of flow less than or equal to f
       low value fs in month 1
  133      CumFlowTranProb(fs,fss) Cumulative probability of moving from flow val
-      ue fs in Time t to flow value fs2 in time t+1;
- 134   
- 135  TABLE FlowTransitionProb(fs,fss) Probability of moving from flow value fs 
+      ue fs in Time t to flow value fs2 in time t+1
+ 134      IBmin Minimum value for irrigation benefits in month 6 /1.7/
+ 135      IBmax Maximum value for irrigation benefits in month 6 /2.3/
+ 136   
+ 137  TABLE FlowTransitionProb(fs,fss) Probability of moving from flow value fs 
       in Time t to flow value fs2 in Time t+1
- 136         fs1        fs2        fs3        fs4
- 137  fs1    0.2        0.5        0.2        0.1
- 138  fs2    0.2        0.3        0.3        0.2
- 139  fs3    0.1        0.4        0.4        0.1
- 140  fs4    0.2        0.3        0.4        0.1;
- 141   
- 142  *Calculate the cumulative probability of flow in month 1 form the probabil
+ 138         fs1        fs2        fs3        fs4
+ 139  fs1    0.2        0.5        0.2        0.1
+ 140  fs2    0.2        0.3        0.3        0.2
+ 141  fs3    0.1        0.4        0.4        0.1
+ 142  fs4    0.2        0.3        0.4        0.1;
+ 143   
+ 144  *Calculate the cumulative probability of flow in month 1 form the probabil
       ity. Sum up
- 143  * all the probabilities from fs1, fs2, ... to fss
- 144  FlowCumProb(fs) = sum(fss$(ord(fss) le ord(fs)),FlowProb(fss));
- 145  *Calculate the cumulative probability of flow transitions from time t to t
+ 145  * all the probabilities from fs1, fs2, ... to fss
+ 146  FlowCumProb(fs) = sum(fss$(ord(fss) le ord(fs)),FlowProb(fss));
+ 147  *Calculate the cumulative probability of flow transitions from time t to t
       +1.
- 146  *Sum rows from column fss1, fss2, to fsss
- 147  *Same as FlowCumProb but for the matrix.
- 148  CumFlowTranProb(fs,fss) = sum(fsss$(ord(fsss) le ord(fss)), FlowTransition
+ 148  *Sum rows from column fss1, fss2, to fsss
+ 149  *Same as FlowCumProb but for the matrix.
+ 150  CumFlowTranProb(fs,fss) = sum(fsss$(ord(fsss) le ord(fss)), FlowTransition
       Prob(fs,fsss));
- 149   
- 150  Display FlowCumProb, CumFlowTranProb;
  151   
- 152  *Parameters to store Monte Carlo sampled values
- 153  PARAMETERS
- 154     InitStorS(s) Sampled initial reservoir storage
- 155     CDFSampleS(s,t) Sampled cumulative distribution value for calculating i
+ 152  Display FlowCumProb, CumFlowTranProb;
+ 153   
+ 154  *Parameters to store Monte Carlo sampled values
+ 155  PARAMETERS
+ 156     InitStorS(s) Sampled initial reservoir storage
+ 157     CDFSampleS(s,t) Sampled cumulative distribution value for calculating i
       nflow in time t
- 156     FlowStateS(s,t) Sampled flow state in time t (integer corresponding to 
+ 158     FlowStateS(s,t) Sampled flow state in time t (integer corresponding to 
       element in fs)
- 157     InflowS(s,t) Sampled reservoir inflows
- 158     InflowOrig(t) Original inflows
- 159     FlowAtAS(s)  Calculated flow requirement at A;
- 160   
- 161  *Sample initial storage values in scenario s according to a uniform distri
+ 159     InflowS(s,t) Sampled reservoir inflows
+ 160     InflowOrig(t) Original inflows
+ 161     FlowAtAS(s)  Calculated flow requirement at A
+ 162     IBbenS(s) sampled irrigation benefits in month 6;
+ 163   
+ 164  *Sample initial storage values in scenario s according to a uniform distri
       bution
- 162  *between the minimum and maximum initial storage values (all values in ran
+ 165  *between the minimum and maximum initial storage values (all values in ran
       ge
- 163  *equally likely)
- 164  InitStorS(s) = uniform(InitStorMin, InitStorMax);
- 165   
- 166  *Sample flow in each Time according to the emperical distribution. Use the
+ 166  *equally likely)
+ 167  InitStorS(s) = uniform(InitStorMin, InitStorMax);
+ 168  *Sample irrigation benefits in month 6
+ 169  *IBbenS(s) = uniform(IBmin,IBmax);
+ 170  IBbenS(s) = 2.2;
+ 171   
+ 172  *Sample flow in each Time according to the emperical distribution. Use the
        inverse
- 167  * sampling method. First sample a cumulative distribution value between 0 
+ 173  * sampling method. First sample a cumulative distribution value between 0 
       and 1.
- 168  * Then map that CDF value to the flow state
- 169  * Sample the cdf value
- 170  CDFSampleS(s,t) = uniform(0,1);
- 171  * For the first timestep, search over the other flow states and find the s
+ 174  * Then map that CDF value to the flow state
+ 175  * Sample the cdf value
+ 176  CDFSampleS(s,t) = uniform(0,1);
+ 177  * For the first timestep, search over the other flow states and find the s
       tate where the sampled cdf value actually
- 172  * falls in
- 173  FlowStateS(s,t)$(ord(t) eq 1) = max(1,
- 174         sum(fs$((ord(fs) gt 1) and (CDFSampleS(s,t) gt FlowCumProb(fs-1)) a
+ 178  * falls in
+ 179  FlowStateS(s,t)$(ord(t) eq 1) = max(1,
+ 180         sum(fs$((ord(fs) gt 1) and (CDFSampleS(s,t) gt FlowCumProb(fs-1)) a
       nd
- 175                 (CDFSampleS(s,t) le FlowCumProb(fs))),ord(fs)));
- 176   
- 177  *Sample flows in Times 2 and up according to the transition probabilities.
+ 181                 (CDFSampleS(s,t) le FlowCumProb(fs))),ord(fs)));
+ 182   
+ 183  *Sample flows in Times 2 and up according to the transition probabilities.
        Again map back into
- 178  * a flow state
- 179  LOOP(t,
- 180    FlowStateS(s,t)$(ord(t) gt 1) = max(1,
- 181         sum(fss$((ord(fss) gt 1) and (CDFSampleS(s,t) gt sum(fs$(ord(fs) eq
+ 184  * a flow state
+ 185  LOOP(t,
+ 186    FlowStateS(s,t)$(ord(t) gt 1) = max(1,
+ 187         sum(fss$((ord(fss) gt 1) and (CDFSampleS(s,t) gt sum(fs$(ord(fs) eq
        FlowStateS(s,t-1)),CumFlowTranProb(fs,fss-1))) and
- 182                (CDFSampleS(s,t) le sum(fs$(ord(fs) eq FlowStateS(s,t-1)),Cu
+ 188                (CDFSampleS(s,t) le sum(fs$(ord(fs) eq FlowStateS(s,t-1)),Cu
       mFlowTranProb(fs,fss)))),ord(fss)));
- 183    );
- 184   
- 185  *Convert from flow states into flows
- 186  InflowS(s,t) = sum(fs$(ord(fs) eq FlowStateS(s,t)),FlowVals(fs));
- 187   
- 188  *Calculate Flow at A as the maximum of 1 or 20% of the maximum generated i
-      nflow
- 189  FlowAtAS(s) = max(1,0.2*smax(t,InflowS(s,t)));
+ 189    );
  190   
- 191  *These are all our Monte Carlo sampled values for each scenario
- 192  Display InitStorS, CDFSampleS,FlowStateS,InflowS, FlowAtAS;
+ 191  *Convert from flow states into flows
+ 192  InflowS(s,t) = sum(fs$(ord(fs) eq FlowStateS(s,t)),FlowVals(fs));
  193   
- 194  * Parameters to record Monte-Carlo Optimized results
- 195  PARAMETERS
- 196    NetBenS(s) Net benefits ($)
- 197    ModStat(s) Model status
- 198    SolStat(s) Solve status;
+ 194  *Calculate Flow at A as the maximum of 1 or 20% of the maximum generated i
+      nflow
+ 195  FlowAtAS(s) = max(1,0.2*smax(t,InflowS(s,t)));
+ 196   
+ 197  *These are all our Monte Carlo sampled values for each scenario
+ 198  Display InitStorS, CDFSampleS,FlowStateS,InflowS, FlowAtAS;
  199   
- 200  *Store the original inflows;
- 201  InflowOrig(t) = inflow(t);
- 202   
- 203  *Surpress solution printing of model results because
- 204  *we will have a large number of models
- 205  EconBen.solprint = 2;
- 206   
- 207  * Run the Monte-Carlo Simulations
- 208  Loop(s,
- 209  *   Read in the sampled parameter values
- 210      InitStor = InitStorS(s);
- 211      Inflow(t) = InflowS(s,t);
- 212      FlowReq = FlowAtAS(s);
- 213   
- 214  *   Set the decision variable values to zero as initial solution
- 215  *   Not necessary for an LP, but would need for NLPs
- 216      X.L(l,t) = 0;
- 217   
- 218  *  Solve the model
- 219     SOLVE EconBen USING LP Maximizing TotalBen;
+ 200  * Parameters to record Monte-Carlo Optimized results
+ 201  PARAMETERS
+ 202    NetBenS(s) Net benefits ($)
+ 203    ModStat(s) Model status
+ 204    SolStat(s) Solve status;
+ 205   
+ 206  *Store the original inflows;
+ 207  InflowOrig(t) = inflow(t);
+ 208   
+ 209  *Surpress solution printing of model results because
+ 210  *we will have a large number of models
+ 211  EconBen.solprint = 2;
+ 212   
+ 213  * Run the Monte-Carlo Simulations
+ 214  Loop(s,
+ 215  *   Read in the sampled parameter values
+ 216      InitStor = InitStorS(s);
+ 217      Inflow(t) = InflowS(s,t);
+ 218      FlowReq = FlowAtAS(s);
+ 219      IB("m6") = IBbenS(s);
  220   
- 221  *  Store results from current run
- 222     NetBenS(s) = TotalBen.L;
- 223     ModStat(s) = EconBen.ModelStat;
- 224     SolStat(s) = EconBen.SolveStat;
- 225     );
- 226   
- 227  Display NetBenS,ModStat,SolStat;
- 228   
- 229  Execute_Unload "HW4_mc.gdx";
- 230  * Dump the gdx file to an Excel workbook
- 231  Execute "gdx2xls HW4_mc.gdx"
- 232   
+ 221  *   Set the decision variable values to zero as initial solution
+ 222  *   Not necessary for an LP, but would need for NLPs
+ 223      X.L(l,t) = 0;
+ 224   
+ 225  *  Solve the model
+ 226     SOLVE EconBen USING LP Maximizing TotalBen;
+ 227   
+ 228  *  Store results from current run
+ 229     NetBenS(s) = TotalBen.L;
+ 230     ModStat(s) = EconBen.ModelStat;
+ 231     SolStat(s) = EconBen.SolveStat;
+ 232     );
  233   
+ 234  PARAMETERS
+ 235      AvgIB Average sampled irrigation benefits
+ 236      AvgNB Average net benefits;
+ 237   
+ 238  AvgIB = sum(s, IBbenS(s))/card(s);
+ 239  AvgNB = sum(s,NetBenS(s))/card(s);
+ 240   
+ 241  Display NetBenS,ModStat,SolStat;
+ 242  Display AvgIB, AvgNB;
+ 243   
+ 244  Execute_Unload "HW4_mc.gdx";
+ 245  * Dump the gdx file to an Excel workbook
+ 246  Execute "gdx2xls HW4_mc.gdx"
+ 247   
+ 248   
 
 
-COMPILATION TIME     =        0.015 SECONDS      3 MB  24.2.3 r46072 WEX-WEI
-GAMS 24.2.3  r46072 Released May 22, 2014 WEX-WEI x86_64/MS Windows 10/30/20 10:25:03 Page 2
+COMPILATION TIME     =        0.000 SECONDS      3 MB  24.2.3 r46072 WEX-WEI
+GAMS 24.2.3  r46072 Released May 22, 2014 WEX-WEI x86_64/MS Windows 11/04/20 09:58:44 Page 2
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Equation Listing    SOLVE EconBen Using LP From line 110
 
@@ -353,7 +368,7 @@ MinFlowA(m3)..  X(AAA,m3) =G= 1 ; (LHS = 0, INFES = 1 ****)
      
 REMAINING 3 ENTRIES SKIPPED
 
-GAMS 24.2.3  r46072 Released May 22, 2014 WEX-WEI x86_64/MS Windows 10/30/20 10:25:03 Page 3
+GAMS 24.2.3  r46072 Released May 22, 2014 WEX-WEI x86_64/MS Windows 11/04/20 09:58:44 Page 3
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Column Listing      SOLVE EconBen Using LP From line 110
 
@@ -386,7 +401,7 @@ TotalBen
                 (.LO, .L, .UP, .M = -INF, 0, +INF, 0)
         1       WatBENEFIT
 
-GAMS 24.2.3  r46072 Released May 22, 2014 WEX-WEI x86_64/MS Windows 10/30/20 10:25:03 Page 4
+GAMS 24.2.3  r46072 Released May 22, 2014 WEX-WEI x86_64/MS Windows 11/04/20 09:58:44 Page 4
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Model Statistics    SOLVE EconBen Using LP From line 110
 
@@ -398,11 +413,11 @@ BLOCKS OF VARIABLES           2     SINGLE VARIABLES           31
 NON ZERO ELEMENTS            79
 
 
-GENERATION TIME      =        0.063 SECONDS      4 MB  24.2.3 r46072 WEX-WEI
+GENERATION TIME      =        0.016 SECONDS      4 MB  24.2.3 r46072 WEX-WEI
 
 
-EXECUTION TIME       =        0.063 SECONDS      4 MB  24.2.3 r46072 WEX-WEI
-GAMS 24.2.3  r46072 Released May 22, 2014 WEX-WEI x86_64/MS Windows 10/30/20 10:25:03 Page 5
+EXECUTION TIME       =        0.016 SECONDS      4 MB  24.2.3 r46072 WEX-WEI
+GAMS 24.2.3  r46072 Released May 22, 2014 WEX-WEI x86_64/MS Windows 11/04/20 09:58:44 Page 5
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Solution Report     SOLVE EconBen Using LP From line 110
 
@@ -544,18 +559,18 @@ AAA.m6      .        1.000     +INF       .
 **** REPORT SUMMARY :        0     NONOPT
                              0 INFEASIBLE
                              0  UNBOUNDED
-GAMS 24.2.3  r46072 Released May 22, 2014 WEX-WEI x86_64/MS Windows 10/30/20 10:25:03 Page 6
+GAMS 24.2.3  r46072 Released May 22, 2014 WEX-WEI x86_64/MS Windows 11/04/20 09:58:44 Page 6
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 E x e c u t i o n
 
 
-----    150 PARAMETER FlowCumProb  Cumulative probability of flow less than or e
+----    152 PARAMETER FlowCumProb  Cumulative probability of flow less than or e
                                    qual to flow value fs in month 1
 
 fs1 0.100,    fs2 0.400,    fs3 0.800,    fs4 1.000
 
 
-----    150 PARAMETER CumFlowTranProb  Cumulative probability of moving from flo
+----    152 PARAMETER CumFlowTranProb  Cumulative probability of moving from flo
                                        w value fs in Time t to flow value fs2 in
                                        time t+1
 
@@ -567,7 +582,7 @@ fs3       0.100       0.500       0.900       1.000
 fs4       0.200       0.500       0.900       1.000
 
 
-----    192 PARAMETER InitStorS  Sampled initial reservoir storage
+----    198 PARAMETER InitStorS  Sampled initial reservoir storage
 
 s1   2.132,    s2   8.511,    s3   5.729,    s4   3.361,    s5   3.276
 s6   2.629,    s7   3.823,    s8   8.635,    s9   1.138,    s10  5.252
@@ -621,7 +636,7 @@ s241 8.012,    s242 6.297,    s243 1.016,    s244 5.109,    s245 0.999
 s246 7.137,    s247 2.350,    s248 2.647,    s249 8.230,    s250 9.921
 
 
-----    192 PARAMETER CDFSampleS  Sampled cumulative distribution value for calc
+----    198 PARAMETER CDFSampleS  Sampled cumulative distribution value for calc
                                   ulating inflow in time t
 
               m1          m2          m3          m4          m5          m6
@@ -878,7 +893,7 @@ s249       0.173       0.183       0.057       0.763       0.870       0.781
 s250       0.172       0.692       0.634       0.619 3.785580E-4       0.217
 
 
-----    192 PARAMETER FlowStateS  Sampled flow state in time t (integer correspo
+----    198 PARAMETER FlowStateS  Sampled flow state in time t (integer correspo
                                   nding to element in fs)
 
               m1          m2          m3          m4          m5          m6
@@ -1135,7 +1150,7 @@ s249       2.000       1.000       1.000       3.000       3.000       3.000
 s250       2.000       3.000       3.000       3.000       1.000       2.000
 
 
-----    192 PARAMETER InflowS  Sampled reservoir inflows
+----    198 PARAMETER InflowS  Sampled reservoir inflows
 
               m1          m2          m3          m4          m5          m6
 
@@ -1391,7 +1406,7 @@ s249       3.000       1.000       1.000       5.000       5.000       5.000
 s250       3.000       5.000       5.000       5.000       1.000       3.000
 
 
-----    192 PARAMETER FlowAtAS  Calculated flow requirement at A
+----    198 PARAMETER FlowAtAS  Calculated flow requirement at A
 
 s1   1.600,    s2   1.600,    s3   1.000,    s4   1.600,    s5   1.600
 s6   1.600,    s7   1.000,    s8   1.600,    s9   1.600,    s10  1.000
@@ -1444,7 +1459,7 @@ s236 1.600,    s237 1.000,    s238 1.600,    s239 1.000,    s240 1.600
 s241 1.000,    s242 1.600,    s243 1.000,    s244 1.600,    s245 1.000
 s246 1.600,    s247 1.600,    s248 1.600,    s249 1.000,    s250 1.000
 
-----    227 PARAMETER NetBenS  Net benefits ($)
+----    241 PARAMETER NetBenS  Net benefits ($)
 
 s1   75.800,    s2   47.885,    s3   51.036,    s4   60.931,    s5   71.400
 s6   61.211,    s7   64.800,    s8   84.639,    s9   75.800,    s10  75.500
@@ -1498,7 +1513,7 @@ s241 30.981,    s242 71.341,    s243 70.300,    s244 80.200,    s245 64.800
 s246 75.773,    s247 71.140,    s248 71.400,    s249 64.431,    s250  0.921
 
 
-----    227 PARAMETER ModStat  Model status
+----    241 PARAMETER ModStat  Model status
 
 s1   1.000,    s2   1.000,    s3   1.000,    s4   1.000,    s5   1.000
 s6   1.000,    s7   1.000,    s8   1.000,    s9   1.000,    s10  1.000
@@ -1552,7 +1567,7 @@ s241 1.000,    s242 1.000,    s243 1.000,    s244 1.000,    s245 1.000
 s246 1.000,    s247 1.000,    s248 1.000,    s249 1.000,    s250 4.000
 
 
-----    227 PARAMETER SolStat  Solve status
+----    241 PARAMETER SolStat  Solve status
 
 s1   1.000,    s2   1.000,    s3   1.000,    s4   1.000,    s5   1.000
 s6   1.000,    s7   1.000,    s8   1.000,    s9   1.000,    s10  1.000
@@ -1606,8 +1621,12 @@ s241 1.000,    s242 1.000,    s243 1.000,    s244 1.000,    s245 1.000
 s246 1.000,    s247 1.000,    s248 1.000,    s249 1.000,    s250 1.000
 
 
+----    242 PARAMETER AvgIB                =        2.200  Average sampled irrig
+                                                           ation benefits
+            PARAMETER AvgNB                =       63.054  Average net benefits
 
-EXECUTION TIME       =       19.265 SECONDS      3 MB  24.2.3 r46072 WEX-WEI
+
+EXECUTION TIME       =        4.438 SECONDS      3 MB  24.2.3 r46072 WEX-WEI
 
 
 USER: Utah Water Research Laboratory (5 user)        G140130:1517AV-GEN

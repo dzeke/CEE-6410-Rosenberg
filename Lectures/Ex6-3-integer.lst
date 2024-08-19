@@ -1,4 +1,4 @@
-GAMS 24.2.3  r46072 Released May 22, 2014 WEX-WEI x86_64/MS Windows 09/25/20 11:21:06 Page 1
+GAMS 24.2.3  r46072 Released May 22, 2014 WEX-WEI x86_64/MS Windows 02/17/22 11:04:30 Page 1
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 C o m p i l a t i o n
 
@@ -91,7 +91,7 @@ C o m p i l a t i o n
 
 
 COMPILATION TIME     =        0.000 SECONDS      3 MB  24.2.3 r46072 WEX-WEI
-GAMS 24.2.3  r46072 Released May 22, 2014 WEX-WEI x86_64/MS Windows 09/25/20 11:21:06 Page 2
+GAMS 24.2.3  r46072 Released May 22, 2014 WEX-WEI x86_64/MS Windows 02/17/22 11:04:30 Page 2
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Equation Listing    SOLVE WatSupplyRelaxed Using MIP From line 73
 
@@ -135,7 +135,7 @@ IntLowBound(tp)..  I(tp) =G= 0 ; (LHS = 0)
      
 IntLowBound(wc)..  I(wc) =G= 0 ; (LHS = 0)
      
-GAMS 24.2.3  r46072 Released May 22, 2014 WEX-WEI x86_64/MS Windows 09/25/20 11:21:06 Page 3
+GAMS 24.2.3  r46072 Released May 22, 2014 WEX-WEI x86_64/MS Windows 02/17/22 11:04:30 Page 3
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Column Listing      SOLVE WatSupplyRelaxed Using MIP From line 73
 
@@ -181,7 +181,7 @@ TCOST
                 (.LO, .L, .UP, .M = -INF, 0, +INF, 0)
         1       COST
 
-GAMS 24.2.3  r46072 Released May 22, 2014 WEX-WEI x86_64/MS Windows 09/25/20 11:21:06 Page 4
+GAMS 24.2.3  r46072 Released May 22, 2014 WEX-WEI x86_64/MS Windows 02/17/22 11:04:30 Page 4
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Model Statistics    SOLVE WatSupplyRelaxed Using MIP From line 73
 
@@ -193,11 +193,11 @@ BLOCKS OF VARIABLES           3     SINGLE VARIABLES            5
 NON ZERO ELEMENTS            18     DISCRETE VARIABLES          2
 
 
-GENERATION TIME      =        0.032 SECONDS      4 MB  24.2.3 r46072 WEX-WEI
+GENERATION TIME      =        0.109 SECONDS      4 MB  24.2.3 r46072 WEX-WEI
 
 
-EXECUTION TIME       =        0.032 SECONDS      4 MB  24.2.3 r46072 WEX-WEI
-GAMS 24.2.3  r46072 Released May 22, 2014 WEX-WEI x86_64/MS Windows 09/25/20 11:21:06 Page 5
+EXECUTION TIME       =        0.109 SECONDS      4 MB  24.2.3 r46072 WEX-WEI
+GAMS 24.2.3  r46072 Released May 22, 2014 WEX-WEI x86_64/MS Windows 02/17/22 11:04:30 Page 5
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Solution Report     SOLVE WatSupplyRelaxed Using MIP From line 73
 
@@ -212,7 +212,7 @@ Solution Report     SOLVE WatSupplyRelaxed Using MIP From line 73
 **** MODEL STATUS      1 Optimal                   
 **** OBJECTIVE VALUE           330000.0000
 
- RESOURCE USAGE, LIMIT          0.063      1000.000
+ RESOURCE USAGE, LIMIT          0.078      1000.000
  ITERATION COUNT, LIMIT         0    2000000000
 
 IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
@@ -299,7 +299,7 @@ wc      .         .        +INF     30.000
 **** REPORT SUMMARY :        0     NONOPT
                              0 INFEASIBLE
                              0  UNBOUNDED
-GAMS 24.2.3  r46072 Released May 22, 2014 WEX-WEI x86_64/MS Windows 09/25/20 11:21:06 Page 6
+GAMS 24.2.3  r46072 Released May 22, 2014 WEX-WEI x86_64/MS Windows 02/17/22 11:04:30 Page 6
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 E x e c u t i o n
 
@@ -321,7 +321,7 @@ tp 1.000
                                                            y actions ($)
 
 
-EXECUTION TIME       =        4.859 SECONDS      3 MB  24.2.3 r46072 WEX-WEI
+EXECUTION TIME       =        9.375 SECONDS      3 MB  24.2.3 r46072 WEX-WEI
 
 
 USER: Utah Water Research Laboratory (5 user)        G140130:1517AV-GEN

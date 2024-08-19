@@ -118,9 +118,6 @@ PlaneRownr=-1
 [RP:AVEEKMAHMUD_1625010_78531055_HW4_4_MRA]
 1=
 
-[RP:HW5-EX7-1]
-1=
-
 [RP:EX6-3-RELAXED]
 1=
 
@@ -143,41 +140,54 @@ PlaneRownr=-1
 [RP:EX7-1]
 1=
 
-[RP:EX6-3-INTEGER]
-1=
-
 [RP:EXCHEVYFUNCTION]
 1=
 
 [RP:TSP1]
 1=
 
-[RP:EX19-5]
+[RP:JUNE18_SAT_NEWMODEL]
+1=
+
+[RP:HW5-EX7-1]
 1=
 
 [RP:HW4-MONTECARLO]
 1=
 
+[RP:EX19-5]
+1=
+
+[RP:ALLBASES]
+1=
+
+[RP:EX6-3-INTEGER]
+1=
+
+[RP:BEARRIVERMODEL_REPLACE]
+1=
+
+[RP:BIDPWL]
+1=
+
+[RP:BID]
+1=
+
 [MRUFILES]
-1=C:\Rosenberg\Work\USU\Classes\CEE6410\Fall2020\CEE6410-Rosenberg-GitHub\CEE-6410-Rosenberg\Lectures\tsp1.gms
-2=C:\Rosenberg\Work\USU\Classes\CEE6410\Fall2020\CEE6410-Rosenberg-GitHub\CEE-6410-Rosenberg\Lectures\ExChevyFunction.lst
-3=C:\Rosenberg\Work\USU\Classes\CEE6410\Fall2020\CEE6410-Rosenberg-GitHub\CEE-6410-Rosenberg\Lectures\ExChevyFunction.gms
-4=C:\Rosenberg\Work\USU\Classes\CEE6410\Fall2020\CEE6410-Rosenberg-GitHub\CEE-6410-Rosenberg\Lectures\Ex7-1.lst
+1=C:\Rosenberg\Work\USU\Classes\CEE6410\Fall2020\CEE6410-Rosenberg-GitHub\CEE-6410-Rosenberg\Lectures\bid.gms
+2=C:\Rosenberg\Work\USU\Classes\CEE6410\Fall2020\CEE6410-Rosenberg-GitHub\CEE-6410-Rosenberg\Lectures\bid.lst
+3=C:\Rosenberg\Work\USU\Classes\CEE6410\Fall2020\CEE6410-Rosenberg-GitHub\CEE-6410-Rosenberg\Lectures\bidpwl.gms
+4=C:\Rosenberg\Work\USU\Classes\CEE6410\Fall2020\CEE6410-Rosenberg-GitHub\CEE-6410-Rosenberg\Lectures\bidpwl.lst
 5=C:\Rosenberg\Work\USU\Classes\CEE6410\Fall2020\CEE6410-Rosenberg-GitHub\CEE-6410-Rosenberg\Lectures\Ex6-3-integer.gms
-6=C:\Rosenberg\Work\USU\Classes\CEE6410\Fall2018\Lectures\GAMSexamples\Ex7-1.gms
-7=C:\Users\david\AppData\Local\Temp\linearjune-1.gdx
-8=C:\Rosenberg\Work\USU\Classes\CEE6410\Fall2020\CEE6410-Rosenberg-GitHub\CEE-6410-Rosenberg\Lectures\Ex2-1Dual.lst
+6=C:\Rosenberg\Work\USU\Classes\CEE6410\Fall2020\CEE6410-Rosenberg-GitHub\CEE-6410-Rosenberg\Lectures\Ex6-3-integer.lst
+7=C:\Rosenberg\Work\USU\Classes\CEE6410\Fall2020\CEE6410-Rosenberg-GitHub\CEE-6410-Rosenberg\Lectures\allbases.gms
+8=C:\Rosenberg\Work\USU\Classes\CEE6410\Fall2020\CEE6410-Rosenberg-GitHub\CEE-6410-Rosenberg\Lectures\allbases.lst
 
 [OPENWINDOW_1]
-FILE0=C:\Rosenberg\Work\USU\Classes\CEE6410\Fall2020\CEE6410-Rosenberg-GitHub\CEE-6410-Rosenberg\Lectures\Ex19-5.gms
-FILE1=C:\Rosenberg\Work\USU\Classes\CEE6410\Fall2020\CEE6410-Rosenberg-GitHub\CEE-6410-Rosenberg\Lectures\Ex19-5.lst
-FILE2=C:\Rosenberg\Work\USU\Classes\CEE6410\Fall2020\CEE6410-Rosenberg-GitHub\CEE-6410-Rosenberg\Lectures\HW4-MonteCarlo.gms
-FILE3=C:\Rosenberg\Work\USU\Classes\CEE6410\Fall2020\CEE6410-Rosenberg-GitHub\CEE-6410-Rosenberg\Lectures\HW4-MonteCarlo.lst
-FILE4=C:\Rosenberg\Work\USU\Classes\CEE6410\Fall2020\CEE6410-Rosenberg-GitHub\CEE-6410-Rosenberg\Lectures\HW5-Ex7-1.lst
-FILE5=C:\Rosenberg\Work\USU\Classes\CEE6410\Fall2020\Homework\HW5-Ex7-1.gms
-FILE6=C:\Rosenberg\Work\USU\Classes\CEE6410\Fall2020\CEE6410-Rosenberg-GitHub\CEE-6410-Rosenberg\Lectures\HW4-MonteCarlo.lst
+FILE0=C:\Rosenberg\Work\USU\Students\Goodrum\ModelCode\Bear_River_Optimization_Model\GAMS_Model\BearRiverModel_replace.gms
+FILE1=C:\Rosenberg\Work\USU\Students\Goodrum\ModelCode\Bear_River_Optimization_Model\GAMS_Model\BearRiverModel_replace.gms
 MAXIM=1
-TOP=378
-LEFT=50
+TOP=10
+LEFT=378
 HEIGHT=400
 WIDTH=400

@@ -130,7 +130,9 @@ PARAMETERS
     FlowProb(fs) Probability of flow state fs in month 1
          /fs1  0.1, fs2   0.3, fs3 0.4, fs4  0.2/
     FlowCumProb(fs) Cumulative probability of flow less than or equal to flow value fs in month 1
-    CumFlowTranProb(fs,fss) Cumulative probability of moving from flow value fs in Time t to flow value fs2 in time t+1;
+    CumFlowTranProb(fs,fss) Cumulative probability of moving from flow value fs in Time t to flow value fs2 in time t+1
+    IBmin Minimum value for irrigation benefits in month 6 /1.7/
+    IBmax Maximum value for irrigation benefits in month 6 /2.3/
 
 TABLE FlowTransitionProb(fs,fss) Probability of moving from flow value fs in Time t to flow value fs2 in Time t+1
        fs1        fs2        fs3        fs4
@@ -156,12 +158,16 @@ PARAMETERS
    FlowStateS(s,t) Sampled flow state in time t (integer corresponding to element in fs)
    InflowS(s,t) Sampled reservoir inflows
    InflowOrig(t) Original inflows
-   FlowAtAS(s)  Calculated flow requirement at A;
+   FlowAtAS(s)  Calculated flow requirement at A
+   IBbenS(s) sampled irrigation benefits in month 6;
 
 *Sample initial storage values in scenario s according to a uniform distribution
 *between the minimum and maximum initial storage values (all values in range
 *equally likely)
 InitStorS(s) = uniform(InitStorMin, InitStorMax);
+*Sample irrigation benefits in month 6
+*IBbenS(s) = uniform(IBmin,IBmax);
+IBbenS(s) = 2.2;
 
 *Sample flow in each Time according to the emperical distribution. Use the inverse
 * sampling method. First sample a cumulative distribution value between 0 and 1.
@@ -210,6 +216,7 @@ Loop(s,
     InitStor = InitStorS(s);
     Inflow(t) = InflowS(s,t);
     FlowReq = FlowAtAS(s);
+    IB("m6") = IBbenS(s);
 
 *   Set the decision variable values to zero as initial solution
 *   Not necessary for an LP, but would need for NLPs
@@ -224,7 +231,15 @@ Loop(s,
    SolStat(s) = EconBen.SolveStat;
    );
 
+PARAMETERS
+    AvgIB Average sampled irrigation benefits
+    AvgNB Average net benefits;
+
+AvgIB = sum(s, IBbenS(s))/card(s);
+AvgNB = sum(s,NetBenS(s))/card(s);
+
 Display NetBenS,ModStat,SolStat;
+Display AvgIB, AvgNB;
 
 Execute_Unload "HW4_mc.gdx";
 * Dump the gdx file to an Excel workbook
