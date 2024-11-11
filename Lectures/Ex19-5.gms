@@ -124,7 +124,7 @@ MODEL ObjAsConstraint Single-objective model with other objectives constrained /
 FtoUse(f) = 1;
 
 *Solve as a single-objective deterministic linear programming formulation
-SOLVE ExtremePt USING LP Maximizing TotalBen;
+*SOLVE ExtremePt USING LP Maximizing TotalBen;
 
 
 * Solve for the extrement points in sequence
@@ -152,7 +152,7 @@ Loop(f2,
 
 DISPLAY FStore,XStore;
 
-
+$ontext
 * Step B. Constrain one objective function value and maximize the other objective
 
 *Maximum the hydropower objective, constraint the irrigation objective
@@ -177,4 +177,4 @@ DISPLAY TotalBen.L, FBen.L, X.L;
 Execute_Unload "Ex19-5.gdx";
 * Dump the gdx file to an Excel workbook
 Execute "gdx2xls Ex19-5.gdx"
-
+$offtext

@@ -1,86 +1,64 @@
-B 2 C o m p i l a t i o n
-B 208 Equation Listing    SOLVE ExtremePt Using LP From line 127
-D 209 FBenefit
-D 217 TotBenefits
-D 223 ResBalance
-D 234 ResCapacity
-D 241 EndStorage
-D 246 HydropowerCap
-D 253 IrrFlow
-B 262 Column Listing      SOLVE ExtremePt Using LP From line 127
-E 263 X
-E 286 FBen
-E 299 TotalBen
-B 308 Model Statistics    SOLVE ExtremePt Using LP From line 127
-B 324 Solution Report     SOLVE ExtremePt Using LP From line 127
-F 355 FBenefit
-F 360 TotBenefits
-F 369 ResBalance
-F 376 ResCapacity
-F 381 EndStorage
-F 389 HydropowerCap
-F 396 IrrFlow
-G 398 X
-G 411 FBen
-G 418 TotalBen
-B 431 E x e c u t i o n
-I 432 FtoUse
-B 440 Equation Listing    SOLVE ExtremePt Using LP From line 144
-D 441 FBenefit
-D 449 TotBenefits
-D 455 ResBalance
-D 464 ResCapacity
-D 471 EndStorage
-D 476 HydropowerCap
-D 483 IrrFlow
-B 492 Column Listing      SOLVE ExtremePt Using LP From line 144
-E 493 X
-E 516 FBen
-E 528 TotalBen
-B 537 Model Statistics    SOLVE ExtremePt Using LP From line 144
-B 558 Solution Report     SOLVE ExtremePt Using LP From line 144
-F 589 FBenefit
-F 594 TotBenefits
-F 603 ResBalance
-F 610 ResCapacity
-F 615 EndStorage
-F 623 HydropowerCap
-F 630 IrrFlow
-G 632 X
-G 645 FBen
-G 652 TotalBen
-B 665 E x e c u t i o n
-I 668 TotalBen
-I 670 FBen
-I 675 X
-I 686 FtoUse
-B 693 Equation Listing    SOLVE ExtremePt Using LP From line 144
-D 694 FBenefit
-D 702 TotBenefits
-D 708 ResBalance
-D 717 ResCapacity
-D 724 EndStorage
-D 729 HydropowerCap
-D 736 IrrFlow
-B 745 Column Listing      SOLVE ExtremePt Using LP From line 144
-E 746 X
-E 769 FBen
-E 781 TotalBen
-B 790 Model Statistics    SOLVE ExtremePt Using LP From line 144
-B 811 Solution Report     SOLVE ExtremePt Using LP From line 144
-F 842 FBenefit
-F 847 TotBenefits
-F 856 ResBalance
-F 863 ResCapacity
-F 868 EndStorage
-F 876 HydropowerCap
-F 883 IrrFlow
-G 885 X
-G 898 FBen
-G 905 TotalBen
-B 918 E x e c u t i o n
-I 921 TotalBen
-I 923 FBen
-I 928 X
-I 938 FStore
-I 947 XStore
+B 3 C o m p i l a t i o n
+B 187 E x e c u t i o n
+I 187 FtoUse
+B 196 Equation Listing    SOLVE ExtremePt Using LP From line 144
+D 199 FBenefit
+D 206 TotBenefits
+D 211 ResBalance
+D 218 ResCapacity
+D 225 EndStorage
+D 230 HydropowerCap
+D 237 IrrFlow
+B 245 Column Listing      SOLVE ExtremePt Using LP From line 144
+E 248 X
+E 270 FBen
+E 282 TotalBen
+B 290 Range Statistics    SOLVE ExtremePt Using LP From line 144
+B 301 Model Statistics    SOLVE ExtremePt Using LP From line 144
+B 319 Solution Report     SOLVE ExtremePt Using LP From line 144
+F 350 FBenefit
+F 359 TotBenefits
+F 363 ResBalance
+F 370 ResCapacity
+F 379 EndStorage
+F 383 HydropowerCap
+F 390 IrrFlow
+G 397 X
+G 410 FBen
+G 419 TotalBen
+B 429 E x e c u t i o n
+I 431 TotalBen
+I 432 FBen
+I 437 X
+I 447 FtoUse
+B 455 Equation Listing    SOLVE ExtremePt Using LP From line 144
+D 458 FBenefit
+D 465 TotBenefits
+D 470 ResBalance
+D 477 ResCapacity
+D 484 EndStorage
+D 489 HydropowerCap
+D 496 IrrFlow
+B 504 Column Listing      SOLVE ExtremePt Using LP From line 144
+E 507 X
+E 529 FBen
+E 541 TotalBen
+B 549 Range Statistics    SOLVE ExtremePt Using LP From line 144
+B 560 Model Statistics    SOLVE ExtremePt Using LP From line 144
+B 578 Solution Report     SOLVE ExtremePt Using LP From line 144
+F 609 FBenefit
+F 618 TotBenefits
+F 622 ResBalance
+F 629 ResCapacity
+F 638 EndStorage
+F 642 HydropowerCap
+F 649 IrrFlow
+G 656 X
+G 669 FBen
+G 678 TotalBen
+B 688 E x e c u t i o n
+I 690 TotalBen
+I 691 FBen
+I 696 X
+I 705 FStore
+I 713 XStore

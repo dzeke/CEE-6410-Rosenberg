@@ -1,0 +1,31 @@
+--- Job Ex19-5.gms Start 11/05/24 16:02:55 47.6.0 c2de9d6d WEX-WEI x86 64bit/MS Windows
+--- Applying:
+    C:\GAMS\win64\47\gmsprmNT.txt
+--- GAMS Parameters defined
+    Input C:\Users\david\Box\_Rosenberg2024\Classes\CEE6410\Fall2024\CEE6410-Rosenberg-GitHub\CEE-6410-Rosenberg\Lectures\Ex19-5.gms
+    PageSize 0
+    ScrDir C:\Users\david\Box\_Rosenberg2024\Classes\CEE6410\Fall2024\CEE6410-Rosenberg-GitHub\CEE-6410-Rosenberg\Lectures\225a\
+    SysDir C:\GAMS\win64\47\
+    LogOption 3
+    ErrMsg 1
+    ErrorLog 99
+    IDE 1
+    LstTitleLeftAligned 1
+Licensee: CEE 6410 Water Resources Systems Analysis      G241025|0002AO-GEN
+          Utah State University, Utah Water Research Laboratory     DCE3763
+          C:\Users\david\Documents\GAMS\gamslice.txt
+          License Admin: David Rosenberg, david.rosenberg@usu.edu          
+          Course license for use within the course and related course work
+          The evaluation period of the license will expire on Dec 24, 2024
+Processor information: 1 socket(s), 4 core(s), and 8 thread(s) available
+GAMS 47.6.0   Copyright (C) 1987-2024 GAMS Development. All rights reserved
+--- Starting compilation
+--- Ex19-5.gms(163) 3 Mb 1 Error
+*** Error 119 in C:\Users\david\Box\_Rosenberg2024\Classes\CEE6410\Fall2024\CEE6410-Rosenberg-GitHub\CEE-6410-Rosenberg\Lectures\Ex19-5.gms
+    Number (primary) expected
+--- Ex19-5.gms(172) 3 Mb 2 Errors
+*** Error 257 in C:\Users\david\Box\_Rosenberg2024\Classes\CEE6410\Fall2024\CEE6410-Rosenberg-GitHub\CEE-6410-Rosenberg\Lectures\Ex19-5.gms
+    Solve statement not checked because of previous errors
+--- Ex19-5.gms(180) 3 Mb 2 Errors
+*** Status: Compilation error(s)
+--- Job Ex19-5.gms Stop 11/05/24 16:02:55 elapsed 0:00:00.088

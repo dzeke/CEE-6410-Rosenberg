@@ -1,40 +1,33 @@
-GAMS 24.2.3  r46072 Released May 22, 2014 WEX-WEI x86_64/MS Windows 10/14/20 11:08:12 Page 1
+GAMS 47.6.0  c2de9d6d Sep 12, 2024          WEX-WEI x86 64bit/MS Windows - 11/07/24 15:59:40 Page 1
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 C o m p i l a t i o n
 
 
       CEE 6410 Fall 2018
-      Problem 19.5 in Bishop et al and Example 1 in the Lecture notes MOP - Clas
-      sical Methods.
+      Problem 19.5 in Bishop et al and Example 1 in the Lecture notes MOP - Classical Methods.
        
-      A reservoir with capacity of 60 units of water and season 1 and 2 streamfl
-      ow
+      A reservoir with capacity of 60 units of water and season 1 and 2 streamflow
       of 100 and 20 units, respectively, during a critical design period.
       The reservoir is intended to maximize both irrigation yield (X),
-      and hydropower yield (Y) (refer to Figure 19.3).  Irrigation yield has sea
-      sonal
+      and hydropower yield (Y) (refer to Figure 19.3).  Irrigation yield has seasonal
       distribution (at) of (0.3, 0.7).  Hydropower releases have seasonal a
       distribution of Bt = (0.6, 0.4).
        
       Assume initial storage of 30 units and turbine capacity of 45 units.
-      The irrigation district diverts all river water downstream of the reservoi
-      r
+      The irrigation district diverts all river water downstream of the reservoir
       (NOT from the HYDROPOWER facility)
        
       Develop an LP model of this problem and
-      generate the Pareto optimal set of solutions by using the constraint metho
-      d.
+      generate the Pareto optimal set of solutions by using the constraint method.
       Is the limiting resource water or reservoir capacity?
-      What is the relative weighting of the two objectives if an irrigation  yie
-      ld of 50 is selected?
+      What is the relative weighting of the two objectives if an irrigation  yield of 50 is selected?
        
       THE PROBLEM
       Objective 1 (Irrigation Yield) is Max X = 0.3*I(1) + 0.7*I(2)
       Objective 2 (Hydropower Yield) is Max Y = 0.6*H(1) + 0.4*H(2)
        
       Subject to
-               S(t+1) = S(t) + inflow(t) - H(t) - Sp(t)  (reservoir mass balance
-      );
+               S(t+1) = S(t) + inflow(t) - H(t) - Sp(t)  (reservoir mass balance);
                S(t) <= 60    (reservoir capacity)
                I(t) = SPI(t)   (irrigation deliveries from river)
                H(t) <= 45    (turbine capacity)
@@ -47,15 +40,12 @@ C o m p i l a t i o n
   37  *1. Define the sets
   38  SETS t season /s1*s2/
   39       l network locations
-  40           /res "Reservoir", hyd "Hydropower", irr "Irrigation", spi "Spill"
-      /
-  41  *    Define a new set f (objective functions) that is a subset of the set 
-      l
+  40           /res "Reservoir", hyd "Hydropower", irr "Irrigation", spi "Spill"/
+  41  *    Define a new set f (objective functions) that is a subset of the set l
   42  *    See GAMS Users Guide Section 4.4
   43       f(l) locations of benefits /hyd,irr/;
   44   
-  45  *Define a second name for the set f -- f2. See GAMS Users Guide Section 4.
-      3.
+  45  *Define a second name for the set f -- f2. See GAMS Users Guide Section 4.3.
   46  Alias (f,f2);
   47   
   48   
@@ -64,14 +54,10 @@ C o m p i l a t i o n
   51     inflow(t) reservoir inflow (volume)
   52          /s1 100, s2 20/
   53     FtoUse(f) Objective functions to use (1=yes 0=no)
-  54     FLevel(f)  Right hand side of constraint when the objective is constrai
-      ned (arb. units)
-  55  * Note we did not set values for FtoUse or FLevel. GAMS assumes zeros. We 
-      will set later with an assignment statement
-  56     FStore(f2,f) Storing objective function values over different scenarios
-       of f
-  57     XStore(f2,l,t) Store decision variable values over different scenarios 
-      of f;
+  54     FLevel(f)  Right hand side of constraint when the objective is constrained (arb. units)
+  55  * Note we did not set values for FtoUse or FLevel. GAMS assumes zeros. We will set later with an assignment statement
+  56     FStore(f2,f) Storing objective function values over different scenarios of f
+  57     XStore(f2,l,t) Store decision variable values over different scenarios of f;
   58   
   59  TABLE bens(f,t) benefit at location f at time t ($ per volume)
   60            s1     s2
@@ -96,8 +82,7 @@ C o m p i l a t i o n
   79  *4. Define the equations
   80  EQUATIONS
   81     FBenefit Benefits at location f ($) [Objective function]
-  82     TotBenefits Total benefits across all locations ($) [Single objective f
-      unction]
+  82     TotBenefits Total benefits across all locations ($) [Single objective function]
   83     ResBalance(t) Reservoir mass balance in time t (volume)
   84     ResCapacity(t) Upper limit on reservoir storage (volume)
   85     EndStorage Ending reservoir storage (volume)
@@ -121,11 +106,9 @@ C o m p i l a t i o n
  103   
  104  *5. Define the models
  105  *Linear Program - combined objective functions
- 106  *This model will also allow us to find the extreme points by adjusting FTo
-      Use(f)
+ 106  *This model will also allow us to find the extreme points by adjusting FToUse(f)
  107  MODEL ExtremePt Find an extreme point of the LP
- 108           /FBenefit,TotBenefits,ResBalance,ResCapacity,EndStorage,Hydropowe
-      rCap,IrrFlow/;
+ 108           /FBenefit,TotBenefits,ResBalance,ResCapacity,EndStorage,HydropowerCap,IrrFlow/;
  109   
  110  *Model that constrains one objective to be greater than a level
  111  EQUATION
@@ -134,24 +117,21 @@ C o m p i l a t i o n
  114  ObjAsCon(f)$(1 - FtoUse(f))..   FBen(f) =G= FLevel(f);
  115   
  116   
- 117  MODEL ObjAsConstraint Single-objective model with other objectives constra
-      ined /ALL/;
+ 117  MODEL ObjAsConstraint Single-objective model with other objectives constrained /ALL/;
  118   
  119   
  120  *6. Solve the models.
  121   
- 122  *First, solve the single objective formulation (MAX Irrigation + Hydropowe
-      r benefits; as in prior models)
+ 122  *First, solve the single objective formulation (MAX Irrigation + Hydropower benefits; as in prior models)
  123  *   SUM(t, IRR(1)+IRR(2) + HYD(1) + HYD(2)
  124  FtoUse(f) = 1;
  125   
  126  *Solve as a single-objective deterministic linear programming formulation
- 127  SOLVE ExtremePt USING LP Maximizing TotalBen;
+ 127  *SOLVE ExtremePt USING LP Maximizing TotalBen;
  128   
  129   
  130  * Solve for the extrement points in sequence
- 131  * Step A. First find the extreme points associated with objective #1. Igno
-      re all other objectives
+ 131  * Step A. First find the extreme points associated with objective #1. Ignore all other objectives
  132  *   i.e., Max fi(X) s.t. aX <= b;
  133  * Then move to objective #2
  134   
@@ -175,16 +155,14 @@ C o m p i l a t i o n
  152   
  153  DISPLAY FStore,XStore;
  154   
-      * Step B. Constrain one objective function value and maximize the other ob
-      jective
+      * Step B. Constrain one objective function value and maximize the other objective
        
       *Maximum the hydropower objective, constraint the irrigation objective
       FToUse(f) = 0;
       FtoUse("hyd") = 1;
       *Constrain the irrigation objective
-      *Choose a value between the extreme points for the irrigation objective id
-      entified above
-      *FLevel("irr") = ________________ ;
+      *Choose a value between the extreme points for the irrigation objective identified above
+      FLevel("irr") = ________________ ;
        
       *Alternatively
       *Maximize the irrigation objective, constrain the hydropower objective
@@ -203,10 +181,19 @@ C o m p i l a t i o n
       Execute "gdx2xls Ex19-5.gdx"
 
 
-COMPILATION TIME     =        0.000 SECONDS      3 MB  24.2.3 r46072 WEX-WEI
-GAMS 24.2.3  r46072 Released May 22, 2014 WEX-WEI x86_64/MS Windows 10/14/20 11:08:12 Page 2
+COMPILATION TIME     =        0.015 SECONDS      3 MB  47.6.0 c2de9d6d WEX-WEI
+GAMS 47.6.0  c2de9d6d Sep 12, 2024          WEX-WEI x86 64bit/MS Windows - 11/07/24 15:59:40 Page 2
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
-Equation Listing    SOLVE ExtremePt Using LP From line 127
+E x e c u t i o n
+
+
+----    141 PARAMETER FtoUse  Objective functions to use (1=yes 0=no)
+
+hyd 1.000
+
+GAMS 47.6.0  c2de9d6d Sep 12, 2024          WEX-WEI x86 64bit/MS Windows - 11/07/24 15:59:40 Page 3
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Equation Listing    SOLVE ExtremePt Using LP From line 144
 
 
 ---- FBenefit  =E=  Benefits at location f ($) [Objective function]
@@ -216,21 +203,16 @@ FBenefit(hyd)..  - 0.6*X(hyd,s1) - 0.4*X(hyd,s2) + FBen(hyd) =E= 0 ; (LHS = 0)
 FBenefit(irr)..  - 0.3*X(irr,s1) - 0.7*X(irr,s2) + FBen(irr) =E= 0 ; (LHS = 0)
      
 
----- TotBenefits  =E=  Total benefits across all locations ($) [Single objective
-                       function]
+---- TotBenefits  =E=  Total benefits across all locations ($) [Single objective function]
 
-TotBenefits..  - FBen(hyd) - FBen(irr) + TotalBen =E= 0 ; (LHS = 0)
+TotBenefits..  - FBen(hyd) + TotalBen =E= 0 ; (LHS = 0)
      
 
 ---- ResBalance  =E=  Reservoir mass balance in time t (volume)
 
-ResBalance(s1)..  X(res,s1) + X(hyd,s1) + X(spi,s1) =E= 130 ;
+ResBalance(s1)..  X(res,s1) + X(hyd,s1) + X(spi,s1) =E= 130 ; (LHS = 0, INFES = 130 ****)
      
-      (LHS = 0, INFES = 130 ****)
-     
-ResBalance(s2)..  - X(res,s1) + X(res,s2) + X(hyd,s2) + X(spi,s2) =E= 20 ;
-     
-      (LHS = 0, INFES = 20 ****)
+ResBalance(s2)..  - X(res,s1) + X(res,s2) + X(hyd,s2) + X(spi,s2) =E= 20 ; (LHS = 0, INFES = 20 ****)
      
 
 ---- ResCapacity  =L=  Upper limit on reservoir storage (volume)
@@ -258,237 +240,7 @@ IrrFlow(s1)..  X(irr,s1) - X(spi,s1) =E= 0 ; (LHS = 0)
      
 IrrFlow(s2)..  X(irr,s2) - X(spi,s2) =E= 0 ; (LHS = 0)
      
-GAMS 24.2.3  r46072 Released May 22, 2014 WEX-WEI x86_64/MS Windows 10/14/20 11:08:12 Page 3
-G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
-Column Listing      SOLVE ExtremePt Using LP From line 127
-
-
----- X  Flow or storage in network at location l at time t (volume)
-
-X(res,s1)
-                (.LO, .L, .UP, .M = 0, 0, +INF, 0)
-        1       ResBalance(s1)
-       -1       ResBalance(s2)
-        1       ResCapacity(s1)
-
-X(res,s2)
-                (.LO, .L, .UP, .M = 0, 0, +INF, 0)
-        1       ResBalance(s2)
-        1       ResCapacity(s2)
-        1       EndStorage
-
-X(hyd,s1)
-                (.LO, .L, .UP, .M = 0, 0, +INF, 0)
-       -0.6     FBenefit(hyd)
-        1       ResBalance(s1)
-        1       HydropowerCap(s1)
-
-REMAINING 5 ENTRIES SKIPPED
-
----- FBen  Total benefits at location f ($)
-
-FBen(hyd)
-                (.LO, .L, .UP, .M = -INF, 0, +INF, 0)
-        1       FBenefit(hyd)
-       -1       TotBenefits
-
-FBen(irr)
-                (.LO, .L, .UP, .M = -INF, 0, +INF, 0)
-        1       FBenefit(irr)
-       -1       TotBenefits
-
-
----- TotalBen  Total benefits across all locations ($)
-
-TotalBen
-                (.LO, .L, .UP, .M = -INF, 0, +INF, 0)
-        1       TotBenefits
-
-GAMS 24.2.3  r46072 Released May 22, 2014 WEX-WEI x86_64/MS Windows 10/14/20 11:08:12 Page 4
-G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
-Model Statistics    SOLVE ExtremePt Using LP From line 127
-
-
-MODEL STATISTICS
-
-BLOCKS OF EQUATIONS           7     SINGLE EQUATIONS           12
-BLOCKS OF VARIABLES           3     SINGLE VARIABLES           11
-NON ZERO ELEMENTS            25
-
-
-GENERATION TIME      =        0.141 SECONDS      4 MB  24.2.3 r46072 WEX-WEI
-
-
-EXECUTION TIME       =        0.141 SECONDS      4 MB  24.2.3 r46072 WEX-WEI
-GAMS 24.2.3  r46072 Released May 22, 2014 WEX-WEI x86_64/MS Windows 10/14/20 11:08:12 Page 5
-G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
-Solution Report     SOLVE ExtremePt Using LP From line 127
-
-
-               S O L V E      S U M M A R Y
-
-     MODEL   ExtremePt           OBJECTIVE  TotalBen
-     TYPE    LP                  DIRECTION  MAXIMIZE
-     SOLVER  CPLEX               FROM LINE  127
-
-**** SOLVER STATUS     1 Normal Completion         
-**** MODEL STATUS      1 Optimal                   
-**** OBJECTIVE VALUE               69.5000
-
- RESOURCE USAGE, LIMIT          0.016      1000.000
- ITERATION COUNT, LIMIT         0    2000000000
-
-IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
-Cplex 12.6.0.0
-
-Space for names approximately 0.00 Mb
-Use option 'names no' to turn use of names off
-LP status(1): optimal
-Cplex Time: 0.00sec (det. 0.01 ticks)
-Optimal solution found.
-Objective :          69.500000
-
-
----- EQU FBenefit  Benefits at location f ($) [Objective function]
-
-       LOWER     LEVEL     UPPER    MARGINAL
-
-hyd      .         .         .        1.000      
-irr      .         .         .        1.000      
-
-                       LOWER     LEVEL     UPPER    MARGINAL
-
----- EQU TotBenefi~      .         .         .        1.000      
-
-  TotBenefits  Total benefits across all locations ($) [Single objective functio
-               n]
-
----- EQU ResBalance  Reservoir mass balance in time t (volume)
-
-      LOWER     LEVEL     UPPER    MARGINAL
-
-s1   130.000   130.000   130.000     0.300      
-s2    20.000    20.000    20.000     0.700      
-
----- EQU ResCapacity  Upper limit on reservoir storage (volume)
-
-      LOWER     LEVEL     UPPER    MARGINAL
-
-s1     -INF     60.000    60.000     0.400      
-s2     -INF     30.000    60.000      .         
-
-                       LOWER     LEVEL     UPPER    MARGINAL
-
----- EQU EndStorage    30.000    30.000     +INF     -0.700      
-
-  EndStorage  Ending reservoir storage (volume)
-
----- EQU HydropowerCap  Hydropower capacity for each month (volume)
-
-      LOWER     LEVEL     UPPER    MARGINAL
-
-s1     -INF     45.000    45.000     0.300      
-s2     -INF       .       45.000      .         
-
----- EQU IrrFlow  Irrigation flow from river (volume)
-
-      LOWER     LEVEL     UPPER    MARGINAL
-
-s1      .         .         .        0.300      
-s2      .         .         .        0.700      
-
----- VAR X  Flow or storage in network at location l at time t (volume)
-
-          LOWER     LEVEL     UPPER    MARGINAL
-
-res.s1      .       60.000     +INF       .         
-res.s2      .       30.000     +INF       .         
-hyd.s1      .       45.000     +INF       .         
-hyd.s2      .         .        +INF     -0.300      
-irr.s1      .       25.000     +INF       .         
-irr.s2      .       50.000     +INF       .         
-spi.s1      .       25.000     +INF       .         
-spi.s2      .       50.000     +INF       .         
-
----- VAR FBen  Total benefits at location f ($)
-
-       LOWER     LEVEL     UPPER    MARGINAL
-
-hyd     -INF     27.000     +INF       .         
-irr     -INF     42.500     +INF       .         
-
-                       LOWER     LEVEL     UPPER    MARGINAL
-
----- VAR TotalBen       -INF     69.500     +INF       .         
-
-  TotalBen  Total benefits across all locations ($)
-
-
-**** REPORT SUMMARY :        0     NONOPT
-                             0 INFEASIBLE
-                             0  UNBOUNDED
-GAMS 24.2.3  r46072 Released May 22, 2014 WEX-WEI x86_64/MS Windows 10/14/20 11:08:12 Page 6
-G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
-E x e c u t i o n
-
-
-----    141 PARAMETER FtoUse  Objective functions to use (1=yes 0=no)
-
-hyd 1.000
-
-GAMS 24.2.3  r46072 Released May 22, 2014 WEX-WEI x86_64/MS Windows 10/14/20 11:08:12 Page 7
-G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
-Equation Listing    SOLVE ExtremePt Using LP From line 144
-
-
----- FBenefit  =E=  Benefits at location f ($) [Objective function]
-
-FBenefit(hyd)..  - 0.6*X(hyd,s1) - 0.4*X(hyd,s2) + FBen(hyd) =E= 0 ; (LHS = 0)
-     
-FBenefit(irr)..  - 0.3*X(irr,s1) - 0.7*X(irr,s2) + FBen(irr) =E= 0 ; (LHS = 0)
-     
-
----- TotBenefits  =E=  Total benefits across all locations ($) [Single objective
-                       function]
-
-TotBenefits..  - FBen(hyd) + TotalBen =E= 0 ; (LHS = 42.5, INFES = 42.5 ****)
-     
-
----- ResBalance  =E=  Reservoir mass balance in time t (volume)
-
-ResBalance(s1)..  X(res,s1) + X(hyd,s1) + X(spi,s1) =E= 130 ; (LHS = 130)
-     
-ResBalance(s2)..  - X(res,s1) + X(res,s2) + X(hyd,s2) + X(spi,s2) =E= 20 ;
-     
-      (LHS = 20)
-     
-
----- ResCapacity  =L=  Upper limit on reservoir storage (volume)
-
-ResCapacity(s1)..  X(res,s1) =L= 60 ; (LHS = 60)
-     
-ResCapacity(s2)..  X(res,s2) =L= 60 ; (LHS = 30)
-     
-
----- EndStorage  =G=  Ending reservoir storage (volume)
-
-EndStorage..  X(res,s2) =G= 30 ; (LHS = 30)
-     
-
----- HydropowerCap  =L=  Hydropower capacity for each month (volume)
-
-HydropowerCap(s1)..  X(hyd,s1) =L= 45 ; (LHS = 45)
-     
-HydropowerCap(s2)..  X(hyd,s2) =L= 45 ; (LHS = 0)
-     
-
----- IrrFlow  =E=  Irrigation flow from river (volume)
-
-IrrFlow(s1)..  X(irr,s1) - X(spi,s1) =E= 0 ; (LHS = 0)
-     
-IrrFlow(s2)..  X(irr,s2) - X(spi,s2) =E= 0 ; (LHS = 0)
-     
-GAMS 24.2.3  r46072 Released May 22, 2014 WEX-WEI x86_64/MS Windows 10/14/20 11:08:12 Page 8
+GAMS 47.6.0  c2de9d6d Sep 12, 2024          WEX-WEI x86 64bit/MS Windows - 11/07/24 15:59:40 Page 4
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Column Listing      SOLVE ExtremePt Using LP From line 144
 
@@ -496,19 +248,19 @@ Column Listing      SOLVE ExtremePt Using LP From line 144
 ---- X  Flow or storage in network at location l at time t (volume)
 
 X(res,s1)
-                (.LO, .L, .UP, .M = 0, 60, +INF, 0)
+                (.LO, .L, .UP, .M = 0, 0, +INF, 0)
         1       ResBalance(s1)
        -1       ResBalance(s2)
         1       ResCapacity(s1)
 
 X(res,s2)
-                (.LO, .L, .UP, .M = 0, 30, +INF, 0)
+                (.LO, .L, .UP, .M = 0, 0, +INF, 0)
         1       ResBalance(s2)
         1       ResCapacity(s2)
         1       EndStorage
 
 X(hyd,s1)
-                (.LO, .L, .UP, .M = 0, 45, +INF, 0)
+                (.LO, .L, .UP, .M = 0, 0, +INF, 0)
        -0.6     FBenefit(hyd)
         1       ResBalance(s1)
         1       HydropowerCap(s1)
@@ -518,22 +270,33 @@ REMAINING 5 ENTRIES SKIPPED
 ---- FBen  Total benefits at location f ($)
 
 FBen(hyd)
-                (.LO, .L, .UP, .M = -INF, 27, +INF, 0)
+                (.LO, .L, .UP, .M = -INF, 0, +INF, 0)
         1       FBenefit(hyd)
        -1       TotBenefits
 
 FBen(irr)
-                (.LO, .L, .UP, .M = -INF, 42.5, +INF, 0)
+                (.LO, .L, .UP, .M = -INF, 0, +INF, 0)
         1       FBenefit(irr)
 
 
 ---- TotalBen  Total benefits across all locations ($)
 
 TotalBen
-                (.LO, .L, .UP, .M = -INF, 69.5, +INF, 0)
+                (.LO, .L, .UP, .M = -INF, 0, +INF, 0)
         1       TotBenefits
 
-GAMS 24.2.3  r46072 Released May 22, 2014 WEX-WEI x86_64/MS Windows 10/14/20 11:08:12 Page 9
+GAMS 47.6.0  c2de9d6d Sep 12, 2024          WEX-WEI x86 64bit/MS Windows - 11/07/24 15:59:40 Page 5
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Range Statistics    SOLVE ExtremePt Using LP From line 144
+
+
+RANGE STATISTICS (ABSOLUTE NON-ZERO FINITE VALUES)
+
+RHS       [min, max] : [ 2.000E+01, 1.300E+02] - Zero values observed as well
+Bound     [min, max] : [        NA,        NA] - Zero values observed as well
+Matrix    [min, max] : [ 3.000E-01, 1.000E+00]
+
+GAMS 47.6.0  c2de9d6d Sep 12, 2024          WEX-WEI x86 64bit/MS Windows - 11/07/24 15:59:40 Page 6
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Model Statistics    SOLVE ExtremePt Using LP From line 144
 
@@ -548,13 +311,10 @@ BLOCKS OF VARIABLES           3     SINGLE VARIABLES           11
 NON ZERO ELEMENTS            24
 
 
-GENERATION TIME      =        0.032 SECONDS      3 MB  24.2.3 r46072 WEX-WEI
-
-
-EXECUTION TIME       =        0.032 SECONDS      3 MB  24.2.3 r46072 WEX-WEI
+GENERATION TIME      =        0.250 SECONDS      4 MB  47.6.0 c2de9d6d WEX-WEI
                L O O P S                 f2 hyd
 
-GAMS 24.2.3  r46072 Released May 22, 2014 WEX-WEI x86_64/MS Windows 10/14/20 11:08:12 Page 10
+GAMS 47.6.0  c2de9d6d Sep 12, 2024          WEX-WEI x86 64bit/MS Windows - 11/07/24 15:59:40 Page 7
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Solution Report     SOLVE ExtremePt Using LP From line 144
 
@@ -565,95 +325,98 @@ Solution Report     SOLVE ExtremePt Using LP From line 144
      TYPE    LP                  DIRECTION  MAXIMIZE
      SOLVER  CPLEX               FROM LINE  144
 
-**** SOLVER STATUS     1 Normal Completion         
-**** MODEL STATUS      1 Optimal                   
+**** SOLVER STATUS     1 Normal Completion
+**** MODEL STATUS      1 Optimal
 **** OBJECTIVE VALUE               45.0000
 
- RESOURCE USAGE, LIMIT          0.000      1000.000
- ITERATION COUNT, LIMIT         0    2000000000
+ RESOURCE USAGE, LIMIT          0.016 10000000000.000
+ ITERATION COUNT, LIMIT         0    2147483647
+*** This solver runs with a community license.
+--- GMO setup time: 0.00s
+--- GMO memory 0.50 Mb (peak 0.50 Mb)
+--- Dictionary memory 0.00 Mb
+--- Cplex 22.1.1.0 link memory 0.00 Mb (peak 0.00 Mb)
+--- Starting Cplex
 
-IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
-Cplex 12.6.0.0
 
-Space for names approximately 0.00 Mb
-Use option 'names no' to turn use of names off
-LP status(1): optimal
-Cplex Time: 0.00sec (det. 0.01 ticks)
-Optimal solution found.
-Objective :          45.000000
+--- LP status (1): optimal.
+--- Cplex Time: 0.02sec (det. 0.01 ticks)
+
+
+Optimal solution found
+Objective:           45.000000
 
 
 ---- EQU FBenefit  Benefits at location f ($) [Objective function]
 
-       LOWER     LEVEL     UPPER    MARGINAL
+           LOWER          LEVEL          UPPER         MARGINAL
 
-hyd      .         .         .        1.000      
-irr      .         .         .         EPS       
+hyd          .              .              .             1.0000      
+irr          .              .              .             EPS         
 
-                       LOWER     LEVEL     UPPER    MARGINAL
+                           LOWER          LEVEL          UPPER         MARGINAL
 
----- EQU TotBenefi~      .         .         .        1.000      
+---- EQU TotBenefi~          .              .              .             1.0000      
 
-  TotBenefits  Total benefits across all locations ($) [Single objective functio
-               n]
+  TotBenefits  Total benefits across all locations ($) [Single objective function]
 
 ---- EQU ResBalance  Reservoir mass balance in time t (volume)
 
-      LOWER     LEVEL     UPPER    MARGINAL
+          LOWER          LEVEL          UPPER         MARGINAL
 
-s1   130.000   130.000   130.000      EPS       
-s2    20.000    20.000    20.000      EPS       
+s1       130.0000       130.0000       130.0000         EPS         
+s2        20.0000        20.0000        20.0000         EPS         
 
 ---- EQU ResCapacity  Upper limit on reservoir storage (volume)
 
-      LOWER     LEVEL     UPPER    MARGINAL
+          LOWER          LEVEL          UPPER         MARGINAL
 
-s1     -INF     60.000    60.000      EPS       
-s2     -INF     30.000    60.000      .         
+s1        -INF           55.0000        60.0000          .          
+s2        -INF           30.0000        60.0000          .          
 
-                       LOWER     LEVEL     UPPER    MARGINAL
+                           LOWER          LEVEL          UPPER         MARGINAL
 
----- EQU EndStorage    30.000    30.000     +INF       EPS       
+---- EQU EndStorage        30.0000        30.0000        +INF            EPS         
 
   EndStorage  Ending reservoir storage (volume)
 
 ---- EQU HydropowerCap  Hydropower capacity for each month (volume)
 
-      LOWER     LEVEL     UPPER    MARGINAL
+          LOWER          LEVEL          UPPER         MARGINAL
 
-s1     -INF     45.000    45.000     0.600      
-s2     -INF     45.000    45.000     0.400      
+s1        -INF           45.0000        45.0000         0.6000      
+s2        -INF           45.0000        45.0000         0.4000      
 
 ---- EQU IrrFlow  Irrigation flow from river (volume)
 
-      LOWER     LEVEL     UPPER    MARGINAL
+          LOWER          LEVEL          UPPER         MARGINAL
 
-s1      .         .         .         EPS       
-s2      .         .         .         EPS       
+s1          .              .              .             EPS         
+s2          .              .              .             EPS         
 
 ---- VAR X  Flow or storage in network at location l at time t (volume)
 
-          LOWER     LEVEL     UPPER    MARGINAL
+              LOWER          LEVEL          UPPER         MARGINAL
 
-res.s1      .       60.000     +INF       .         
-res.s2      .       30.000     +INF       .         
-hyd.s1      .       45.000     +INF       .         
-hyd.s2      .       45.000     +INF       .         
-irr.s1      .       25.000     +INF       .         
-irr.s2      .        5.000     +INF       .         
-spi.s1      .       25.000     +INF       .         
-spi.s2      .        5.000     +INF       .         
+res.s1          .            55.0000        +INF             .          
+res.s2          .            30.0000        +INF             .          
+hyd.s1          .            45.0000        +INF             .          
+hyd.s2          .            45.0000        +INF             .          
+irr.s1          .            30.0000        +INF             .          
+irr.s2          .              .            +INF             .          
+spi.s1          .            30.0000        +INF             .          
+spi.s2          .              .            +INF            EPS         
 
 ---- VAR FBen  Total benefits at location f ($)
 
-       LOWER     LEVEL     UPPER    MARGINAL
+           LOWER          LEVEL          UPPER         MARGINAL
 
-hyd     -INF     45.000     +INF       .         
-irr     -INF     11.000     +INF       .         
+hyd        -INF           45.0000        +INF             .          
+irr        -INF            9.0000        +INF             .          
 
-                       LOWER     LEVEL     UPPER    MARGINAL
+                           LOWER          LEVEL          UPPER         MARGINAL
 
----- VAR TotalBen       -INF     45.000     +INF       .         
+---- VAR TotalBen          -INF           45.0000        +INF             .          
 
   TotalBen  Total benefits across all locations ($)
 
@@ -661,35 +424,33 @@ irr     -INF     11.000     +INF       .
 **** REPORT SUMMARY :        0     NONOPT
                              0 INFEASIBLE
                              0  UNBOUNDED
-GAMS 24.2.3  r46072 Released May 22, 2014 WEX-WEI x86_64/MS Windows 10/14/20 11:08:12 Page 11
+GAMS 47.6.0  c2de9d6d Sep 12, 2024          WEX-WEI x86 64bit/MS Windows - 11/07/24 15:59:40 Page 8
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 E x e c u t i o n
 
 
-----    146 VARIABLE TotalBen.L            =       45.000  Total benefits across
-                                                           all locations ($)
+----    146 VARIABLE TotalBen.L            =       45.000  Total benefits across all locations ($)
 
 ----    146 VARIABLE FBen.L  Total benefits at location f ($)
 
-hyd 45.000,    irr 11.000
+hyd 45.000,    irr  9.000
 
 
-----    146 VARIABLE X.L  Flow or storage in network at location l at time t (vo
-                          lume)
+----    146 VARIABLE X.L  Flow or storage in network at location l at time t (volume)
 
              s1          s2
 
-res      60.000      30.000
+res      55.000      30.000
 hyd      45.000      45.000
-irr      25.000       5.000
-spi      25.000       5.000
+irr      30.000
+spi      30.000
 
 
 ----    141 PARAMETER FtoUse  Objective functions to use (1=yes 0=no)
 
 irr 1.000
 
-GAMS 24.2.3  r46072 Released May 22, 2014 WEX-WEI x86_64/MS Windows 10/14/20 11:08:12 Page 12
+GAMS 47.6.0  c2de9d6d Sep 12, 2024          WEX-WEI x86 64bit/MS Windows - 11/07/24 15:59:40 Page 9
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Equation Listing    SOLVE ExtremePt Using LP From line 144
 
@@ -701,24 +462,21 @@ FBenefit(hyd)..  - 0.6*X(hyd,s1) - 0.4*X(hyd,s2) + FBen(hyd) =E= 0 ; (LHS = 0)
 FBenefit(irr)..  - 0.3*X(irr,s1) - 0.7*X(irr,s2) + FBen(irr) =E= 0 ; (LHS = 0)
      
 
----- TotBenefits  =E=  Total benefits across all locations ($) [Single objective
-                       function]
+---- TotBenefits  =E=  Total benefits across all locations ($) [Single objective function]
 
-TotBenefits..  - FBen(irr) + TotalBen =E= 0 ; (LHS = 34, INFES = 34 ****)
+TotBenefits..  - FBen(irr) + TotalBen =E= 0 ; (LHS = 36, INFES = 36 ****)
      
 
 ---- ResBalance  =E=  Reservoir mass balance in time t (volume)
 
 ResBalance(s1)..  X(res,s1) + X(hyd,s1) + X(spi,s1) =E= 130 ; (LHS = 130)
      
-ResBalance(s2)..  - X(res,s1) + X(res,s2) + X(hyd,s2) + X(spi,s2) =E= 20 ;
-     
-      (LHS = 20)
+ResBalance(s2)..  - X(res,s1) + X(res,s2) + X(hyd,s2) + X(spi,s2) =E= 20 ; (LHS = 20)
      
 
 ---- ResCapacity  =L=  Upper limit on reservoir storage (volume)
 
-ResCapacity(s1)..  X(res,s1) =L= 60 ; (LHS = 60)
+ResCapacity(s1)..  X(res,s1) =L= 60 ; (LHS = 55)
      
 ResCapacity(s2)..  X(res,s2) =L= 60 ; (LHS = 30)
      
@@ -741,7 +499,7 @@ IrrFlow(s1)..  X(irr,s1) - X(spi,s1) =E= 0 ; (LHS = 0)
      
 IrrFlow(s2)..  X(irr,s2) - X(spi,s2) =E= 0 ; (LHS = 0)
      
-GAMS 24.2.3  r46072 Released May 22, 2014 WEX-WEI x86_64/MS Windows 10/14/20 11:08:12 Page 13
+GAMS 47.6.0  c2de9d6d Sep 12, 2024          WEX-WEI x86 64bit/MS Windows - 11/07/24 15:59:40 Page 10
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Column Listing      SOLVE ExtremePt Using LP From line 144
 
@@ -749,7 +507,7 @@ Column Listing      SOLVE ExtremePt Using LP From line 144
 ---- X  Flow or storage in network at location l at time t (volume)
 
 X(res,s1)
-                (.LO, .L, .UP, .M = 0, 60, +INF, 0)
+                (.LO, .L, .UP, .M = 0, 55, +INF, 0)
         1       ResBalance(s1)
        -1       ResBalance(s2)
         1       ResCapacity(s1)
@@ -775,7 +533,7 @@ FBen(hyd)
         1       FBenefit(hyd)
 
 FBen(irr)
-                (.LO, .L, .UP, .M = -INF, 11, +INF, 0)
+                (.LO, .L, .UP, .M = -INF, 9, +INF, 0)
         1       FBenefit(irr)
        -1       TotBenefits
 
@@ -786,7 +544,18 @@ TotalBen
                 (.LO, .L, .UP, .M = -INF, 45, +INF, 0)
         1       TotBenefits
 
-GAMS 24.2.3  r46072 Released May 22, 2014 WEX-WEI x86_64/MS Windows 10/14/20 11:08:12 Page 14
+GAMS 47.6.0  c2de9d6d Sep 12, 2024          WEX-WEI x86 64bit/MS Windows - 11/07/24 15:59:40 Page 11
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Range Statistics    SOLVE ExtremePt Using LP From line 144
+
+
+RANGE STATISTICS (ABSOLUTE NON-ZERO FINITE VALUES)
+
+RHS       [min, max] : [ 2.000E+01, 1.300E+02] - Zero values observed as well
+Bound     [min, max] : [        NA,        NA] - Zero values observed as well
+Matrix    [min, max] : [ 3.000E-01, 1.000E+00]
+
+GAMS 47.6.0  c2de9d6d Sep 12, 2024          WEX-WEI x86 64bit/MS Windows - 11/07/24 15:59:40 Page 12
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Model Statistics    SOLVE ExtremePt Using LP From line 144
 
@@ -801,13 +570,10 @@ BLOCKS OF VARIABLES           3     SINGLE VARIABLES           11
 NON ZERO ELEMENTS            24
 
 
-GENERATION TIME      =        0.031 SECONDS      3 MB  24.2.3 r46072 WEX-WEI
-
-
-EXECUTION TIME       =        0.031 SECONDS      3 MB  24.2.3 r46072 WEX-WEI
+GENERATION TIME      =        0.078 SECONDS      4 MB  47.6.0 c2de9d6d WEX-WEI
                L O O P S                 f2 irr
 
-GAMS 24.2.3  r46072 Released May 22, 2014 WEX-WEI x86_64/MS Windows 10/14/20 11:08:12 Page 15
+GAMS 47.6.0  c2de9d6d Sep 12, 2024          WEX-WEI x86 64bit/MS Windows - 11/07/24 15:59:40 Page 13
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Solution Report     SOLVE ExtremePt Using LP From line 144
 
@@ -818,95 +584,98 @@ Solution Report     SOLVE ExtremePt Using LP From line 144
      TYPE    LP                  DIRECTION  MAXIMIZE
      SOLVER  CPLEX               FROM LINE  144
 
-**** SOLVER STATUS     1 Normal Completion         
-**** MODEL STATUS      1 Optimal                   
+**** SOLVER STATUS     1 Normal Completion
+**** MODEL STATUS      1 Optimal
 **** OBJECTIVE VALUE               56.0000
 
- RESOURCE USAGE, LIMIT          0.016      1000.000
- ITERATION COUNT, LIMIT         0    2000000000
+ RESOURCE USAGE, LIMIT          0.000 10000000000.000
+ ITERATION COUNT, LIMIT         0    2147483647
+*** This solver runs with a community license.
+--- GMO setup time: 0.00s
+--- GMO memory 0.50 Mb (peak 0.50 Mb)
+--- Dictionary memory 0.00 Mb
+--- Cplex 22.1.1.0 link memory 0.00 Mb (peak 0.00 Mb)
+--- Starting Cplex
 
-IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
-Cplex 12.6.0.0
 
-Space for names approximately 0.00 Mb
-Use option 'names no' to turn use of names off
-LP status(1): optimal
-Cplex Time: 0.00sec (det. 0.01 ticks)
-Optimal solution found.
-Objective :          56.000000
+--- LP status (1): optimal.
+--- Cplex Time: 0.00sec (det. 0.01 ticks)
+
+
+Optimal solution found
+Objective:           56.000000
 
 
 ---- EQU FBenefit  Benefits at location f ($) [Objective function]
 
-       LOWER     LEVEL     UPPER    MARGINAL
+           LOWER          LEVEL          UPPER         MARGINAL
 
-hyd      .         .         .         EPS       
-irr      .         .         .        1.000      
+hyd          .              .              .             EPS         
+irr          .              .              .             1.0000      
 
-                       LOWER     LEVEL     UPPER    MARGINAL
+                           LOWER          LEVEL          UPPER         MARGINAL
 
----- EQU TotBenefi~      .         .         .        1.000      
+---- EQU TotBenefi~          .              .              .             1.0000      
 
-  TotBenefits  Total benefits across all locations ($) [Single objective functio
-               n]
+  TotBenefits  Total benefits across all locations ($) [Single objective function]
 
 ---- EQU ResBalance  Reservoir mass balance in time t (volume)
 
-      LOWER     LEVEL     UPPER    MARGINAL
+          LOWER          LEVEL          UPPER         MARGINAL
 
-s1   130.000   130.000   130.000     0.300      
-s2    20.000    20.000    20.000     0.700      
+s1       130.0000       130.0000       130.0000         0.3000      
+s2        20.0000        20.0000        20.0000         0.7000      
 
 ---- EQU ResCapacity  Upper limit on reservoir storage (volume)
 
-      LOWER     LEVEL     UPPER    MARGINAL
+          LOWER          LEVEL          UPPER         MARGINAL
 
-s1     -INF     60.000    60.000     0.400      
-s2     -INF     30.000    60.000      .         
+s1        -INF           60.0000        60.0000         0.4000      
+s2        -INF           30.0000        60.0000          .          
 
-                       LOWER     LEVEL     UPPER    MARGINAL
+                           LOWER          LEVEL          UPPER         MARGINAL
 
----- EQU EndStorage    30.000    30.000     +INF     -0.700      
+---- EQU EndStorage        30.0000        30.0000        +INF           -0.7000      
 
   EndStorage  Ending reservoir storage (volume)
 
 ---- EQU HydropowerCap  Hydropower capacity for each month (volume)
 
-      LOWER     LEVEL     UPPER    MARGINAL
+          LOWER          LEVEL          UPPER         MARGINAL
 
-s1     -INF       .       45.000      .         
-s2     -INF       .       45.000      .         
+s1        -INF             .            45.0000          .          
+s2        -INF             .            45.0000          .          
 
 ---- EQU IrrFlow  Irrigation flow from river (volume)
 
-      LOWER     LEVEL     UPPER    MARGINAL
+          LOWER          LEVEL          UPPER         MARGINAL
 
-s1      .         .         .        0.300      
-s2      .         .         .        0.700      
+s1          .              .              .             0.3000      
+s2          .              .              .             0.7000      
 
 ---- VAR X  Flow or storage in network at location l at time t (volume)
 
-          LOWER     LEVEL     UPPER    MARGINAL
+              LOWER          LEVEL          UPPER         MARGINAL
 
-res.s1      .       60.000     +INF       .         
-res.s2      .       30.000     +INF       .         
-hyd.s1      .         .        +INF     -0.300      
-hyd.s2      .         .        +INF     -0.700      
-irr.s1      .       70.000     +INF       .         
-irr.s2      .       50.000     +INF       .         
-spi.s1      .       70.000     +INF       .         
-spi.s2      .       50.000     +INF       .         
+res.s1          .            60.0000        +INF             .          
+res.s2          .            30.0000        +INF             .          
+hyd.s1          .              .            +INF           -0.3000      
+hyd.s2          .              .            +INF           -0.7000      
+irr.s1          .            70.0000        +INF             .          
+irr.s2          .            50.0000        +INF             .          
+spi.s1          .            70.0000        +INF             .          
+spi.s2          .            50.0000        +INF             .          
 
 ---- VAR FBen  Total benefits at location f ($)
 
-       LOWER     LEVEL     UPPER    MARGINAL
+           LOWER          LEVEL          UPPER         MARGINAL
 
-hyd     -INF       .        +INF       .         
-irr     -INF     56.000     +INF       .         
+hyd        -INF             .            +INF             .          
+irr        -INF           56.0000        +INF             .          
 
-                       LOWER     LEVEL     UPPER    MARGINAL
+                           LOWER          LEVEL          UPPER         MARGINAL
 
----- VAR TotalBen       -INF     56.000     +INF       .         
+---- VAR TotalBen          -INF           56.0000        +INF             .          
 
   TotalBen  Total benefits across all locations ($)
 
@@ -914,21 +683,19 @@ irr     -INF     56.000     +INF       .
 **** REPORT SUMMARY :        0     NONOPT
                              0 INFEASIBLE
                              0  UNBOUNDED
-GAMS 24.2.3  r46072 Released May 22, 2014 WEX-WEI x86_64/MS Windows 10/14/20 11:08:12 Page 16
+GAMS 47.6.0  c2de9d6d Sep 12, 2024          WEX-WEI x86 64bit/MS Windows - 11/07/24 15:59:40 Page 14
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 E x e c u t i o n
 
 
-----    146 VARIABLE TotalBen.L            =       56.000  Total benefits across
-                                                           all locations ($)
+----    146 VARIABLE TotalBen.L            =       56.000  Total benefits across all locations ($)
 
 ----    146 VARIABLE FBen.L  Total benefits at location f ($)
 
 irr 56.000
 
 
-----    146 VARIABLE X.L  Flow or storage in network at location l at time t (vo
-                          lume)
+----    146 VARIABLE X.L  Flow or storage in network at location l at time t (volume)
 
              s1          s2
 
@@ -937,41 +704,37 @@ irr      70.000      50.000
 spi      70.000      50.000
 
 
-----    153 PARAMETER FStore  Storing objective function values over different s
-                              cenarios of f
+----    153 PARAMETER FStore  Storing objective function values over different scenarios of f
 
             hyd         irr
 
-hyd      45.000      11.000
+hyd      45.000       9.000
 irr                  56.000
 
 
-----    153 PARAMETER XStore  Store decision variable values over different scen
-                              arios of f
+----    153 PARAMETER XStore  Store decision variable values over different scenarios of f
 
                  s1          s2
 
-hyd.res      60.000      30.000
+hyd.res      55.000      30.000
 hyd.hyd      45.000      45.000
-hyd.irr      25.000       5.000
-hyd.spi      25.000       5.000
+hyd.irr      30.000
+hyd.spi      30.000
 irr.res      60.000      30.000
 irr.irr      70.000      50.000
 irr.spi      70.000      50.000
 
 
 
-EXECUTION TIME       =        0.000 SECONDS      3 MB  24.2.3 r46072 WEX-WEI
+EXECUTION TIME       =        0.625 SECONDS      4 MB  47.6.0 c2de9d6d WEX-WEI
 
 
-USER: Utah Water Research Laboratory (5 user)        G140130:1517AV-GEN
-      Utah State University                                      DC7087
+USER: CEE 6410 Water Resources Systems Analysis      G241025|0002AO-GEN
+      Utah State University, Utah Water Research Laboratory     DCE3763
       License for teaching and research at degree granting institutions
 
 
 **** FILE SUMMARY
 
-Input      C:\Rosenberg\Work\USU\Classes\CEE6410\Fall2020\CEE6410-Rosenberg-GitH
-           ub\CEE-6410-Rosenberg\Lectures\Ex19-5.gms
-Output     C:\Rosenberg\Work\USU\Classes\CEE6410\Fall2020\CEE6410-Rosenberg-GitH
-           ub\CEE-6410-Rosenberg\Lectures\Ex19-5.lst
+Input      C:\Users\david\Box\_Rosenberg2024\Classes\CEE6410\Fall2024\CEE6410-Rosenberg-GitHub\CEE-6410-Rosenberg\Lectures\Ex19-5.gms
+Output     C:\Users\david\Box\_Rosenberg2024\Classes\CEE6410\Fall2024\CEE6410-Rosenberg-GitHub\CEE-6410-Rosenberg\Lectures\Ex19-5.lst

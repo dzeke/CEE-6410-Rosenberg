@@ -1,0 +1,19 @@
+B 3 C o m p i l a t i o n
+B 88 Equation Listing    SOLVE NonLinModel Using NLP From line 77
+D 91 NetBen
+D 96 ResReq
+D 103 NonLinReq
+B 109 Column Listing      SOLVE NonLinModel Using NLP From line 77
+E 112 X
+E 128 PROFIT
+B 136 Range Statistics    SOLVE NonLinModel Using NLP From line 77
+B 147 Model Statistics    SOLVE NonLinModel Using NLP From line 77
+B 161 Solution Report     SOLVE NonLinModel Using NLP From line 77
+F 209 NetBen
+F 213 ResReq
+F 222 NonLinReq
+G 226 X
+G 235 PROFIT
+B 246 E x e c u t i o n
+I 246 X
+I 253 PROFIT

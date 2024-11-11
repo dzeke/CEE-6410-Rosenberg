@@ -1,4 +1,4 @@
-GAMS 47.6.0  c2de9d6d Sep 12, 2024          WEX-WEI x86 64bit/MS Windows - 09/26/24 11:54:10 Page 1
+GAMS 47.6.0  c2de9d6d Sep 12, 2024          WEX-WEI x86 64bit/MS Windows - 10/16/24 12:21:21 Page 1
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 C o m p i l a t i o n
 
@@ -45,7 +45,7 @@ C o m p i l a t i o n
   42  TABLE A(plnt,res) Left hand side constraint coefficients
   43                   Water    Land  Labor
   44   Eggplant        1000      4      5
-  45   Tomatoes        2000      3      2.5;
+  45   Tomatoes        2000      3      2.5 ;
   46   
   47  * 3. DEFINE the variables
   48  VARIABLES X(plnt) plants planted (Number)
@@ -71,74 +71,78 @@ C o m p i l a t i o n
   68  REDCOST_DUAL..                 VREDCOST =E= SUM(res,b(res)*Y(res));
   69  RES_CONS_DUAL(plnt)..          sum(res,A(plnt,res)*Y(res)) =G= c(plnt);
   70   
-  71  * 5. DEFINE the MODELS
-  72  *PRIMAL model
-  73  MODEL PLANT_PRIMAL /PROFIT_PRIMAL, RES_CONS_PRIMAL/;
-  74  *Set the options file to print out range of basis information
-  75  PLANT_PRIMAL.optfile = 1;
-  76   
-  77  *DUAL model
-  78  MODEL PLANT_DUAL /REDCOST_DUAL, RES_CONS_DUAL/;
-  79   
-  80  * 6. SOLVE the MODELS
-  81  * Solve the PLANTING PRIMAL model using a Linear Programming Solver (see File=>Options=>Solvers)
-  82  *     to maximize VPROFIT
-  83  SOLVE PLANT_PRIMAL USING LP MAXIMIZING VPROFIT;
-  84   
-  85  * Solve the PLANTING DUAL model using a Linear Programming Solver (see File=>Options=>Solvers)
-  86  *     to maximize VPROFIT
-  87  SOLVE PLANT_DUAL USING LP MINIMIZING VREDCOST;
-  88  *Order does not matter!
-  89   
-  90  * 6. CLick File menu => RUN (F9) or Solve icon and examine solution report in .LST file
+  71  X.LO(plnt) = 5;
+  72   
+  73  * 5. DEFINE the MODELS
+  74  *PRIMAL model
+  75  MODEL PLANT_PRIMAL /PROFIT_PRIMAL, RES_CONS_PRIMAL/;
+  76  *Set the options file to print out range of basis information
+  77  PLANT_PRIMAL.optfile = 1;
+  78   
+  79  *DUAL model
+  80  MODEL PLANT_DUAL /REDCOST_DUAL, RES_CONS_DUAL/;
+  81   
+  82  * 6. SOLVE the MODELS
+  83  * Solve the PLANTING PRIMAL model using a Linear Programming Solver (see File=>Options=>Solvers)
+  84  *     to maximize VPROFIT
+  85  SOLVE PLANT_PRIMAL USING LP MAXIMIZING VPROFIT;
+  86   
+  87  * Solve the PLANTING DUAL model using a Linear Programming Solver (see File=>Options=>Solvers)
+  88  *     to maximize VPROFIT
+  89  SOLVE PLANT_DUAL USING LP MINIMIZING VREDCOST;
+  90  *Order does not matter!
   91   
-  92  * 7 . Dump all data and results to GAMS proprietary file storage .gdx and to Excel
-  93  Execute_Unload "Ex2-1Dual.gdx";
-  94  * Dump the gdx file to an Excel workbook
-  95  Execute "gdx2xls Ex2-1Dual.gdx"
-  96  * To open the GDX file in the GAMS IDE, select File => Open.
-  97  * In the Open window, set Filetype to .gdx and select the file.
+  92  * 6. CLick File menu => RUN (F9) or Solve icon and examine solution report in .LST file
+  93   
+  94  * 7 . Dump all data and results to GAMS proprietary file storage .gdx and to Excel
+  95  Execute_Unload "Ex2-1Dual.gdx";
+  96  * Dump the gdx file to an Excel workbook
+  97  Execute "gdx2xls Ex2-1Dual.gdx"
+  98  * To open the GDX file in the GAMS IDE, select File => Open.
+  99  * In the Open window, set Filetype to .gdx and select the file.
 
 
 COMPILATION TIME     =        0.000 SECONDS      3 MB  47.6.0 c2de9d6d WEX-WEI
-GAMS 47.6.0  c2de9d6d Sep 12, 2024          WEX-WEI x86 64bit/MS Windows - 09/26/24 11:54:10 Page 2
+GAMS 47.6.0  c2de9d6d Sep 12, 2024          WEX-WEI x86 64bit/MS Windows - 10/16/24 12:21:21 Page 2
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
-Equation Listing    SOLVE PLANT_PRIMAL Using LP From line 83
+Equation Listing    SOLVE PLANT_PRIMAL Using LP From line 85
 
 
 ---- PROFIT_PRIMAL  =E=  Total profit ($) and objective function value
 
-PROFIT_PRIMAL..  - 6*X(Eggplant) - 7*X(Tomatoes) + VPROFIT =E= 0 ; (LHS = 0)
+PROFIT_PRIMAL..  - 6*X(Eggplant) - 7*X(Tomatoes) + VPROFIT =E= 0 ; (LHS = -65, INFES = 65 ****)
      
 
 ---- RES_CONS_PRIMAL  =L=  Resource constraints
 
-RES_CONS_PRIMAL(Water)..  1000*X(Eggplant) + 2000*X(Tomatoes) =L= 4000000 ; (LHS = 0)
+RES_CONS_PRIMAL(Water)..  1000*X(Eggplant) + 2000*X(Tomatoes) =L= 4000000 ; (LHS = 15000)
      
-RES_CONS_PRIMAL(Land)..  4*X(Eggplant) + 3*X(Tomatoes) =L= 12000 ; (LHS = 0)
+RES_CONS_PRIMAL(Land)..  4*X(Eggplant) + 3*X(Tomatoes) =L= 12000 ; (LHS = 35)
      
-RES_CONS_PRIMAL(Labor)..  5*X(Eggplant) + 2.5*X(Tomatoes) =L= 17500 ; (LHS = 0)
+RES_CONS_PRIMAL(Labor)..  5*X(Eggplant) + 2.5*X(Tomatoes) =L= 17500 ; (LHS = 37.5)
      
-GAMS 47.6.0  c2de9d6d Sep 12, 2024          WEX-WEI x86 64bit/MS Windows - 09/26/24 11:54:10 Page 3
+GAMS 47.6.0  c2de9d6d Sep 12, 2024          WEX-WEI x86 64bit/MS Windows - 10/16/24 12:21:21 Page 3
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
-Column Listing      SOLVE PLANT_PRIMAL Using LP From line 83
+Column Listing      SOLVE PLANT_PRIMAL Using LP From line 85
 
 
 ---- X  plants planted (Number)
 
 X(Eggplant)
-                (.LO, .L, .UP, .M = 0, 0, +INF, 0)
+                (.LO, .L, .UP, .M = 5, 5, +INF, 0)
        -6       PROFIT_PRIMAL
      1000       RES_CONS_PRIMAL(Water)
         4       RES_CONS_PRIMAL(Land)
         5       RES_CONS_PRIMAL(Labor)
+        0       (OLD LEVEL ****)
 
 X(Tomatoes)
-                (.LO, .L, .UP, .M = 0, 0, +INF, 0)
+                (.LO, .L, .UP, .M = 5, 5, +INF, 0)
        -7       PROFIT_PRIMAL
      2000       RES_CONS_PRIMAL(Water)
         3       RES_CONS_PRIMAL(Land)
         2.5     RES_CONS_PRIMAL(Labor)
+        0       (OLD LEVEL ****)
 
 
 ---- VPROFIT  total profit ($)
@@ -147,40 +151,40 @@ VPROFIT
                 (.LO, .L, .UP, .M = -INF, 0, +INF, 0)
         1       PROFIT_PRIMAL
 
-GAMS 47.6.0  c2de9d6d Sep 12, 2024          WEX-WEI x86 64bit/MS Windows - 09/26/24 11:54:10 Page 4
+GAMS 47.6.0  c2de9d6d Sep 12, 2024          WEX-WEI x86 64bit/MS Windows - 10/16/24 12:21:21 Page 4
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
-Range Statistics    SOLVE PLANT_PRIMAL Using LP From line 83
+Range Statistics    SOLVE PLANT_PRIMAL Using LP From line 85
 
 
 RANGE STATISTICS (ABSOLUTE NON-ZERO FINITE VALUES)
 
 RHS       [min, max] : [ 1.200E+04, 4.000E+06] - Zero values observed as well
-Bound     [min, max] : [        NA,        NA] - Zero values observed as well
+Bound     [min, max] : [ 5.000E+00, 5.000E+00]
 Matrix    [min, max] : [ 1.000E+00, 2.000E+03]
 
-GAMS 47.6.0  c2de9d6d Sep 12, 2024          WEX-WEI x86 64bit/MS Windows - 09/26/24 11:54:10 Page 5
+GAMS 47.6.0  c2de9d6d Sep 12, 2024          WEX-WEI x86 64bit/MS Windows - 10/16/24 12:21:21 Page 5
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
-Model Statistics    SOLVE PLANT_PRIMAL Using LP From line 83
+Model Statistics    SOLVE PLANT_PRIMAL Using LP From line 85
 
 
 MODEL STATISTICS
 
 BLOCKS OF EQUATIONS           2     SINGLE EQUATIONS            4
-BLOCKS OF VARIABLES           2     SINGLE VARIABLES            3
+BLOCKS OF VARIABLES           2     SINGLE VARIABLES            3  2 projected
 NON ZERO ELEMENTS             9
 
 
-GENERATION TIME      =        0.188 SECONDS      4 MB  47.6.0 c2de9d6d WEX-WEI
-GAMS 47.6.0  c2de9d6d Sep 12, 2024          WEX-WEI x86 64bit/MS Windows - 09/26/24 11:54:10 Page 6
+GENERATION TIME      =        0.125 SECONDS      4 MB  47.6.0 c2de9d6d WEX-WEI
+GAMS 47.6.0  c2de9d6d Sep 12, 2024          WEX-WEI x86 64bit/MS Windows - 10/16/24 12:21:21 Page 6
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
-Solution Report     SOLVE PLANT_PRIMAL Using LP From line 83
+Solution Report     SOLVE PLANT_PRIMAL Using LP From line 85
 
 
                S O L V E      S U M M A R Y
 
      MODEL   PLANT_PRIMAL        OBJECTIVE  VPROFIT
      TYPE    LP                  DIRECTION  MAXIMIZE
-     SOLVER  CPLEX               FROM LINE  83
+     SOLVER  CPLEX               FROM LINE  85
 
 **** SOLVER STATUS     1 Normal Completion
 **** MODEL STATUS      1 Optimal
@@ -211,8 +215,8 @@ Finished reading from "C:\Users\david\Box\_Rosenberg2024\Classes\CEE6410\Fall202
 EQUATION NAME                            LOWER           CURRENT             UPPER
 -------------                            -----           -------             -----
 PROFIT_PRIMAL                             -INF                NA              +INF   =C
-RES_CONS_PRIMAL(Water)                   3e+06             4e+06             8e+06   =C
-RES_CONS_PRIMAL(Land)                     6000             12000           14333.3   =C
+RES_CONS_PRIMAL(Water)             3.00625e+06             4e+06       7.99167e+06   =C
+RES_CONS_PRIMAL(Land)                   6012.5             12000           14333.3   =C
 RES_CONS_PRIMAL(Labor)                   14000             17500              +INF   =C
 
 --- Objective ranging...
@@ -246,8 +250,8 @@ Labor        -INF        14000.0000     17500.0000          .
 
                 LOWER          LEVEL          UPPER         MARGINAL
 
-Eggplant          .          2400.0000        +INF             .          
-Tomatoes          .           800.0000        +INF             .          
+Eggplant         5.0000      2400.0000        +INF             .          
+Tomatoes         5.0000       800.0000        +INF             .          
 
                            LOWER          LEVEL          UPPER         MARGINAL
 
@@ -259,9 +263,9 @@ Tomatoes          .           800.0000        +INF             .
 **** REPORT SUMMARY :        0     NONOPT
                              0 INFEASIBLE
                              0  UNBOUNDED
-GAMS 47.6.0  c2de9d6d Sep 12, 2024          WEX-WEI x86 64bit/MS Windows - 09/26/24 11:54:10 Page 7
+GAMS 47.6.0  c2de9d6d Sep 12, 2024          WEX-WEI x86 64bit/MS Windows - 10/16/24 12:21:21 Page 7
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
-Equation Listing    SOLVE PLANT_DUAL Using LP From line 87
+Equation Listing    SOLVE PLANT_DUAL Using LP From line 89
 
 
 ---- REDCOST_DUAL  =E=  Reduced Cost ($) associated with using resources
@@ -275,9 +279,9 @@ RES_CONS_DUAL(Eggplant)..  1000*Y(Water) + 4*Y(Land) + 5*Y(Labor) =G= 6 ; (LHS =
      
 RES_CONS_DUAL(Tomatoes)..  2000*Y(Water) + 3*Y(Land) + 2.5*Y(Labor) =G= 7 ; (LHS = 0, INFES = 7 ****)
      
-GAMS 47.6.0  c2de9d6d Sep 12, 2024          WEX-WEI x86 64bit/MS Windows - 09/26/24 11:54:10 Page 8
+GAMS 47.6.0  c2de9d6d Sep 12, 2024          WEX-WEI x86 64bit/MS Windows - 10/16/24 12:21:21 Page 8
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
-Column Listing      SOLVE PLANT_DUAL Using LP From line 87
+Column Listing      SOLVE PLANT_DUAL Using LP From line 89
 
 
 ---- Y  value of resources used (units specific to variable)
@@ -307,9 +311,9 @@ VREDCOST
                 (.LO, .L, .UP, .M = -INF, 0, +INF, 0)
         1       REDCOST_DUAL
 
-GAMS 47.6.0  c2de9d6d Sep 12, 2024          WEX-WEI x86 64bit/MS Windows - 09/26/24 11:54:10 Page 9
+GAMS 47.6.0  c2de9d6d Sep 12, 2024          WEX-WEI x86 64bit/MS Windows - 10/16/24 12:21:21 Page 9
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
-Range Statistics    SOLVE PLANT_DUAL Using LP From line 87
+Range Statistics    SOLVE PLANT_DUAL Using LP From line 89
 
 
 RANGE STATISTICS (ABSOLUTE NON-ZERO FINITE VALUES)
@@ -318,9 +322,9 @@ RHS       [min, max] : [ 6.000E+00, 7.000E+00] - Zero values observed as well
 Bound     [min, max] : [        NA,        NA] - Zero values observed as well
 Matrix    [min, max] : [ 1.000E+00, 4.000E+06]
 
-GAMS 47.6.0  c2de9d6d Sep 12, 2024          WEX-WEI x86 64bit/MS Windows - 09/26/24 11:54:10 Page 10
+GAMS 47.6.0  c2de9d6d Sep 12, 2024          WEX-WEI x86 64bit/MS Windows - 10/16/24 12:21:21 Page 10
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
-Model Statistics    SOLVE PLANT_DUAL Using LP From line 87
+Model Statistics    SOLVE PLANT_DUAL Using LP From line 89
 
 
 MODEL STATISTICS
@@ -330,17 +334,17 @@ BLOCKS OF VARIABLES           2     SINGLE VARIABLES            4
 NON ZERO ELEMENTS            10
 
 
-GENERATION TIME      =        0.078 SECONDS      4 MB  47.6.0 c2de9d6d WEX-WEI
-GAMS 47.6.0  c2de9d6d Sep 12, 2024          WEX-WEI x86 64bit/MS Windows - 09/26/24 11:54:10 Page 11
+GENERATION TIME      =        0.110 SECONDS      4 MB  47.6.0 c2de9d6d WEX-WEI
+GAMS 47.6.0  c2de9d6d Sep 12, 2024          WEX-WEI x86 64bit/MS Windows - 10/16/24 12:21:21 Page 11
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
-Solution Report     SOLVE PLANT_DUAL Using LP From line 87
+Solution Report     SOLVE PLANT_DUAL Using LP From line 89
 
 
                S O L V E      S U M M A R Y
 
      MODEL   PLANT_DUAL          OBJECTIVE  VREDCOST
      TYPE    LP                  DIRECTION  MINIMIZE
-     SOLVER  CPLEX               FROM LINE  87
+     SOLVER  CPLEX               FROM LINE  89
 
 **** SOLVER STATUS     1 Normal Completion
 **** MODEL STATUS      1 Optimal
@@ -395,12 +399,12 @@ Labor          .              .            +INF         3500.0000
 **** REPORT SUMMARY :        0     NONOPT
                              0 INFEASIBLE
                              0  UNBOUNDED
-GAMS 47.6.0  c2de9d6d Sep 12, 2024          WEX-WEI x86 64bit/MS Windows - 09/26/24 11:54:10 Page 12
+GAMS 47.6.0  c2de9d6d Sep 12, 2024          WEX-WEI x86 64bit/MS Windows - 10/16/24 12:21:21 Page 12
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 E x e c u t i o n
 
 
-EXECUTION TIME       =        7.282 SECONDS      4 MB  47.6.0 c2de9d6d WEX-WEI
+EXECUTION TIME       =        4.984 SECONDS      4 MB  47.6.0 c2de9d6d WEX-WEI
 
 
 USER: CEE 6410 Water Resources Systems Analysis      G240923|0002AO-GEN

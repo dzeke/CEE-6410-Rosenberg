@@ -1,0 +1,124 @@
+GAMS 47.6.0  c2de9d6d Sep 12, 2024          WEX-WEI x86 64bit/MS Windows - 10/16/24 12:34:07 Page 1
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+C o m p i l a t i o n
+
+
+      CEE 6410 - Water Resources Systems Analysis
+      Example 2.1 from Bishop Et Al Text (https://digitalcommons.usu.edu/ecstatic_all/76/)
+      Modifies Example to add a labor constraint
+       
+      Formulate and solve the PRIMAL and DUALs of THE PROBLEM:
+       
+      An irrigated farm can be planted in two crops:  eggplants and tomatoes.  Data are as fol-lows:
+       
+      Seasonal Resource
+      Inputs or Profit        Crops        Resource
+      Availability
+              Eggplant        Tomatoes
+      Water        1x103 gal/plant        2x103 gal/plant      4x106 gal/year
+      Land        4 ft2/plant        3 ft2/plant               1.2x104 ft2
+      Labor         5hr/plant        2.5/hr plant              17,500 hours
+      Profit/plant        $6        $7
+                      Determine the optimal planting for the two crops.
+       
+      THE SOLUTION:
+      Uses General Algebraic Modeling System to Solve this Linear Program
+       
+      David E Rosenberg
+      david.rosenberg@usu.edu
+      September 20, 2020
+  27   
+  28  * 1. DEFINE the SETS
+  29  SETS plnt crops growing /Eggplant, Tomatoes/
+  30       res resources /Water, Land, Labor/;
+  31   
+  32  * 2. DEFINE input data
+  33  PARAMETERS
+  34     c(plnt) Objective function coefficients ($ per plant)
+  35           /Eggplant 6,
+  36           Tomatoes 7/
+  37     b(res) Right hand constraint values (per resource)
+  38            /Water 4000000,
+  39             Land  12000,
+  40             Labor 17500 /;
+  41   
+  42  TABLE A(plnt,res) Left hand side constraint coefficients
+  43                   Water    Land  Labor
+  44   Eggplant        1000      4      5
+  45   Tomatoes        2000      3      2.5;
+  46   
+  47  * 3. DEFINE the variables
+  48  VARIABLES X(plnt) plants planted (Number)
+  49            VPROFIT  total profit ($)
+  50            Y(res)  value of resources used (units specific to variable)
+  51            VREDCOST total reduced cost ($);
+  52   
+  53  * Non-negativity constraints
+  54  POSITIVE VARIABLES X,Y;
+  55   
+  56  * 4. COMBINE variables and data in equations
+  57  EQUATIONS
+  58     PROFIT_PRIMAL Total profit ($) and objective function value
+  59     RES_CONS_PRIMAL(res) Resource constraints
+  60     REDCOST_DUAL Reduced Cost ($) associated with using resources
+  61     RES_CONS_DUAL(plnt) Profit levels ;
+  62   
+  63  *Primal Equations
+  64  PROFIT_PRIMAL..                 VPROFIT =E= SUM(plnt,c(plnt)*X(plnt));
+  65  RES_CONS_PRIMAL(res) ..    SUM(plnt,A(plnt,res)*X(plnt)) =L= b(res);
+  66   
+  67  *Dual Equations
+  68  REDCOST_DUAL..                 VREDCOST =E= SUM(res,b(res)*Y(res));
+  69  RES_CONS_DUAL_Extra(plnt)..          sum(res,A(plnt,res)*Y(res)) =G= c(plnt);
+****                    $140
+**** 140  Unknown symbol
+  70   
+  71  * 5. DEFINE the MODELS
+  72  *PRIMAL model
+  73  MODEL PLANT_PRIMAL /PROFIT_PRIMAL, RES_CONS_PRIMAL/;
+  74  *Set the options file to print out range of basis information
+  75  PLANT_PRIMAL.optfile = 1;
+  76   
+  77  *DUAL model
+  78  MODEL PLANT_DUAL /REDCOST_DUAL, RES_CONS_DUAL/;
+  79   
+  80  * 6. SOLVE the MODELS
+  81  * Solve the PLANTING PRIMAL model using a Linear Programming Solver (see File=>Options=>Solvers)
+  82  *     to maximize VPROFIT
+  83  SOLVE PLANT_PRIMAL USING LP MAXIMIZING VPROFIT;
+****                                                $257
+**** 257  Solve statement not checked because of previous errors
+  84   
+  85  * Solve the PLANTING DUAL model using a Linear Programming Solver (see File=>Options=>Solvers)
+  86  *     to maximize VPROFIT
+  87  SOLVE PLANT_DUAL USING LP MINIMIZING VREDCOST;
+****                                               $257
+**** 257  Solve statement not checked because of previous errors
+  88  *Order does not matter!
+  89   
+  90  * 6. CLick File menu => RUN (F9) or Solve icon and examine solution report in .LST file
+  91   
+  92  * 7 . Dump all data and results to GAMS proprietary file storage .gdx and to Excel
+  93  Execute_Unload "Ex2-1Dual.gdx";
+  94  * Dump the gdx file to an Excel workbook
+  95  Execute "gdx2xls Ex2-1Dual.gdx"
+  96  * To open the GDX file in the GAMS IDE, select File => Open.
+  97  * In the Open window, set Filetype to .gdx and select the file.
+
+**** 3 ERROR(S)   0 WARNING(S)
+
+
+COMPILATION TIME     =        0.016 SECONDS      3 MB  47.6.0 c2de9d6d WEX-WEI
+
+
+USER: CEE 6410 Water Resources Systems Analysis      G240923|0002AO-GEN
+      Utah State University, Utah Water Research Laboratory     DCE3763
+      License for teaching and research at degree granting institutions
+
+
+**** FILE SUMMARY
+
+Input      C:\Users\david\Box\_Rosenberg2024\Classes\CEE6410\Fall2024\CEE6410-Rosenberg-GitHub\CEE-6410-Rosenberg\Lectures\Ex2-1Dual-Test.gms
+Output     C:\Users\david\Box\_Rosenberg2024\Classes\CEE6410\Fall2024\CEE6410-Rosenberg-GitHub\CEE-6410-Rosenberg\Lectures\Ex2-1Dual-Test.lst
+
+**** USER ERROR(S) ENCOUNTERED

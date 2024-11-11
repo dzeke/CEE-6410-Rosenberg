@@ -40,9 +40,9 @@ PARAMETERS
            Labor 17500 /;
 
 TABLE A(plnt,res) Left hand side constraint coefficients
-                 Water    Land  Labor
- Eggplant        1000      4      5
- Tomatoes        2000      3      2.5;
+                 Water    Land  Labor     
+ Eggplant        1000      4      5         
+ Tomatoes        2000      3      2.5 ;     
 
 * 3. DEFINE the variables
 VARIABLES X(plnt) plants planted (Number)
@@ -67,6 +67,8 @@ RES_CONS_PRIMAL(res) ..    SUM(plnt,A(plnt,res)*X(plnt)) =L= b(res);
 *Dual Equations
 REDCOST_DUAL..                 VREDCOST =E= SUM(res,b(res)*Y(res));
 RES_CONS_DUAL(plnt)..          sum(res,A(plnt,res)*Y(res)) =G= c(plnt);
+
+X.LO(plnt) = 5;
 
 * 5. DEFINE the MODELS
 *PRIMAL model
