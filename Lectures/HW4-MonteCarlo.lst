@@ -1,21 +1,18 @@
-GAMS 24.2.3  r46072 Released May 22, 2014 WEX-WEI x86_64/MS Windows 11/04/20 09:58:44 Page 1
+GAMS 47.6.0  c2de9d6d Sep 12, 2024          WEX-WEI x86 64bit/MS Windows - 11/14/24 11:15:05 Page 1
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 C o m p i l a t i o n
 
 
       CEE 6410 Fall 2020
-      Modification of HW #4 Reservoir Optimization Problem to Use Monte Carlo Me
-      thods
+      Modification of HW #4 Reservoir Optimization Problem to Use Monte Carlo Methods
        
-      How do uncertain initial reservoir storage and inflows affect total net be
-      nefits?
+      How do uncertain initial reservoir storage and inflows affect total net benefits?
        
       Assume:
         - Initial storage varies uniformly between 0.5 and 10 units
         - Inflow in month 1 varies according to observations (Table 1)
         - Inflows in subsequent months exhibit lag-1 correlation (Table 2)
-        - Instream flow at A must be at least 1 unit or 20% of largest simulated
-       flow
+        - Instream flow at A must be at least 1 unit or 20% of largest simulated flow
        
       Use 250 samples
        
@@ -36,20 +33,16 @@ C o m p i l a t i o n
        
       Show the probability distribution of total net benefits
        
-      THE ORIGINAL PROBLEM: A reservoir is designed to provide hydropower and wa
-      ter for irrigation.
+      THE ORIGINAL PROBLEM: A reservoir is designed to provide hydropower and water for irrigation.
       The turbine has a capacity of 4 units of water per month,
       water downstream must be at least on unit, irrigation will use all water
       that is available from the turbine and spillover.
-      The reservoir must be kept at a capacity under 9 units and the end storage
-       is
+      The reservoir must be kept at a capacity under 9 units and the end storage is
       greater than or equal to 5 units.
        
-      PART I sets ups the original deterministic linear programming problem with
-       the
+      PART I sets ups the original deterministic linear programming problem with the
              base case parameter values
-      PART II generates the Monte Carlo samples and solves the model 250 times f
-      or each set of
+      PART II generates the Monte Carlo samples and solves the model 250 times for each set of
            sampled values
        
       Programmed by David E. Rosenberg
@@ -64,8 +57,7 @@ C o m p i l a t i o n
   54  *1. Define the sets
   55  SETS t month /m1*m6/
   56       l network locations
-  57           /res "Reservoir", hyd "Hydropower", "irr" Irrigation", spi "Spill
-      ", AAA "At_A"/;
+  57           /res "Reservoir", hyd "Hydropower", "irr" Irrigation", spi "Spill", AAA "At_A"/;
   58   
   59  *2. Define th input data
   60  PARAMETERS
@@ -93,8 +85,7 @@ C o m p i l a t i o n
   82   
   83  *4. Define the equations
   84  EQUATIONS
-  85     WatBENEFIT Total water use benefits from allocation ($ ) and objective 
-      function
+  85     WatBENEFIT Total water use benefits from allocation ($ ) and objective function
   86     ResBalance(t) Reservoir mass balance in time t (volume)
   87     ResCapacity(t) Upper limit on reservoir storage (volume)
   88     EndStorage Ending reservoir storage (volume)
@@ -103,8 +94,7 @@ C o m p i l a t i o n
   91     MinFlowA(t)      Minimum required flow at a (volume) ;
   92   
   93  *Equations for LP formulation
-  94  WatBENEFIT..        TotalBen =E= SUM(t, hb(t)*X("hyd",t) + ib(t)*X("irr",t
-      ));
+  94  WatBENEFIT..        TotalBen =E= SUM(t, hb(t)*X("hyd",t) + ib(t)*X("irr",t));
   95  ResBalance(t)..     X("res",t) =E= inflow(t) - X("hyd",t) - X("spi",t) +
   96                                 InitStor$(ord(t) eq 1) +
   97                                 X("res",t-1)$(ord(t) gt 1);
@@ -117,11 +107,9 @@ C o m p i l a t i o n
  104  *5. Define the models
  105  *Linear Program for single maximize economic benefits objective
  106  MODEL EconBen Single Objective LP Economic Benefits
- 107           /WatBenefit,ResBalance,ResCapacity,EndStorage,HydropowerCap,River
-      Balance,MinFlowA/;
+ 107           /WatBenefit,ResBalance,ResCapacity,EndStorage,HydropowerCap,RiverBalance,MinFlowA/;
  108   
- 109  *Check on prior single-objective deterministic linear programming formulat
-      ion
+ 109  *Check on prior single-objective deterministic linear programming formulation
  110  SOLVE EconBen USING LP Maximizing TotalBen;
  111   
  112  *****************************************
@@ -144,87 +132,69 @@ C o m p i l a t i o n
  129           /fs1  1, fs2   3, fs3 5, fs4  8/
  130      FlowProb(fs) Probability of flow state fs in month 1
  131           /fs1  0.1, fs2   0.3, fs3 0.4, fs4  0.2/
- 132      FlowCumProb(fs) Cumulative probability of flow less than or equal to f
-      low value fs in month 1
- 133      CumFlowTranProb(fs,fss) Cumulative probability of moving from flow val
-      ue fs in Time t to flow value fs2 in time t+1
+ 132      FlowCumProb(fs) Cumulative probability of flow less than or equal to flow value fs in month 1
+ 133      CumFlowTranProb(fs,fss) Cumulative probability of moving from flow value fs in Time t to flow value fs2 in time t+1
  134      IBmin Minimum value for irrigation benefits in month 6 /1.7/
  135      IBmax Maximum value for irrigation benefits in month 6 /2.3/
  136   
- 137  TABLE FlowTransitionProb(fs,fss) Probability of moving from flow value fs 
-      in Time t to flow value fs2 in Time t+1
+ 137  TABLE FlowTransitionProb(fs,fss) Probability of moving from flow value fs in Time t to flow value fs2 in Time t+1
  138         fs1        fs2        fs3        fs4
  139  fs1    0.2        0.5        0.2        0.1
  140  fs2    0.2        0.3        0.3        0.2
  141  fs3    0.1        0.4        0.4        0.1
  142  fs4    0.2        0.3        0.4        0.1;
  143   
- 144  *Calculate the cumulative probability of flow in month 1 form the probabil
-      ity. Sum up
+ 144  *Calculate the cumulative probability of flow in month 1 form the probability. Sum up
  145  * all the probabilities from fs1, fs2, ... to fss
  146  FlowCumProb(fs) = sum(fss$(ord(fss) le ord(fs)),FlowProb(fss));
- 147  *Calculate the cumulative probability of flow transitions from time t to t
-      +1.
+ 147  *Calculate the cumulative probability of flow transitions from time t to t+1.
  148  *Sum rows from column fss1, fss2, to fsss
  149  *Same as FlowCumProb but for the matrix.
- 150  CumFlowTranProb(fs,fss) = sum(fsss$(ord(fsss) le ord(fss)), FlowTransition
-      Prob(fs,fsss));
+ 150  CumFlowTranProb(fs,fss) = sum(fsss$(ord(fsss) le ord(fss)), FlowTransitionProb(fs,fsss));
  151   
  152  Display FlowCumProb, CumFlowTranProb;
  153   
  154  *Parameters to store Monte Carlo sampled values
  155  PARAMETERS
  156     InitStorS(s) Sampled initial reservoir storage
- 157     CDFSampleS(s,t) Sampled cumulative distribution value for calculating i
-      nflow in time t
- 158     FlowStateS(s,t) Sampled flow state in time t (integer corresponding to 
-      element in fs)
+ 157     CDFSampleS(s,t) Sampled cumulative distribution value for calculating inflow in time t
+ 158     FlowStateS(s,t) Sampled flow state in time t (integer corresponding to element in fs)
  159     InflowS(s,t) Sampled reservoir inflows
  160     InflowOrig(t) Original inflows
  161     FlowAtAS(s)  Calculated flow requirement at A
  162     IBbenS(s) sampled irrigation benefits in month 6;
  163   
- 164  *Sample initial storage values in scenario s according to a uniform distri
-      bution
- 165  *between the minimum and maximum initial storage values (all values in ran
-      ge
+ 164  *Sample initial storage values in scenario s according to a uniform distribution
+ 165  *between the minimum and maximum initial storage values (all values in range
  166  *equally likely)
  167  InitStorS(s) = uniform(InitStorMin, InitStorMax);
  168  *Sample irrigation benefits in month 6
  169  *IBbenS(s) = uniform(IBmin,IBmax);
  170  IBbenS(s) = 2.2;
  171   
- 172  *Sample flow in each Time according to the emperical distribution. Use the
-       inverse
- 173  * sampling method. First sample a cumulative distribution value between 0 
-      and 1.
+ 172  *Sample flow in each Time according to the emperical distribution. Use the inverse
+ 173  * sampling method. First sample a cumulative distribution value between 0 and 1.
  174  * Then map that CDF value to the flow state
  175  * Sample the cdf value
  176  CDFSampleS(s,t) = uniform(0,1);
- 177  * For the first timestep, search over the other flow states and find the s
-      tate where the sampled cdf value actually
+ 177  * For the first timestep, search over the other flow states and find the state where the sampled cdf value actually
  178  * falls in
  179  FlowStateS(s,t)$(ord(t) eq 1) = max(1,
- 180         sum(fs$((ord(fs) gt 1) and (CDFSampleS(s,t) gt FlowCumProb(fs-1)) a
-      nd
+ 180         sum(fs$((ord(fs) gt 1) and (CDFSampleS(s,t) gt FlowCumProb(fs-1)) and
  181                 (CDFSampleS(s,t) le FlowCumProb(fs))),ord(fs)));
  182   
- 183  *Sample flows in Times 2 and up according to the transition probabilities.
-       Again map back into
+ 183  *Sample flows in Times 2 and up according to the transition probabilities. Again map back into
  184  * a flow state
  185  LOOP(t,
  186    FlowStateS(s,t)$(ord(t) gt 1) = max(1,
- 187         sum(fss$((ord(fss) gt 1) and (CDFSampleS(s,t) gt sum(fs$(ord(fs) eq
-       FlowStateS(s,t-1)),CumFlowTranProb(fs,fss-1))) and
- 188                (CDFSampleS(s,t) le sum(fs$(ord(fs) eq FlowStateS(s,t-1)),Cu
-      mFlowTranProb(fs,fss)))),ord(fss)));
+ 187         sum(fss$((ord(fss) gt 1) and (CDFSampleS(s,t) gt sum(fs$(ord(fs) eq FlowStateS(s,t-1)),CumFlowTranProb(fs,fss-1))) and
+ 188                (CDFSampleS(s,t) le sum(fs$(ord(fs) eq FlowStateS(s,t-1)),CumFlowTranProb(fs,fss)))),ord(fss)));
  189    );
  190   
  191  *Convert from flow states into flows
  192  InflowS(s,t) = sum(fs$(ord(fs) eq FlowStateS(s,t)),FlowVals(fs));
  193   
- 194  *Calculate Flow at A as the maximum of 1 or 20% of the maximum generated i
-      nflow
+ 194  *Calculate Flow at A as the maximum of 1 or 20% of the maximum generated inflow
  195  FlowAtAS(s) = max(1,0.2*smax(t,InflowS(s,t)));
  196   
  197  *These are all our Monte Carlo sampled values for each scenario
@@ -281,35 +251,24 @@ C o m p i l a t i o n
  248   
 
 
-COMPILATION TIME     =        0.000 SECONDS      3 MB  24.2.3 r46072 WEX-WEI
-GAMS 24.2.3  r46072 Released May 22, 2014 WEX-WEI x86_64/MS Windows 11/04/20 09:58:44 Page 2
+COMPILATION TIME     =        0.016 SECONDS      3 MB  47.6.0 c2de9d6d WEX-WEI
+GAMS 47.6.0  c2de9d6d Sep 12, 2024          WEX-WEI x86 64bit/MS Windows - 11/14/24 11:15:05 Page 2
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Equation Listing    SOLVE EconBen Using LP From line 110
 
 
----- WatBENEFIT  =E=  Total water use benefits from allocation ($ ) and objectiv
-                      e function
+---- WatBENEFIT  =E=  Total water use benefits from allocation ($ ) and objective function
 
-WatBENEFIT..  - 1.6*X(hyd,m1) - 1.7*X(hyd,m2) - 1.8*X(hyd,m3) - 1.9*X(hyd,m4)
-     
-      - 2*X(hyd,m5) - 2*X(hyd,m6) - X(irr,m1) - 1.2*X(irr,m2) - 1.9*X(irr,m3)
-     
-      - 2*X(irr,m4) - 2.2*X(irr,m5) - 2.2*X(irr,m6) + TotalBen =E= 0 ; (LHS = 0)
+WatBENEFIT..  - 1.6*X(hyd,m1) - 1.7*X(hyd,m2) - 1.8*X(hyd,m3) - 1.9*X(hyd,m4) - 2*X(hyd,m5) - 2*X(hyd,m6) - X(irr,m1) - 1.2*X(irr,m2) - 1.9*X(irr,m3) - 2*X(irr,m4) - 2.2*X(irr,m5) - 2.2*X(irr,m6) + TotalBen =E= 0 ; (LHS = 0)
      
 
 ---- ResBalance  =E=  Reservoir mass balance in time t (volume)
 
-ResBalance(m1)..  X(res,m1) + X(hyd,m1) + X(spi,m1) =E= 7 ;
+ResBalance(m1)..  X(res,m1) + X(hyd,m1) + X(spi,m1) =E= 7 ; (LHS = 0, INFES = 7 ****)
      
-      (LHS = 0, INFES = 7 ****)
+ResBalance(m2)..  - X(res,m1) + X(res,m2) + X(hyd,m2) + X(spi,m2) =E= 2 ; (LHS = 0, INFES = 2 ****)
      
-ResBalance(m2)..  - X(res,m1) + X(res,m2) + X(hyd,m2) + X(spi,m2) =E= 2 ;
-     
-      (LHS = 0, INFES = 2 ****)
-     
-ResBalance(m3)..  - X(res,m2) + X(res,m3) + X(hyd,m3) + X(spi,m3) =E= 3 ;
-     
-      (LHS = 0, INFES = 3 ****)
+ResBalance(m3)..  - X(res,m2) + X(res,m3) + X(hyd,m3) + X(spi,m3) =E= 3 ; (LHS = 0, INFES = 3 ****)
      
 REMAINING 3 ENTRIES SKIPPED
 
@@ -343,17 +302,11 @@ REMAINING 3 ENTRIES SKIPPED
 
 ---- RiverBalance  =E=  Flow balance in river at irrigation diversion (volume)
 
-RiverBalance(m1)..  X(hyd,m1) - X(irr,m1) + X(spi,m1) - X(AAA,m1) =E= 0 ;
+RiverBalance(m1)..  X(hyd,m1) - X(irr,m1) + X(spi,m1) - X(AAA,m1) =E= 0 ; (LHS = 0)
      
-      (LHS = 0)
+RiverBalance(m2)..  X(hyd,m2) - X(irr,m2) + X(spi,m2) - X(AAA,m2) =E= 0 ; (LHS = 0)
      
-RiverBalance(m2)..  X(hyd,m2) - X(irr,m2) + X(spi,m2) - X(AAA,m2) =E= 0 ;
-     
-      (LHS = 0)
-     
-RiverBalance(m3)..  X(hyd,m3) - X(irr,m3) + X(spi,m3) - X(AAA,m3) =E= 0 ;
-     
-      (LHS = 0)
+RiverBalance(m3)..  X(hyd,m3) - X(irr,m3) + X(spi,m3) - X(AAA,m3) =E= 0 ; (LHS = 0)
      
 REMAINING 3 ENTRIES SKIPPED
 
@@ -368,7 +321,7 @@ MinFlowA(m3)..  X(AAA,m3) =G= 1 ; (LHS = 0, INFES = 1 ****)
      
 REMAINING 3 ENTRIES SKIPPED
 
-GAMS 24.2.3  r46072 Released May 22, 2014 WEX-WEI x86_64/MS Windows 11/04/20 09:58:44 Page 3
+GAMS 47.6.0  c2de9d6d Sep 12, 2024          WEX-WEI x86 64bit/MS Windows - 11/14/24 11:15:05 Page 3
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Column Listing      SOLVE EconBen Using LP From line 110
 
@@ -401,7 +354,18 @@ TotalBen
                 (.LO, .L, .UP, .M = -INF, 0, +INF, 0)
         1       WatBENEFIT
 
-GAMS 24.2.3  r46072 Released May 22, 2014 WEX-WEI x86_64/MS Windows 11/04/20 09:58:44 Page 4
+GAMS 47.6.0  c2de9d6d Sep 12, 2024          WEX-WEI x86 64bit/MS Windows - 11/14/24 11:15:05 Page 4
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Range Statistics    SOLVE EconBen Using LP From line 110
+
+
+RANGE STATISTICS (ABSOLUTE NON-ZERO FINITE VALUES)
+
+RHS       [min, max] : [ 1.000E+00, 9.000E+00] - Zero values observed as well
+Bound     [min, max] : [        NA,        NA] - Zero values observed as well
+Matrix    [min, max] : [ 1.000E+00, 2.200E+00]
+
+GAMS 47.6.0  c2de9d6d Sep 12, 2024          WEX-WEI x86 64bit/MS Windows - 11/14/24 11:15:05 Page 5
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Model Statistics    SOLVE EconBen Using LP From line 110
 
@@ -413,11 +377,8 @@ BLOCKS OF VARIABLES           2     SINGLE VARIABLES           31
 NON ZERO ELEMENTS            79
 
 
-GENERATION TIME      =        0.016 SECONDS      4 MB  24.2.3 r46072 WEX-WEI
-
-
-EXECUTION TIME       =        0.016 SECONDS      4 MB  24.2.3 r46072 WEX-WEI
-GAMS 24.2.3  r46072 Released May 22, 2014 WEX-WEI x86_64/MS Windows 11/04/20 09:58:44 Page 5
+GENERATION TIME      =        0.187 SECONDS      4 MB  47.6.0 c2de9d6d WEX-WEI
+GAMS 47.6.0  c2de9d6d Sep 12, 2024          WEX-WEI x86 64bit/MS Windows - 11/14/24 11:15:05 Page 6
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Solution Report     SOLVE EconBen Using LP From line 110
 
@@ -428,130 +389,133 @@ Solution Report     SOLVE EconBen Using LP From line 110
      TYPE    LP                  DIRECTION  MAXIMIZE
      SOLVER  CPLEX               FROM LINE  110
 
-**** SOLVER STATUS     1 Normal Completion         
-**** MODEL STATUS      1 Optimal                   
+**** SOLVER STATUS     1 Normal Completion
+**** MODEL STATUS      1 Optimal
 **** OBJECTIVE VALUE               51.6000
 
- RESOURCE USAGE, LIMIT          0.015      1000.000
- ITERATION COUNT, LIMIT        16    2000000000
-
-IBM ILOG CPLEX   24.2.3 r46072 Released May 22, 2014 WEI x86_64/MS Windows    
-Cplex 12.6.0.0
-
-Space for names approximately 0.00 Mb
-Use option 'names no' to turn use of names off
-LP status(1): optimal
-Cplex Time: 0.00sec (det. 0.05 ticks)
-Optimal solution found.
-Objective :          51.600000
+ RESOURCE USAGE, LIMIT          0.016 10000000000.000
+ ITERATION COUNT, LIMIT        16    2147483647
+*** This solver runs with a community license.
+--- GMO setup time: 0.00s
+--- GMO memory 0.50 Mb (peak 0.50 Mb)
+--- Dictionary memory 0.00 Mb
+--- Cplex 22.1.1.0 link memory 0.00 Mb (peak 0.00 Mb)
+--- Starting Cplex
 
 
-                       LOWER     LEVEL     UPPER    MARGINAL
+--- LP status (1): optimal.
+--- Cplex Time: 0.02sec (det. 0.06 ticks)
 
----- EQU WatBENEFIT      .         .         .        1.000      
 
-  WatBENEFIT  Total water use benefits from allocation ($ ) and objective functi
-              on
+Optimal solution found
+Objective:           51.600000
+
+
+                           LOWER          LEVEL          UPPER         MARGINAL
+
+---- EQU WatBENEFIT          .              .              .             1.0000      
+
+  WatBENEFIT  Total water use benefits from allocation ($ ) and objective function
 
 ---- EQU ResBalance  Reservoir mass balance in time t (volume)
 
-      LOWER     LEVEL     UPPER    MARGINAL
+          LOWER          LEVEL          UPPER         MARGINAL
 
-m1     7.000     7.000     7.000     3.700      
-m2     2.000     2.000     2.000     3.700      
-m3     3.000     3.000     3.000     3.700      
-m4     4.000     4.000     4.000     3.700      
-m5     3.000     3.000     3.000     3.700      
-m6     2.000     2.000     2.000     3.700      
+m1         7.0000         7.0000         7.0000         3.7000      
+m2         2.0000         2.0000         2.0000         3.7000      
+m3         3.0000         3.0000         3.0000         3.7000      
+m4         4.0000         4.0000         4.0000         3.7000      
+m5         3.0000         3.0000         3.0000         3.7000      
+m6         2.0000         2.0000         2.0000         3.7000      
 
 ---- EQU ResCapacity  Upper limit on reservoir storage (volume)
 
-      LOWER     LEVEL     UPPER    MARGINAL
+          LOWER          LEVEL          UPPER         MARGINAL
 
-m1     -INF      6.000     9.000      .         
-m2     -INF      7.000     9.000      .         
-m3     -INF      8.000     9.000      .         
-m4     -INF      8.000     9.000      .         
-m5     -INF      7.000     9.000      .         
-m6     -INF      5.000     9.000      .         
+m1        -INF            6.0000         9.0000          .          
+m2        -INF            7.0000         9.0000          .          
+m3        -INF            8.0000         9.0000          .          
+m4        -INF            8.0000         9.0000          .          
+m5        -INF            7.0000         9.0000          .          
+m6        -INF            5.0000         9.0000          .          
 
-                       LOWER     LEVEL     UPPER    MARGINAL
+                           LOWER          LEVEL          UPPER         MARGINAL
 
----- EQU EndStorage     5.000     5.000     +INF     -3.700      
+---- EQU EndStorage         5.0000         5.0000        +INF           -3.7000      
 
   EndStorage  Ending reservoir storage (volume)
 
 ---- EQU HydropowerCap  Hydropower capacity for each month (volume)
 
-      LOWER     LEVEL     UPPER    MARGINAL
+          LOWER          LEVEL          UPPER         MARGINAL
 
-m1     -INF      1.000     4.000      .         
-m2     -INF      1.000     4.000      .         
-m3     -INF      2.000     4.000      .         
-m4     -INF      4.000     4.000     0.200      
-m5     -INF      4.000     4.000     0.500      
-m6     -INF      4.000     4.000     0.500      
+m1        -INF            1.0000         4.0000          .          
+m2        -INF            1.0000         4.0000          .          
+m3        -INF            2.0000         4.0000          .          
+m4        -INF            4.0000         4.0000         0.2000      
+m5        -INF            4.0000         4.0000         0.5000      
+m6        -INF            4.0000         4.0000         0.5000      
 
 ---- EQU RiverBalance  Flow balance in river at irrigation diversion (volume)
 
-      LOWER     LEVEL     UPPER    MARGINAL
+          LOWER          LEVEL          UPPER         MARGINAL
 
-m1      .         .         .       -2.100      
-m2      .         .         .       -2.000      
-m3      .         .         .       -1.900      
-m4      .         .         .       -2.000      
-m5      .         .         .       -2.200      
-m6      .         .         .       -2.200      
+m1          .              .              .            -2.1000      
+m2          .              .              .            -2.0000      
+m3          .              .              .            -1.9000      
+m4          .              .              .            -2.0000      
+m5          .              .              .            -2.2000      
+m6          .              .              .            -2.2000      
 
 ---- EQU MinFlowA  Minimum required flow at a (volume)
 
-      LOWER     LEVEL     UPPER    MARGINAL
+          LOWER          LEVEL          UPPER         MARGINAL
 
-m1     1.000     1.000     +INF     -2.100      
-m2     1.000     1.000     +INF     -2.000      
-m3     1.000     1.000     +INF     -1.900      
-m4     1.000     1.000     +INF     -2.000      
-m5     1.000     1.000     +INF     -2.200      
-m6     1.000     1.000     +INF     -2.200      
+m1         1.0000         1.0000        +INF           -2.1000      
+m2         1.0000         1.0000        +INF           -2.0000      
+m3         1.0000         1.0000        +INF           -1.9000      
+m4         1.0000         1.0000        +INF           -2.0000      
+m5         1.0000         1.0000        +INF           -2.2000      
+m6         1.0000         1.0000        +INF           -2.2000      
 
 ---- VAR X  Flow or storage in network at location l at time t (volume)
 
-          LOWER     LEVEL     UPPER    MARGINAL
+              LOWER          LEVEL          UPPER         MARGINAL
 
-res.m1      .        6.000     +INF       .         
-res.m2      .        7.000     +INF       .         
-res.m3      .        8.000     +INF       .         
-res.m4      .        8.000     +INF       .         
-res.m5      .        7.000     +INF       .         
-res.m6      .        5.000     +INF       .         
-hyd.m1      .        1.000     +INF       .         
-hyd.m2      .        1.000     +INF       .         
-hyd.m3      .        2.000     +INF       .         
-hyd.m4      .        4.000     +INF       .         
-hyd.m5      .        4.000     +INF       .         
-hyd.m6      .        4.000     +INF       .         
-irr.m1      .         .        +INF     -1.100      
-irr.m2      .         .        +INF     -0.800      
-irr.m3      .        1.000     +INF       .         
-irr.m4      .        3.000     +INF       .         
-irr.m5      .        3.000     +INF       .         
-irr.m6      .        3.000     +INF       .         
-spi.m1      .         .        +INF     -1.600      
-spi.m2      .         .        +INF     -1.700      
-spi.m3      .         .        +INF     -1.800      
-spi.m4      .         .        +INF     -1.700      
-spi.m5      .         .        +INF     -1.500      
-spi.m6      .         .        +INF     -1.500      
-AAA.m1      .        1.000     +INF       .         
-AAA.m2      .        1.000     +INF       .         
-AAA.m3      .        1.000     +INF       .         
-AAA.m4      .        1.000     +INF       .         
-AAA.m5      .        1.000     +INF       .         
-AAA.m6      .        1.000     +INF       .         
+res.m1          .             6.0000        +INF             .          
+res.m2          .             7.0000        +INF             .          
+res.m3          .             8.0000        +INF             .          
+res.m4          .             8.0000        +INF             .          
+res.m5          .             7.0000        +INF             .          
+res.m6          .             5.0000        +INF             .          
+hyd.m1          .             1.0000        +INF             .          
+hyd.m2          .             1.0000        +INF             .          
+hyd.m3          .             2.0000        +INF             .          
+hyd.m4          .             4.0000        +INF             .          
+hyd.m5          .             4.0000        +INF             .          
+hyd.m6          .             4.0000        +INF             .          
+irr.m1          .              .            +INF           -1.1000      
+irr.m2          .              .            +INF           -0.8000      
+irr.m3          .             1.0000        +INF             .          
+irr.m4          .             3.0000        +INF             .          
+irr.m5          .             3.0000        +INF             .          
+irr.m6          .             3.0000        +INF             .          
+spi.m1          .              .            +INF           -1.6000      
+spi.m2          .              .            +INF           -1.7000      
+spi.m3          .              .            +INF           -1.8000      
+spi.m4          .              .            +INF           -1.7000      
+spi.m5          .              .            +INF           -1.5000      
+spi.m6          .              .            +INF           -1.5000      
+AAA.m1          .             1.0000        +INF             .          
+AAA.m2          .             1.0000        +INF             .          
+AAA.m3          .             1.0000        +INF             .          
+AAA.m4          .             1.0000        +INF             .          
+AAA.m5          .             1.0000        +INF             .          
+AAA.m6          .             1.0000        +INF             .          
 
-                       LOWER     LEVEL     UPPER    MARGINAL
+                           LOWER          LEVEL          UPPER         MARGINAL
 
----- VAR TotalBen       -INF     51.600     +INF       .         
+---- VAR TotalBen          -INF           51.6000        +INF             .          
 
   TotalBen  Total benefits ($)
 
@@ -559,20 +523,17 @@ AAA.m6      .        1.000     +INF       .
 **** REPORT SUMMARY :        0     NONOPT
                              0 INFEASIBLE
                              0  UNBOUNDED
-GAMS 24.2.3  r46072 Released May 22, 2014 WEX-WEI x86_64/MS Windows 11/04/20 09:58:44 Page 6
+GAMS 47.6.0  c2de9d6d Sep 12, 2024          WEX-WEI x86 64bit/MS Windows - 11/14/24 11:15:05 Page 7
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 E x e c u t i o n
 
 
-----    152 PARAMETER FlowCumProb  Cumulative probability of flow less than or e
-                                   qual to flow value fs in month 1
+----    152 PARAMETER FlowCumProb  Cumulative probability of flow less than or equal to flow value fs in month 1
 
 fs1 0.100,    fs2 0.400,    fs3 0.800,    fs4 1.000
 
 
-----    152 PARAMETER CumFlowTranProb  Cumulative probability of moving from flo
-                                       w value fs in Time t to flow value fs2 in
-                                       time t+1
+----    152 PARAMETER CumFlowTranProb  Cumulative probability of moving from flow value fs in Time t to flow value fs2 in time t+1
 
             fs1         fs2         fs3         fs4
 
@@ -584,64 +545,15 @@ fs4       0.200       0.500       0.900       1.000
 
 ----    198 PARAMETER InitStorS  Sampled initial reservoir storage
 
-s1   2.132,    s2   8.511,    s3   5.729,    s4   3.361,    s5   3.276
-s6   2.629,    s7   3.823,    s8   8.635,    s9   1.138,    s10  5.252
-s11  9.982,    s12  5.998,    s13  9.916,    s14  7.741,    s15  1.742
-s16  6.577,    s17  2.015,    s18  2.876,    s19  6.855,    s20  4.636
-s21  3.917,    s22  3.839,    s23  1.749,    s24  1.926,    s25  6.097
-s26  8.393,    s27  2.693,    s28  6.824,    s29  7.871,    s30  3.385
-s31  1.550,    s32  5.273,    s33  2.022,    s34  8.788,    s35  3.019
-s36  3.215,    s37  6.143,    s38  7.366,    s39  6.468,    s40  4.906
-s41  4.426,    s42  1.618,    s43  3.485,    s44  0.942,    s45  3.716
-s46  2.230,    s47  6.634,    s48  5.827,    s49  7.815,    s50  3.329
-s51  6.781,    s52  7.680,    s53  6.461,    s54  3.197,    s55  1.321
-s56  1.474,    s57  6.592,    s58  5.680,    s59  0.799,    s60  8.027
-s61  1.191,    s62  2.169,    s63  5.494,    s64  7.627,    s65  2.192
-s66  0.824,    s67  6.059,    s68  6.402,    s69  4.199,    s70  3.908
-s71  2.809,    s72  2.841,    s73  1.740,    s74  9.368,    s75  4.109
-s76  7.942,    s77  3.350,    s78  1.692,    s79  7.614,    s80  1.158
-s81  2.419,    s82  0.548,    s83  3.061,    s84  5.249,    s85  1.937
-s86  2.155,    s87  3.641,    s88  3.511,    s89  3.560,    s90  9.658
-s91  9.939,    s92  4.014,    s93  4.042,    s94  7.834,    s95  4.268
-s96  9.174,    s97  1.636,    s98  7.487,    s99  1.026,    s100 5.975
-s101 0.988,    s102 0.557,    s103 4.312,    s104 5.439,    s105 6.474
-s106 2.645,    s107 4.263,    s108 3.122,    s109 1.948,    s110 9.395
-s111 4.515,    s112 1.779,    s113 4.168,    s114 4.059,    s115 3.051
-s116 9.510,    s117 2.295,    s118 3.326,    s119 1.208,    s120 4.313
-s121 1.466,    s122 4.147,    s123 3.579,    s124 2.325,    s125 1.568
-s126 6.167,    s127 5.359,    s128 0.928,    s129 7.939,    s130 9.485
-s131 6.166,    s132 6.270,    s133 3.944,    s134 6.144,    s135 6.959
-s136 5.313,    s137 2.013,    s138 6.740,    s139 5.477,    s140 1.682
-s141 9.874,    s142 2.667,    s143 6.919,    s144 7.879,    s145 9.358
-s146 2.412,    s147 3.323,    s148 2.374,    s149 2.840,    s150 6.642
-s151 7.482,    s152 1.312,    s153 1.928,    s154 4.625,    s155 2.276
-s156 7.081,    s157 7.748,    s158 1.971,    s159 4.199,    s160 7.107
-s161 8.535,    s162 6.321,    s163 9.772,    s164 0.755,    s165 2.281
-s166 1.328,    s167 5.634,    s168 1.705,    s169 7.473,    s170 1.576
-s171 5.139,    s172 8.058,    s173 5.174,    s174 5.569,    s175 0.601
-s176 5.667,    s177 4.786,    s178 9.766,    s179 2.247,    s180 2.054
-s181 0.734,    s182 2.189,    s183 1.083,    s184 0.658,    s185 8.439
-s186 6.216,    s187 0.757,    s188 2.363,    s189 9.532,    s190 3.688
-s191 6.145,    s192 2.962,    s193 6.586,    s194 1.975,    s195 4.870
-s196 4.237,    s197 8.152,    s198 5.639,    s199 4.212,    s200 5.799
-s201 9.361,    s202 3.813,    s203 0.579,    s204 9.514,    s205 5.933
-s206 3.669,    s207 9.846,    s208 7.781,    s209 1.546,    s210 9.951
-s211 6.013,    s212 2.081,    s213 6.612,    s214 3.771,    s215 9.167
-s216 9.051,    s217 0.654,    s218 4.002,    s219 6.812,    s220 6.137
-s221 0.828,    s222 8.497,    s223 9.355,    s224 5.326,    s225 3.346
-s226 5.218,    s227 0.927,    s228 7.850,    s229 5.563,    s230 7.594
-s231 7.340,    s232 6.500,    s233 1.592,    s234 9.726,    s235 7.214
-s236 9.870,    s237 8.621,    s238 6.404,    s239 7.162,    s240 7.158
-s241 8.012,    s242 6.297,    s243 1.016,    s244 5.109,    s245 0.999
-s246 7.137,    s247 2.350,    s248 2.647,    s249 8.230,    s250 9.921
+s1   2.132,    s2   8.511,    s3   5.729,    s4   3.361,    s5   3.276,    s6   2.629,    s7   3.823,    s8   8.635,    s9   1.138,    s10  5.252,    s11  9.982,    s12  5.998,    s13  9.916,    s14  7.741,    s15  1.742,    s16  6.577,    s17  2.015,    s18  2.876,    s19  6.855,    s20  4.636,    s21  3.917,    s22  3.839,    s23  1.749,    s24  1.926,    s25  6.097,    s26  8.393,    s27  2.693,    s28  6.824,    s29  7.871,    s30  3.385,    s31  1.550,    s32  5.273,    s33  2.022,    s34  8.788,    s35  3.019,    s36  3.215,    s37  6.143,    s38  7.366,    s39  6.468,    s40  4.906,    s41  4.426,    s42  1.618,    s43  3.485,    s44  0.942,    s45  3.716,    s46  2.230,    s47  6.634,    s48  5.827,    s49  7.815,    s50  3.329,    s51  6.781,    s52  7.680,    s53  6.461,    s54  3.197,    s55  1.321,    s56  1.474,    s57  6.592,    s58  5.680,    s59  0.799,    s60  8.027,    s61  1.191,    s62  2.169,    s63  5.494,    s64  7.627,    s65  2.192,    s66  0.824,    s67  6.059,    s68  6.402,    s69  4.199,    s70  3.908,    s71  2.809,    s72  2.841,    s73  1.740,    s74  9.368,    s75  4.109,    s76  7.942,    s77  3.350,    s78  1.692,    s79  7.614,    s80  1.158,    s81  2.419,    s82  0.548,    s83  3.061,    s84  5.249,    s85  1.937,    s86  2.155,    s87  3.641,    s88  3.511,    s89  3.560,    s90  9.658,    s91  9.939,    s92  4.014,    s93  4.042,    s94  7.834,    s95  4.268,    s96  9.174,    s97  1.636,    s98  7.487,    s99  1.026,    s100 5.975,    s101 0.988,    s102 0.557,    s103 4.312,    s104 5.439,    s105 6.474,    s106 2.645,    s107 4.263,    s108 3.122,    s109 1.948,    s110 9.395,    s111 4.515,    s112 1.779,    s113 4.168,    s114 4.059,    s115 3.051,    s116 9.510,    s117 2.295,    s118 3.326,    s119 1.208,    s120 4.313,    s121 1.466,    s122 4.147,    s123 3.579,    s124 2.325,    s125 1.568,    s126 6.167,    s127 5.359
+s128 0.928,    s129 7.939,    s130 9.485,    s131 6.166,    s132 6.270,    s133 3.944,    s134 6.144,    s135 6.959,    s136 5.313,    s137 2.013,    s138 6.740,    s139 5.477,    s140 1.682,    s141 9.874,    s142 2.667,    s143 6.919,    s144 7.879,    s145 9.358,    s146 2.412,    s147 3.323,    s148 2.374,    s149 2.840,    s150 6.642,    s151 7.482,    s152 1.312,    s153 1.928,    s154 4.625,    s155 2.276,    s156 7.081,    s157 7.748,    s158 1.971,    s159 4.199,    s160 7.107,    s161 8.535,    s162 6.321,    s163 9.772,    s164 0.755,    s165 2.281,    s166 1.328,    s167 5.634,    s168 1.705,    s169 7.473,    s170 1.576,    s171 5.139,    s172 8.058,    s173 5.174,    s174 5.569,    s175 0.601,    s176 5.667,    s177 4.786,    s178 9.766,    s179 2.247,    s180 2.054,    s181 0.734,    s182 2.189,    s183 1.083,    s184 0.658,    s185 8.439,    s186 6.216,    s187 0.757,    s188 2.363,    s189 9.532,    s190 3.688,    s191 6.145,    s192 2.962,    s193 6.586,    s194 1.975,    s195 4.870,    s196 4.237,    s197 8.152,    s198 5.639,    s199 4.212,    s200 5.799,    s201 9.361,    s202 3.813,    s203 0.579,    s204 9.514,    s205 5.933,    s206 3.669,    s207 9.846,    s208 7.781,    s209 1.546,    s210 9.951,    s211 6.013,    s212 2.081,    s213 6.612,    s214 3.771,    s215 9.167,    s216 9.051,    s217 0.654,    s218 4.002,    s219 6.812,    s220 6.137,    s221 0.828,    s222 8.497,    s223 9.355,    s224 5.326,    s225 3.346,    s226 5.218,    s227 0.927,    s228 7.850,    s229 5.563,    s230 7.594,    s231 7.340,    s232 6.500,    s233 1.592,    s234 9.726,    s235 7.214,    s236 9.870,    s237 8.621,    s238 6.404,    s239 7.162,    s240 7.158,    s241 8.012,    s242 6.297,    s243 1.016,    s244 5.109,    s245 0.999,    s246 7.137,    s247 2.350,    s248 2.647,    s249 8.230,    s250 9.921
 
 
-----    198 PARAMETER CDFSampleS  Sampled cumulative distribution value for calc
-                                  ulating inflow in time t
+----    198 PARAMETER CDFSampleS  Sampled cumulative distribution value for calculating inflow in time t
 
               m1          m2          m3          m4          m5          m6
 
-s1         0.751       0.718 5.911360E-4       0.264       0.824       0.820
+s1         0.751       0.718       0.001       0.264       0.824       0.820
 s2         0.860       0.213       0.457       0.038       0.323       0.440
 s3         0.315       0.135       0.811       0.417       0.142       0.466
 s4         0.283       0.896       0.064       0.415       0.342       0.468
@@ -695,10 +607,10 @@ s51        0.452       0.169       0.572       0.859       0.036       0.355
 s52        0.338       0.486       0.259       0.891       0.849       0.635
 s53        0.986       0.758       0.508       0.768       0.832       0.584
 s54        0.575       0.557       0.604       0.977       0.554       0.935
-s55        0.413       0.806 7.778940E-4       0.455       0.419       0.016
+s55        0.413       0.806       0.001       0.455       0.419       0.016
 s56        0.082       0.599       0.555       0.618       0.885       0.190
 s57        0.428       0.167       0.886       0.677       0.863       0.093
-s58        0.996       0.617 7.703550E-4       0.609       0.174       0.311
+s58        0.996       0.617       0.001       0.609       0.174       0.311
 s59        0.729       0.085       0.442       0.659       0.484       0.318
 s60        0.914       0.184       0.872       0.456       0.459       0.124
 s61        0.104       0.235       0.340       0.873       0.845       0.823
@@ -893,8 +805,7 @@ s249       0.173       0.183       0.057       0.763       0.870       0.781
 s250       0.172       0.692       0.634       0.619 3.785580E-4       0.217
 
 
-----    198 PARAMETER FlowStateS  Sampled flow state in time t (integer correspo
-                                  nding to element in fs)
+----    198 PARAMETER FlowStateS  Sampled flow state in time t (integer corresponding to element in fs)
 
               m1          m2          m3          m4          m5          m6
 
@@ -1408,235 +1319,95 @@ s250       3.000       5.000       5.000       5.000       1.000       3.000
 
 ----    198 PARAMETER FlowAtAS  Calculated flow requirement at A
 
-s1   1.600,    s2   1.600,    s3   1.000,    s4   1.600,    s5   1.600
-s6   1.600,    s7   1.000,    s8   1.600,    s9   1.600,    s10  1.000
-s11  1.000,    s12  1.000,    s13  1.000,    s14  1.600,    s15  1.600
-s16  1.600,    s17  1.600,    s18  1.600,    s19  1.000,    s20  1.000
-s21  1.000,    s22  1.000,    s23  1.600,    s24  1.600,    s25  1.600
-s26  1.600,    s27  1.600,    s28  1.000,    s29  1.000,    s30  1.600
-s31  1.000,    s32  1.000,    s33  1.000,    s34  1.600,    s35  1.600
-s36  1.000,    s37  1.600,    s38  1.000,    s39  1.000,    s40  1.600
-s41  1.600,    s42  1.600,    s43  1.000,    s44  1.600,    s45  1.000
-s46  1.600,    s47  1.000,    s48  1.600,    s49  1.600,    s50  1.000
-s51  1.000,    s52  1.600,    s53  1.600,    s54  1.600,    s55  1.000
-s56  1.000,    s57  1.600,    s58  1.600,    s59  1.000,    s60  1.600
-s61  1.600,    s62  1.600,    s63  1.600,    s64  1.600,    s65  1.000
-s66  1.600,    s67  1.000,    s68  1.000,    s69  1.600,    s70  1.600
-s71  1.600,    s72  1.600,    s73  1.000,    s74  1.600,    s75  1.600
-s76  1.600,    s77  1.600,    s78  1.600,    s79  1.000,    s80  1.600
-s81  1.600,    s82  1.600,    s83  1.000,    s84  1.600,    s85  1.600
-s86  1.600,    s87  1.000,    s88  1.600,    s89  1.600,    s90  1.600
-s91  1.600,    s92  1.000,    s93  1.600,    s94  1.600,    s95  1.000
-s96  1.000,    s97  1.600,    s98  1.600,    s99  1.600,    s100 1.000
-s101 1.600,    s102 1.600,    s103 1.000,    s104 1.000,    s105 1.600
-s106 1.600,    s107 1.600,    s108 1.600,    s109 1.000,    s110 1.600
-s111 1.600,    s112 1.600,    s113 1.600,    s114 1.600,    s115 1.600
-s116 1.600,    s117 1.600,    s118 1.600,    s119 1.000,    s120 1.000
-s121 1.000,    s122 1.000,    s123 1.600,    s124 1.600,    s125 1.600
-s126 1.600,    s127 1.000,    s128 1.600,    s129 1.600,    s130 1.600
-s131 1.600,    s132 1.000,    s133 1.000,    s134 1.600,    s135 1.600
-s136 1.600,    s137 1.000,    s138 1.600,    s139 1.600,    s140 1.600
-s141 1.600,    s142 1.000,    s143 1.600,    s144 1.000,    s145 1.000
-s146 1.000,    s147 1.600,    s148 1.600,    s149 1.600,    s150 1.600
-s151 1.600,    s152 1.000,    s153 1.600,    s154 1.000,    s155 1.600
-s156 1.000,    s157 1.000,    s158 1.600,    s159 1.600,    s160 1.600
-s161 1.000,    s162 1.600,    s163 1.600,    s164 1.600,    s165 1.600
-s166 1.000,    s167 1.600,    s168 1.000,    s169 1.000,    s170 1.000
-s171 1.600,    s172 1.600,    s173 1.000,    s174 1.000,    s175 1.600
-s176 1.000,    s177 1.000,    s178 1.000,    s179 1.000,    s180 1.000
-s181 1.000,    s182 1.000,    s183 1.600,    s184 1.600,    s185 1.000
-s186 1.600,    s187 1.000,    s188 1.600,    s189 1.600,    s190 1.000
-s191 1.600,    s192 1.000,    s193 1.000,    s194 1.000,    s195 1.600
-s196 1.600,    s197 1.000,    s198 1.600,    s199 1.600,    s200 1.600
-s201 1.600,    s202 1.000,    s203 1.000,    s204 1.600,    s205 1.000
-s206 1.600,    s207 1.000,    s208 1.600,    s209 1.000,    s210 1.600
-s211 1.600,    s212 1.600,    s213 1.600,    s214 1.000,    s215 1.600
-s216 1.600,    s217 1.000,    s218 1.600,    s219 1.000,    s220 1.000
-s221 1.000,    s222 1.000,    s223 1.600,    s224 1.000,    s225 1.000
-s226 1.600,    s227 1.000,    s228 1.600,    s229 1.600,    s230 1.600
-s231 1.600,    s232 1.000,    s233 1.000,    s234 1.600,    s235 1.000
-s236 1.600,    s237 1.000,    s238 1.600,    s239 1.000,    s240 1.600
-s241 1.000,    s242 1.600,    s243 1.000,    s244 1.600,    s245 1.000
-s246 1.600,    s247 1.600,    s248 1.600,    s249 1.000,    s250 1.000
+s1   1.600,    s2   1.600,    s3   1.000,    s4   1.600,    s5   1.600,    s6   1.600,    s7   1.000,    s8   1.600,    s9   1.600,    s10  1.000,    s11  1.000,    s12  1.000,    s13  1.000,    s14  1.600,    s15  1.600,    s16  1.600,    s17  1.600,    s18  1.600,    s19  1.000,    s20  1.000,    s21  1.000,    s22  1.000,    s23  1.600,    s24  1.600,    s25  1.600,    s26  1.600,    s27  1.600,    s28  1.000,    s29  1.000,    s30  1.600,    s31  1.000,    s32  1.000,    s33  1.000,    s34  1.600,    s35  1.600,    s36  1.000,    s37  1.600,    s38  1.000,    s39  1.000,    s40  1.600,    s41  1.600,    s42  1.600,    s43  1.000,    s44  1.600,    s45  1.000,    s46  1.600,    s47  1.000,    s48  1.600,    s49  1.600,    s50  1.000,    s51  1.000,    s52  1.600,    s53  1.600,    s54  1.600,    s55  1.000,    s56  1.000,    s57  1.600,    s58  1.600,    s59  1.000,    s60  1.600,    s61  1.600,    s62  1.600,    s63  1.600,    s64  1.600,    s65  1.000,    s66  1.600,    s67  1.000,    s68  1.000,    s69  1.600,    s70  1.600,    s71  1.600,    s72  1.600,    s73  1.000,    s74  1.600,    s75  1.600,    s76  1.600,    s77  1.600,    s78  1.600,    s79  1.000,    s80  1.600,    s81  1.600,    s82  1.600,    s83  1.000,    s84  1.600,    s85  1.600,    s86  1.600,    s87  1.000,    s88  1.600,    s89  1.600,    s90  1.600,    s91  1.600,    s92  1.000,    s93  1.600,    s94  1.600,    s95  1.000,    s96  1.000,    s97  1.600,    s98  1.600,    s99  1.600,    s100 1.000,    s101 1.600,    s102 1.600,    s103 1.000,    s104 1.000,    s105 1.600,    s106 1.600,    s107 1.600,    s108 1.600,    s109 1.000,    s110 1.600,    s111 1.600,    s112 1.600,    s113 1.600,    s114 1.600,    s115 1.600,    s116 1.600,    s117 1.600,    s118 1.600,    s119 1.000,    s120 1.000,    s121 1.000,    s122 1.000,    s123 1.600,    s124 1.600,    s125 1.600,    s126 1.600,    s127 1.000
+s128 1.600,    s129 1.600,    s130 1.600,    s131 1.600,    s132 1.000,    s133 1.000,    s134 1.600,    s135 1.600,    s136 1.600,    s137 1.000,    s138 1.600,    s139 1.600,    s140 1.600,    s141 1.600,    s142 1.000,    s143 1.600,    s144 1.000,    s145 1.000,    s146 1.000,    s147 1.600,    s148 1.600,    s149 1.600,    s150 1.600,    s151 1.600,    s152 1.000,    s153 1.600,    s154 1.000,    s155 1.600,    s156 1.000,    s157 1.000,    s158 1.600,    s159 1.600,    s160 1.600,    s161 1.000,    s162 1.600,    s163 1.600,    s164 1.600,    s165 1.600,    s166 1.000,    s167 1.600,    s168 1.000,    s169 1.000,    s170 1.000,    s171 1.600,    s172 1.600,    s173 1.000,    s174 1.000,    s175 1.600,    s176 1.000,    s177 1.000,    s178 1.000,    s179 1.000,    s180 1.000,    s181 1.000,    s182 1.000,    s183 1.600,    s184 1.600,    s185 1.000,    s186 1.600,    s187 1.000,    s188 1.600,    s189 1.600,    s190 1.000,    s191 1.600,    s192 1.000,    s193 1.000,    s194 1.000,    s195 1.600,    s196 1.600,    s197 1.000,    s198 1.600,    s199 1.600,    s200 1.600,    s201 1.600,    s202 1.000,    s203 1.000,    s204 1.600,    s205 1.000,    s206 1.600,    s207 1.000,    s208 1.600,    s209 1.000,    s210 1.600,    s211 1.600,    s212 1.600,    s213 1.600,    s214 1.000,    s215 1.600,    s216 1.600,    s217 1.000,    s218 1.600,    s219 1.000,    s220 1.000,    s221 1.000,    s222 1.000,    s223 1.600,    s224 1.000,    s225 1.000,    s226 1.600,    s227 1.000,    s228 1.600,    s229 1.600,    s230 1.600,    s231 1.600,    s232 1.000,    s233 1.000,    s234 1.600,    s235 1.000,    s236 1.600,    s237 1.000,    s238 1.600,    s239 1.000,    s240 1.600,    s241 1.000,    s242 1.600,    s243 1.000,    s244 1.600,    s245 1.000,    s246 1.600,    s247 1.600,    s248 1.600,    s249 1.000,    s250 1.000
+
+GAMS 47.6.0  c2de9d6d Sep 12, 2024          WEX-WEI x86 64bit/MS Windows - 11/14/24 11:15:05 Page 8
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Model Analysis      SOLVE EconBen Using LP From line 226
+
+
+
+No solution returned
+
+No solution returned
+
+No solution returned
+
+No solution returned
+
+No solution returned
+
+No solution returned
+
+No solution returned
+
+No solution returned
+
+No solution returned
+
+No solution returned
+
+No solution returned
+
+No solution returned
+
+No solution returned
+
+No solution returned
+
+No solution returned
+
+No solution returned
+
+No solution returned
+
+No solution returned
+
+No solution returned
+
+No solution returned
+
+No solution returned
+
+No solution returned
+
+No solution returned
+
+No solution returned
+GAMS 47.6.0  c2de9d6d Sep 12, 2024          WEX-WEI x86 64bit/MS Windows - 11/14/24 11:15:05 Page 9
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+E x e c u t i o n
+
 
 ----    241 PARAMETER NetBenS  Net benefits ($)
 
-s1   75.800,    s2   47.885,    s3   51.036,    s4   60.931,    s5   71.400
-s6   61.211,    s7   64.800,    s8   84.639,    s9   75.800,    s10  75.500
-s11   0.982,    s12  75.500,    s13   0.916,    s14  73.600,    s15  60.584
-s16  58.173,    s17  71.400,    s18  71.350,    s19  51.429,    s20  75.500
-s21  59.000,    s22  79.900,    s23  71.400,    s24  61.220,    s25  82.284
-s26  75.328,    s27  80.200,    s28  75.500,    s29  75.500,    s30  97.800
-s31  59.000,    s32  75.500,    s33  64.800,    s34  73.323,    s35  61.205
-s36  79.900,    s37  52.935,    s38  47.015,    s39  68.685,    s40  66.600
-s41  86.074,    s42  71.400,    s43  75.500,    s44  80.200,    s45  70.300
-s46  84.600,    s47  68.375,    s48  84.973,    s49  41.777,    s50  48.972
-s51  67.451,    s52  75.800,    s53  85.747,    s54  95.361,    s55  58.743
-s56  70.090,    s57  73.939,    s58  53.103,    s59  64.800,    s60  49.812
-s61  75.077,    s62  88.349,    s63  73.600,    s64  66.412,    s65  27.800
-s66  64.797,    s67  56.624,    s68  68.057,    s69  83.901,    s70  71.400
-s71  66.600,    s72  71.400,    s73  51.600,    s74   0.368,    s75  66.600
-s76  81.917,    s77  77.740,    s78  84.600,    s79  75.500,    s80  66.600
-s81  75.716,    s82  82.036,    s83  59.000,    s84  78.000,    s85  78.000
-s86  97.554,    s87  88.700,    s88  75.800,    s89  71.400,    s90   0.658
-s91   0.939,    s92  43.493,    s93  59.953,    s94  73.082,    s95  53.970
-s96   0.174,    s97  82.400,    s98  58.239,    s99  84.600,    s100 59.000
-s101 75.800,    s102 80.200,    s103 79.900,    s104 42.781,    s105 61.220
-s106 82.400,    s107 64.789,    s108 66.600,    s109 51.600,    s110  0.395
-s111 66.600,    s112 82.312,    s113 86.332,    s114 75.800,    s115 75.800
-s116  0.510,    s117 47.801,    s118 68.931,    s119 63.546,    s120 84.300
-s121 44.000,    s122 70.300,    s123 82.400,    s124 82.400,    s125 84.600
-s126 84.050,    s127 56.734,    s128 86.800,    s129 71.400,    s130  0.485
-s131 95.034,    s132 50.549,    s133 64.045,    s134 72.228,    s135 82.400
-s136 74.512,    s137 74.705,    s138 68.779,    s139 74.323,    s140 71.297
-s141  0.874,    s142 51.600,    s143 80.200,    s144 54.662,    s145  0.358
-s146 88.700,    s147 84.600,    s148 69.200,    s149 71.400,    s150 71.400
-s151 84.118,    s152 70.300,    s153 89.000,    s154 44.000,    s155 65.813
-s156 58.911,    s157 79.900,    s158 82.400,    s159 85.801,    s160 48.960
-s161 70.139,    s162 72.273,    s163  2.143,    s164 80.200,    s165 40.004
-s166 64.800,    s167 64.272,    s168 70.300,    s169 40.043,    s170 64.800
-s171 80.033,    s172 79.614,    s173 58.808,    s174 64.800,    s175 84.600
-s176 75.500,    s177 75.500,    s178  0.766,    s179 75.500,    s180 84.300
-s181 51.600,    s182 69.976,    s183 66.600,    s184 66.463,    s185 82.474
-s186 81.641,    s187 64.630,    s188 84.527,    s189  0.532,    s190 59.000
-s191 66.834,    s192 79.900,    s193 75.500,    s194 79.900,    s195 75.800
-s196 77.695,    s197 75.500,    s198 79.208,    s199 85.988,    s200 70.441
-s201  1.322,    s202 70.300,    s203 51.600,    s204  0.514,    s205 64.800
-s206 82.400,    s207  0.846,    s208 80.519,    s209 51.600,    s210  0.951
-s211 86.797,    s212 82.400,    s213 43.921,    s214 64.800,    s215  0.167
-s216  0.051,    s217 43.413,    s218 71.400,    s219 56.645,    s220 51.600
-s221 70.300,    s222 53.354,    s223  0.355,    s224 64.702,    s225 51.323
-s226 75.735,    s227 51.600,    s228 62.614,    s229 83.724,    s230 86.481
-s231 75.532,    s232 51.600,    s233 84.300,    s234  0.726,    s235 75.500
-s236  0.870,    s237 31.293,    s238 79.719,    s239 70.300,    s240 48.373
-s241 30.981,    s242 71.341,    s243 70.300,    s244 80.200,    s245 64.800
-s246 75.773,    s247 71.140,    s248 71.400,    s249 64.431,    s250  0.921
+s1   75.800,    s2   47.885,    s3   51.036,    s4   60.931,    s5   71.400,    s6   61.211,    s7   64.800,    s8   84.639,    s9   75.800,    s10  75.500,    s11  75.500,    s12  75.500,    s13  75.500,    s14  73.600,    s15  60.584,    s16  58.173,    s17  71.400,    s18  71.350,    s19  51.429,    s20  75.500,    s21  59.000,    s22  79.900,    s23  71.400,    s24  61.220,    s25  82.284,    s26  75.328,    s27  80.200,    s28  75.500,    s29  75.500,    s30  97.800,    s31  59.000,    s32  75.500,    s33  64.800,    s34  73.323,    s35  61.205,    s36  79.900,    s37  52.935,    s38  47.015,    s39  68.685,    s40  66.600,    s41  86.074,    s42  71.400,    s43  75.500,    s44  80.200,    s45  70.300,    s46  84.600,    s47  68.375,    s48  84.973,    s49  41.777,    s50  48.972,    s51  67.451,    s52  75.800,    s53  85.747,    s54  95.361,    s55  58.743,    s56  70.090,    s57  73.939,    s58  53.103,    s59  64.800,    s60  49.812,    s61  75.077,    s62  88.349,    s63  73.600,    s64  66.412,    s65  27.800,    s66  64.797,    s67  56.624,    s68  68.057,    s69  83.901,    s70  71.400,    s71  66.600,    s72  71.400,    s73  51.600,    s74  51.600,    s75  66.600,    s76  81.917,    s77  77.740,    s78  84.600,    s79  75.500,    s80  66.600,    s81  75.716,    s82  82.036,    s83  59.000,    s84  78.000,    s85  78.000,    s86  97.554,    s87  88.700,    s88  75.800,    s89  71.400,    s90  71.400,    s91  71.400,    s92  43.493,    s93  59.953,    s94  73.082,    s95  53.970,    s96  53.970,    s97  82.400,    s98  58.239,    s99  84.600,    s100 59.000,    s101 75.800,    s102 80.200,    s103 79.900,    s104 42.781,    s105 61.220,    s106 82.400,    s107 64.789,    s108 66.600,    s109 51.600,    s110 51.600,    s111 66.600,    s112 82.312,    s113 86.332,    s114 75.800,    s115 75.800,    s116 75.800,    s117 47.801,    s118 68.931,    s119 63.546,    s120 84.300,    s121 44.000,    s122 70.300,    s123 82.400,    s124 82.400,    s125 84.600,    s126 84.050,    s127 56.734
+s128 86.800,    s129 71.400,    s130 71.400,    s131 95.034,    s132 50.549,    s133 64.045,    s134 72.228,    s135 82.400,    s136 74.512,    s137 74.705,    s138 68.779,    s139 74.323,    s140 71.297,    s141 71.297,    s142 51.600,    s143 80.200,    s144 54.662,    s145 54.662,    s146 88.700,    s147 84.600,    s148 69.200,    s149 71.400,    s150 71.400,    s151 84.118,    s152 70.300,    s153 89.000,    s154 44.000,    s155 65.813,    s156 58.911,    s157 79.900,    s158 82.400,    s159 85.801,    s160 48.960,    s161 70.139,    s162 72.273,    s163 72.273,    s164 80.200,    s165 40.004,    s166 64.800,    s167 64.272,    s168 70.300,    s169 40.043,    s170 64.800,    s171 80.033,    s172 79.614,    s173 58.808,    s174 64.800,    s175 84.600,    s176 75.500,    s177 75.500,    s178 75.500,    s179 75.500,    s180 84.300,    s181 51.600,    s182 69.976,    s183 66.600,    s184 66.463,    s185 82.474,    s186 81.641,    s187 64.630,    s188 84.527,    s189 84.527,    s190 59.000,    s191 66.834,    s192 79.900,    s193 75.500,    s194 79.900,    s195 75.800,    s196 77.695,    s197 75.500,    s198 79.208,    s199 85.988,    s200 70.441,    s201 70.441,    s202 70.300,    s203 51.600,    s204 51.600,    s205 64.800,    s206 82.400,    s207 82.400,    s208 80.519,    s209 51.600,    s210 51.600,    s211 86.797,    s212 82.400,    s213 43.921,    s214 64.800,    s215 64.800,    s216 64.800,    s217 43.413,    s218 71.400,    s219 56.645,    s220 51.600,    s221 70.300,    s222 53.354,    s223 53.354,    s224 64.702,    s225 51.323,    s226 75.735,    s227 51.600,    s228 62.614,    s229 83.724,    s230 86.481,    s231 75.532,    s232 51.600,    s233 84.300,    s234 84.300,    s235 75.500,    s236 75.500,    s237 31.293,    s238 79.719,    s239 70.300,    s240 48.373,    s241 30.981,    s242 71.341,    s243 70.300,    s244 80.200,    s245 64.800,    s246 75.773,    s247 71.140,    s248 71.400,    s249 64.431,    s250 64.431
 
 
 ----    241 PARAMETER ModStat  Model status
 
-s1   1.000,    s2   1.000,    s3   1.000,    s4   1.000,    s5   1.000
-s6   1.000,    s7   1.000,    s8   1.000,    s9   1.000,    s10  1.000
-s11  4.000,    s12  1.000,    s13  4.000,    s14  1.000,    s15  1.000
-s16  1.000,    s17  1.000,    s18  1.000,    s19  1.000,    s20  1.000
-s21  1.000,    s22  1.000,    s23  1.000,    s24  1.000,    s25  1.000
-s26  1.000,    s27  1.000,    s28  1.000,    s29  1.000,    s30  1.000
-s31  1.000,    s32  1.000,    s33  1.000,    s34  1.000,    s35  1.000
-s36  1.000,    s37  1.000,    s38  1.000,    s39  1.000,    s40  1.000
-s41  1.000,    s42  1.000,    s43  1.000,    s44  1.000,    s45  1.000
-s46  1.000,    s47  1.000,    s48  1.000,    s49  1.000,    s50  1.000
-s51  1.000,    s52  1.000,    s53  1.000,    s54  1.000,    s55  1.000
-s56  1.000,    s57  1.000,    s58  1.000,    s59  1.000,    s60  1.000
-s61  1.000,    s62  1.000,    s63  1.000,    s64  1.000,    s65  1.000
-s66  1.000,    s67  1.000,    s68  1.000,    s69  1.000,    s70  1.000
-s71  1.000,    s72  1.000,    s73  1.000,    s74  4.000,    s75  1.000
-s76  1.000,    s77  1.000,    s78  1.000,    s79  1.000,    s80  1.000
-s81  1.000,    s82  1.000,    s83  1.000,    s84  1.000,    s85  1.000
-s86  1.000,    s87  1.000,    s88  1.000,    s89  1.000,    s90  4.000
-s91  4.000,    s92  1.000,    s93  1.000,    s94  1.000,    s95  1.000
-s96  4.000,    s97  1.000,    s98  1.000,    s99  1.000,    s100 1.000
-s101 1.000,    s102 1.000,    s103 1.000,    s104 1.000,    s105 1.000
-s106 1.000,    s107 1.000,    s108 1.000,    s109 1.000,    s110 4.000
-s111 1.000,    s112 1.000,    s113 1.000,    s114 1.000,    s115 1.000
-s116 4.000,    s117 1.000,    s118 1.000,    s119 1.000,    s120 1.000
-s121 1.000,    s122 1.000,    s123 1.000,    s124 1.000,    s125 1.000
-s126 1.000,    s127 1.000,    s128 1.000,    s129 1.000,    s130 4.000
-s131 1.000,    s132 1.000,    s133 1.000,    s134 1.000,    s135 1.000
-s136 1.000,    s137 1.000,    s138 1.000,    s139 1.000,    s140 1.000
-s141 4.000,    s142 1.000,    s143 1.000,    s144 1.000,    s145 4.000
-s146 1.000,    s147 1.000,    s148 1.000,    s149 1.000,    s150 1.000
-s151 1.000,    s152 1.000,    s153 1.000,    s154 1.000,    s155 1.000
-s156 1.000,    s157 1.000,    s158 1.000,    s159 1.000,    s160 1.000
-s161 1.000,    s162 1.000,    s163 4.000,    s164 1.000,    s165 1.000
-s166 1.000,    s167 1.000,    s168 1.000,    s169 1.000,    s170 1.000
-s171 1.000,    s172 1.000,    s173 1.000,    s174 1.000,    s175 1.000
-s176 1.000,    s177 1.000,    s178 4.000,    s179 1.000,    s180 1.000
-s181 1.000,    s182 1.000,    s183 1.000,    s184 1.000,    s185 1.000
-s186 1.000,    s187 1.000,    s188 1.000,    s189 4.000,    s190 1.000
-s191 1.000,    s192 1.000,    s193 1.000,    s194 1.000,    s195 1.000
-s196 1.000,    s197 1.000,    s198 1.000,    s199 1.000,    s200 1.000
-s201 4.000,    s202 1.000,    s203 1.000,    s204 4.000,    s205 1.000
-s206 1.000,    s207 4.000,    s208 1.000,    s209 1.000,    s210 4.000
-s211 1.000,    s212 1.000,    s213 1.000,    s214 1.000,    s215 4.000
-s216 4.000,    s217 1.000,    s218 1.000,    s219 1.000,    s220 1.000
-s221 1.000,    s222 1.000,    s223 4.000,    s224 1.000,    s225 1.000
-s226 1.000,    s227 1.000,    s228 1.000,    s229 1.000,    s230 1.000
-s231 1.000,    s232 1.000,    s233 1.000,    s234 4.000,    s235 1.000
-s236 4.000,    s237 1.000,    s238 1.000,    s239 1.000,    s240 1.000
-s241 1.000,    s242 1.000,    s243 1.000,    s244 1.000,    s245 1.000
-s246 1.000,    s247 1.000,    s248 1.000,    s249 1.000,    s250 4.000
+s1    1.000,    s2    1.000,    s3    1.000,    s4    1.000,    s5    1.000,    s6    1.000,    s7    1.000,    s8    1.000,    s9    1.000,    s10   1.000,    s11  19.000,    s12   1.000,    s13  19.000,    s14   1.000,    s15   1.000,    s16   1.000,    s17   1.000,    s18   1.000,    s19   1.000,    s20   1.000,    s21   1.000,    s22   1.000,    s23   1.000,    s24   1.000,    s25   1.000,    s26   1.000,    s27   1.000,    s28   1.000,    s29   1.000,    s30   1.000,    s31   1.000,    s32   1.000,    s33   1.000,    s34   1.000,    s35   1.000,    s36   1.000,    s37   1.000,    s38   1.000,    s39   1.000,    s40   1.000,    s41   1.000,    s42   1.000,    s43   1.000,    s44   1.000,    s45   1.000,    s46   1.000,    s47   1.000,    s48   1.000,    s49   1.000,    s50   1.000,    s51   1.000,    s52   1.000,    s53   1.000,    s54   1.000,    s55   1.000,    s56   1.000,    s57   1.000,    s58   1.000,    s59   1.000,    s60   1.000,    s61   1.000,    s62   1.000,    s63   1.000,    s64   1.000,    s65   1.000,    s66   1.000,    s67   1.000,    s68   1.000,    s69   1.000,    s70   1.000,    s71   1.000,    s72   1.000,    s73   1.000,    s74  19.000,    s75   1.000,    s76   1.000,    s77   1.000,    s78   1.000,    s79   1.000,    s80   1.000,    s81   1.000,    s82   1.000,    s83   1.000,    s84   1.000,    s85   1.000,    s86   1.000,    s87   1.000,    s88   1.000,    s89   1.000,    s90  19.000,    s91  19.000,    s92   1.000,    s93   1.000,    s94   1.000,    s95   1.000,    s96  19.000,    s97   1.000,    s98   1.000,    s99   1.000,    s100  1.000,    s101  1.000,    s102  1.000,    s103  1.000,    s104  1.000,    s105  1.000,    s106  1.000,    s107  1.000,    s108  1.000,    s109  1.000,    s110 19.000,    s111  1.000,    s112  1.000,    s113  1.000,    s114  1.000,    s115  1.000,    s116 19.000,    s117  1.000,    s118  1.000,    s119  1.000,    s120  1.000,    s121  1.000,    s122  1.000,    s123  1.000,    s124  1.000,    s125  1.000,    s126  1.000,    s127  1.000
+s128  1.000,    s129  1.000,    s130 19.000,    s131  1.000,    s132  1.000,    s133  1.000,    s134  1.000,    s135  1.000,    s136  1.000,    s137  1.000,    s138  1.000,    s139  1.000,    s140  1.000,    s141 19.000,    s142  1.000,    s143  1.000,    s144  1.000,    s145 19.000,    s146  1.000,    s147  1.000,    s148  1.000,    s149  1.000,    s150  1.000,    s151  1.000,    s152  1.000,    s153  1.000,    s154  1.000,    s155  1.000,    s156  1.000,    s157  1.000,    s158  1.000,    s159  1.000,    s160  1.000,    s161  1.000,    s162  1.000,    s163 19.000,    s164  1.000,    s165  1.000,    s166  1.000,    s167  1.000,    s168  1.000,    s169  1.000,    s170  1.000,    s171  1.000,    s172  1.000,    s173  1.000,    s174  1.000,    s175  1.000,    s176  1.000,    s177  1.000,    s178 19.000,    s179  1.000,    s180  1.000,    s181  1.000,    s182  1.000,    s183  1.000,    s184  1.000,    s185  1.000,    s186  1.000,    s187  1.000,    s188  1.000,    s189 19.000,    s190  1.000,    s191  1.000,    s192  1.000,    s193  1.000,    s194  1.000,    s195  1.000,    s196  1.000,    s197  1.000,    s198  1.000,    s199  1.000,    s200  1.000,    s201 19.000,    s202  1.000,    s203  1.000,    s204 19.000,    s205  1.000,    s206  1.000,    s207 19.000,    s208  1.000,    s209  1.000,    s210 19.000,    s211  1.000,    s212  1.000,    s213  1.000,    s214  1.000,    s215 19.000,    s216 19.000,    s217  1.000,    s218  1.000,    s219  1.000,    s220  1.000,    s221  1.000,    s222  1.000,    s223 19.000,    s224  1.000,    s225  1.000,    s226  1.000,    s227  1.000,    s228  1.000,    s229  1.000,    s230  1.000,    s231  1.000,    s232  1.000,    s233  1.000,    s234 19.000,    s235  1.000,    s236 19.000,    s237  1.000,    s238  1.000,    s239  1.000,    s240  1.000,    s241  1.000,    s242  1.000,    s243  1.000,    s244  1.000,    s245  1.000,    s246  1.000,    s247  1.000,    s248  1.000,    s249  1.000,    s250 19.000
 
 
 ----    241 PARAMETER SolStat  Solve status
 
-s1   1.000,    s2   1.000,    s3   1.000,    s4   1.000,    s5   1.000
-s6   1.000,    s7   1.000,    s8   1.000,    s9   1.000,    s10  1.000
-s11  1.000,    s12  1.000,    s13  1.000,    s14  1.000,    s15  1.000
-s16  1.000,    s17  1.000,    s18  1.000,    s19  1.000,    s20  1.000
-s21  1.000,    s22  1.000,    s23  1.000,    s24  1.000,    s25  1.000
-s26  1.000,    s27  1.000,    s28  1.000,    s29  1.000,    s30  1.000
-s31  1.000,    s32  1.000,    s33  1.000,    s34  1.000,    s35  1.000
-s36  1.000,    s37  1.000,    s38  1.000,    s39  1.000,    s40  1.000
-s41  1.000,    s42  1.000,    s43  1.000,    s44  1.000,    s45  1.000
-s46  1.000,    s47  1.000,    s48  1.000,    s49  1.000,    s50  1.000
-s51  1.000,    s52  1.000,    s53  1.000,    s54  1.000,    s55  1.000
-s56  1.000,    s57  1.000,    s58  1.000,    s59  1.000,    s60  1.000
-s61  1.000,    s62  1.000,    s63  1.000,    s64  1.000,    s65  1.000
-s66  1.000,    s67  1.000,    s68  1.000,    s69  1.000,    s70  1.000
-s71  1.000,    s72  1.000,    s73  1.000,    s74  1.000,    s75  1.000
-s76  1.000,    s77  1.000,    s78  1.000,    s79  1.000,    s80  1.000
-s81  1.000,    s82  1.000,    s83  1.000,    s84  1.000,    s85  1.000
-s86  1.000,    s87  1.000,    s88  1.000,    s89  1.000,    s90  1.000
-s91  1.000,    s92  1.000,    s93  1.000,    s94  1.000,    s95  1.000
-s96  1.000,    s97  1.000,    s98  1.000,    s99  1.000,    s100 1.000
-s101 1.000,    s102 1.000,    s103 1.000,    s104 1.000,    s105 1.000
-s106 1.000,    s107 1.000,    s108 1.000,    s109 1.000,    s110 1.000
-s111 1.000,    s112 1.000,    s113 1.000,    s114 1.000,    s115 1.000
-s116 1.000,    s117 1.000,    s118 1.000,    s119 1.000,    s120 1.000
-s121 1.000,    s122 1.000,    s123 1.000,    s124 1.000,    s125 1.000
-s126 1.000,    s127 1.000,    s128 1.000,    s129 1.000,    s130 1.000
-s131 1.000,    s132 1.000,    s133 1.000,    s134 1.000,    s135 1.000
-s136 1.000,    s137 1.000,    s138 1.000,    s139 1.000,    s140 1.000
-s141 1.000,    s142 1.000,    s143 1.000,    s144 1.000,    s145 1.000
-s146 1.000,    s147 1.000,    s148 1.000,    s149 1.000,    s150 1.000
-s151 1.000,    s152 1.000,    s153 1.000,    s154 1.000,    s155 1.000
-s156 1.000,    s157 1.000,    s158 1.000,    s159 1.000,    s160 1.000
-s161 1.000,    s162 1.000,    s163 1.000,    s164 1.000,    s165 1.000
-s166 1.000,    s167 1.000,    s168 1.000,    s169 1.000,    s170 1.000
-s171 1.000,    s172 1.000,    s173 1.000,    s174 1.000,    s175 1.000
-s176 1.000,    s177 1.000,    s178 1.000,    s179 1.000,    s180 1.000
-s181 1.000,    s182 1.000,    s183 1.000,    s184 1.000,    s185 1.000
-s186 1.000,    s187 1.000,    s188 1.000,    s189 1.000,    s190 1.000
-s191 1.000,    s192 1.000,    s193 1.000,    s194 1.000,    s195 1.000
-s196 1.000,    s197 1.000,    s198 1.000,    s199 1.000,    s200 1.000
-s201 1.000,    s202 1.000,    s203 1.000,    s204 1.000,    s205 1.000
-s206 1.000,    s207 1.000,    s208 1.000,    s209 1.000,    s210 1.000
-s211 1.000,    s212 1.000,    s213 1.000,    s214 1.000,    s215 1.000
-s216 1.000,    s217 1.000,    s218 1.000,    s219 1.000,    s220 1.000
-s221 1.000,    s222 1.000,    s223 1.000,    s224 1.000,    s225 1.000
-s226 1.000,    s227 1.000,    s228 1.000,    s229 1.000,    s230 1.000
-s231 1.000,    s232 1.000,    s233 1.000,    s234 1.000,    s235 1.000
-s236 1.000,    s237 1.000,    s238 1.000,    s239 1.000,    s240 1.000
-s241 1.000,    s242 1.000,    s243 1.000,    s244 1.000,    s245 1.000
-s246 1.000,    s247 1.000,    s248 1.000,    s249 1.000,    s250 1.000
+s1   1.000,    s2   1.000,    s3   1.000,    s4   1.000,    s5   1.000,    s6   1.000,    s7   1.000,    s8   1.000,    s9   1.000,    s10  1.000,    s11  1.000,    s12  1.000,    s13  1.000,    s14  1.000,    s15  1.000,    s16  1.000,    s17  1.000,    s18  1.000,    s19  1.000,    s20  1.000,    s21  1.000,    s22  1.000,    s23  1.000,    s24  1.000,    s25  1.000,    s26  1.000,    s27  1.000,    s28  1.000,    s29  1.000,    s30  1.000,    s31  1.000,    s32  1.000,    s33  1.000,    s34  1.000,    s35  1.000,    s36  1.000,    s37  1.000,    s38  1.000,    s39  1.000,    s40  1.000,    s41  1.000,    s42  1.000,    s43  1.000,    s44  1.000,    s45  1.000,    s46  1.000,    s47  1.000,    s48  1.000,    s49  1.000,    s50  1.000,    s51  1.000,    s52  1.000,    s53  1.000,    s54  1.000,    s55  1.000,    s56  1.000,    s57  1.000,    s58  1.000,    s59  1.000,    s60  1.000,    s61  1.000,    s62  1.000,    s63  1.000,    s64  1.000,    s65  1.000,    s66  1.000,    s67  1.000,    s68  1.000,    s69  1.000,    s70  1.000,    s71  1.000,    s72  1.000,    s73  1.000,    s74  1.000,    s75  1.000,    s76  1.000,    s77  1.000,    s78  1.000,    s79  1.000,    s80  1.000,    s81  1.000,    s82  1.000,    s83  1.000,    s84  1.000,    s85  1.000,    s86  1.000,    s87  1.000,    s88  1.000,    s89  1.000,    s90  1.000,    s91  1.000,    s92  1.000,    s93  1.000,    s94  1.000,    s95  1.000,    s96  1.000,    s97  1.000,    s98  1.000,    s99  1.000,    s100 1.000,    s101 1.000,    s102 1.000,    s103 1.000,    s104 1.000,    s105 1.000,    s106 1.000,    s107 1.000,    s108 1.000,    s109 1.000,    s110 1.000,    s111 1.000,    s112 1.000,    s113 1.000,    s114 1.000,    s115 1.000,    s116 1.000,    s117 1.000,    s118 1.000,    s119 1.000,    s120 1.000,    s121 1.000,    s122 1.000,    s123 1.000,    s124 1.000,    s125 1.000,    s126 1.000,    s127 1.000
+s128 1.000,    s129 1.000,    s130 1.000,    s131 1.000,    s132 1.000,    s133 1.000,    s134 1.000,    s135 1.000,    s136 1.000,    s137 1.000,    s138 1.000,    s139 1.000,    s140 1.000,    s141 1.000,    s142 1.000,    s143 1.000,    s144 1.000,    s145 1.000,    s146 1.000,    s147 1.000,    s148 1.000,    s149 1.000,    s150 1.000,    s151 1.000,    s152 1.000,    s153 1.000,    s154 1.000,    s155 1.000,    s156 1.000,    s157 1.000,    s158 1.000,    s159 1.000,    s160 1.000,    s161 1.000,    s162 1.000,    s163 1.000,    s164 1.000,    s165 1.000,    s166 1.000,    s167 1.000,    s168 1.000,    s169 1.000,    s170 1.000,    s171 1.000,    s172 1.000,    s173 1.000,    s174 1.000,    s175 1.000,    s176 1.000,    s177 1.000,    s178 1.000,    s179 1.000,    s180 1.000,    s181 1.000,    s182 1.000,    s183 1.000,    s184 1.000,    s185 1.000,    s186 1.000,    s187 1.000,    s188 1.000,    s189 1.000,    s190 1.000,    s191 1.000,    s192 1.000,    s193 1.000,    s194 1.000,    s195 1.000,    s196 1.000,    s197 1.000,    s198 1.000,    s199 1.000,    s200 1.000,    s201 1.000,    s202 1.000,    s203 1.000,    s204 1.000,    s205 1.000,    s206 1.000,    s207 1.000,    s208 1.000,    s209 1.000,    s210 1.000,    s211 1.000,    s212 1.000,    s213 1.000,    s214 1.000,    s215 1.000,    s216 1.000,    s217 1.000,    s218 1.000,    s219 1.000,    s220 1.000,    s221 1.000,    s222 1.000,    s223 1.000,    s224 1.000,    s225 1.000,    s226 1.000,    s227 1.000,    s228 1.000,    s229 1.000,    s230 1.000,    s231 1.000,    s232 1.000,    s233 1.000,    s234 1.000,    s235 1.000,    s236 1.000,    s237 1.000,    s238 1.000,    s239 1.000,    s240 1.000,    s241 1.000,    s242 1.000,    s243 1.000,    s244 1.000,    s245 1.000,    s246 1.000,    s247 1.000,    s248 1.000,    s249 1.000,    s250 1.000
 
 
-----    242 PARAMETER AvgIB                =        2.200  Average sampled irrig
-                                                           ation benefits
-            PARAMETER AvgNB                =       63.054  Average net benefits
+----    242 PARAMETER AvgIB                =        2.200  Average sampled irrigation benefits
+            PARAMETER AvgNB                =       69.465  Average net benefits
 
 
-EXECUTION TIME       =        4.438 SECONDS      3 MB  24.2.3 r46072 WEX-WEI
-
-
-USER: Utah Water Research Laboratory (5 user)        G140130:1517AV-GEN
-      Utah State University                                      DC7087
+USER: CEE 6410 Water Resources Systems Analysis      G241025|0002AO-GEN
+      Utah State University, Utah Water Research Laboratory     DCE3763
       License for teaching and research at degree granting institutions
 
 
 **** FILE SUMMARY
 
-Input      C:\Rosenberg\Work\USU\Classes\CEE6410\Fall2020\CEE6410-Rosenberg-GitH
-           ub\CEE-6410-Rosenberg\Lectures\HW4-MonteCarlo.gms
-Output     C:\Rosenberg\Work\USU\Classes\CEE6410\Fall2020\CEE6410-Rosenberg-GitH
-           ub\CEE-6410-Rosenberg\Lectures\HW4-MonteCarlo.lst
+Input      C:\Users\david\Box\_Rosenberg2024\Classes\CEE6410\Fall2024\CEE6410-Rosenberg-GitHub\CEE-6410-Rosenberg\Lectures\HW4-MonteCarlo.gms
+Output     C:\Users\david\Box\_Rosenberg2024\Classes\CEE6410\Fall2024\CEE6410-Rosenberg-GitHub\CEE-6410-Rosenberg\Lectures\HW4-MonteCarlo.lst
