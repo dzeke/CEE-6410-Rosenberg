@@ -1,4 +1,4 @@
-GAMS 47.6.0  c2de9d6d Sep 12, 2024          WEX-WEI x86 64bit/MS Windows - 10/16/24 12:34:07 Page 1
+GAMS 47.6.0  c2de9d6d Sep 12, 2024          WEX-WEI x86 64bit/MS Windows - 09/15/25 11:56:28 Page 1
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 C o m p i l a t i o n
 
@@ -69,9 +69,7 @@ C o m p i l a t i o n
   66   
   67  *Dual Equations
   68  REDCOST_DUAL..                 VREDCOST =E= SUM(res,b(res)*Y(res));
-  69  RES_CONS_DUAL_Extra(plnt)..          sum(res,A(plnt,res)*Y(res)) =G= c(plnt);
-****                    $140
-**** 140  Unknown symbol
+  69  *RES_CONS_DUAL_Extra(plnt)..          sum(res,A(plnt,res)*Y(res)) =G= c(plnt);
   70   
   71  * 5. DEFINE the MODELS
   72  *PRIMAL model
@@ -86,14 +84,18 @@ C o m p i l a t i o n
   81  * Solve the PLANTING PRIMAL model using a Linear Programming Solver (see File=>Options=>Solvers)
   82  *     to maximize VPROFIT
   83  SOLVE PLANT_PRIMAL USING LP MAXIMIZING VPROFIT;
-****                                                $257
-**** 257  Solve statement not checked because of previous errors
   84   
   85  * Solve the PLANTING DUAL model using a Linear Programming Solver (see File=>Options=>Solvers)
   86  *     to maximize VPROFIT
   87  SOLVE PLANT_DUAL USING LP MINIMIZING VREDCOST;
-****                                               $257
-**** 257  Solve statement not checked because of previous errors
+****                                               $71,256
+****  71  The symbol shown has been declared as an equation, but no
+****         Symbolic equation (..) was found. hint - look for commas in the
+****         Documentation text for the equations. use quotes around the
+****         Text or eliminate the commas.
+**** 256  Error(s) in analyzing solve statement.
+**** The following LP errors were detected in model PLANT_DUAL:
+****  71 RES_CONS_DUAL is an undefined equation
   88  *Order does not matter!
   89   
   90  * 6. CLick File menu => RUN (F9) or Solve icon and examine solution report in .LST file
@@ -105,14 +107,14 @@ C o m p i l a t i o n
   96  * To open the GDX file in the GAMS IDE, select File => Open.
   97  * In the Open window, set Filetype to .gdx and select the file.
 
-**** 3 ERROR(S)   0 WARNING(S)
+**** 2 ERROR(S)   0 WARNING(S)
 
 
 COMPILATION TIME     =        0.016 SECONDS      3 MB  47.6.0 c2de9d6d WEX-WEI
 
 
-USER: CEE 6410 Water Resources Systems Analysis      G240923|0002AO-GEN
-      Utah State University, Utah Water Research Laboratory     DCE3763
+USER: David Rosenberg, Single User License           G250908|0002AO-WIN
+      Utah State University, Utah Water Research Laboratory     DC17246
       License for teaching and research at degree granting institutions
 
 

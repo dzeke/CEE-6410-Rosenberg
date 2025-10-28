@@ -34,7 +34,8 @@ SETS plnt crops growing /Eggplant, Tomatoes/
 PARAMETERS
    c(plnt) Objective function coefficients ($ per plant)
          /Eggplant 6,
-         Tomatoes 7/
+        Tomatoes 7 /
+
    b(res) Right hand constraint values (per resource)
           /Water 4000000,
            Land  12000,
@@ -72,5 +73,6 @@ MODEL PLANTING /PROFIT, RES_CONSTRAIN/;
 * Solve the PLANTING model using a Linear Programming Solver (see File=>Options=>Solvers)
 *     to maximize VPROFIT
 SOLVE PLANTING USING LP MAXIMIZING VPROFIT;
+
 
 * 6. CLick File menu => RUN (F9) or Solve icon and examine solution report in .LST file

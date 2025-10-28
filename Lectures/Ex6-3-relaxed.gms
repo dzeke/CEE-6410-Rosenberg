@@ -33,15 +33,18 @@ PARAMETERS
           /tp 0,
            wc  1000/
    TotDemand  Total Demand (ac-ft per year) /2000/
+
+
 * "Integer" variables free within 0 to 1 bounds.
 * Allows user to relax, tighten bounds on integer variables
 * Presently set in fully relaxed mode
    IntUpBnd(src) Upper bound on integer variables (#)
           /tp 1,
-           wc 1/
-   IntLowBnd(src) Lower bound on integer variables (#)
+           wc 1 /
+   
+IntLowBnd(src) Lower bound on integer variables (#)
            /tp 0,
-           wc 1/
+           wc 0/ ;
 
 * 3. DEFINE the variables
 VARIABLES I(src) binary decision to build or do prject from source src (1=yes 0=no)
@@ -49,8 +52,9 @@ VARIABLES I(src) binary decision to build or do prject from source src (1=yes 0=
           TCOST  total capital and operating costs of supply actions ($);
 
 * Non-negativity constraints
-POSITIVE VARIABLES I,X;
-*Binary Variables I *Relaxed problem
+POSITIVE VARIABLES X;
+
+Binary Variables I ;
 
 * 4. COMBINE variables and data in equations
 EQUATIONS
@@ -72,11 +76,13 @@ IntLowBound(src) ..      I(src) =G= IntLowBnd(src);
 MODEL WatSupplyRelaxed /ALL/;
 
 * 6. Solve the Model as an LP (relaxed IP)
-SOLVE WatSupplyRelaxed USING LP MINIMIZING TCOST;
+SOLVE WatSupplyRelaxed USING MIP MINIMIZING TCOST;
 
 DISPLAY X.L, I.L, TCOST.L;
 
+$ontext
 * Dump all input data and results to a GAMS gdx file
 Execute_Unload "Ex6-3-relaxed.gdx";
 * Dump the gdx file to an Excel workbook
 Execute "gdx2xls Ex6-3.relaxed.gdx"
+$offtext

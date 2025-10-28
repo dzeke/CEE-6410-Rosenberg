@@ -66,7 +66,7 @@ RES_CONS_PRIMAL(res) ..    SUM(plnt,A(plnt,res)*X(plnt)) =L= b(res);
 
 *Dual Equations
 REDCOST_DUAL..                 VREDCOST =E= SUM(res,b(res)*Y(res));
-RES_CONS_DUAL_Extra(plnt)..          sum(res,A(plnt,res)*Y(res)) =G= c(plnt);
+*RES_CONS_DUAL_Extra(plnt)..          sum(res,A(plnt,res)*Y(res)) =G= c(plnt);
 
 * 5. DEFINE the MODELS
 *PRIMAL model

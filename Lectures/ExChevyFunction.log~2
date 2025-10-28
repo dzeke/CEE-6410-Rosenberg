@@ -1,5 +1,5 @@
 
---- Job ExChevyFunction.gms Start 10/22/24 15:30:47 47.6.0 c2de9d6d WEX-WEI x86 64bit/MS Windows
+--- Job ExChevyFunction.gms Start 10/22/24 15:37:09 47.6.0 c2de9d6d WEX-WEI x86 64bit/MS Windows
 --- Applying:
     C:\GAMS\win64\47\gmsprmNT.txt
 --- GAMS Parameters defined
@@ -22,7 +22,7 @@ Processor information: 1 socket(s), 4 core(s), and 8 thread(s) available
 GAMS 47.6.0   Copyright (C) 1987-2024 GAMS Development. All rights reserved
 --- Starting compilation
 --- ExChevyFunction.gms(62) 3 Mb
---- Starting execution: elapsed 0:00:00.029
+--- Starting execution: elapsed 0:00:00.031
 --- ExChevyFunction.gms(57) 4 Mb
 --- Generating NLP model ChevyModel
 --- ExChevyFunction.gms(60) 6 Mb
@@ -33,7 +33,7 @@ GAMS 47.6.0   Copyright (C) 1987-2024 GAMS Development. All rights reserved
 --- Bound     [min, max] : [ 3.000E+00, 3.000E+00] - Zero values observed as well
 --- Matrix    [min, max] : [ 1.000E+00, 2.207E+00]
 --- ExChevyFunction.gms(60) 4 Mb
---- Executing CONOPT (Solvelink=2): elapsed 0:00:00.139
+--- Executing CONOPT (Solvelink=2): elapsed 0:00:00.153
 
 CONOPT 4         47.6.0 c2de9d6d Sep 12, 2024          WEI x86 64bit/MS Window
 
@@ -69,7 +69,7 @@ CONOPT 4         47.6.0 c2de9d6d Sep 12, 2024          WEI x86 64bit/MS Window
  ** Optimal solution. There are no superbasic variables.
  
 --- Reading solution for model ChevyModel
---- Executing after solve: elapsed 0:00:00.217
+--- Executing after solve: elapsed 0:00:00.237
 --- ExChevyFunction.gms(62) 4 Mb
 *** Status: Normal completion
---- Job ExChevyFunction.gms Stop 10/22/24 15:30:47 elapsed 0:00:00.241
+--- Job ExChevyFunction.gms Stop 10/22/24 15:37:09 elapsed 0:00:00.257

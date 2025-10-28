@@ -1,4 +1,4 @@
-GAMS 47.6.0  c2de9d6d Sep 12, 2024          WEX-WEI x86 64bit/MS Windows - 10/22/24 15:20:06 Page 1
+GAMS 47.6.0  c2de9d6d Sep 12, 2024          WEX-WEI x86 64bit/MS Windows - 10/23/25 15:54:38 Page 1
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 C o m p i l a t i o n
 
@@ -83,7 +83,7 @@ C o m p i l a t i o n
 
 
 COMPILATION TIME     =        0.000 SECONDS      3 MB  47.6.0 c2de9d6d WEX-WEI
-GAMS 47.6.0  c2de9d6d Sep 12, 2024          WEX-WEI x86 64bit/MS Windows - 10/22/24 15:20:06 Page 2
+GAMS 47.6.0  c2de9d6d Sep 12, 2024          WEX-WEI x86 64bit/MS Windows - 10/23/25 15:54:38 Page 2
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Equation Listing    SOLVE NonLinModel Using NLP From line 77
 
@@ -104,7 +104,7 @@ ResReq(j2)..  6*X(i1) + 2*X(i2) =L= 26 ; (LHS = 0)
 
 NonLinReq..  (0)*X(i2) =L= 5 ; (LHS = 0)
      
-GAMS 47.6.0  c2de9d6d Sep 12, 2024          WEX-WEI x86 64bit/MS Windows - 10/22/24 15:20:06 Page 3
+GAMS 47.6.0  c2de9d6d Sep 12, 2024          WEX-WEI x86 64bit/MS Windows - 10/23/25 15:54:38 Page 3
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Column Listing      SOLVE NonLinModel Using NLP From line 77
 
@@ -131,7 +131,7 @@ PROFIT
                 (.LO, .L, .UP, .M = -INF, 0, +INF, 0)
         1       NetBen
 
-GAMS 47.6.0  c2de9d6d Sep 12, 2024          WEX-WEI x86 64bit/MS Windows - 10/22/24 15:20:06 Page 4
+GAMS 47.6.0  c2de9d6d Sep 12, 2024          WEX-WEI x86 64bit/MS Windows - 10/23/25 15:54:38 Page 4
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Range Statistics    SOLVE NonLinModel Using NLP From line 77
 
@@ -142,7 +142,7 @@ RHS       [min, max] : [ 5.000E+00, 2.600E+01] - Zero values observed as well
 Bound     [min, max] : [ 3.000E+00, 3.000E+00] - Zero values observed as well
 Matrix    [min, max] : [ 1.000E+00, 1.400E+01] - Zero values observed as well
 
-GAMS 47.6.0  c2de9d6d Sep 12, 2024          WEX-WEI x86 64bit/MS Windows - 10/22/24 15:20:06 Page 5
+GAMS 47.6.0  c2de9d6d Sep 12, 2024          WEX-WEI x86 64bit/MS Windows - 10/23/25 15:54:38 Page 5
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Model Statistics    SOLVE NonLinModel Using NLP From line 77
 
@@ -155,8 +155,8 @@ NON ZERO ELEMENTS             8     NON LINEAR N-Z              3
 CODE LENGTH                  21     CONSTANT POOL              18
 
 
-GENERATION TIME      =        0.094 SECONDS      4 MB  47.6.0 c2de9d6d WEX-WEI
-GAMS 47.6.0  c2de9d6d Sep 12, 2024          WEX-WEI x86 64bit/MS Windows - 10/22/24 15:20:06 Page 6
+GENERATION TIME      =        0.078 SECONDS      4 MB  47.6.0 c2de9d6d WEX-WEI
+GAMS 47.6.0  c2de9d6d Sep 12, 2024          WEX-WEI x86 64bit/MS Windows - 10/23/25 15:54:38 Page 6
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Solution Report     SOLVE NonLinModel Using NLP From line 77
 
@@ -171,10 +171,9 @@ Solution Report     SOLVE NonLinModel Using NLP From line 77
 **** MODEL STATUS      2 Locally Optimal
 **** OBJECTIVE VALUE               12.4700
 
- RESOURCE USAGE, LIMIT          0.078 10000000000.000
+ RESOURCE USAGE, LIMIT          0.156 10000000000.000
  ITERATION COUNT, LIMIT         6    2147483647
  EVALUATION ERRORS              0             0
---- *** This solver runs with a community license.
  
  
     C O N O P T   version 4.35
@@ -196,12 +195,12 @@ Solution Report     SOLVE NonLinModel Using NLP From line 77
  ** Optimal solution. Reduced gradient less than tolerance.
  
  
- CONOPT time Total                            0.014 seconds
+ CONOPT time Total                            0.026 seconds
    of which: Function evaluations             0.000 =  0.0%
              1st Derivative evaluations       0.000 =  0.0%
-             2nd Derivative evaluations       0.001 =  7.1%
+             2nd Derivative evaluations       0.000 =  0.0%
              Directional 2nd Deriv(Hess)      0.000 =  0.0%
-             Interval derivative evals        0.001 =  7.1%
+             Interval derivative evals        0.000 =  0.0%
  
 
                            LOWER          LEVEL          UPPER         MARGINAL
@@ -241,7 +240,7 @@ i2          .             1.1667         3.0000         EPS
                              0 INFEASIBLE
                              0  UNBOUNDED
                              0     ERRORS
-GAMS 47.6.0  c2de9d6d Sep 12, 2024          WEX-WEI x86 64bit/MS Windows - 10/22/24 15:20:06 Page 7
+GAMS 47.6.0  c2de9d6d Sep 12, 2024          WEX-WEI x86 64bit/MS Windows - 10/23/25 15:54:38 Page 7
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 E x e c u t i o n
 
@@ -254,11 +253,11 @@ i1 1.291,    i2 1.167
 ----     79 VARIABLE PROFIT.L              =       12.470  profit and objective function value
 
 
-EXECUTION TIME       =        0.344 SECONDS      4 MB  47.6.0 c2de9d6d WEX-WEI
+EXECUTION TIME       =        0.453 SECONDS      4 MB  47.6.0 c2de9d6d WEX-WEI
 
 
-USER: CEE 6410 Water Resources Systems Analysis      G240923|0002AO-GEN
-      Utah State University, Utah Water Research Laboratory     DCE3763
+USER: David Rosenberg, Single User License           G250908|0002AO-WIN
+      Utah State University, Utah Water Research Laboratory     DC17246
       License for teaching and research at degree granting institutions
 
 

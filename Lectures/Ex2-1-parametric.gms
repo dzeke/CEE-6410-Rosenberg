@@ -57,8 +57,8 @@ PARAMETER TomWatReq(runs) Tomato water use requirement (gal per plant);
 * One way to specify the tomato water requirements (uncomment next 4 lines)
 *   /r1 2000
 *    r2 1500
-*    r3 1000
-*    r4 500/;
+*   r3 1000
+*   r4 500/;
 
 *A second way to specify the tomato water requirement with a statement
 *GAMS executes this statement at run time (before solve statement)
@@ -91,6 +91,8 @@ EQUATIONS
    RES_CONSTRAIN(res) Resource Constraints;
 
 PROFIT..                 VPROFIT =E= SUM(plnt,c(plnt)*X(plnt));
+*PROFIT..                 VPROFIT =E= SUM(plnt,c(plnt)*X(plnt) + A("tomatoes",res));
+
 RES_CONSTRAIN(res) ..    SUM(plnt,A(plnt,res)*X(plnt)) =L= b(res);
 
 * 5. DEFINE the MODEL from the EQUATIONS
