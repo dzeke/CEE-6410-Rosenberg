@@ -3,6 +3,13 @@
 % This script plots the objective function of the Chevyychev Function 2
 % (has multiple peaks)
 % Function taken from https://www.chebfun.org/docs/guide/guide12.html
+% Using student solutions from the Gradient algorithm run in GAMS
+% (ExChevyFunction.gms at
+% https://github.com/dzeke/CEE-6410-Rosenberg/blob/master/Lectures/ExChevyFunction.gms)
+% 
+% ChevyChev Function taken from https://www.chebfun.org/docs/guide/guide12.html
+% Student solutions from https://docs.google.com/spreadsheets/d/1HrinIg7Jr20wQv2IKfQsFs6CRJ9JaeoyVLd-YMBER2Q/edit?gid=0#gid=0
+% on worksheet "GAMS-CONOPT(Gradient)"
 %
 %The Problem:
 % Maximize Z = 3*(1-x).^2.*exp(-(x.^2) - (y+1).^2) ... 
@@ -25,16 +32,21 @@
 % https://docs.google.com/spreadsheets/d/1HrinIg7Jr20wQv2IKfQsFs6CRJ9JaeoyVLd-YMBER2Q/edit#gid=0
 
 xPaths = [ 
--2	-2	-3	-3	-9.60E-05	;
--1	-1	-0.114	-0.504	2.082	;
-0.55	0.55	1.268	0.036	3.445	;
-1.618	-1.618	1.2678	0.0362	3.4446	;
--1.618	1.618	-0.0088	1.5814	8.11E+00	;
-2.99	-2.99	3	-3	-8.72E-05	;
-2.5	-2.5	-0.008	1.5814	-8.72E-05	;
-0	1.5	-0.008	1.5814	8.106	;
--2.99	2.99	-0.009	1.581	8.106	;
--1.618	-1.618	-3	-3	-0.0001	;
+-1	-1	-0.114	-0.504	2E+00	;
+2	-2	3	-3	-9E-05	;
+1	2	-0.009	1.581	8E+00	;
+-3	-3	-3	-3	-1E-04	;
+0	0	-0.114	-0.504	2E+00	;
+3	3	-0.009	1.581	8E+00	;
+2	0	1.268	0.036	3E+00	;
+1	80	-0.009	1.581	8E+00	;
+2	2	-0.009	1.581	8E+00	;
+1	3	-0.009	1.581	8E+00	;
+-2	-3	-3	-3	-1E-04	;
+2	1	1.268	0.036	3E+00	;
+1	-1	-0.009	1.581	8E+00	;
+1	1	-0.009	1.581	8E+00	;
+1	5	-0.009	1.581	8E+00	;
 ];
 
 %Calculate the objective function for the start point. Add as new column
@@ -58,15 +70,21 @@ xEvolutionarySolutions = [newColumn xEvolutionarySolutions];
 %cell array of Names to go with each solution
 sNames = {
 'David'
-'Brett'
-'Brett'
-'Matthew'
-'Matthew'
-'Adrienne'
-'Khanal'
-'Khanal'
-'Adrienne'
-'Matthew' };
+'Ty'
+'Caitlyn'
+'Anabelle'
+'Ty'
+'Jacob'
+'Jacob'
+'Bryson'
+'Isaac'
+'Bryson'
+'Tyler'
+'Tyler'
+'Caitlyn'
+'Spencer'
+'Spencer'
+'Isaac' };
 
 
 
