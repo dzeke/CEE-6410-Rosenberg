@@ -76,7 +76,6 @@ MODEL PLANTING /PROFIT, RES_CONSTRAIN/;
 *MODEL PLANTING /ALL/;
 
 *Add ranging information for decision variables and constraints
-PlANTING.dictfile = 4;
 PLANTING.optfile  = 1;
 option lp = cplex;
 

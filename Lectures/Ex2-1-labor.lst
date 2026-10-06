@@ -1,4 +1,4 @@
-GAMS 51.1.0  2d039df5 Sep 13, 2025          WEX-WEI x86 64bit/MS Windows - 10/06/26 11:45:57 Page 1
+GAMS 51.1.0  2d039df5 Sep 13, 2025          WEX-WEI x86 64bit/MS Windows - 10/06/26 12:01:32 Page 1
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 C o m p i l a t i o n
 
@@ -79,23 +79,22 @@ C o m p i l a t i o n
   76  *MODEL PLANTING /ALL/;
   77   
   78  *Add ranging information for decision variables and constraints
-  79  PlANTING.dictfile = 4;
-  80  PLANTING.optfile  = 1;
-  81  option lp = cplex;
-  82   
-  83  * 6. SOLVE the MODEL
-  84  * Solve the PLANTING model using a Linear Programming Solver (see File=>Options=>Solvers)
-  85  *     to maximize VPROFIT
-  86  SOLVE PLANTING USING LP MAXIMIZING VPROFIT;
+  79  PLANTING.optfile  = 1;
+  80  option lp = cplex;
+  81   
+  82  * 6. SOLVE the MODEL
+  83  * Solve the PLANTING model using a Linear Programming Solver (see File=>Options=>Solvers)
+  84  *     to maximize VPROFIT
+  85  SOLVE PLANTING USING LP MAXIMIZING VPROFIT;
+  86   
   87   
-  88   
-  89  * 6. CLick File menu => RUN (F9) or Solve icon and examine solution report in .LST file
+  88  * 6. CLick File menu => RUN (F9) or Solve icon and examine solution report in .LST file
 
 
-COMPILATION TIME     =        0.000 SECONDS      3 MB  51.1.0 2d039df5 WEX-WEI
-GAMS 51.1.0  2d039df5 Sep 13, 2025          WEX-WEI x86 64bit/MS Windows - 10/06/26 11:45:57 Page 2
+COMPILATION TIME     =        0.016 SECONDS      3 MB  51.1.0 2d039df5 WEX-WEI
+GAMS 51.1.0  2d039df5 Sep 13, 2025          WEX-WEI x86 64bit/MS Windows - 10/06/26 12:01:32 Page 2
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
-Equation Listing    SOLVE PLANTING Using LP From line 86
+Equation Listing    SOLVE PLANTING Using LP From line 85
 
 
 ---- PROFIT  =E=  Total profit ($) and objective function value
@@ -111,9 +110,9 @@ RES_CONSTRAIN(Land)..  4*X(Eggplant) + 3*X(Tomatoes) =L= 12000 ; (LHS = 0)
      
 RES_CONSTRAIN(Labor)..  5*X(Eggplant) + 2.5*X(Tomatoes) =L= 17500 ; (LHS = 0)
      
-GAMS 51.1.0  2d039df5 Sep 13, 2025          WEX-WEI x86 64bit/MS Windows - 10/06/26 11:45:57 Page 3
+GAMS 51.1.0  2d039df5 Sep 13, 2025          WEX-WEI x86 64bit/MS Windows - 10/06/26 12:01:32 Page 3
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
-Column Listing      SOLVE PLANTING Using LP From line 86
+Column Listing      SOLVE PLANTING Using LP From line 85
 
 
 ---- X  plants planted (Number)
@@ -139,9 +138,9 @@ VPROFIT
                 (.LO, .L, .UP, .M = -INF, 0, +INF, 0)
         1       PROFIT
 
-GAMS 51.1.0  2d039df5 Sep 13, 2025          WEX-WEI x86 64bit/MS Windows - 10/06/26 11:45:57 Page 4
+GAMS 51.1.0  2d039df5 Sep 13, 2025          WEX-WEI x86 64bit/MS Windows - 10/06/26 12:01:32 Page 4
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
-Range Statistics    SOLVE PLANTING Using LP From line 86
+Range Statistics    SOLVE PLANTING Using LP From line 85
 
 
 RANGE STATISTICS (ABSOLUTE NON-ZERO FINITE VALUES)
@@ -150,9 +149,9 @@ RHS       [min, max] : [ 1.200E+04, 4.000E+06] - Zero values observed as well
 Bound     [min, max] : [        NA,        NA] - Zero values observed as well
 Matrix    [min, max] : [ 1.000E+00, 2.000E+03]
 
-GAMS 51.1.0  2d039df5 Sep 13, 2025          WEX-WEI x86 64bit/MS Windows - 10/06/26 11:45:57 Page 5
+GAMS 51.1.0  2d039df5 Sep 13, 2025          WEX-WEI x86 64bit/MS Windows - 10/06/26 12:01:32 Page 5
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
-Model Statistics    SOLVE PLANTING Using LP From line 86
+Model Statistics    SOLVE PLANTING Using LP From line 85
 
 
 MODEL STATISTICS
@@ -162,17 +161,17 @@ BLOCKS OF VARIABLES           2     SINGLE VARIABLES            3
 NON ZERO ELEMENTS             9
 
 
-GENERATION TIME      =        0.078 SECONDS      4 MB  51.1.0 2d039df5 WEX-WEI
-GAMS 51.1.0  2d039df5 Sep 13, 2025          WEX-WEI x86 64bit/MS Windows - 10/06/26 11:45:57 Page 6
+GENERATION TIME      =        0.125 SECONDS      4 MB  51.1.0 2d039df5 WEX-WEI
+GAMS 51.1.0  2d039df5 Sep 13, 2025          WEX-WEI x86 64bit/MS Windows - 10/06/26 12:01:32 Page 6
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
-Solution Report     SOLVE PLANTING Using LP From line 86
+Solution Report     SOLVE PLANTING Using LP From line 85
 
 
                S O L V E      S U M M A R Y
 
      MODEL   PLANTING            OBJECTIVE  VPROFIT
      TYPE    LP                  DIRECTION  MAXIMIZE
-     SOLVER  CPLEX               FROM LINE  86
+     SOLVER  CPLEX               FROM LINE  85
 
 **** SOLVER STATUS     1 Normal Completion
 **** MODEL STATUS      1 Optimal
@@ -253,7 +252,7 @@ Tomatoes          .           800.0000        +INF             .
                              0  UNBOUNDED
 
 
-EXECUTION TIME       =        0.203 SECONDS      4 MB  51.1.0 2d039df5 WEX-WEI
+EXECUTION TIME       =        0.234 SECONDS      4 MB  51.1.0 2d039df5 WEX-WEI
 
 
 USER: David Rosenberg, Single User License           G260715+0003Ac-WIN
