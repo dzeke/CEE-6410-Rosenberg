@@ -1,4 +1,4 @@
-GAMS 47.6.0  c2de9d6d Sep 12, 2024          WEX-WEI x86 64bit/MS Windows - 10/23/25 15:55:09 Page 1
+GAMS 51.1.0  2d039df5 Sep 13, 2025          WEX-WEI x86 64bit/MS Windows - 10/06/26 11:45:57 Page 1
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 C o m p i l a t i o n
 
@@ -49,42 +49,53 @@ C o m p i l a t i o n
   46   Eggplant        1000      4       5
   47   Tomatoes        2000      3       2.5;
   48   
-  49   
-  50  * 3. DEFINE the variables
-  51  VARIABLES X(plnt) plants planted (Number)
-  52            VPROFIT  total profit ($);
+  49  ************
+  50  *TABLE A(plnt,res) Left hand side constraint coefficients;
+  51  *A("Eggplant", "Water") = 1000;
+  52  *A("Eggplant", "Land") = 4;
   53   
-  54  * Non-negativity constraints
-  55  POSITIVE VARIABLES X;
+  54   
+  55  *******
   56   
-  57  * 4. COMBINE variables and data in equations
-  58  EQUATIONS
-  59     PROFIT Total profit ($) and objective function value
-  60     RES_CONSTRAIN(res) Resource Constraints;
-  61   
-  62  PROFIT..                 VPROFIT =E= SUM(plnt, c(plnt)*X(plnt));
-  63  RES_CONSTRAIN(res) ..    SUM(plnt, A(plnt,res)*X(plnt)) =L= b(res);
-  64   
-  65   
-  66  * 5. DEFINE the MODEL from the EQUATIONS
-  67  MODEL PLANTING /PROFIT, RES_CONSTRAIN/;
-  68  *Altnerative way to write (include all previously defined equations)
-  69  *MODEL PLANTING /ALL/;
-  70   
+  57  * 3. DEFINE the variables
+  58  VARIABLES X(plnt) plants planted (Number)
+  59            VPROFIT  total profit ($);
+  60   
+  61  * Non-negativity constraints
+  62  POSITIVE VARIABLES X;
+  63   
+  64  * 4. COMBINE variables and data in equations
+  65  EQUATIONS
+  66     PROFIT Total profit ($) and objective function value
+  67     RES_CONSTRAIN(res) Resource Constraints;
+  68   
+  69  PROFIT..                 VPROFIT =E= SUM(plnt, c(plnt)*X(plnt));
+  70  RES_CONSTRAIN(res) ..    SUM(plnt, A(plnt,res)*X(plnt)) =L= b(res);
   71   
-  72  * 6. SOLVE the MODEL
-  73  * Solve the PLANTING model using a Linear Programming Solver (see File=>Options=>Solvers)
-  74  *     to maximize VPROFIT
-  75  SOLVE PLANTING USING LP MAXIMIZING VPROFIT;
-  76   
+  72   
+  73  * 5. DEFINE the MODEL from the EQUATIONS
+  74  MODEL PLANTING /PROFIT, RES_CONSTRAIN/;
+  75  *Altnerative way to write (include all previously defined equations)
+  76  *MODEL PLANTING /ALL/;
   77   
-  78  * 6. CLick File menu => RUN (F9) or Solve icon and examine solution report in .LST file
+  78  *Add ranging information for decision variables and constraints
+  79  PlANTING.dictfile = 4;
+  80  PLANTING.optfile  = 1;
+  81  option lp = cplex;
+  82   
+  83  * 6. SOLVE the MODEL
+  84  * Solve the PLANTING model using a Linear Programming Solver (see File=>Options=>Solvers)
+  85  *     to maximize VPROFIT
+  86  SOLVE PLANTING USING LP MAXIMIZING VPROFIT;
+  87   
+  88   
+  89  * 6. CLick File menu => RUN (F9) or Solve icon and examine solution report in .LST file
 
 
-COMPILATION TIME     =        0.000 SECONDS      3 MB  47.6.0 c2de9d6d WEX-WEI
-GAMS 47.6.0  c2de9d6d Sep 12, 2024          WEX-WEI x86 64bit/MS Windows - 10/23/25 15:55:09 Page 2
+COMPILATION TIME     =        0.000 SECONDS      3 MB  51.1.0 2d039df5 WEX-WEI
+GAMS 51.1.0  2d039df5 Sep 13, 2025          WEX-WEI x86 64bit/MS Windows - 10/06/26 11:45:57 Page 2
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
-Equation Listing    SOLVE PLANTING Using LP From line 75
+Equation Listing    SOLVE PLANTING Using LP From line 86
 
 
 ---- PROFIT  =E=  Total profit ($) and objective function value
@@ -100,9 +111,9 @@ RES_CONSTRAIN(Land)..  4*X(Eggplant) + 3*X(Tomatoes) =L= 12000 ; (LHS = 0)
      
 RES_CONSTRAIN(Labor)..  5*X(Eggplant) + 2.5*X(Tomatoes) =L= 17500 ; (LHS = 0)
      
-GAMS 47.6.0  c2de9d6d Sep 12, 2024          WEX-WEI x86 64bit/MS Windows - 10/23/25 15:55:09 Page 3
+GAMS 51.1.0  2d039df5 Sep 13, 2025          WEX-WEI x86 64bit/MS Windows - 10/06/26 11:45:57 Page 3
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
-Column Listing      SOLVE PLANTING Using LP From line 75
+Column Listing      SOLVE PLANTING Using LP From line 86
 
 
 ---- X  plants planted (Number)
@@ -128,9 +139,9 @@ VPROFIT
                 (.LO, .L, .UP, .M = -INF, 0, +INF, 0)
         1       PROFIT
 
-GAMS 47.6.0  c2de9d6d Sep 12, 2024          WEX-WEI x86 64bit/MS Windows - 10/23/25 15:55:09 Page 4
+GAMS 51.1.0  2d039df5 Sep 13, 2025          WEX-WEI x86 64bit/MS Windows - 10/06/26 11:45:57 Page 4
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
-Range Statistics    SOLVE PLANTING Using LP From line 75
+Range Statistics    SOLVE PLANTING Using LP From line 86
 
 
 RANGE STATISTICS (ABSOLUTE NON-ZERO FINITE VALUES)
@@ -139,9 +150,9 @@ RHS       [min, max] : [ 1.200E+04, 4.000E+06] - Zero values observed as well
 Bound     [min, max] : [        NA,        NA] - Zero values observed as well
 Matrix    [min, max] : [ 1.000E+00, 2.000E+03]
 
-GAMS 47.6.0  c2de9d6d Sep 12, 2024          WEX-WEI x86 64bit/MS Windows - 10/23/25 15:55:09 Page 5
+GAMS 51.1.0  2d039df5 Sep 13, 2025          WEX-WEI x86 64bit/MS Windows - 10/06/26 11:45:57 Page 5
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
-Model Statistics    SOLVE PLANTING Using LP From line 75
+Model Statistics    SOLVE PLANTING Using LP From line 86
 
 
 MODEL STATISTICS
@@ -151,34 +162,58 @@ BLOCKS OF VARIABLES           2     SINGLE VARIABLES            3
 NON ZERO ELEMENTS             9
 
 
-GENERATION TIME      =        0.203 SECONDS      4 MB  47.6.0 c2de9d6d WEX-WEI
-GAMS 47.6.0  c2de9d6d Sep 12, 2024          WEX-WEI x86 64bit/MS Windows - 10/23/25 15:55:09 Page 6
+GENERATION TIME      =        0.078 SECONDS      4 MB  51.1.0 2d039df5 WEX-WEI
+GAMS 51.1.0  2d039df5 Sep 13, 2025          WEX-WEI x86 64bit/MS Windows - 10/06/26 11:45:57 Page 6
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
-Solution Report     SOLVE PLANTING Using LP From line 75
+Solution Report     SOLVE PLANTING Using LP From line 86
 
 
                S O L V E      S U M M A R Y
 
      MODEL   PLANTING            OBJECTIVE  VPROFIT
      TYPE    LP                  DIRECTION  MAXIMIZE
-     SOLVER  CPLEX               FROM LINE  75
+     SOLVER  CPLEX               FROM LINE  86
 
 **** SOLVER STATUS     1 Normal Completion
 **** MODEL STATUS      1 Optimal
 **** OBJECTIVE VALUE            20000.0000
 
- RESOURCE USAGE, LIMIT          0.016 10000000000.000
+ RESOURCE USAGE, LIMIT          0.000 10000000000.000
  ITERATION COUNT, LIMIT         3    2147483647
 *** This solver runs with a community license.
+
+Reading parameter(s) from "C:\Users\david\Box\_Rosenberg2024\Classes\CEE6410\Fall2024\CEE6410-Rosenberg-GitHub\CEE-6410-Rosenberg\Lectures\cplex.opt"
+>>  objrng all
+>>  rhsrng all
+Finished reading from "C:\Users\david\Box\_Rosenberg2024\Classes\CEE6410\Fall2024\CEE6410-Rosenberg-GitHub\CEE-6410-Rosenberg\Lectures\cplex.opt"
+
 --- GMO setup time: 0.00s
 --- GMO memory 0.50 Mb (peak 0.50 Mb)
 --- Dictionary memory 0.00 Mb
---- Cplex 22.1.1.0 link memory 0.00 Mb (peak 0.00 Mb)
+--- Cplex 22.1.2.0 link memory 0.00 Mb (peak 0.00 Mb)
 --- Starting Cplex
 
 
 --- LP status (1): optimal.
---- Cplex Time: 0.02sec (det. 0.01 ticks)
+--- Cplex Time: 0.00sec (det. 0.01 ticks)
+
+--- Start ranging / sensitivity analysis...
+--- Right-hand-side ranging...
+
+EQUATION NAME                            LOWER           CURRENT             UPPER
+-------------                            -----           -------             -----
+PROFIT                                    -INF                NA              +INF   =C
+RES_CONSTRAIN(Water)                     3e+06             4e+06             8e+06   =C
+RES_CONSTRAIN(Land)                       6000             12000           14333.3   =C
+RES_CONSTRAIN(Labor)                     14000             17500              +INF   =C
+
+--- Objective ranging...
+
+VARIABLE NAME                            LOWER           CURRENT             UPPER
+-------------                            -----           -------             -----
+X(Eggplant)                                3.5                 6           9.33333   =C
+X(Tomatoes)                                4.5                 7                12   =C
+VPROFIT                                   -INF                NA              +INF   =C
 
 
 Optimal solution found
@@ -218,10 +253,10 @@ Tomatoes          .           800.0000        +INF             .
                              0  UNBOUNDED
 
 
-EXECUTION TIME       =        0.407 SECONDS      4 MB  47.6.0 c2de9d6d WEX-WEI
+EXECUTION TIME       =        0.203 SECONDS      4 MB  51.1.0 2d039df5 WEX-WEI
 
 
-USER: David Rosenberg, Single User License           G250908|0002AO-WIN
+USER: David Rosenberg, Single User License           G260715+0003Ac-WIN
       Utah State University, Utah Water Research Laboratory     DC17246
       License for teaching and research at degree granting institutions
 

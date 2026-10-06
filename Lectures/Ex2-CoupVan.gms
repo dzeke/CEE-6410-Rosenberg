@@ -1,11 +1,8 @@
 $ontext
 CEE 6410 - Water Resources Systems Analysis
-Example 2.1 from Bishop Et Al Text (https://digitalcommons.usu.edu/ecstatic_all/76/)
-Modifies Example to add a labor constraint
+Example Coups Minivans from Lecture Example 2 on Graphical solution to LP
 
-THE PROBLEM:
-
-An irrigated farm can be planted in two crops:  eggplants and tomatoes.  Data are as fol-lows:
+A manufacturer can produce:  coups and minivans.  Data are as fol-lows:
 
 Seasonal Resource
 Inputs or Profit        Crops        Resource
@@ -27,25 +24,27 @@ September 15, 2015
 $offtext
 
 * 1. DEFINE the SETS
-SETS plnt crops growing /Eggplant, Tomatoes/
-     res resources /Water, Land, Labor/;
+SETS vehicle Type of vehicle to produce /coup, minivan/
+     res resources /Metal, CircuitBoards, Labor/;
 
 * 2. DEFINE input data
 PARAMETERS
-   c(plnt) Objective function coefficients ($ per plant)
-         /Eggplant 6,
-        Tomatoes 7 /
+   c(vehicle) Objective function coefficients ($ per vehicle)
+         /coup 6000,
+        minivan 7000 /
 
    b(res) Right hand constraint values (per resource)
-          /Water 4000000,
-           Land  12000,
+          /Metal 4000000,
+           CircuitBoards  12000,
            Labor  17500/;
 
-TABLE A(plnt,res) Left hand side constraint coefficients
-                 Water    Land   Labor
- Eggplant        1000      4       5
- Tomatoes        2000      3       2.5;
+TABLE A(vehicle,res) Left hand side constraint coefficients
+                 Metal    CircuitBoards   Labor
+ Coup            1000      4                5
+ Minivan        2000      3                2.5;
 
+*PARAMETER UB(plnt) Upper bound on decision variables
+* / Eggplant 10000, Tomatoes 700/;
 ************
 *TABLE A(plnt,res) Left hand side constraint coefficients;
 *A("Eggplant", "Water") = 1000;
@@ -55,7 +54,7 @@ TABLE A(plnt,res) Left hand side constraint coefficients
 *******
 
 * 3. DEFINE the variables
-VARIABLES X(plnt) plants planted (Number)
+VARIABLES X(vehicle) plants planted (Number)
           VPROFIT  total profit ($);
 
 * Non-negativity constraints
@@ -65,17 +64,20 @@ POSITIVE VARIABLES X;
 EQUATIONS
    PROFIT Total profit ($) and objective function value
    RES_CONSTRAIN(res) Resource Constraints;
+*   LowerLimitDecisionVariables(plnt) Lower limit on decision variable
+*   UpperBoundDecisionVariables(plnt) Upper bound on decision variables;
 
-PROFIT..                 VPROFIT =E= SUM(plnt, c(plnt)*X(plnt));
-RES_CONSTRAIN(res) ..    SUM(plnt, A(plnt,res)*X(plnt)) =L= b(res);
-
+PROFIT..                 VPROFIT =E= SUM(vehicle, c(vehicle)*X(vehicle));
+RES_CONSTRAIN(res) ..    SUM(vehicle, A(vehicle,res)*X(vehicle)) =L= b(res);
+*LowerLimitDecisionVariables(plnt)..     X(plnt) =G= 10;
+*UpperBoundDecisionVariables(plnt)..    X(plnt) =L= ub(plnt);
 
 * 5. DEFINE the MODEL from the EQUATIONS
 MODEL PLANTING /PROFIT, RES_CONSTRAIN/;
+*MODEL AmmonsPLANTING /PROFIT, RES_CONSTRAIN, LowerLimitDecisionVariables, UpperBoundDecisionVariables /;
 *Altnerative way to write (include all previously defined equations)
 *MODEL PLANTING /ALL/;
 
-*Add ranging information for decision variables and constraints
 PlANTING.dictfile = 4;
 PLANTING.optfile  = 1;
 option lp = cplex;
@@ -84,6 +86,9 @@ option lp = cplex;
 * Solve the PLANTING model using a Linear Programming Solver (see File=>Options=>Solvers)
 *     to maximize VPROFIT
 SOLVE PLANTING USING LP MAXIMIZING VPROFIT;
+
+*SOLVE AmmonsPLANTING USING LP MAXIMIZING VPROFIT;
+
 
 
 * 6. CLick File menu => RUN (F9) or Solve icon and examine solution report in .LST file

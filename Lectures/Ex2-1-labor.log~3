@@ -1,45 +1,60 @@
---- Job Ex2-1-labor.gms Start 09/19/25 14:39:32 47.6.0 c2de9d6d WEX-WEI x86 64bit/MS Windows
+
+--- Job Ex2-CoupVan.gms Start 10/06/26 11:39:07 51.1.0 2d039df5 WEX-WEI x86 64bit/MS Windows
 --- Applying:
-    C:\GAMS\win64\47\gmsprmNT.txt
+    C:\GAMS\51\gmsprmNT.txt
+    C:\Users\david\Documents\GAMS\gamsconfig.yaml
 --- GAMS Parameters defined
-    Input C:\Users\david\Box\_Rosenberg2024\Classes\CEE6410\Fall2024\CEE6410-Rosenberg-GitHub\CEE-6410-Rosenberg\Lectures\Ex2-1-labor.gms
+    LP CPLEX
+    MIP CPLEX
+    RMIP CPLEX
+    NLP CONOPT
+    MINLP BARON
+    Input C:\Users\david\Box\_Rosenberg2024\Classes\CEE6410\Fall2024\CEE6410-Rosenberg-GitHub\CEE-6410-Rosenberg\Lectures\Ex2-CoupVan.gms
     PageSize 0
     ScrDir C:\Users\david\Box\_Rosenberg2024\Classes\CEE6410\Fall2024\CEE6410-Rosenberg-GitHub\CEE-6410-Rosenberg\Lectures\225a\
-    SysDir C:\GAMS\win64\47\
+    SysDir C:\GAMS\51\
     LogOption 3
+    AppendLog 1
     ErrMsg 1
     ErrorLog 99
     IDE 1
     LstTitleLeftAligned 1
-Licensee: David Rosenberg, Single User License           G250908|0002AO-WIN
+Licensee: David Rosenberg, Single User License           G260715+0003Ac-WIN
           Utah State University, Utah Water Research Laboratory     DC17246
           C:\Users\david\Documents\GAMS\gamslice.txt
-          david.rosenberg@usu.edu                                          
-          The maintenance period of the license will expire on Oct 03, 2026
-Processor information: 1 socket(s), 4 core(s), and 8 thread(s) available
-GAMS 47.6.0   Copyright (C) 1987-2024 GAMS Development. All rights reserved
+          v:2                                                              
+          The maintenance period of the license will expire on Sep 08, 2027
+System information: 4 physical cores and 16 Gb physical memory detected
+GAMS 51.1.0   Copyright (C) 1987-2025 GAMS Development. All rights reserved
 --- Starting compilation
---- Ex2-1-labor.gms(78) 3 Mb
---- Starting execution: elapsed 0:00:00.054
+--- Ex2-CoupVan.gms(94) 3 Mb
+--- Starting execution: elapsed 0:00:00.038
+--- Ex2-CoupVan.gms(83) 4 Mb
 --- Generating LP model PLANTING
---- Ex2-1-labor.gms(75) 4 Mb
+--- Ex2-CoupVan.gms(88) 4 Mb
 ---   4 rows  3 columns  9 non-zeroes
 --- Range statistics (absolute non-zero finite values)
 --- RHS       [min, max] : [ 1.200E+04, 4.000E+06] - Zero values observed as well
 --- Bound     [min, max] : [        NA,        NA] - Zero values observed as well
---- Matrix    [min, max] : [ 1.000E+00, 2.000E+03]
---- Executing CPLEX (Solvelink=2): elapsed 0:00:00.252
+--- Matrix    [min, max] : [ 1.000E+00, 7.000E+03]
+--- Executing CPLEX (Solvelink=2): elapsed 0:00:00.158
 
-IBM ILOG CPLEX   47.6.0 c2de9d6d Sep 12, 2024          WEI x86 64bit/MS Window
+IBM ILOG CPLEX   51.1.0 2d039df5 Sep 13, 2025          WEI x86 64bit/MS Window
 
 *** This solver runs with a community license.
+
+Reading parameter(s) from "C:\Users\david\Box\_Rosenberg2024\Classes\CEE6410\Fall2024\CEE6410-Rosenberg-GitHub\CEE-6410-Rosenberg\Lectures\cplex.opt"
+>>  objrng all
+>>  rhsrng all
+Finished reading from "C:\Users\david\Box\_Rosenberg2024\Classes\CEE6410\Fall2024\CEE6410-Rosenberg-GitHub\CEE-6410-Rosenberg\Lectures\cplex.opt"
+
 --- GMO setup time: 0.00s
 --- GMO memory 0.50 Mb (peak 0.50 Mb)
 --- Dictionary memory 0.00 Mb
---- Cplex 22.1.1.0 link memory 0.00 Mb (peak 0.00 Mb)
+--- Cplex 22.1.2.0 link memory 0.00 Mb (peak 0.00 Mb)
 --- Starting Cplex
 
-Version identifier: 22.1.1.0 | 2022-11-27 | 9160aff4d
+Version identifier: 22.1.2.0 | 2024-11-25 | 0edbb82fd
 CPXPARAM_Advance                                 0
 CPXPARAM_Simplex_Display                         2
 CPXPARAM_MIP_Display                             4
@@ -51,17 +66,35 @@ Reduced LP has 3 rows, 2 columns, and 6 nonzeros.
 Presolve time = 0.00 sec. (0.00 ticks)
 
 Iteration      Dual Objective            In Variable           Out Variable
-     1 sI            0.000000            X(Tomatoes)RES_CONSTRAIN(Lab slack
-     2           22333.333333            X(Eggplant)RES_CONSTRAIN(Wat slack
-     3           20000.000000RES_CONSTRAIN(Lab slackRES_CONSTRAIN(Lan slack
+     1 sI            0.000000             X(minivan)RES_CONSTRAIN(Lab slack
+     2        22333333.333333                X(coup)RES_CONSTRAIN(Met slack
+     3        20000000.000000RES_CONSTRAIN(Lab slackRES_CONSTRAIN(Cir slack
 
 --- LP status (1): optimal.
 --- Cplex Time: 0.00sec (det. 0.01 ticks)
 
+--- Start ranging / sensitivity analysis...
+--- Right-hand-side ranging...
+
+EQUATION NAME                            LOWER           CURRENT             UPPER
+-------------                            -----           -------             -----
+PROFIT                                    -INF                NA              +INF   
+RES_CONSTRAIN(Metal)                     3e+06             4e+06             8e+06   
+RES_CONSTRAIN(CircuitBoards)              6000             12000           14333.3   
+RES_CONSTRAIN(Labor)                     14000             17500              +INF   
+
+--- Objective ranging...
+
+VARIABLE NAME                            LOWER           CURRENT             UPPER
+-------------                            -----           -------             -----
+X(coup)                                   3500              6000           9333.33   
+X(minivan)                                4500              7000             12000   
+VPROFIT                                   -INF                NA              +INF   
+
 
 Optimal solution found
-Objective:        20000.000000
+Objective:     20000000.000000
 
 --- Reading solution for model PLANTING
 *** Status: Normal completion
---- Job Ex2-1-labor.gms Stop 09/19/25 14:39:33 elapsed 0:00:00.512
+--- Job Ex2-CoupVan.gms Stop 10/06/26 11:39:08 elapsed 0:00:00.299

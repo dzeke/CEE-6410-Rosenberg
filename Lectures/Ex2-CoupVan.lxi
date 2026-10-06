@@ -1,0 +1,14 @@
+B 3 C o m p i l a t i o n
+B 103 Equation Listing    SOLVE PLANTING Using LP From line 88
+D 106 PROFIT
+D 111 RES_CONSTRAIN
+B 121 Column Listing      SOLVE PLANTING Using LP From line 88
+E 124 X
+E 141 VPROFIT
+B 149 Range Statistics    SOLVE PLANTING Using LP From line 88
+B 160 Model Statistics    SOLVE PLANTING Using LP From line 88
+B 173 Solution Report     SOLVE PLANTING Using LP From line 88
+F 230 PROFIT
+F 234 RES_CONSTRAIN
+G 242 X
+G 251 VPROFIT

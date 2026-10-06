@@ -1,0 +1,272 @@
+GAMS 51.1.0  2d039df5 Sep 13, 2025          WEX-WEI x86 64bit/MS Windows - 10/06/26 11:44:34 Page 1
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+C o m p i l a t i o n
+
+
+      CEE 6410 - Water Resources Systems Analysis
+      Example Coups Minivans from Lecture Example 2 on Graphical solution to LP
+       
+      A manufacturer can produce:  coups and minivans.  Data are as fol-lows:
+       
+      Seasonal Resource
+      Inputs or Profit        Crops        Resource
+      Availability
+              Eggplant        Tomatoes
+      Water        1x103 gal/plant        2x103 gal/plant      4x106 gal/year
+      Land        4 ft2/plant        3 ft2/plant               1.2x104 ft2
+      Labor         5hr/plant        2.5/hr plant              17,500 hours
+      Profit/plant        $6        $7
+       
+                      Determine the optimal planting for the two crops.
+       
+      THE SOLUTION:
+      Uses General Algebraic Modeling System to Solve this Linear Program
+       
+      David E Rosenberg
+      david.rosenberg@usu.edu
+      September 15, 2015
+  25   
+  26  * 1. DEFINE the SETS
+  27  SETS vehicle Type of vehicle to produce /coup, minivan/
+  28       res resources /Metal, CircuitBoards, Labor/;
+  29   
+  30  * 2. DEFINE input data
+  31  PARAMETERS
+  32     c(vehicle) Objective function coefficients ($ per vehicle)
+  33           /coup 6000,
+  34          minivan 7000 /
+  35   
+  36     b(res) Right hand constraint values (per resource)
+  37            /Metal 4000000,
+  38             CircuitBoards  12000,
+  39             Labor  17500/;
+  40   
+  41  TABLE A(vehicle,res) Left hand side constraint coefficients
+  42                   Metal    CircuitBoards   Labor
+  43   Coup            1000      4                5
+  44   Minivan        2000      3                2.5;
+  45   
+  46  *PARAMETER UB(plnt) Upper bound on decision variables
+  47  * / Eggplant 10000, Tomatoes 700/;
+  48  ************
+  49  *TABLE A(plnt,res) Left hand side constraint coefficients;
+  50  *A("Eggplant", "Water") = 1000;
+  51  *A("Eggplant", "Land") = 4;
+  52   
+  53   
+  54  *******
+  55   
+  56  * 3. DEFINE the variables
+  57  VARIABLES X(vehicle) plants planted (Number)
+  58            VPROFIT  total profit ($);
+  59   
+  60  * Non-negativity constraints
+  61  POSITIVE VARIABLES X;
+  62   
+  63  * 4. COMBINE variables and data in equations
+  64  EQUATIONS
+  65     PROFIT Total profit ($) and objective function value
+  66     RES_CONSTRAIN(res) Resource Constraints;
+  67  *   LowerLimitDecisionVariables(plnt) Lower limit on decision variable
+  68  *   UpperBoundDecisionVariables(plnt) Upper bound on decision variables;
+  69   
+  70  PROFIT..                 VPROFIT =E= SUM(vehicle, c(vehicle)*X(vehicle));
+  71  RES_CONSTRAIN(res) ..    SUM(vehicle, A(vehicle,res)*X(vehicle)) =L= b(res);
+  72  *LowerLimitDecisionVariables(plnt)..     X(plnt) =G= 10;
+  73  *UpperBoundDecisionVariables(plnt)..    X(plnt) =L= ub(plnt);
+  74   
+  75  * 5. DEFINE the MODEL from the EQUATIONS
+  76  MODEL PLANTING /PROFIT, RES_CONSTRAIN/;
+  77  *MODEL AmmonsPLANTING /PROFIT, RES_CONSTRAIN, LowerLimitDecisionVariables, UpperBoundDecisionVariables /;
+  78  *Altnerative way to write (include all previously defined equations)
+  79  *MODEL PLANTING /ALL/;
+  80   
+  81  PlANTING.dictfile = 4;
+  82  PLANTING.optfile  = 1;
+  83  option lp = cplex;
+  84   
+  85  * 6. SOLVE the MODEL
+  86  * Solve the PLANTING model using a Linear Programming Solver (see File=>Options=>Solvers)
+  87  *     to maximize VPROFIT
+  88  SOLVE PLANTING USING LP MAXIMIZING VPROFIT;
+  89   
+  90  *SOLVE AmmonsPLANTING USING LP MAXIMIZING VPROFIT;
+  91   
+  92   
+  93   
+  94  * 6. CLick File menu => RUN (F9) or Solve icon and examine solution report in .LST file
+
+
+COMPILATION TIME     =        0.000 SECONDS      3 MB  51.1.0 2d039df5 WEX-WEI
+GAMS 51.1.0  2d039df5 Sep 13, 2025          WEX-WEI x86 64bit/MS Windows - 10/06/26 11:44:34 Page 2
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Equation Listing    SOLVE PLANTING Using LP From line 88
+
+
+---- PROFIT  =E=  Total profit ($) and objective function value
+
+PROFIT..  - 6000*X(coup) - 7000*X(minivan) + VPROFIT =E= 0 ; (LHS = 0)
+     
+
+---- RES_CONSTRAIN  =L=  Resource Constraints
+
+RES_CONSTRAIN(Metal)..  1000*X(coup) + 2000*X(minivan) =L= 4000000 ; (LHS = 0)
+     
+RES_CONSTRAIN(CircuitBoards)..  4*X(coup) + 3*X(minivan) =L= 12000 ; (LHS = 0)
+     
+RES_CONSTRAIN(Labor)..  5*X(coup) + 2.5*X(minivan) =L= 17500 ; (LHS = 0)
+     
+GAMS 51.1.0  2d039df5 Sep 13, 2025          WEX-WEI x86 64bit/MS Windows - 10/06/26 11:44:34 Page 3
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Column Listing      SOLVE PLANTING Using LP From line 88
+
+
+---- X  plants planted (Number)
+
+X(coup)
+                (.LO, .L, .UP, .M = 0, 0, +INF, 0)
+    -6000       PROFIT
+     1000       RES_CONSTRAIN(Metal)
+        4       RES_CONSTRAIN(CircuitBoards)
+        5       RES_CONSTRAIN(Labor)
+
+X(minivan)
+                (.LO, .L, .UP, .M = 0, 0, +INF, 0)
+    -7000       PROFIT
+     2000       RES_CONSTRAIN(Metal)
+        3       RES_CONSTRAIN(CircuitBoards)
+        2.5     RES_CONSTRAIN(Labor)
+
+
+---- VPROFIT  total profit ($)
+
+VPROFIT
+                (.LO, .L, .UP, .M = -INF, 0, +INF, 0)
+        1       PROFIT
+
+GAMS 51.1.0  2d039df5 Sep 13, 2025          WEX-WEI x86 64bit/MS Windows - 10/06/26 11:44:34 Page 4
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Range Statistics    SOLVE PLANTING Using LP From line 88
+
+
+RANGE STATISTICS (ABSOLUTE NON-ZERO FINITE VALUES)
+
+RHS       [min, max] : [ 1.200E+04, 4.000E+06] - Zero values observed as well
+Bound     [min, max] : [        NA,        NA] - Zero values observed as well
+Matrix    [min, max] : [ 1.000E+00, 7.000E+03]
+
+GAMS 51.1.0  2d039df5 Sep 13, 2025          WEX-WEI x86 64bit/MS Windows - 10/06/26 11:44:34 Page 5
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Model Statistics    SOLVE PLANTING Using LP From line 88
+
+
+MODEL STATISTICS
+
+BLOCKS OF EQUATIONS           2     SINGLE EQUATIONS            4
+BLOCKS OF VARIABLES           2     SINGLE VARIABLES            3
+NON ZERO ELEMENTS             9
+
+
+GENERATION TIME      =        0.078 SECONDS      4 MB  51.1.0 2d039df5 WEX-WEI
+GAMS 51.1.0  2d039df5 Sep 13, 2025          WEX-WEI x86 64bit/MS Windows - 10/06/26 11:44:34 Page 6
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Solution Report     SOLVE PLANTING Using LP From line 88
+
+
+               S O L V E      S U M M A R Y
+
+     MODEL   PLANTING            OBJECTIVE  VPROFIT
+     TYPE    LP                  DIRECTION  MAXIMIZE
+     SOLVER  CPLEX               FROM LINE  88
+
+**** SOLVER STATUS     1 Normal Completion
+**** MODEL STATUS      1 Optimal
+**** OBJECTIVE VALUE         20000000.0000
+
+ RESOURCE USAGE, LIMIT          0.000 10000000000.000
+ ITERATION COUNT, LIMIT         3    2147483647
+*** This solver runs with a community license.
+
+Reading parameter(s) from "C:\Users\david\Box\_Rosenberg2024\Classes\CEE6410\Fall2024\CEE6410-Rosenberg-GitHub\CEE-6410-Rosenberg\Lectures\cplex.opt"
+>>  objrng all
+>>  rhsrng all
+Finished reading from "C:\Users\david\Box\_Rosenberg2024\Classes\CEE6410\Fall2024\CEE6410-Rosenberg-GitHub\CEE-6410-Rosenberg\Lectures\cplex.opt"
+
+--- GMO setup time: 0.00s
+--- GMO memory 0.50 Mb (peak 0.50 Mb)
+--- Dictionary memory 0.00 Mb
+--- Cplex 22.1.2.0 link memory 0.00 Mb (peak 0.00 Mb)
+--- Starting Cplex
+
+
+--- LP status (1): optimal.
+--- Cplex Time: 0.00sec (det. 0.01 ticks)
+
+--- Start ranging / sensitivity analysis...
+--- Right-hand-side ranging...
+
+EQUATION NAME                            LOWER           CURRENT             UPPER
+-------------                            -----           -------             -----
+PROFIT                                    -INF                NA              +INF   =C
+RES_CONSTRAIN(Metal)                     3e+06             4e+06             8e+06   =C
+RES_CONSTRAIN(CircuitBoards)              6000             12000           14333.3   =C
+RES_CONSTRAIN(Labor)                     14000             17500              +INF   =C
+
+--- Objective ranging...
+
+VARIABLE NAME                            LOWER           CURRENT             UPPER
+-------------                            -----           -------             -----
+X(coup)                                   3500              6000           9333.33   =C
+X(minivan)                                4500              7000             12000   =C
+VPROFIT                                   -INF                NA              +INF   =C
+
+
+Optimal solution found
+Objective:     20000000.000000
+
+
+                           LOWER          LEVEL          UPPER         MARGINAL
+
+---- EQU PROFIT              .              .              .             1.0000      
+
+  PROFIT  Total profit ($) and objective function value
+
+---- EQU RES_CONSTRAIN  Resource Constraints
+
+                     LOWER          LEVEL          UPPER         MARGINAL
+
+Metal                -INF      4000000.0000   4000000.0000         2.0000      
+CircuitBoards        -INF        12000.0000     12000.0000      1000.0000      
+Labor                -INF        14000.0000     17500.0000          .          
+
+---- VAR X  plants planted (Number)
+
+               LOWER          LEVEL          UPPER         MARGINAL
+
+coup             .          2400.0000        +INF             .          
+minivan          .           800.0000        +INF             .          
+
+                           LOWER          LEVEL          UPPER         MARGINAL
+
+---- VAR VPROFIT           -INF      2.0000000E+7        +INF             .          
+
+  VPROFIT  total profit ($)
+
+
+**** REPORT SUMMARY :        0     NONOPT
+                             0 INFEASIBLE
+                             0  UNBOUNDED
+
+
+EXECUTION TIME       =        0.188 SECONDS      4 MB  51.1.0 2d039df5 WEX-WEI
+
+
+USER: David Rosenberg, Single User License           G260715+0003Ac-WIN
+      Utah State University, Utah Water Research Laboratory     DC17246
+      License for teaching and research at degree granting institutions
+
+
+**** FILE SUMMARY
+
+Input      C:\Users\david\Box\_Rosenberg2024\Classes\CEE6410\Fall2024\CEE6410-Rosenberg-GitHub\CEE-6410-Rosenberg\Lectures\Ex2-CoupVan.gms
+Output     C:\Users\david\Box\_Rosenberg2024\Classes\CEE6410\Fall2024\CEE6410-Rosenberg-GitHub\CEE-6410-Rosenberg\Lectures\Ex2-CoupVan.lst
