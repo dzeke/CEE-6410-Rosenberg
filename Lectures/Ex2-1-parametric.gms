@@ -75,7 +75,8 @@ Display TomWatReq;
 *after each run.
 PARAMETERS ObjFunc(runs) Objective funcation values ($)
            DecVars(runs,plnt) Decision variable values (Number of plants)
-           ShadowVals(runs,res) Shadow values of resource constraints ($ per resource);
+           ShadowVals(runs,res) Shadow values of resource constraints ($ per resource)
+           SLACK(runs,res) Slack value on resource constraints (units of the resource);
 
 
 * 3. DEFINE the variables
@@ -120,11 +121,14 @@ LOOP (runs,
 
 *    Shadow values of constraints. .M means marginal
      ShadowVals(runs,res) = RES_CONSTRAIN.M(res);
+     
+*    Calculate the slack on each constraint
+    SLACK(runs,res) = RES_CONSTRAIN.UP(res) - RES_CONSTRAIN.L(res);
      );
 *    finish loop over runs
 
 * 7. Print out the results for the runs
-DISPLAY TomWatReq,ObjFunc,DecVars, ShadowVals;
+DISPLAY TomWatReq,ObjFunc,DecVars, ShadowVals, SLACK;
 
 * Dump all input data and results to a GAMS gdx file
 Execute_Unload "Ex2-1-parametric.gdx";

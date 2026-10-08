@@ -62,7 +62,10 @@ MODEL PLANTING /PROFIT, RES_CONSTRAIN/;
 *Altnerative way to write (include all previously defined equations)
 *MODEL PLANTING /ALL/;
 
+*Instruct GAMS to print out ranging information for objective function coefficients and constrain
+*right hand side coefficients.
 PLANTING.optfile = 1;
+option lp = cplex
 
 * 6. SOLVE the MODEL
 * Solve the PLANTING model using a Linear Programming Solver (see File=>Options=>Solvers)

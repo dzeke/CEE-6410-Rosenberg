@@ -1,4 +1,4 @@
-GAMS 51.1.0  2d039df5 Sep 13, 2025          WEX-WEI x86 64bit/MS Windows - 10/06/26 12:01:32 Page 1
+GAMS 51.1.0  2d039df5 Sep 13, 2025          WEX-WEI x86 64bit/MS Windows - 10/06/26 15:31:18 Page 1
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 C o m p i l a t i o n
 
@@ -91,8 +91,8 @@ C o m p i l a t i o n
   88  * 6. CLick File menu => RUN (F9) or Solve icon and examine solution report in .LST file
 
 
-COMPILATION TIME     =        0.016 SECONDS      3 MB  51.1.0 2d039df5 WEX-WEI
-GAMS 51.1.0  2d039df5 Sep 13, 2025          WEX-WEI x86 64bit/MS Windows - 10/06/26 12:01:32 Page 2
+COMPILATION TIME     =        0.015 SECONDS      3 MB  51.1.0 2d039df5 WEX-WEI
+GAMS 51.1.0  2d039df5 Sep 13, 2025          WEX-WEI x86 64bit/MS Windows - 10/06/26 15:31:18 Page 2
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Equation Listing    SOLVE PLANTING Using LP From line 85
 
@@ -110,7 +110,7 @@ RES_CONSTRAIN(Land)..  4*X(Eggplant) + 3*X(Tomatoes) =L= 12000 ; (LHS = 0)
      
 RES_CONSTRAIN(Labor)..  5*X(Eggplant) + 2.5*X(Tomatoes) =L= 17500 ; (LHS = 0)
      
-GAMS 51.1.0  2d039df5 Sep 13, 2025          WEX-WEI x86 64bit/MS Windows - 10/06/26 12:01:32 Page 3
+GAMS 51.1.0  2d039df5 Sep 13, 2025          WEX-WEI x86 64bit/MS Windows - 10/06/26 15:31:18 Page 3
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Column Listing      SOLVE PLANTING Using LP From line 85
 
@@ -138,7 +138,7 @@ VPROFIT
                 (.LO, .L, .UP, .M = -INF, 0, +INF, 0)
         1       PROFIT
 
-GAMS 51.1.0  2d039df5 Sep 13, 2025          WEX-WEI x86 64bit/MS Windows - 10/06/26 12:01:32 Page 4
+GAMS 51.1.0  2d039df5 Sep 13, 2025          WEX-WEI x86 64bit/MS Windows - 10/06/26 15:31:18 Page 4
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Range Statistics    SOLVE PLANTING Using LP From line 85
 
@@ -149,7 +149,7 @@ RHS       [min, max] : [ 1.200E+04, 4.000E+06] - Zero values observed as well
 Bound     [min, max] : [        NA,        NA] - Zero values observed as well
 Matrix    [min, max] : [ 1.000E+00, 2.000E+03]
 
-GAMS 51.1.0  2d039df5 Sep 13, 2025          WEX-WEI x86 64bit/MS Windows - 10/06/26 12:01:32 Page 5
+GAMS 51.1.0  2d039df5 Sep 13, 2025          WEX-WEI x86 64bit/MS Windows - 10/06/26 15:31:18 Page 5
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Model Statistics    SOLVE PLANTING Using LP From line 85
 
@@ -161,8 +161,8 @@ BLOCKS OF VARIABLES           2     SINGLE VARIABLES            3
 NON ZERO ELEMENTS             9
 
 
-GENERATION TIME      =        0.125 SECONDS      4 MB  51.1.0 2d039df5 WEX-WEI
-GAMS 51.1.0  2d039df5 Sep 13, 2025          WEX-WEI x86 64bit/MS Windows - 10/06/26 12:01:32 Page 6
+GENERATION TIME      =        0.063 SECONDS      4 MB  51.1.0 2d039df5 WEX-WEI
+GAMS 51.1.0  2d039df5 Sep 13, 2025          WEX-WEI x86 64bit/MS Windows - 10/06/26 15:31:18 Page 6
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Solution Report     SOLVE PLANTING Using LP From line 85
 
@@ -252,7 +252,7 @@ Tomatoes          .           800.0000        +INF             .
                              0  UNBOUNDED
 
 
-EXECUTION TIME       =        0.234 SECONDS      4 MB  51.1.0 2d039df5 WEX-WEI
+EXECUTION TIME       =        0.188 SECONDS      4 MB  51.1.0 2d039df5 WEX-WEI
 
 
 USER: David Rosenberg, Single User License           G260715+0003Ac-WIN

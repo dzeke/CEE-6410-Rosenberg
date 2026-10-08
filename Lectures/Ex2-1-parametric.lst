@@ -1,4 +1,4 @@
-GAMS 47.6.0  c2de9d6d Sep 12, 2024          WEX-WEI x86 64bit/MS Windows - 10/17/24 15:27:23 Page 1
+GAMS 51.1.0  2d039df5 Sep 13, 2025          WEX-WEI x86 64bit/MS Windows - 10/06/26 16:09:13 Page 1
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 C o m p i l a t i o n
 
@@ -60,8 +60,8 @@ C o m p i l a t i o n
   57  * One way to specify the tomato water requirements (uncomment next 4 lines)
   58  *   /r1 2000
   59  *    r2 1500
-  60  *    r3 1000
-  61  *    r4 500/;
+  60  *   r3 1000
+  61  *   r4 500/;
   62   
   63  *A second way to specify the tomato water requirement with a statement
   64  *GAMS executes this statement at run time (before solve statement)
@@ -78,63 +78,69 @@ C o m p i l a t i o n
   75  *after each run.
   76  PARAMETERS ObjFunc(runs) Objective funcation values ($)
   77             DecVars(runs,plnt) Decision variable values (Number of plants)
-  78             ShadowVals(runs,res) Shadow values of resource constraints ($ per resource);
-  79   
+  78             ShadowVals(runs,res) Shadow values of resource constraints ($ per resource)
+  79             SLACK(runs,res) Slack value on resource constraints (units of the resource);
   80   
-  81  * 3. DEFINE the variables
-  82  VARIABLES X(plnt) plants planted (Number)
-  83            VPROFIT  total profit ($);
-  84   
-  85  * Non-negativity constraints
-  86  POSITIVE VARIABLES X;
-  87   
-  88  * 4. COMBINE variables and data in equations
-  89  EQUATIONS
-  90     PROFIT Total profit ($) and objective function value
-  91     RES_CONSTRAIN(res) Resource Constraints;
-  92   
-  93  PROFIT..                 VPROFIT =E= SUM(plnt,c(plnt)*X(plnt));
-  94  RES_CONSTRAIN(res) ..    SUM(plnt,A(plnt,res)*X(plnt)) =L= b(res);
-  95   
-  96  * 5. DEFINE the MODEL from the EQUATIONS
-  97  MODEL PLANTING /PROFIT, RES_CONSTRAIN/;
-  98  *Altnerative way to write (include all previously defined equations)
-  99  *MODEL PLANTING /ALL/;
- 100   
- 101  * 6. SOLVE the MODEL runs number of time for each parametric value
- 102  LOOP (runs,
- 103  *    Parametrically set the model input parameter value for this run
- 104       A("Tomatoes","Water") = TomWatReq(runs);
- 105   
- 106  *    Initialize decision variable values to zero
- 107       X.L(plnt) = 0;
+  81   
+  82  * 3. DEFINE the variables
+  83  VARIABLES X(plnt) plants planted (Number)
+  84            VPROFIT  total profit ($);
+  85   
+  86  * Non-negativity constraints
+  87  POSITIVE VARIABLES X;
+  88   
+  89  * 4. COMBINE variables and data in equations
+  90  EQUATIONS
+  91     PROFIT Total profit ($) and objective function value
+  92     RES_CONSTRAIN(res) Resource Constraints;
+  93   
+  94  PROFIT..                 VPROFIT =E= SUM(plnt,c(plnt)*X(plnt));
+  95  *PROFIT..                 VPROFIT =E= SUM(plnt,c(plnt)*X(plnt) + A("tomatoes",res));
+  96   
+  97  RES_CONSTRAIN(res) ..    SUM(plnt,A(plnt,res)*X(plnt)) =L= b(res);
+  98   
+  99  * 5. DEFINE the MODEL from the EQUATIONS
+ 100  MODEL PLANTING /PROFIT, RES_CONSTRAIN/;
+ 101  *Altnerative way to write (include all previously defined equations)
+ 102  *MODEL PLANTING /ALL/;
+ 103   
+ 104  * 6. SOLVE the MODEL runs number of time for each parametric value
+ 105  LOOP (runs,
+ 106  *    Parametrically set the model input parameter value for this run
+ 107       A("Tomatoes","Water") = TomWatReq(runs);
  108   
- 109  *    Solve the model
- 110       SOLVE PLANTING USING LP MAXIMIZING VPROFIT;
+ 109  *    Initialize decision variable values to zero
+ 110       X.L(plnt) = 0;
  111   
- 112  *    Record stuff about the solution
- 113  *    Objective function value
- 114       ObjFunc(runs) = VPROFIT.L;
- 115  *                           .L means the variable level
- 116  *    Decision variable values
- 117       DecVars(runs,plnt) = X.L(plnt);
- 118   
- 119  *    Shadow values of constraints. .M means marginal
- 120       ShadowVals(runs,res) = RES_CONSTRAIN.M(res);
- 121       );
- 122  *    finish loop over runs
- 123   
- 124  * 7. Print out the results for the runs
- 125  DISPLAY TomWatReq,ObjFunc,DecVars, ShadowVals;
- 126   
- 127  * Dump all input data and results to a GAMS gdx file
- 128  Execute_Unload "Ex2-1-parametric.gdx";
- 129  * Dump the gdx file to an Excel workbook
- 130  Execute "gdx2xls Ex2-1-parametric.gdx"
+ 112  *    Solve the model
+ 113       SOLVE PLANTING USING LP MAXIMIZING VPROFIT;
+ 114   
+ 115  *    Record stuff about the solution
+ 116  *    Objective function value
+ 117       ObjFunc(runs) = VPROFIT.L;
+ 118  *                           .L means the variable level
+ 119  *    Decision variable values
+ 120       DecVars(runs,plnt) = X.L(plnt);
+ 121   
+ 122  *    Shadow values of constraints. .M means marginal
+ 123       ShadowVals(runs,res) = RES_CONSTRAIN.M(res);
+ 124   
+ 125  *    Calculate the slack on each constraint
+ 126      SLACK(runs,res) = RES_CONSTRAIN.UP(res) - RES_CONSTRAIN.L(res);
+ 127       );
+ 128  *    finish loop over runs
+ 129   
+ 130  * 7. Print out the results for the runs
+ 131  DISPLAY TomWatReq,ObjFunc,DecVars, ShadowVals, SLACK;
+ 132   
+ 133  * Dump all input data and results to a GAMS gdx file
+ 134  Execute_Unload "Ex2-1-parametric.gdx";
+ 135  * Dump the gdx file to an Excel workbook
+ 136  Execute "gdx2xls Ex2-1-parametric.gdx"
 
 
-COMPILATION TIME     =        0.000 SECONDS      3 MB  47.6.0 c2de9d6d WEX-WEI
-GAMS 47.6.0  c2de9d6d Sep 12, 2024          WEX-WEI x86 64bit/MS Windows - 10/17/24 15:27:23 Page 2
+COMPILATION TIME     =        0.016 SECONDS      3 MB  51.1.0 2d039df5 WEX-WEI
+GAMS 51.1.0  2d039df5 Sep 13, 2025          WEX-WEI x86 64bit/MS Windows - 10/06/26 16:09:13 Page 2
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 E x e c u t i o n
 
@@ -143,9 +149,9 @@ E x e c u t i o n
 
 r1 2000.000,    r2 1500.000,    r3 1000.000,    r4  500.000
 
-GAMS 47.6.0  c2de9d6d Sep 12, 2024          WEX-WEI x86 64bit/MS Windows - 10/17/24 15:27:23 Page 3
+GAMS 51.1.0  2d039df5 Sep 13, 2025          WEX-WEI x86 64bit/MS Windows - 10/06/26 16:09:13 Page 3
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
-Equation Listing    SOLVE PLANTING Using LP From line 110
+Equation Listing    SOLVE PLANTING Using LP From line 113
 
 
 ---- PROFIT  =E=  Total profit ($) and objective function value
@@ -161,9 +167,9 @@ RES_CONSTRAIN(Land)..  4*X(Eggplant) + 3*X(Tomatoes) =L= 12000 ; (LHS = 0)
      
 RES_CONSTRAIN(Labor)..  5*X(Eggplant) + 2.5*X(Tomatoes) =L= 17500 ; (LHS = 0)
      
-GAMS 47.6.0  c2de9d6d Sep 12, 2024          WEX-WEI x86 64bit/MS Windows - 10/17/24 15:27:23 Page 4
+GAMS 51.1.0  2d039df5 Sep 13, 2025          WEX-WEI x86 64bit/MS Windows - 10/06/26 16:09:13 Page 4
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
-Column Listing      SOLVE PLANTING Using LP From line 110
+Column Listing      SOLVE PLANTING Using LP From line 113
 
 
 ---- X  plants planted (Number)
@@ -189,9 +195,9 @@ VPROFIT
                 (.LO, .L, .UP, .M = -INF, 0, +INF, 0)
         1       PROFIT
 
-GAMS 47.6.0  c2de9d6d Sep 12, 2024          WEX-WEI x86 64bit/MS Windows - 10/17/24 15:27:23 Page 5
+GAMS 51.1.0  2d039df5 Sep 13, 2025          WEX-WEI x86 64bit/MS Windows - 10/06/26 16:09:13 Page 5
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
-Range Statistics    SOLVE PLANTING Using LP From line 110
+Range Statistics    SOLVE PLANTING Using LP From line 113
 
 
 RANGE STATISTICS (ABSOLUTE NON-ZERO FINITE VALUES)
@@ -200,9 +206,9 @@ RHS       [min, max] : [ 1.200E+04, 4.000E+06] - Zero values observed as well
 Bound     [min, max] : [        NA,        NA] - Zero values observed as well
 Matrix    [min, max] : [ 1.000E+00, 2.000E+03]
 
-GAMS 47.6.0  c2de9d6d Sep 12, 2024          WEX-WEI x86 64bit/MS Windows - 10/17/24 15:27:23 Page 6
+GAMS 51.1.0  2d039df5 Sep 13, 2025          WEX-WEI x86 64bit/MS Windows - 10/06/26 16:09:13 Page 6
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
-Model Statistics    SOLVE PLANTING Using LP From line 110
+Model Statistics    SOLVE PLANTING Using LP From line 113
 
 
 LOOPS                                 runs   r1
@@ -215,19 +221,19 @@ BLOCKS OF VARIABLES           2     SINGLE VARIABLES            3
 NON ZERO ELEMENTS             9
 
 
-GENERATION TIME      =        0.109 SECONDS      4 MB  47.6.0 c2de9d6d WEX-WEI
+GENERATION TIME      =        0.078 SECONDS      4 MB  51.1.0 2d039df5 WEX-WEI
                L O O P S               runs r1
 
-GAMS 47.6.0  c2de9d6d Sep 12, 2024          WEX-WEI x86 64bit/MS Windows - 10/17/24 15:27:23 Page 7
+GAMS 51.1.0  2d039df5 Sep 13, 2025          WEX-WEI x86 64bit/MS Windows - 10/06/26 16:09:13 Page 7
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
-Solution Report     SOLVE PLANTING Using LP From line 110
+Solution Report     SOLVE PLANTING Using LP From line 113
 
 
                S O L V E      S U M M A R Y
 
      MODEL   PLANTING            OBJECTIVE  VPROFIT
      TYPE    LP                  DIRECTION  MAXIMIZE
-     SOLVER  CPLEX               FROM LINE  110
+     SOLVER  CPLEX               FROM LINE  113
 
 **** SOLVER STATUS     1 Normal Completion
 **** MODEL STATUS      1 Optimal
@@ -239,7 +245,7 @@ Solution Report     SOLVE PLANTING Using LP From line 110
 --- GMO setup time: 0.00s
 --- GMO memory 0.50 Mb (peak 0.50 Mb)
 --- Dictionary memory 0.00 Mb
---- Cplex 22.1.1.0 link memory 0.00 Mb (peak 0.00 Mb)
+--- Cplex 22.1.2.0 link memory 0.00 Mb (peak 0.00 Mb)
 --- Starting Cplex
 
 
@@ -282,9 +288,9 @@ Tomatoes          .           800.0000        +INF             .
 **** REPORT SUMMARY :        0     NONOPT
                              0 INFEASIBLE
                              0  UNBOUNDED
-GAMS 47.6.0  c2de9d6d Sep 12, 2024          WEX-WEI x86 64bit/MS Windows - 10/17/24 15:27:23 Page 8
+GAMS 51.1.0  2d039df5 Sep 13, 2025          WEX-WEI x86 64bit/MS Windows - 10/06/26 16:09:13 Page 8
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
-Equation Listing    SOLVE PLANTING Using LP From line 110
+Equation Listing    SOLVE PLANTING Using LP From line 113
 
 
 ---- PROFIT  =E=  Total profit ($) and objective function value
@@ -300,9 +306,9 @@ RES_CONSTRAIN(Land)..  4*X(Eggplant) + 3*X(Tomatoes) =L= 12000 ; (LHS = 0)
      
 RES_CONSTRAIN(Labor)..  5*X(Eggplant) + 2.5*X(Tomatoes) =L= 17500 ; (LHS = 0)
      
-GAMS 47.6.0  c2de9d6d Sep 12, 2024          WEX-WEI x86 64bit/MS Windows - 10/17/24 15:27:23 Page 9
+GAMS 51.1.0  2d039df5 Sep 13, 2025          WEX-WEI x86 64bit/MS Windows - 10/06/26 16:09:13 Page 9
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
-Column Listing      SOLVE PLANTING Using LP From line 110
+Column Listing      SOLVE PLANTING Using LP From line 113
 
 
 ---- X  plants planted (Number)
@@ -328,9 +334,9 @@ VPROFIT
                 (.LO, .L, .UP, .M = -INF, 20000, +INF, 0)
         1       PROFIT
 
-GAMS 47.6.0  c2de9d6d Sep 12, 2024          WEX-WEI x86 64bit/MS Windows - 10/17/24 15:27:23 Page 10
+GAMS 51.1.0  2d039df5 Sep 13, 2025          WEX-WEI x86 64bit/MS Windows - 10/06/26 16:09:13 Page 10
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
-Range Statistics    SOLVE PLANTING Using LP From line 110
+Range Statistics    SOLVE PLANTING Using LP From line 113
 
 
 RANGE STATISTICS (ABSOLUTE NON-ZERO FINITE VALUES)
@@ -339,9 +345,9 @@ RHS       [min, max] : [ 1.200E+04, 4.000E+06] - Zero values observed as well
 Bound     [min, max] : [        NA,        NA] - Zero values observed as well
 Matrix    [min, max] : [ 1.000E+00, 1.500E+03]
 
-GAMS 47.6.0  c2de9d6d Sep 12, 2024          WEX-WEI x86 64bit/MS Windows - 10/17/24 15:27:23 Page 11
+GAMS 51.1.0  2d039df5 Sep 13, 2025          WEX-WEI x86 64bit/MS Windows - 10/06/26 16:09:13 Page 11
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
-Model Statistics    SOLVE PLANTING Using LP From line 110
+Model Statistics    SOLVE PLANTING Using LP From line 113
 
 
 LOOPS                                 runs   r2
@@ -354,19 +360,19 @@ BLOCKS OF VARIABLES           2     SINGLE VARIABLES            3
 NON ZERO ELEMENTS             9
 
 
-GENERATION TIME      =        0.078 SECONDS      4 MB  47.6.0 c2de9d6d WEX-WEI
+GENERATION TIME      =        0.063 SECONDS      4 MB  51.1.0 2d039df5 WEX-WEI
                L O O P S               runs r2
 
-GAMS 47.6.0  c2de9d6d Sep 12, 2024          WEX-WEI x86 64bit/MS Windows - 10/17/24 15:27:23 Page 12
+GAMS 51.1.0  2d039df5 Sep 13, 2025          WEX-WEI x86 64bit/MS Windows - 10/06/26 16:09:13 Page 12
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
-Solution Report     SOLVE PLANTING Using LP From line 110
+Solution Report     SOLVE PLANTING Using LP From line 113
 
 
                S O L V E      S U M M A R Y
 
      MODEL   PLANTING            OBJECTIVE  VPROFIT
      TYPE    LP                  DIRECTION  MAXIMIZE
-     SOLVER  CPLEX               FROM LINE  110
+     SOLVER  CPLEX               FROM LINE  113
 
 **** SOLVER STATUS     1 Normal Completion
 **** MODEL STATUS      1 Optimal
@@ -378,7 +384,7 @@ Solution Report     SOLVE PLANTING Using LP From line 110
 --- GMO setup time: 0.00s
 --- GMO memory 0.50 Mb (peak 0.50 Mb)
 --- Dictionary memory 0.00 Mb
---- Cplex 22.1.1.0 link memory 0.00 Mb (peak 0.00 Mb)
+--- Cplex 22.1.2.0 link memory 0.00 Mb (peak 0.00 Mb)
 --- Starting Cplex
 
 
@@ -421,9 +427,9 @@ Tomatoes          .          1333.3333        +INF             .
 **** REPORT SUMMARY :        0     NONOPT
                              0 INFEASIBLE
                              0  UNBOUNDED
-GAMS 47.6.0  c2de9d6d Sep 12, 2024          WEX-WEI x86 64bit/MS Windows - 10/17/24 15:27:23 Page 13
+GAMS 51.1.0  2d039df5 Sep 13, 2025          WEX-WEI x86 64bit/MS Windows - 10/06/26 16:09:13 Page 13
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
-Equation Listing    SOLVE PLANTING Using LP From line 110
+Equation Listing    SOLVE PLANTING Using LP From line 113
 
 
 ---- PROFIT  =E=  Total profit ($) and objective function value
@@ -439,9 +445,9 @@ RES_CONSTRAIN(Land)..  4*X(Eggplant) + 3*X(Tomatoes) =L= 12000 ; (LHS = 0)
      
 RES_CONSTRAIN(Labor)..  5*X(Eggplant) + 2.5*X(Tomatoes) =L= 17500 ; (LHS = 0)
      
-GAMS 47.6.0  c2de9d6d Sep 12, 2024          WEX-WEI x86 64bit/MS Windows - 10/17/24 15:27:23 Page 14
+GAMS 51.1.0  2d039df5 Sep 13, 2025          WEX-WEI x86 64bit/MS Windows - 10/06/26 16:09:13 Page 14
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
-Column Listing      SOLVE PLANTING Using LP From line 110
+Column Listing      SOLVE PLANTING Using LP From line 113
 
 
 ---- X  plants planted (Number)
@@ -467,9 +473,9 @@ VPROFIT
                 (.LO, .L, .UP, .M = -INF, 21333.3333333333, +INF, 0)
         1       PROFIT
 
-GAMS 47.6.0  c2de9d6d Sep 12, 2024          WEX-WEI x86 64bit/MS Windows - 10/17/24 15:27:23 Page 15
+GAMS 51.1.0  2d039df5 Sep 13, 2025          WEX-WEI x86 64bit/MS Windows - 10/06/26 16:09:13 Page 15
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
-Range Statistics    SOLVE PLANTING Using LP From line 110
+Range Statistics    SOLVE PLANTING Using LP From line 113
 
 
 RANGE STATISTICS (ABSOLUTE NON-ZERO FINITE VALUES)
@@ -478,9 +484,9 @@ RHS       [min, max] : [ 1.200E+04, 4.000E+06] - Zero values observed as well
 Bound     [min, max] : [        NA,        NA] - Zero values observed as well
 Matrix    [min, max] : [ 1.000E+00, 1.000E+03]
 
-GAMS 47.6.0  c2de9d6d Sep 12, 2024          WEX-WEI x86 64bit/MS Windows - 10/17/24 15:27:23 Page 16
+GAMS 51.1.0  2d039df5 Sep 13, 2025          WEX-WEI x86 64bit/MS Windows - 10/06/26 16:09:13 Page 16
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
-Model Statistics    SOLVE PLANTING Using LP From line 110
+Model Statistics    SOLVE PLANTING Using LP From line 113
 
 
 LOOPS                                 runs   r3
@@ -493,19 +499,19 @@ BLOCKS OF VARIABLES           2     SINGLE VARIABLES            3
 NON ZERO ELEMENTS             9
 
 
-GENERATION TIME      =        0.094 SECONDS      4 MB  47.6.0 c2de9d6d WEX-WEI
+GENERATION TIME      =        0.079 SECONDS      4 MB  51.1.0 2d039df5 WEX-WEI
                L O O P S               runs r3
 
-GAMS 47.6.0  c2de9d6d Sep 12, 2024          WEX-WEI x86 64bit/MS Windows - 10/17/24 15:27:23 Page 17
+GAMS 51.1.0  2d039df5 Sep 13, 2025          WEX-WEI x86 64bit/MS Windows - 10/06/26 16:09:13 Page 17
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
-Solution Report     SOLVE PLANTING Using LP From line 110
+Solution Report     SOLVE PLANTING Using LP From line 113
 
 
                S O L V E      S U M M A R Y
 
      MODEL   PLANTING            OBJECTIVE  VPROFIT
      TYPE    LP                  DIRECTION  MAXIMIZE
-     SOLVER  CPLEX               FROM LINE  110
+     SOLVER  CPLEX               FROM LINE  113
 
 **** SOLVER STATUS     1 Normal Completion
 **** MODEL STATUS      1 Optimal
@@ -517,7 +523,7 @@ Solution Report     SOLVE PLANTING Using LP From line 110
 --- GMO setup time: 0.00s
 --- GMO memory 0.50 Mb (peak 0.50 Mb)
 --- Dictionary memory 0.00 Mb
---- Cplex 22.1.1.0 link memory 0.00 Mb (peak 0.00 Mb)
+--- Cplex 22.1.2.0 link memory 0.00 Mb (peak 0.00 Mb)
 --- Starting Cplex
 
 
@@ -560,9 +566,9 @@ Tomatoes          .          4000.0000        +INF             .
 **** REPORT SUMMARY :        0     NONOPT
                              0 INFEASIBLE
                              0  UNBOUNDED
-GAMS 47.6.0  c2de9d6d Sep 12, 2024          WEX-WEI x86 64bit/MS Windows - 10/17/24 15:27:23 Page 18
+GAMS 51.1.0  2d039df5 Sep 13, 2025          WEX-WEI x86 64bit/MS Windows - 10/06/26 16:09:13 Page 18
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
-Equation Listing    SOLVE PLANTING Using LP From line 110
+Equation Listing    SOLVE PLANTING Using LP From line 113
 
 
 ---- PROFIT  =E=  Total profit ($) and objective function value
@@ -578,9 +584,9 @@ RES_CONSTRAIN(Land)..  4*X(Eggplant) + 3*X(Tomatoes) =L= 12000 ; (LHS = 0)
      
 RES_CONSTRAIN(Labor)..  5*X(Eggplant) + 2.5*X(Tomatoes) =L= 17500 ; (LHS = 0)
      
-GAMS 47.6.0  c2de9d6d Sep 12, 2024          WEX-WEI x86 64bit/MS Windows - 10/17/24 15:27:23 Page 19
+GAMS 51.1.0  2d039df5 Sep 13, 2025          WEX-WEI x86 64bit/MS Windows - 10/06/26 16:09:13 Page 19
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
-Column Listing      SOLVE PLANTING Using LP From line 110
+Column Listing      SOLVE PLANTING Using LP From line 113
 
 
 ---- X  plants planted (Number)
@@ -606,9 +612,9 @@ VPROFIT
                 (.LO, .L, .UP, .M = -INF, 28000, +INF, 0)
         1       PROFIT
 
-GAMS 47.6.0  c2de9d6d Sep 12, 2024          WEX-WEI x86 64bit/MS Windows - 10/17/24 15:27:23 Page 20
+GAMS 51.1.0  2d039df5 Sep 13, 2025          WEX-WEI x86 64bit/MS Windows - 10/06/26 16:09:13 Page 20
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
-Range Statistics    SOLVE PLANTING Using LP From line 110
+Range Statistics    SOLVE PLANTING Using LP From line 113
 
 
 RANGE STATISTICS (ABSOLUTE NON-ZERO FINITE VALUES)
@@ -617,9 +623,9 @@ RHS       [min, max] : [ 1.200E+04, 4.000E+06] - Zero values observed as well
 Bound     [min, max] : [        NA,        NA] - Zero values observed as well
 Matrix    [min, max] : [ 1.000E+00, 1.000E+03]
 
-GAMS 47.6.0  c2de9d6d Sep 12, 2024          WEX-WEI x86 64bit/MS Windows - 10/17/24 15:27:23 Page 21
+GAMS 51.1.0  2d039df5 Sep 13, 2025          WEX-WEI x86 64bit/MS Windows - 10/06/26 16:09:13 Page 21
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
-Model Statistics    SOLVE PLANTING Using LP From line 110
+Model Statistics    SOLVE PLANTING Using LP From line 113
 
 
 LOOPS                                 runs   r4
@@ -632,19 +638,19 @@ BLOCKS OF VARIABLES           2     SINGLE VARIABLES            3
 NON ZERO ELEMENTS             9
 
 
-GENERATION TIME      =        0.094 SECONDS      4 MB  47.6.0 c2de9d6d WEX-WEI
+GENERATION TIME      =        0.062 SECONDS      4 MB  51.1.0 2d039df5 WEX-WEI
                L O O P S               runs r4
 
-GAMS 47.6.0  c2de9d6d Sep 12, 2024          WEX-WEI x86 64bit/MS Windows - 10/17/24 15:27:23 Page 22
+GAMS 51.1.0  2d039df5 Sep 13, 2025          WEX-WEI x86 64bit/MS Windows - 10/06/26 16:09:13 Page 22
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
-Solution Report     SOLVE PLANTING Using LP From line 110
+Solution Report     SOLVE PLANTING Using LP From line 113
 
 
                S O L V E      S U M M A R Y
 
      MODEL   PLANTING            OBJECTIVE  VPROFIT
      TYPE    LP                  DIRECTION  MAXIMIZE
-     SOLVER  CPLEX               FROM LINE  110
+     SOLVER  CPLEX               FROM LINE  113
 
 **** SOLVER STATUS     1 Normal Completion
 **** MODEL STATUS      1 Optimal
@@ -656,7 +662,7 @@ Solution Report     SOLVE PLANTING Using LP From line 110
 --- GMO setup time: 0.00s
 --- GMO memory 0.50 Mb (peak 0.50 Mb)
 --- Dictionary memory 0.00 Mb
---- Cplex 22.1.1.0 link memory 0.00 Mb (peak 0.00 Mb)
+--- Cplex 22.1.2.0 link memory 0.00 Mb (peak 0.00 Mb)
 --- Starting Cplex
 
 
@@ -699,22 +705,22 @@ Tomatoes          .          4000.0000        +INF             .
 **** REPORT SUMMARY :        0     NONOPT
                              0 INFEASIBLE
                              0  UNBOUNDED
-GAMS 47.6.0  c2de9d6d Sep 12, 2024          WEX-WEI x86 64bit/MS Windows - 10/17/24 15:27:23 Page 23
+GAMS 51.1.0  2d039df5 Sep 13, 2025          WEX-WEI x86 64bit/MS Windows - 10/06/26 16:09:13 Page 23
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 E x e c u t i o n
 
 
-----    125 PARAMETER TomWatReq  Tomato water use requirement (gal per plant)
+----    131 PARAMETER TomWatReq  Tomato water use requirement (gal per plant)
 
 r1 2000.000,    r2 1500.000,    r3 1000.000,    r4  500.000
 
 
-----    125 PARAMETER ObjFunc  Objective funcation values ($)
+----    131 PARAMETER ObjFunc  Objective funcation values ($)
 
 r1 20000.000,    r2 21333.333,    r3 28000.000,    r4 28000.000
 
 
-----    125 PARAMETER DecVars  Decision variable values (Number of plants)
+----    131 PARAMETER DecVars  Decision variable values (Number of plants)
 
       Eggplant    Tomatoes
 
@@ -724,7 +730,7 @@ r3                4000.000
 r4                4000.000
 
 
-----    125 PARAMETER ShadowVals  Shadow values of resource constraints ($ per resource)
+----    131 PARAMETER ShadowVals  Shadow values of resource constraints ($ per resource)
 
          Water        Land
 
@@ -734,12 +740,22 @@ r3       0.007
 r4                   2.333
 
 
+----    131 PARAMETER SLACK  Slack value on resource constraints (units of the resource)
 
-EXECUTION TIME       =        8.953 SECONDS      4 MB  47.6.0 c2de9d6d WEX-WEI
+         Water       Labor
+
+r1                3500.000
+r2                4166.667
+r3                7500.000
+r4 2000000.000    7500.000
 
 
-USER: CEE 6410 Water Resources Systems Analysis      G240923|0002AO-GEN
-      Utah State University, Utah Water Research Laboratory     DCE3763
+
+EXECUTION TIME       =        4.640 SECONDS      4 MB  51.1.0 2d039df5 WEX-WEI
+
+
+USER: David Rosenberg, Single User License           G260715+0003Ac-WIN
+      Utah State University, Utah Water Research Laboratory     DC17246
       License for teaching and research at degree granting institutions
 
 

@@ -1,4 +1,5 @@
---- Job Ex2-1-labor.gms Start 10/06/26 11:59:32 51.1.0 2d039df5 WEX-WEI x86 64bit/MS Windows
+
+--- Job Ex2-1-labor.gms Start 10/06/26 12:00:06 51.1.0 2d039df5 WEX-WEI x86 64bit/MS Windows
 --- Applying:
     C:\GAMS\51\gmsprmNT.txt
     C:\Users\david\Documents\GAMS\gamsconfig.yaml
@@ -27,7 +28,7 @@ System information: 4 physical cores and 16 Gb physical memory detected
 GAMS 51.1.0   Copyright (C) 1987-2025 GAMS Development. All rights reserved
 --- Starting compilation
 --- Ex2-1-labor.gms(89) 3 Mb
---- Starting execution: elapsed 0:00:00.051
+--- Starting execution: elapsed 0:00:00.043
 --- Ex2-1-labor.gms(81) 4 Mb
 --- Generating LP model PLANTING
 --- Ex2-1-labor.gms(86) 4 Mb
@@ -36,7 +37,7 @@ GAMS 51.1.0   Copyright (C) 1987-2025 GAMS Development. All rights reserved
 --- RHS       [min, max] : [ 1.200E+04, 4.000E+06] - Zero values observed as well
 --- Bound     [min, max] : [        NA,        NA] - Zero values observed as well
 --- Matrix    [min, max] : [ 1.000E+00, 2.000E+03]
---- Executing CPLEX (Solvelink=2): elapsed 0:00:00.126
+--- Executing CPLEX (Solvelink=2): elapsed 0:00:00.132
 
 IBM ILOG CPLEX   51.1.0 2d039df5 Sep 13, 2025          WEI x86 64bit/MS Window
 
@@ -96,4 +97,4 @@ Objective:        20000.000000
 
 --- Reading solution for model PLANTING
 *** Status: Normal completion
---- Job Ex2-1-labor.gms Stop 10/06/26 11:59:32 elapsed 0:00:00.245
+--- Job Ex2-1-labor.gms Stop 10/06/26 12:00:07 elapsed 0:00:00.261
