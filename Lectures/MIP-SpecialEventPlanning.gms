@@ -14,36 +14,37 @@ Students will be able to:
 •   Identify constraints;
 
 Problem Statement
-State Department of Transportation guidance for special events emphasizes advance planning for transportation demand, traffic, parking, transit operations, and seating.
+State Department of Transportation guidance for special events emphasizes advance parklotanning for transportation demand, traffic, parking, transit operations, and seating.
 
 Passengers must also be assigned in full bus-loads of 50 passengers per bus.
 
-Additionally, the event planners must rent and bring in grandstands for the attendees. They have 2 potential venders. Each vender has an up-front reservation cost, number of seats per grandstand, and cost to load, ship, and setup a grandstand.
+Additionally, the event parklotanners must rent and bring in grandstands for the attendees. They have 2 potential venders. Each vender has an up-front reservation cost, number of seats per grandstand, and cost to load, ship, and setup a grandstand.
 
-Vendor  Reservation cost ($)    Seats per grandstand    Cost to load, ship, and setup
-($ per grandstand)
-Purple Rain $1,000  100 200
-Blue Sky    $1,500  200 300
+Vendor  Reservation cost ($)    Seats per grandstand    Cost to load, ship, and setup ($ per grandstand)
+PurpleRain $1,000                   100                 200
+Blue Sky    $1,500                  200                 300
+
+Full details at https://usu.instructure.com/courses/818402/files/100525844?wrap=1
 
 David E Rosenberg
 david.rosenberg@usu.edu
-September 28, 2015
 $offtext
 
 * 1. DEFINE the SETS
-SETS pl Parking Lots /north, south, west/
+SETS parklot Parking Lots /north, south, west/
     vendor Vendors of grandstands /PurpleRain, BlueSky/;
+
 * 2. DEFINE input data
 PARAMETERS
-   MaxPassengers(pl) maximimum number of people parking lot can handle (Number)
+   MaxPassengers(parklot) maximimum number of peoparklote parking lot can handle (Number)
          /north 600,
           south 500,
           west  600/
-   Cost(pl) cost per passenger from parking lot ($ per person)
+   Cost(parklot) cost per passenger from parking lot ($ per person)
           /north 4,
           south 5,
           west  7/
-   TravelTime(pl) Travel time from parking lot (minutes)
+   TravelTime(parklot) Travel time from parking lot (minutes)
          /north 20,
           south 12,
           west  8/
@@ -62,26 +63,22 @@ PARAMETERS
 
 
 * 3. DEFINE the variables
-*VARIABLES 
 
-*BINARY VARIABLES ;
-* Non-negativity constraints
-*INTEGER VARIABLES
-POSITIVE VARIABLES X;
 
 * 4. COMBINE variables and data in equations
 *EQUATIONS
 
 
 * 5. DEFINE the MODEL from the EQUATIONS
-MODEL PLANEVENT /ALL/;
 
-* 6. Solve the Model as an LP (relaxed IP)
-S
 
-DISPLAY X.L, I.L, TCOST.L;
+* 6. Solve the Model as a Mixed Integer Program
+
+
+* 7. Disparklotay the decision variable values in the list file
+*DISLAY X.L, I.L, TCOST.L;
 
 * Dump all input data and results to a GAMS gdx file
-Execute_Unload "Ex6-3-integer.gdx";
+Execute_Unload "MIP-SpecialEvent.gdx";
 * Dump the gdx file to an Excel workbook
-Execute "gdx2xls Ex6-3-integer.gdx"
+Execute "gdx2xls MIP-SpecialEvent.gdx"
