@@ -1,9 +1,16 @@
 $ontext
 CEE 6410
-Example 6 in the Lecture notes.
+Example 6.3 in the Bishop Et al text https://digitalcommons.usu.edu/ecstatic_all/76/ with an
+additional $35,000 upfront costs to establish the wholesale contract (pay laywers :)
 
-Minimize cost to supply water by a new treatment plant or wholesale contract
-This is the relaxed version that treats the interger decision variables as standard, positive, continuous variables.
+A water wholesaler is willing to sell water to your municipal water supply utility in an
+amount not exceeding 12,000 ac-ft per year, but only if you buy at least 1,000 ac-ft/yr
+(to amortize their pipe cost).  Water from the wholesaler will cost $150/ac-ft.
+
+An alternative source of water is to construct your own treatment plant.
+The minimum sized plant which will meet your demand of 2,000 ac-ft/yr will cost $90,000 annual
+capital cost and $120/ac-ft to operate.
+
 With the additional $35,000 capital cost for establishing the wholesale contract.
 
 Allows user to control bounds on "integer" variables (IntUpBnd and IntLowBnd).
@@ -12,7 +19,7 @@ Presently fully relaxed.
 
 David E Rosenberg
 david.rosenberg@usu.edu
-September 24, 2020
+Updated October 10, 2026
 $offtext
 
 * 1. DEFINE the SETS
@@ -54,8 +61,6 @@ VARIABLES I(src) binary decision to build or do prject from source src (1=yes 0=
 * Non-negativity constraints
 POSITIVE VARIABLES X;
 
-Binary Variables I ;
-
 * 4. COMBINE variables and data in equations
 EQUATIONS
    COST            Total Cost ($) and objective function value
@@ -75,8 +80,10 @@ IntLowBound(src) ..      I(src) =G= IntLowBnd(src);
 * 5. DEFINE the MODEL from the EQUATIONS
 MODEL WatSupplyRelaxed /ALL/;
 
+option solprint = on;
+
 * 6. Solve the Model as an LP (relaxed IP)
-SOLVE WatSupplyRelaxed USING MIP MINIMIZING TCOST;
+SOLVE WatSupplyRelaxed USING LP MINIMIZING TCOST;
 
 DISPLAY X.L, I.L, TCOST.L;
 
