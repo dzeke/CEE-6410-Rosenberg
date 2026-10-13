@@ -1,4 +1,4 @@
-GAMS 51.1.0  2d039df5 Sep 13, 2025          WEX-WEI x86 64bit/MS Windows - 10/09/26 14:24:40 Page 1
+GAMS 51.1.0  2d039df5 Sep 13, 2025          WEX-WEI x86 64bit/MS Windows - 10/13/26 09:13:06 Page 1
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 C o m p i l a t i o n
 
@@ -32,7 +32,7 @@ C o m p i l a t i o n
   29  PARAMETERS
   30     CapCost(src) capital cost ($ to build)
   31           /tp 90000,
-  32            wc 35000/
+  32            wc 0/
   33     OpCost(src) operating cost ($ per ac-ft)
   34           /tp 120
   35            wc 150/
@@ -50,7 +50,7 @@ C o m p i l a t i o n
   47  * Presently set in fully relaxed mode
   48     IntUpBnd(src) Upper bound on integer variables (#)
   49            /tp 1,
-  50             wc 1 /
+  50             wc 0 /
   51   
   52  IntLowBnd(src) Lower bound on integer variables (#)
   53             /tp 0,
@@ -97,14 +97,14 @@ C o m p i l a t i o n
 
 
 COMPILATION TIME     =        0.000 SECONDS      3 MB  51.1.0 2d039df5 WEX-WEI
-GAMS 51.1.0  2d039df5 Sep 13, 2025          WEX-WEI x86 64bit/MS Windows - 10/09/26 14:24:40 Page 2
+GAMS 51.1.0  2d039df5 Sep 13, 2025          WEX-WEI x86 64bit/MS Windows - 10/13/26 09:13:06 Page 2
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Equation Listing    SOLVE WatSupplyRelaxed Using LP From line 86
 
 
 ---- COST  =E=  Total Cost ($) and objective function value
 
-COST..  - 90000*I(tp) - 35000*I(wc) - 120*X(tp) - 150*X(wc) + TCOST =E= 0 ; (LHS = 0)
+COST..  - 90000*I(tp) - 120*X(tp) - 150*X(wc) + TCOST =E= 0 ; (LHS = 0)
      
 
 ---- MaxCap  =L=  Maximum capacity of source when built (ac-ft per year)
@@ -130,7 +130,7 @@ MeetDemand..  X(tp) + X(wc) =G= 2000 ; (LHS = 0, INFES = 2000 ****)
 
 IntUpBound(tp)..  I(tp) =L= 1 ; (LHS = 0)
      
-IntUpBound(wc)..  I(wc) =L= 1 ; (LHS = 0)
+IntUpBound(wc)..  I(wc) =L= 0 ; (LHS = 0)
      
 
 ---- IntLowBound  =G=  Lower bound on integer variables (number)
@@ -139,7 +139,7 @@ IntLowBound(tp)..  I(tp) =G= 0 ; (LHS = 0)
      
 IntLowBound(wc)..  I(wc) =G= 0 ; (LHS = 0)
      
-GAMS 51.1.0  2d039df5 Sep 13, 2025          WEX-WEI x86 64bit/MS Windows - 10/09/26 14:24:40 Page 3
+GAMS 51.1.0  2d039df5 Sep 13, 2025          WEX-WEI x86 64bit/MS Windows - 10/13/26 09:13:06 Page 3
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Column Listing      SOLVE WatSupplyRelaxed Using LP From line 86
 
@@ -155,7 +155,6 @@ I(tp)
 
 I(wc)
                 (.LO, .L, .UP, .M = -INF, 0, +INF, 0)
-   -35000       COST
    -12000       MaxCap(wc)
     -1000       MinReqUse(wc)
         1       IntUpBound(wc)
@@ -185,7 +184,7 @@ TCOST
                 (.LO, .L, .UP, .M = -INF, 0, +INF, 0)
         1       COST
 
-GAMS 51.1.0  2d039df5 Sep 13, 2025          WEX-WEI x86 64bit/MS Windows - 10/09/26 14:24:40 Page 4
+GAMS 51.1.0  2d039df5 Sep 13, 2025          WEX-WEI x86 64bit/MS Windows - 10/13/26 09:13:06 Page 4
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Range Statistics    SOLVE WatSupplyRelaxed Using LP From line 86
 
@@ -196,7 +195,7 @@ RHS       [min, max] : [ 1.000E+00, 2.000E+03] - Zero values observed as well
 Bound     [min, max] : [        NA,        NA] - Zero values observed as well
 Matrix    [min, max] : [ 1.000E+00, 9.000E+04]
 
-GAMS 51.1.0  2d039df5 Sep 13, 2025          WEX-WEI x86 64bit/MS Windows - 10/09/26 14:24:40 Page 5
+GAMS 51.1.0  2d039df5 Sep 13, 2025          WEX-WEI x86 64bit/MS Windows - 10/13/26 09:13:06 Page 5
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Model Statistics    SOLVE WatSupplyRelaxed Using LP From line 86
 
@@ -205,11 +204,11 @@ MODEL STATISTICS
 
 BLOCKS OF EQUATIONS           6     SINGLE EQUATIONS           10
 BLOCKS OF VARIABLES           3     SINGLE VARIABLES            5
-NON ZERO ELEMENTS            18
+NON ZERO ELEMENTS            17
 
 
-GENERATION TIME      =        0.063 SECONDS      4 MB  51.1.0 2d039df5 WEX-WEI
-GAMS 51.1.0  2d039df5 Sep 13, 2025          WEX-WEI x86 64bit/MS Windows - 10/09/26 14:24:40 Page 6
+GENERATION TIME      =        0.078 SECONDS      4 MB  51.1.0 2d039df5 WEX-WEI
+GAMS 51.1.0  2d039df5 Sep 13, 2025          WEX-WEI x86 64bit/MS Windows - 10/13/26 09:13:06 Page 6
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Solution Report     SOLVE WatSupplyRelaxed Using LP From line 86
 
@@ -222,7 +221,7 @@ Solution Report     SOLVE WatSupplyRelaxed Using LP From line 86
 
 **** SOLVER STATUS     1 Normal Completion
 **** MODEL STATUS      1 Optimal
-**** OBJECTIVE VALUE           305833.3333
+**** OBJECTIVE VALUE           330000.0000
 
  RESOURCE USAGE, LIMIT          0.000 10000000000.000
  ITERATION COUNT, LIMIT         0    2147483647
@@ -239,7 +238,7 @@ Solution Report     SOLVE WatSupplyRelaxed Using LP From line 86
 
 
 Optimal solution found
-Objective:       305833.333333
+Objective:       330000.000000
 
 
                            LOWER          LEVEL          UPPER         MARGINAL
@@ -253,18 +252,18 @@ Objective:       305833.333333
           LOWER          LEVEL          UPPER         MARGINAL
 
 tp        -INF             .              .           -45.0000      
-wc        -INF             .              .            -2.9167      
+wc        -INF             .              .           -15.0000      
 
 ---- EQU MinReqUse  Minimum required use of source when built (ac-ft per year)
 
           LOWER          LEVEL          UPPER         MARGINAL
 
-tp          .              .            +INF             .          
-wc          .          1833.3333        +INF             .          
+tp          .          2000.0000        +INF             .          
+wc          .              .            +INF             .          
 
                            LOWER          LEVEL          UPPER         MARGINAL
 
----- EQU MeetDemand      2000.0000      2000.0000        +INF          152.9167      
+---- EQU MeetDemand      2000.0000      2000.0000        +INF          165.0000      
 
   MeetDemand  Meet demand (ac-ft per year)
 
@@ -272,33 +271,33 @@ wc          .          1833.3333        +INF             .
 
           LOWER          LEVEL          UPPER         MARGINAL
 
-tp        -INF             .             1.0000          .          
-wc        -INF            0.1667         1.0000          .          
+tp        -INF            1.0000         1.0000          .          
+wc        -INF             .              .       -180000.0000      
 
 ---- EQU IntLowBound  Lower bound on integer variables (number)
 
           LOWER          LEVEL          UPPER         MARGINAL
 
-tp          .              .            +INF             .          
-wc          .             0.1667        +INF             .          
+tp          .             1.0000        +INF             .          
+wc          .              .            +INF             .          
 
 ---- VAR I  binary decision to build or do prject from source src (1=yes 0=no)
 
           LOWER          LEVEL          UPPER         MARGINAL
 
-tp        -INF             .            +INF             .          
-wc        -INF            0.1667        +INF             .          
+tp        -INF            1.0000        +INF             .          
+wc        -INF             .            +INF             .          
 
 ---- VAR X  volume of water provided by source src (ac-ft per year)
 
           LOWER          LEVEL          UPPER         MARGINAL
 
-tp          .              .            +INF           12.0833      
-wc          .          2000.0000        +INF             .          
+tp          .          2000.0000        +INF             .          
+wc          .              .            +INF             .          
 
                            LOWER          LEVEL          UPPER         MARGINAL
 
----- VAR TCOST             -INF       305833.3333        +INF             .          
+---- VAR TCOST             -INF       330000.0000        +INF             .          
 
   TCOST  total capital and operating costs of supply actions ($)
 
@@ -306,25 +305,25 @@ wc          .          2000.0000        +INF             .
 **** REPORT SUMMARY :        0     NONOPT
                              0 INFEASIBLE
                              0  UNBOUNDED
-GAMS 51.1.0  2d039df5 Sep 13, 2025          WEX-WEI x86 64bit/MS Windows - 10/09/26 14:24:40 Page 7
+GAMS 51.1.0  2d039df5 Sep 13, 2025          WEX-WEI x86 64bit/MS Windows - 10/13/26 09:13:06 Page 7
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 E x e c u t i o n
 
 
 ----     88 VARIABLE X.L  volume of water provided by source src (ac-ft per year)
 
-wc 2000.000
+tp 2000.000
 
 
 ----     88 VARIABLE I.L  binary decision to build or do prject from source src (1=yes 0=no)
 
-wc 0.167
+tp 1.000
 
 
-----     88 VARIABLE TCOST.L               =   305833.333  total capital and operating costs of supply actions ($)
+----     88 VARIABLE TCOST.L               =   330000.000  total capital and operating costs of supply actions ($)
 
 
-EXECUTION TIME       =        0.172 SECONDS      4 MB  51.1.0 2d039df5 WEX-WEI
+EXECUTION TIME       =        0.250 SECONDS      4 MB  51.1.0 2d039df5 WEX-WEI
 
 
 USER: David Rosenberg, Single User License           G260715+0003Ac-WIN

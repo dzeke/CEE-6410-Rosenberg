@@ -8,21 +8,21 @@ D 116 IntUpBound
 D 123 IntLowBound
 B 131 Column Listing      SOLVE WatSupplyRelaxed Using MIP From line 73
 E 134 I
-E 152 X
-E 169 TCOST
-B 177 Range Statistics    SOLVE WatSupplyRelaxed Using MIP From line 73
-B 188 Model Statistics    SOLVE WatSupplyRelaxed Using MIP From line 73
-B 201 Solution Report     SOLVE WatSupplyRelaxed Using MIP From line 73
-F 246 COST
-F 250 MaxCap
-F 257 MinReqUse
-F 266 MeetDemand
-F 270 IntUpBound
-F 277 IntLowBound
-G 284 I
-G 291 X
-G 300 TCOST
-B 310 E x e c u t i o n
-I 310 X
-I 316 I
-I 322 TCOST
+E 151 X
+E 168 TCOST
+B 176 Range Statistics    SOLVE WatSupplyRelaxed Using MIP From line 73
+B 187 Model Statistics    SOLVE WatSupplyRelaxed Using MIP From line 73
+B 200 Solution Report     SOLVE WatSupplyRelaxed Using MIP From line 73
+F 245 COST
+F 249 MaxCap
+F 256 MinReqUse
+F 265 MeetDemand
+F 269 IntUpBound
+F 276 IntLowBound
+G 283 I
+G 290 X
+G 299 TCOST
+B 309 E x e c u t i o n
+I 309 X
+I 315 I
+I 321 TCOST

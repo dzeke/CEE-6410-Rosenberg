@@ -1,54 +1,60 @@
---- Job Ex6-3-integer.gms Start 10/16/24 12:35:29 47.6.0 c2de9d6d WEX-WEI x86 64bit/MS Windows
+--- Job Ex6-3-integer.gms Start 10/13/26 09:11:09 51.1.0 2d039df5 WEX-WEI x86 64bit/MS Windows
 --- Applying:
-    C:\GAMS\win64\47\gmsprmNT.txt
+    C:\GAMS\51\gmsprmNT.txt
+    C:\Users\david\Documents\GAMS\gamsconfig.yaml
 --- GAMS Parameters defined
+    LP CPLEX
+    MIP CPLEX
+    RMIP CPLEX
+    NLP CONOPT
+    MINLP BARON
     Input C:\Users\david\Box\_Rosenberg2024\Classes\CEE6410\Fall2024\CEE6410-Rosenberg-GitHub\CEE-6410-Rosenberg\Lectures\Ex6-3-integer.gms
     PageSize 0
     ScrDir C:\Users\david\Box\_Rosenberg2024\Classes\CEE6410\Fall2024\CEE6410-Rosenberg-GitHub\CEE-6410-Rosenberg\Lectures\225a\
-    SysDir C:\GAMS\win64\47\
+    SysDir C:\GAMS\51\
     LogOption 3
+    AppendLog 1
     ErrMsg 1
     ErrorLog 99
     IDE 1
     LstTitleLeftAligned 1
-Licensee: CEE 6410 Water Resources Systems Analysis      G240923|0002AO-GEN
-          Utah State University, Utah Water Research Laboratory     DCE3763
+Licensee: David Rosenberg, Single User License           G260715+0003Ac-WIN
+          Utah State University, Utah Water Research Laboratory     DC17246
           C:\Users\david\Documents\GAMS\gamslice.txt
-          License Admin: David Rosenberg, david.rosenberg@usu.edu          
-          Other time limited license
-          The evaluation period of the license will expire on Dec 22, 2024
-Processor information: 1 socket(s), 4 core(s), and 8 thread(s) available
-GAMS 47.6.0   Copyright (C) 1987-2024 GAMS Development. All rights reserved
+          v:2                                                              
+          The maintenance period of the license will expire on Sep 08, 2027
+System information: 4 physical cores and 16 Gb physical memory detected
+GAMS 51.1.0   Copyright (C) 1987-2025 GAMS Development. All rights reserved
 --- Starting compilation
 --- Ex6-3-integer.gms(80) 3 Mb
---- Starting execution: elapsed 0:00:00.038
+--- Starting execution: elapsed 0:00:00.056
 --- Generating MIP model WatSupplyRelaxed
 --- Ex6-3-integer.gms(73) 4 Mb
----   10 rows  5 columns  18 non-zeroes
+---   10 rows  5 columns  17 non-zeroes
 ---   2 discrete-columns
 --- Range statistics (absolute non-zero finite values)
 --- RHS       [min, max] : [ 1.000E+00, 2.000E+03] - Zero values observed as well
 --- Bound     [min, max] : [ 1.000E+00, 1.000E+00] - Zero values observed as well
 --- Matrix    [min, max] : [ 1.000E+00, 9.000E+04]
---- Executing CPLEX (Solvelink=2): elapsed 0:00:00.139
+--- Executing CPLEX (Solvelink=2): elapsed 0:00:00.122
 
-IBM ILOG CPLEX   47.6.0 c2de9d6d Sep 12, 2024          WEI x86 64bit/MS Window
+IBM ILOG CPLEX   51.1.0 2d039df5 Sep 13, 2025          WEI x86 64bit/MS Window
 
 *** This solver runs with a community license.
 --- GMO setup time: 0.00s
 --- GMO memory 0.50 Mb (peak 0.50 Mb)
 --- Dictionary memory 0.00 Mb
---- Cplex 22.1.1.0 link memory 0.00 Mb (peak 0.00 Mb)
+--- Cplex 22.1.2.0 link memory 0.00 Mb (peak 0.00 Mb)
 --- Starting Cplex
 
-Version identifier: 22.1.1.0 | 2022-11-27 | 9160aff4d
+Version identifier: 22.1.2.0 | 2024-11-25 | 0edbb82fd
 CPXPARAM_Advance                                 0
 CPXPARAM_Simplex_Display                         2
 CPXPARAM_MIP_Display                             4
 CPXPARAM_MIP_Pool_Capacity                       0
 CPXPARAM_MIP_Tolerances_AbsMIPGap                0
 Generic callback                                 0x50
-Found incumbent of value 330000.000000 after 0.02 sec. (0.00 ticks)
+Found incumbent of value 330000.000000 after 0.00 sec. (0.00 ticks)
 Tried aggregator 1 time.
 MIP Presolve eliminated 5 rows and 1 columns.
 Reduced MIP has 4 rows, 4 columns, and 8 nonzeros.
@@ -65,7 +71,7 @@ Probing time = 0.00 sec. (0.00 ticks)
 Tried aggregator 1 time.
 Reduced MIP has 3 rows, 3 columns, and 6 nonzeros.
 Reduced MIP has 2 binaries, 1 generals, 0 SOSs, and 0 indicators.
-Presolve time = 0.02 sec. (0.00 ticks)
+Presolve time = 0.00 sec. (0.00 ticks)
 Probing time = 0.00 sec. (0.00 ticks)
 Clique table members: 1.
 MIP emphasis: balance optimality and feasibility.
@@ -84,8 +90,12 @@ Root relaxation solution time = 0.00 sec. (0.00 ticks)
    Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
 
 *     0+    0                       330000.0000   240000.0000            27.27%
-Found incumbent of value 330000.000000 after 0.03 sec. (0.03 ticks)
-      0     0        cutoff         330000.0000                      0    0.00%
+Found incumbent of value 330000.000000 after 0.01 sec. (0.03 ticks)
+*     0+    0                       300000.0000   240000.0000            20.00%
+Found incumbent of value 300000.000000 after 0.01 sec. (0.03 ticks)
+      0     0        cutoff         300000.0000   300000.0000        0    0.00%
+      0     0        cutoff         300000.0000   300000.0000        0    0.00%
+Elapsed time = 0.03 sec. (0.03 ticks, tree = 0.01 MB)
 
 Root node processing (before b&c):
   Real time             =    0.03 sec. (0.03 ticks)
@@ -102,7 +112,7 @@ Total (root+branch&cut) =    0.03 sec. (0.03 ticks)
 --- Returning a primal only solution to GAMS (marginals all set to NA).
 --- Fixing integer variables and solving final LP...
 
-Version identifier: 22.1.1.0 | 2022-11-27 | 9160aff4d
+Version identifier: 22.1.2.0 | 2024-11-25 | 0edbb82fd
 CPXPARAM_Advance                                 2
 CPXPARAM_Simplex_Display                         2
 CPXPARAM_MIP_Display                             4
@@ -118,19 +128,20 @@ Presolve time = 0.00 sec. (0.00 ticks)
 
 
 Proven optimal solution
-MIP Solution:       330000.000000    (0 iterations, 0 nodes)
-Final Solve:        330000.000000    (0 iterations)
+MIP Solution:       300000.000000    (0 iterations, 0 nodes)
+Final Solve:        300000.000000    (0 iterations)
 
-Best possible:      330000.000000
+Best possible:      300000.000000
 Absolute gap:            0.000000
 Relative gap:            0.000000
 
 --- Reading solution for model WatSupplyRelaxed
---- Executing after solve: elapsed 0:00:00.284
+--- Executing after solve: elapsed 0:00:00.286
 --- Ex6-3-integer.gms(78) 4 Mb
 --- GDX File (execute_unload) C:\Users\david\Box\_Rosenberg2024\Classes\CEE6410\Fall2024\CEE6410-Rosenberg-GitHub\CEE-6410-Rosenberg\Lectures\Ex6-3-integer.gdx
 --- Ex6-3-integer.gms(80) 4 Mb
-GDX2XLS          47.6.0 c2de9d6d Sep 12, 2024          WEI x86 64bit/MS Window
+GDX2XLS          51.1.0 2d039df5 Sep 13, 2025          WEI x86 64bit/MS Window
 Output file: C:\Users\david\Box\_Rosenberg2024\Classes\CEE6410\Fall2024\CEE6410-Rosenberg-GitHub\CEE-6410-Rosenberg\Lectures\Ex6-3-integer.xlsx
+(Created backup file)
 *** Status: Normal completion
---- Job Ex6-3-integer.gms Stop 10/16/24 12:35:33 elapsed 0:00:04.429
+--- Job Ex6-3-integer.gms Stop 10/13/26 09:11:17 elapsed 0:00:08.424

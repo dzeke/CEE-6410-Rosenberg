@@ -8,21 +8,21 @@ D 129 IntUpBound
 D 136 IntLowBound
 B 144 Column Listing      SOLVE WatSupplyRelaxed Using LP From line 86
 E 147 I
-E 165 X
-E 182 TCOST
-B 190 Range Statistics    SOLVE WatSupplyRelaxed Using LP From line 86
-B 201 Model Statistics    SOLVE WatSupplyRelaxed Using LP From line 86
-B 214 Solution Report     SOLVE WatSupplyRelaxed Using LP From line 86
-F 247 COST
-F 251 MaxCap
-F 258 MinReqUse
-F 267 MeetDemand
-F 271 IntUpBound
-F 278 IntLowBound
-G 285 I
-G 292 X
-G 301 TCOST
-B 311 E x e c u t i o n
-I 311 X
-I 317 I
-I 323 TCOST
+E 164 X
+E 181 TCOST
+B 189 Range Statistics    SOLVE WatSupplyRelaxed Using LP From line 86
+B 200 Model Statistics    SOLVE WatSupplyRelaxed Using LP From line 86
+B 213 Solution Report     SOLVE WatSupplyRelaxed Using LP From line 86
+F 246 COST
+F 250 MaxCap
+F 257 MinReqUse
+F 266 MeetDemand
+F 270 IntUpBound
+F 277 IntLowBound
+G 284 I
+G 291 X
+G 300 TCOST
+B 310 E x e c u t i o n
+I 310 X
+I 316 I
+I 322 TCOST

@@ -73,7 +73,7 @@ X.L("i2") = 3;
 *Starting point is now {0.0}
 X.L(i) = 0;
 
-* 6. Solve the Model as an LP (relaxed IP)
+* 6. Solve the Model as an Non-Linear Program
 SOLVE NonLinModel USING NLP Maximizing PROFIT;
 
 DISPLAY X.L, Profit.L;

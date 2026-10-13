@@ -21,7 +21,7 @@ SETS src water supply sources /tp "treatment plant", wc "wholesale contract"/;
 PARAMETERS
    CapCost(src) capital cost ($ to build)
          /tp 90000,
-          wc 35000/
+          wc 0/
    OpCost(src) operating cost ($ per ac-ft)
          /tp 120
           wc 150/
