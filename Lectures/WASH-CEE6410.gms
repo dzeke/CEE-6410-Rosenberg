@@ -572,53 +572,13 @@ STOR.L(v,t) = STOR.L(v,t) * Mm3_acft;
 
 FlowMarginal(j,t)  = EQ6.m(j,t) ;
 
-* Dump all input data and results to a GAMS gdx file
-Execute_Unload "WASH-solution.gdx";
-* Dump the gdx file to an Excel workbook
-*Execute 'gdx2xls WASH-solution.gdx'
-Execute 'GDXXRW.EXE WASH-solution.gdx var=Z  rng=Z!A1    var=WSI  rng=WSI!A1  var=W rng=W!A1 var=FCI rng=FCI!A1 var=F rng=F!A1   var=RSI rng=RSI!A1 cdim=1 Rdim=3 var=R  rng=R!A1   var=Q rng=Q!A1   var=RR rng=RR!A1  var=STOR rng=STOR!A1  par=FlowMarginal rng=FlowMarginal!A1    par=lng rng=Length!A1 var=WD  rng=WD!A1 var=C  rng=C!A1   par=dReq  rng=demandReq!A1     '             ;
-
-*Execute_Unload "Optimization_Solution.gdx";
-*Execute 'GDXXRW.EXE     Optimization_Solution.gdx var=Z rng=Z!A1 var=R rng=R!A1 var=F rng=F!A1  var=W rng=W!A1 '
-
-*Execute_Unload "Floodplain5yr.gdx", Z,Q,WSI,W,FCI,F,RSI,R, RR,STOR, FlowMarginal, lng,WD.L,C.L, dReq, RV, b     ;
-*Execute 'GDXXRW.EXE Floodplain5yr.gdx var=Z  rng=Z!A1    var=WSI  rng=WSI!A1  var=W rng=W!A1 var=FCI rng=FCI!A1 var=F rng=F!A1   var=RSI rng=RSI!A1 cdim=1 Rdim=3 var=R  rng=R!A1   var=Q rng=Q!A1   var=RR rng=RR!A1  var=STOR rng=STOR!A1  par=FlowMarginal rng=FlowMarginal!A1    par=lng rng=Length!A1 var=WD  rng=WD!A1 var=C  rng=C!A1   par=dReq  rng=demandReq!A1     '             ;
-
-
-*Display WASH.ModelStat, WASH.SolveStat, Z.L,  WSI.L, W.L, FCI.L, F.L, RSI.L, R.L, Ind.L, D.l , Q.L, C.L, A.l, WD.L, RR.L, STOR.L, dreq, RV.L, RA.L, evap, wght ;
-
-
-*Execute_Unload "BCT_10_45.gdx", Z,Q,WSI,W,FCI,F,RSI,R, RR,STOR, FlowMarginal, lng,WD.L,C.L, dReq, RV, b     ;
-*Execute 'GDXXRW.EXE BCT_10_45.gdx var=Z  rng=Z!A1    var=WSI  rng=WSI!A1  var=W rng=W!A1 var=FCI rng=FCI!A1 var=F rng=F!A1   var=RSI rng=RSI!A1 cdim=1 Rdim=3 var=R  rng=R!A1   var=Q rng=Q!A1   var=RR rng=RR!A1  var=STOR rng=STOR!A1  par=FlowMarginal rng=FlowMarginal!A1    par=lng rng=Length!A1 var=WD  rng=WD!A1 var=C  rng=C!A1   par=dReq  rng=demandReq!A1     '             ;
-
-*Execute_Unload "BCT_30_75.gdx", Z,Q,WSI,W,FCI,F,RSI,R, RR,STOR, FlowMarginal, lng,WD.L,C.L, dReq, RV, b     ;
-*Execute 'GDXXRW.EXE BCT_30_75.gdx var=Z  rng=Z!A1    var=WSI  rng=WSI!A1  var=W rng=W!A1 var=FCI rng=FCI!A1 var=F rng=F!A1   var=RSI rng=RSI!A1 cdim=1 Rdim=3 var=R  rng=R!A1   var=Q rng=Q!A1   var=RR rng=RR!A1  var=STOR rng=STOR!A1  par=FlowMarginal rng=FlowMarginal!A1    par=lng rng=Length!A1 var=WD  rng=WD!A1 var=C  rng=C!A1   par=dReq  rng=demandReq!A1     '             ;
-
-
-
 *=======================================================================
 * Unload results to excel
 *=======================================================================
-
-
-*Execute_Unload "5yrs_Opt_Results_032017.gdx", Z,Q,WSI,W,FCI,F,RSI,R, RR,STOR, FlowMarginal, lng,WD.L,C.L, dReq     ;
-*Execute 'GDXXRW.EXE 5yrs_Opt_Results_032017.gdx var=Z  rng=Z!A1    var=WSI  rng=WSI!A1  var=W rng=W!A1 var=FCI rng=FCI!A1 var=F rng=F!A1   var=RSI rng=RSI!A1 cdim=1 Rdim=3 var=R  rng=R!A1   var=Q rng=Q!A1   var=RR rng=RR!A1  var=STOR rng=STOR!A1  par=FlowMarginal rng=FlowMarginal!A1    par=lng rng=Length!A1 var=WD  rng=WD!A1 var=C  rng=C!A1   par=dReq  rng=demandReq!A1     '             ;
-
-*Execute_Unload "5yrs_Sim_Results.gdx", Z,Q,WSI,W,FCI,F,RSI,R, RR,STOR, FlowMarginal, lng,WD.L,C.L, dReq     ;
-*Execute 'GDXXRW.EXE 5yrs_Sim_Results.gdx var=Z  rng=Z!A1    var=WSI  rng=WSI!A1  var=W rng=W!A1 var=FCI rng=FCI!A1 var=F rng=F!A1   var=RSI rng=RSI!A1 cdim=1 Rdim=3 var=R  rng=R!A1   var=Q rng=Q!A1   var=RR rng=RR!A1  var=STOR rng=STOR!A1  par=FlowMarginal rng=FlowMarginal!A1    par=lng rng=Length!A1 var=WD  rng=WD!A1 var=C  rng=C!A1   par=dReq  rng=demandReq!A1     '             ;
-
-
-*Execute_Unload "AllNetworkResults_Analysis_05192017.gdx", Z,Q,WSI,W,FCI,F,RSI,R, RR,STOR, FlowMarginal, lng,WD.L,C.L, dReq, RV, b     ;
-*Execute 'GDXXRW.EXE AllNetworkResults_Analysis_05192017.gdx var=Z  rng=Z!A1    var=WSI  rng=WSI!A1  var=W rng=W!A1 var=FCI rng=FCI!A1 var=F rng=F!A1   var=RSI rng=RSI!A1 cdim=1 Rdim=3 var=R  rng=R!A1   var=Q rng=Q!A1   var=RR rng=RR!A1  var=STOR rng=STOR!A1  par=FlowMarginal rng=FlowMarginal!A1    par=lng rng=Length!A1 var=WD  rng=WD!A1 var=C  rng=C!A1   par=dReq  rng=demandReq!A1     '             ;
-
-
-*Execute_Unload "AllNetworkResults_Analysis_04252017.gdx", Z,Q,WSI,W,FCI,F,RSI,R, RR,STOR, FlowMarginal, lng,WD.L,C.L, dReq, RV, b     ;
-*Execute 'GDXXRW.EXE AllNetworkResults_Analysis_02202017.gdx var=Z  rng=Z!A1    var=WSI  rng=WSI!A1  var=W rng=W!A1 var=FCI rng=FCI!A1 var=F rng=F!A1   var=RSI rng=RSI!A1 cdim=1 Rdim=3 var=R  rng=R!A1   var=Q rng=Q!A1   var=RR rng=RR!A1  var=STOR rng=STOR!A1  par=FlowMarginal rng=FlowMarginal!A1    par=lng rng=Length!A1 var=WD  rng=WD!A1 var=C  rng=C!A1   par=dReq  rng=demandReq!A1     '             ;
-
-
-*Execute_Unload "2003_Sim_Results.gdx", Z,Q,WSI,W,FCI,F,RSI,R, RR,STOR, FlowMarginal, lng,WD.L,C.L, dReq     ;
-*Execute 'GDXXRW.EXE 2003_Sim_Results.gdx var=Z  rng=Z!A1    var=WSI  rng=WSI!A1  var=W rng=W!A1 var=FCI rng=FCI!A1 var=F rng=F!A1   var=RSI rng=RSI!A1 cdim=1 Rdim=3 var=R  rng=R!A1   var=Q rng=Q!A1   var=RR rng=RR!A1  var=STOR rng=STOR!A1  par=FlowMarginal rng=FlowMarginal!A1    par=lng rng=Length!A1 var=WD  rng=WD!A1 var=C  rng=C!A1   par=dReq  rng=demandReq!A1     '             ;
-
+* Dump all input data and results to a GAMS gdx file
+Execute_Unload "WASH-CEE6410-solution.gdx";
+* Dump the gdx file to an Excel workbook
+Execute "gdx2xls WASH-CEE6410-solution.gdx"
 
 *===============================================================================================
 *Loop over the objective function to develop a pareto-optimal curve with the demand constraint
