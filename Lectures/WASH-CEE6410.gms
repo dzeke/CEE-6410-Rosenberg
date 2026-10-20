@@ -532,15 +532,13 @@ $offecho
 *Define the model and solve all equations listed above
 Model WASH /all/;
 
-
-
 *WASH.optfile =1;
 *option nlp=convert;
 
 *sed -n -e "s:^ *\([exbi][0-9][0-9]*\) \(.*\):s/\1/\2/g:gp" dict.txt | sed -n '1!G;h;$p' > mod.txt
 *sed -f mod.txt gams.gms
 
-
+option nlp = conopt;
 
 
 *Solve the model
