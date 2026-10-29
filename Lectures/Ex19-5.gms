@@ -124,7 +124,7 @@ MODEL ObjAsConstraint Single-objective model with other objectives constrained /
 FtoUse(f) = 1;
 
 *Solve as a single-objective deterministic linear programming formulation
-*SOLVE ExtremePt USING LP Maximizing TotalBen;
+SOLVE ExtremePt USING LP Maximizing TotalBen;
 
 
 * Solve for the extrement points in sequence
@@ -132,6 +132,7 @@ FtoUse(f) = 1;
 *   i.e., Max fi(X) s.t. aX <= b;
 * Then move to objective #2
 
+$ontext
 Loop(f2,
 *  Ignore all the objectives
    FtoUse(f) = 0;
@@ -151,6 +152,7 @@ Loop(f2,
    );
 
 DISPLAY FStore,XStore;
+$offtext
 
 $ontext
 * Step B. Constrain one objective function value and maximize the other objective

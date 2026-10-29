@@ -1,64 +1,26 @@
 B 3 C o m p i l a t i o n
-B 187 E x e c u t i o n
-I 187 FtoUse
-B 196 Equation Listing    SOLVE ExtremePt Using LP From line 144
-D 199 FBenefit
-D 206 TotBenefits
-D 211 ResBalance
-D 218 ResCapacity
-D 225 EndStorage
-D 230 HydropowerCap
-D 237 IrrFlow
-B 245 Column Listing      SOLVE ExtremePt Using LP From line 144
-E 248 X
-E 270 FBen
-E 282 TotalBen
-B 290 Range Statistics    SOLVE ExtremePt Using LP From line 144
-B 301 Model Statistics    SOLVE ExtremePt Using LP From line 144
-B 319 Solution Report     SOLVE ExtremePt Using LP From line 144
-F 350 FBenefit
-F 359 TotBenefits
-F 363 ResBalance
-F 370 ResCapacity
-F 379 EndStorage
-F 383 HydropowerCap
-F 390 IrrFlow
-G 397 X
-G 410 FBen
-G 419 TotalBen
-B 429 E x e c u t i o n
-I 431 TotalBen
-I 432 FBen
-I 437 X
-I 447 FtoUse
-B 455 Equation Listing    SOLVE ExtremePt Using LP From line 144
-D 458 FBenefit
-D 465 TotBenefits
-D 470 ResBalance
-D 477 ResCapacity
-D 484 EndStorage
-D 489 HydropowerCap
-D 496 IrrFlow
-B 504 Column Listing      SOLVE ExtremePt Using LP From line 144
-E 507 X
-E 529 FBen
-E 541 TotalBen
-B 549 Range Statistics    SOLVE ExtremePt Using LP From line 144
-B 560 Model Statistics    SOLVE ExtremePt Using LP From line 144
-B 578 Solution Report     SOLVE ExtremePt Using LP From line 144
-F 609 FBenefit
-F 618 TotBenefits
-F 622 ResBalance
-F 629 ResCapacity
-F 638 EndStorage
-F 642 HydropowerCap
-F 649 IrrFlow
-G 656 X
-G 669 FBen
-G 678 TotalBen
-B 688 E x e c u t i o n
-I 690 TotalBen
-I 691 FBen
-I 696 X
-I 705 FStore
-I 713 XStore
+B 187 Equation Listing    SOLVE ExtremePt Using LP From line 127
+D 190 FBenefit
+D 197 TotBenefits
+D 202 ResBalance
+D 209 ResCapacity
+D 216 EndStorage
+D 221 HydropowerCap
+D 228 IrrFlow
+B 236 Column Listing      SOLVE ExtremePt Using LP From line 127
+E 239 X
+E 261 FBen
+E 274 TotalBen
+B 282 Range Statistics    SOLVE ExtremePt Using LP From line 127
+B 293 Model Statistics    SOLVE ExtremePt Using LP From line 127
+B 306 Solution Report     SOLVE ExtremePt Using LP From line 127
+F 337 FBenefit
+F 346 TotBenefits
+F 350 ResBalance
+F 357 ResCapacity
+F 366 EndStorage
+F 370 HydropowerCap
+F 377 IrrFlow
+G 384 X
+G 397 FBen
+G 406 TotalBen
